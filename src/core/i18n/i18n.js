@@ -61,28 +61,31 @@ class I18nEngine {
     if (!this.cache[lang]) this.cache[lang] = {};
     if (!this.cache['en']) this.cache['en'] = {}; // Always cache English as fallback
 
+    const base = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.BASE_URL) ? import.meta.env.BASE_URL : './';
+    const cleanBase = base.endsWith('/') ? base : base + '/';
+
     for (const ns of namespaces) {
       this.loadedNamespaces.add(ns);
       if (!this.cache[lang][ns]) {
         try {
-          const res = await fetch(`/locales/${lang}/${ns}.json`);
+          const res = await fetch(`${cleanBase}locales/${lang}/${ns}.json`);
           if (res.ok) {
             this.cache[lang][ns] = await res.json();
           }
         } catch (e) {
-          console.warn(`Could not load /locales/${lang}/${ns}.json, falling back to English`);
+          console.warn(`Could not load locales/${lang}/${ns}.json, falling back to English`);
         }
       }
 
       // Ensure English fallback exists
       if (lang !== 'en' && !this.cache['en'][ns]) {
         try {
-          const res = await fetch(`/locales/en/${ns}.json`);
+          const res = await fetch(`${cleanBase}locales/en/${ns}.json`);
           if (res.ok) {
             this.cache['en'][ns] = await res.json();
           }
         } catch (e) {
-          console.error(`Could not load fallback /locales/en/${ns}.json`);
+          console.error(`Could not load fallback locales/en/${ns}.json`);
         }
       }
     }

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- SEO & Global Discovery Meta Tags -->
+  <title>PassQ • Digital Product Passports & Circular Traceability for SMEs</title>
+  <meta name="description" content="Create compliant Digital Product Passports (DPP), GS1 QR codes, interactive repair guides, and customs documents under EU ESPR and US Right to Repair laws.">
+  <meta name="keywords" content="Digital Product Passport, DPP, GS1 Digital Link, Right to Repair, ESPR EU, Circular Economy, Pasaporte Digital de Producto, Ecodiseño">
+  <meta name="author" content="PassQ Technologies">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://passq.app/">
+
+  <!-- Google Fonts Preconnect: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Multilingual Hreflang for Global Search Engines -->
+  <link rel="alternate" hreflang="es" href="https://passq.app/?lang=es">
+  <link rel="alternate" hreflang="en" href="https://passq.app/?lang=en">
+  <link rel="alternate" hreflang="de" href="https://passq.app/?lang=de">
+  <link rel="alternate" hreflang="fr" href="https://passq.app/?lang=fr">
+  <link rel="alternate" hreflang="it" href="https://passq.app/?lang=it">
+  <link rel="alternate" hreflang="pt" href="https://passq.app/?lang=pt">
+  <link rel="alternate" hreflang="zh" href="https://passq.app/?lang=zh">
+  <link rel="alternate" hreflang="x-default" href="https://passq.app/">
+
+  <!-- Asian Search Engines (Baidu, Sogou) Compliance Directives -->
+  <meta name="applicable-device" content="pc,mobile">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PassQ">
+  <meta property="og:url" content="https://passq.app/">
+  <meta property="og:title" content="PassQ • Digital Product Passports & Circular Traceability for SMEs">
+  <meta property="og:description" content="Generate compliant GS1 QR codes, interactive repair guides, and EU ESPR customs documentation in minutes.">
+  <meta property="og:image" content="https://passq.app/logo.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="it_IT">
+  <meta property="og:locale:alternate" content="pt_PT">
+  <meta property="og:locale:alternate" content="zh_CN">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@passq_app">
+  <meta name="twitter:creator" content="@passq_app">
+  <meta name="twitter:title" content="PassQ • Digital Product Passports for Modern Brands">
+  <meta name="twitter:description" content="Generate compliant GS1 QR codes, repair guides, and EU customs documentation in minutes.">
+  <meta name="twitter:image" content="https://passq.app/logo.svg">
+
+  <!-- PWA & Mobile Standalone Tags -->
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#10b981">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PassQ">
+  <link rel="apple-touch-icon" href="./logo.svg">
+  <link rel="icon" type="image/svg+xml" href="./logo.svg">
+
+  <!-- Comprehensive Schema.org Graph for Google Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://passq.app/#organization",
+        "name": "PassQ Technologies",
+        "url": "https://passq.app/",
+        "logo": "https://passq.app/logo.svg",
+        "description": "Global software platform empowering SMEs and brands to create compliant Digital Product Passports, GS1 QR codes, and circular traceability records.",
+        "sameAs": [
+          "https://twitter.com/passq_app",
+          "https://github.com/passq-app"
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://passq.app/#software",
+        "name": "PassQ",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All (Web, iOS, Android, macOS, Windows)",
+        "url": "https://passq.app/",
+        "publisher": {
+          "@id": "https://passq.app/#organization"
+        },
+        "description": "Client-side Digital Product Passport (DPP) generator and GS1 Digital Link resolver compliant with EU ESPR 2024/1781 and Right to Repair legislation.",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "128",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter (Emprendedor)",
+            "price": "19.99",
+            "priceCurrency": "USD",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock",
+            "description": "Hasta 25 Pasaportes Digitales activos, exportación QR GS1 y soporte de materiales básicos."
+          },
+          {
+            "@type": "Offer",
+            "name": "Growth (Crecimiento)",
+            "price": "39.99",
+            "priceCurrency": "USD",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock",
+            "description": "Hasta 250 Pasaportes Digitales, firma criptográfica ECDSA P-256, cálculo de huella de carbono LCA y exportación aduanera."
+          },
+          {
+            "@type": "Offer",
+            "name": "Scale (Fabricante)",
+            "price": "99.99",
+            "priceCurrency": "USD",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock",
+            "description": "Pasaportes Digitales ilimitados, JSON-LD estándar UE, integración GS1 Mod 10 y panel multisede."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://passq.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es un Pasaporte Digital de Producto (DPP) y por qué es obligatorio en la UE?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El Pasaporte Digital de Producto (DPP) es un registro estructurado exigido por el Reglamento Europeo de Ecodiseño (ESPR EU 2024/1781). Almacena de forma accesible mediante código QR la composición de materiales, huella de carbono, reparabilidad y trazabilidad de un producto a lo largo de su ciclo de vida."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo funciona el estándar GS1 Digital Link en PassQ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GS1 Digital Link conecta el código de barras físico (GTIN-13) con la web mediante una URL estructurada matemáticamente validada con el algoritmo GS1 Módulo 10. Permite a los consumidores escanear el producto con la cámara de su móvil y acceder instantáneamente al pasaporte oficial."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo garantiza PassQ la privacidad y soberanía de los datos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PassQ opera con una arquitectura 100% Client-Side y Local-First. Los datos del producto se firman y procesan en el navegador del usuario utilizando la Web Crypto API sin almacenar información confidencial en servidores externos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué incluye la Tarifa de Fundador de PassQ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La Tarifa de Fundador permite a las primeras marcas asegurar un precio reducido de por vida ($19.99, $39.99 y $99.99 USD/mes) antes de la subida a tarifas regulares de mercado ($39, $99 y $249 USD/mes)."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://passq.app/#howto",
+        "name": "Cómo generar un Pasaporte Digital de Producto (DPP) oficial con PassQ",
+        "description": "Guía en 4 sencillos pasos para crear un Pasaporte Digital de Producto conforme a la normativa europea ESPR y GS1.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Paso 1: Identificación y Código GS1",
+            "text": "Ingresa el nombre del producto, marca, modelo y código GTIN con validación de dígito de control Módulo 10."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Paso 2: Composición y Huella Ambiental",
+            "text": "Declara los porcentajes de materiales y la huella de carbono del ciclo de vida (LCA en kg CO2e)."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Paso 3: Reparabilidad y Manual de Desensamblaje",
+            "text": "Especifica el índice de reparabilidad (0-10), herramientas requeridas y catálogo de piezas de repuesto oficiales."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Paso 4: Certificación Criptográfica y Generación QR",
+            "text": "Firma digitalmente el pasaporte con Web Crypto API y descarga el código QR oficial de alta resolución."
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="module" crossorigin src="./assets/main-XuDV9QKM.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/theme-D0PYw6Ug.js">
+  <link rel="modulepreload" crossorigin href="./assets/gs1-KNLh_Fs8.js">
+  <link rel="modulepreload" crossorigin href="./assets/vendor-qrcode-CjSdxGTc.js">
+  <link rel="stylesheet" crossorigin href="./assets/theme-C1D4AM6y.css">
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-[#060a12] text-slate-800 dark:text-slate-100 flex flex-col transition-colors duration-300 relative overflow-x-hidden font-sans">
+
+  <!-- Ambient Lighting (GPU Accelerated) -->
+  <div class="glow-orb-emerald -top-20 -left-20 gpu-accelerated"></div>
+  <div class="glow-orb-cyan top-96 -right-20 gpu-accelerated"></div>
+
+  <!-- Navbar -->
+  <header class="w-full max-w-6xl xl:max-w-7xl mx-auto p-4 sm:p-6 flex items-center justify-between z-20">
+    <a href="/index.html" class="flex items-center gap-3 group">
+      <div class="h-10 w-10 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-emerald-600/30 group-hover:scale-105 transition">
+        Q
+      </div>
+      <span class="font-black text-2xl tracking-tight text-slate-900 dark:text-white">PassQ</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
+      <a href="#features" data-i18n="common:nav.features" class="hover:text-emerald-500 transition">Características</a>
+      <a href="#pricing" data-i18n="common:nav.pricing" class="hover:text-emerald-500 transition">Precios</a>
+      <button type="button" data-open-user-guide class="hover:text-emerald-500 transition cursor-pointer font-semibold" data-i18n="common:nav.user_guide">Guía de Usuario</button>
+      <a href="/p.html?id=prod_001" data-i18n="common:nav.demo_dpp" class="hover:text-emerald-500 transition">Demo DPP</a>
+    </nav>
+
+    <div class="flex items-center gap-2 sm:gap-3">
+      <div class="flex items-center h-10 px-3 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-xs">
+        <span id="lang-flag-slot" class="flex items-center shrink-0"></span>
+        <select id="lang-select" class="bg-transparent text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 outline-none cursor-pointer">
+          <option value="es" class="bg-white dark:bg-slate-900">ES • Español</option>
+          <option value="en" class="bg-white dark:bg-slate-900">EN • English</option>
+          <option value="de" class="bg-white dark:bg-slate-900">DE • Deutsch</option>
+          <option value="fr" class="bg-white dark:bg-slate-900">FR • Français</option>
+          <option value="it" class="bg-white dark:bg-slate-900">IT • Italiano</option>
+          <option value="pt" class="bg-white dark:bg-slate-900">PT • Português</option>
+          <option value="zh" class="bg-white dark:bg-slate-900">ZH • 中文</option>
+        </select>
+      </div>
+
+      <button id="theme-toggle-btn" class="h-10 w-10 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-emerald-500 transition" title="Cambiar tema">
+        <span class="icon-svg w-5 h-5" id="theme-icon-slot"></span>
+      </button>
+
+      <a href="/app.html" class="h-10 py-2 px-4 rounded-2xl text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg shadow-emerald-600/30 transition flex items-center gap-1.5">
+        <span data-i18n="common:nav.dashboard">Panel PyME</span>
+        <span class="icon-svg w-4 h-4">
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-6xl xl:max-w-7xl mx-auto px-4 py-10 sm:py-20 flex flex-col md:flex-row items-center justify-between gap-10 sm:gap-12 z-10">
+    <div class="space-y-6 max-w-xl text-center md:text-left">
+      <div class="inline-flex items-center gap-2 py-2 px-4.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-sm sm:text-base font-extrabold shadow-xs">
+        <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span data-i18n="landing:hero.trial_badge">7 Días de Prueba Gratis • Acceso Total sin Tarjeta</span>
+      </div>
+      <h1 data-i18n="landing:hero.title" class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-slate-900 dark:text-white">
+        Pasaportes Digitales de Producto y Trazabilidad QR para PyMEs
+      </h1>
+      <p data-i18n="landing:hero.subtitle" class="text-lg sm:text-2xl text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
+        Genera códigos QR GS1, guías interactivas de reparación y fichas aduaneras en minutos. Acceso completo y gratuito por 7 días.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3.5 justify-center md:justify-start pt-2">
+        <a href="/app.html" class="py-4 px-8 rounded-2xl font-black text-base sm:text-lg text-white bg-emerald-600 hover:bg-emerald-500 shadow-xl shadow-emerald-600/35 transition text-center flex items-center justify-center gap-2.5 active:scale-95 min-h-[52px]">
+          <span class="icon-svg w-5 h-5">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.63 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/></svg>
+          </span>
+          <span data-i18n="landing:hero.cta_primary">Comenzar Prueba Gratis (7 Días)</span>
+        </a>
+        <a href="/p.html?id=prod_001" class="py-4 px-8 rounded-2xl font-black text-lg sm:text-xl text-slate-800 dark:text-white bg-white/80 dark:bg-white/10 hover:bg-white dark:hover:bg-white/15 border border-slate-200 dark:border-white/10 transition text-center flex items-center justify-center gap-2.5 min-h-[56px] shadow-sm">
+          <span class="icon-svg w-5 h-5">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
+          </span>
+          <span data-i18n="landing:hero.cta_demo">Ver Pasaporte Ejemplo</span>
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-3 justify-center md:justify-start text-base sm:text-lg text-slate-800 dark:text-slate-100 font-extrabold">
+        <span class="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
+          <span class="icon-svg w-5 h-5 shrink-0"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+          <span data-i18n="landing:hero.badge_no_accounts">Sin Registro ni Cuentas</span>
+        </span>
+        <span class="text-slate-400">•</span>
+        <span class="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400">
+          <span class="icon-svg w-5 h-5 shrink-0"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+          <span data-i18n="landing:hero.badge_local">100% Local en tu Dispositivo</span>
+        </span>
+        <span class="text-slate-400">•</span>
+        <span class="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400">
+          <span class="icon-svg w-5 h-5 shrink-0"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+          <span data-i18n="landing:hero.badge_no_gps">Cero GPS</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Live QR Interactive Demo Card -->
+    <div class="p-6 sm:p-7 rounded-3xl glass-card max-w-xs sm:max-w-sm w-full text-center space-y-4 shadow-2xl border border-slate-200/80 dark:border-white/10">
+      
+      <!-- Network Mode Toggle for Foolproof Scanning -->
+      <div class="grid grid-cols-2 gap-1.5 p-1 rounded-xl bg-slate-200/70 dark:bg-white/5 border border-slate-200/80 dark:border-white/10">
+        <button type="button" id="hero-qr-mode-wifi" class="hero-qr-mode-btn py-1.5 px-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-emerald-600 text-white shadow-xs cursor-pointer" data-mode="wifi">
+          <span class="icon-svg w-3.5 h-3.5 shrink-0" data-icon="devicePhoneMobile"></span>
+          <span data-i18n="landing:hero.qr_mode_wifi">Wi-Fi Local</span>
+        </button>
+        <button type="button" id="hero-qr-mode-prod" class="hero-qr-mode-btn py-1.5 px-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 text-slate-700 dark:text-slate-300 hover:bg-white/50 dark:hover:bg-white/10 cursor-pointer" data-mode="prod">
+          <span class="icon-svg w-3.5 h-3.5 shrink-0" data-icon="globe"></span>
+          <span data-i18n="landing:hero.qr_mode_prod">Web Global</span>
+        </button>
+      </div>
+
+      <!-- QR Code Canvas Display -->
+      <a id="hero-qr-link" href="/p.html?id=prod_001" target="_blank" class="block group relative p-4 bg-white rounded-2xl shadow-inner border border-slate-200/80 hover:border-emerald-500 transition cursor-pointer" title="Abrir pasaporte en nueva pestaña">
+        <canvas id="hero-qr-canvas" class="mx-auto"></canvas>
+        <span class="text-[11px] font-mono text-slate-400 block mt-1.5 font-bold uppercase tracking-wider">ISO/IEC 18004 • GS1 Digital Link</span>
+      </a>
+
+      <div class="space-y-2.5">
+        <p class="font-black text-xl sm:text-2xl text-slate-900 dark:text-white" data-i18n="landing:hero.demo_product_name">Chaqueta Alpina EcoDry</p>
+        <div class="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-black text-xs sm:text-sm border border-emerald-500/20 max-w-full">
+          <span class="icon-svg w-4 h-4 text-emerald-500 shrink-0 flex-none" data-icon="sparkles"></span>
+          <span data-i18n="landing:hero.demo_score" class="leading-tight">9.2 Score de Reparabilidad</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-semibold leading-relaxed" data-i18n="landing:hero.demo_scan_hint">Escanea con tu móvil para ver el Pasaporte en vivo</p>
+        
+        <a href="/p.html?id=prod_001" target="_blank" class="w-full min-h-[38px] inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 text-slate-700 dark:text-slate-200 text-xs font-bold transition active:scale-95 border border-slate-200/60 dark:border-white/5">
+          <span class="icon-svg w-3.5 h-3.5 text-emerald-500 shrink-0" data-icon="eye"></span>
+          <span data-i18n="landing:hero.qr_open_direct">Abrir Demo en Navegador</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section id="features" class="max-w-6xl xl:max-w-7xl mx-auto px-4 py-16 z-10 space-y-12">
+    <div class="text-center space-y-3">
+      <h2 data-i18n="landing:features.title" class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white">Por qué las marcas eligen PassQ</h2>
+      <p data-i18n="landing:features.subtitle" class="text-lg sm:text-2xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto font-medium leading-relaxed">Tecnología de pasaporte digital accesible, sin contratos forzosos ni barreras técnicas.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="p-6 sm:p-8 rounded-3xl glass-card space-y-4.5 shadow-sm hover:shadow-lg transition">
+        <div class="h-14 w-14 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
+          <span class="icon-svg w-7 h-7">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+          </span>
+        </div>
+        <h3 data-i18n="landing:features.f1_title" class="font-black text-2xl sm:text-[25px] text-slate-900 dark:text-white tracking-tight leading-snug">Creador en 10 Minutos</h3>
+        <p data-i18n="landing:features.f1_desc" class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-medium">Formulario guiado sin tecnicismos para ingresar materiales y origen.</p>
+      </div>
+      <div class="p-6 sm:p-8 rounded-3xl glass-card space-y-4.5 shadow-sm hover:shadow-lg transition">
+        <div class="h-14 w-14 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
+          <span class="icon-svg w-7 h-7">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+          </span>
+        </div>
+        <h3 data-i18n="landing:features.f2_title" class="font-black text-2xl sm:text-[25px] text-slate-900 dark:text-white tracking-tight leading-snug">Códigos QR GS1</h3>
+        <p data-i18n="landing:features.f2_desc" class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-medium">Imprime una vez, actualiza siempre. Compatible con retail global.</p>
+      </div>
+      <div class="p-6 sm:p-8 rounded-3xl glass-card space-y-4.5 shadow-sm hover:shadow-lg transition">
+        <div class="h-14 w-14 rounded-2xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center">
+          <span class="icon-svg w-7 h-7">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 1-4.884 4.484c-1.076-.091-2.264.398-3.085 1.22l-7.794 7.794a2.25 2.25 0 0 1-3.182-3.182l7.794-7.794c.822-.821 1.311-2.009 1.22-3.085A4.5 4.5 0 0 1 17.25 2.25a4.5 4.5 0 0 1 4.5 4.5Z"/></svg>
+          </span>
+        </div>
+        <h3 data-i18n="landing:features.f3_title" class="font-black text-2xl sm:text-[25px] text-slate-900 dark:text-white tracking-tight leading-snug">Guías de Reparación</h3>
+        <p data-i18n="landing:features.f3_desc" class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-medium">Pasos visuales de mantenimiento y venta de repuestos oficiales.</p>
+      </div>
+      <div class="p-6 sm:p-8 rounded-3xl glass-card space-y-4.5 shadow-sm hover:shadow-lg transition">
+        <div class="h-14 w-14 rounded-2xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center">
+          <span class="icon-svg w-7 h-7">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+          </span>
+        </div>
+        <h3 data-i18n="landing:features.f4_title" class="font-black text-2xl sm:text-[25px] text-slate-900 dark:text-white tracking-tight leading-snug">Fichas para Aduanas</h3>
+        <p data-i18n="landing:features.f4_desc" class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-medium">Exporta JSON-LD y PDFs oficiales para evitar retenciones.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="max-w-6xl xl:max-w-7xl mx-auto px-4 py-16 z-10 space-y-12">
+    <div class="text-center space-y-3">
+      <h2 data-i18n="landing:pricing.title" class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white">Precios Transparentes para PyMEs</h2>
+      <p data-i18n="landing:pricing.subtitle" class="text-base sm:text-xl text-slate-600 dark:text-slate-300 font-medium">Empieza gratis, escala a medida que crece tu catálogo.</p>
+    </div>
+
+    <!-- Founder Offer Early-Adopter Banner (Pure SVG & High-Legibility Glassmorphism) -->
+    <div class="max-w-4xl xl:max-w-5xl mx-auto rounded-3xl glass-card p-6 sm:p-9 relative overflow-hidden border border-emerald-500/30 shadow-2xl bg-gradient-to-br from-emerald-500/10 via-slate-900/40 to-cyan-500/10 backdrop-blur-xl">
+      <!-- Subtle Ambient Glow -->
+      <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-12 -top-12 w-48 h-48 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div class="space-y-4 max-w-xl">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-sm sm:text-base font-extrabold tracking-wide whitespace-nowrap">
+            <span class="icon-svg w-5 h-5">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/>
+              </svg>
+            </span>
+            <span data-i18n="landing:pricing.founder_badge">Oferta de Lanzamiento • Cupos de Fundador</span>
+          </div>
+
+          <h3 data-i18n="landing:pricing.founder_title" class="text-2xl sm:text-4xl lg:text-[38px] font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+            Asegura tu Tarifa de Fundador de por Vida
+          </h3>
+
+          <p data-i18n="landing:pricing.founder_desc" class="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
+            Tarifa especial de lanzamiento para marcas pioneras. Tu precio queda congelado de por vida antes de la subida a tarifa regular ($39 / $99 / $249 USD/mes).
+          </p>
+
+          <!-- Feature Pills with Vector SVG Icons -->
+          <div class="flex flex-wrap items-center gap-3 pt-1 text-sm sm:text-base font-bold text-slate-700 dark:text-slate-200">
+            <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 whitespace-nowrap">
+              <span class="w-4 h-4 flex items-center text-emerald-500">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.023 2.023 0 0 1-.61-1.46V3.274c0-.568.226-1.096.61-1.46zM15.207 13.414l2.424 2.424-11.83 6.654 9.406-9.078zm0-2.828L5.801 1.508l11.83 6.654-2.424 2.424zm1.414 1.414l3.197 1.798c.956.538.956 1.42 0 1.958l-3.197 1.798-2.121-2.121 2.121-2.121z"/></svg>
+              </span>
+              <span>Google Play Billing (7 Días Gratis)</span>
+            </span>
+
+            <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 whitespace-nowrap">
+              <span class="icon-svg w-5 h-5 text-emerald-500">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+              </span>
+              <span data-i18n="landing:pricing.founder_pill_lock">Tarifa Congelada de por Vida</span>
+            </span>
+
+            <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 whitespace-nowrap">
+              <span class="icon-svg w-5 h-5 text-cyan-500">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+              </span>
+              <span data-i18n="landing:pricing.founder_pill_cancel">Cancela en Google Play en 1-Clic</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="w-full md:w-auto shrink-0 flex flex-col items-start md:items-end gap-3">
+          <div class="text-left md:text-right">
+            <span class="text-xs sm:text-sm uppercase font-black tracking-wider text-slate-500 dark:text-slate-400 block" data-i18n="landing:pricing.founder_access">Acceso de Fundador</span>
+            <span class="text-4xl sm:text-5xl font-black text-emerald-500"><span data-i18n="landing:pricing.from_prefix">Desde</span> $19.99 <span class="text-sm sm:text-base font-bold text-slate-400" data-i18n="landing:pricing.per_month">/ mes</span></span>
+          </div>
+          <a href="/app.html?plan=growth" class="w-full md:w-auto py-4 px-8 rounded-2xl font-black text-base sm:text-lg text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-xl shadow-emerald-600/30 active:scale-95 transition flex items-center justify-center gap-2 min-h-[52px]">
+            <span data-i18n="landing:pricing.cta_growth">Asegurar Cupo de Fundador</span>
+            <span class="icon-svg w-5 h-5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl xl:max-w-5xl mx-auto items-stretch">
+      <!-- Starter Plan -->
+      <div class="p-6 sm:p-8 rounded-3xl glass-card space-y-6 shadow-sm flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 data-i18n="landing:pricing.starter" class="font-black text-2xl sm:text-3xl text-slate-900 dark:text-white">Emprendedor</h3>
+            <span class="text-sm font-black px-3.5 py-1 rounded-full bg-slate-200/80 dark:bg-white/10 text-slate-700 dark:text-slate-200 font-mono" data-i18n="landing:pricing.starter_products">10 Productos</span>
+          </div>
+          <p class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white">$19.99 <span class="text-base font-bold text-slate-500 dark:text-slate-400" data-i18n="landing:pricing.per_month">/ mes</span></p>
+          <p class="text-base sm:text-[17px] text-slate-700 dark:text-slate-200 font-medium leading-relaxed" data-i18n="landing:pricing.starter_desc">Ideal para micro-PyMEs y artesanos que inician en el cumplimiento aduanero.</p>
+
+          <!-- Checklist -->
+          <ul class="space-y-3.5 pt-4 border-t border-slate-200/60 dark:border-white/10 text-base sm:text-[16.5px] text-slate-700 dark:text-slate-200 font-medium">
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.starter_f1" class="leading-snug">Hasta 10 productos activos</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.starter_f2" class="leading-snug">Códigos QR GS1 vectoriales (SVG/PNG)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.starter_f3" class="leading-snug">Cálculo Índice de Reparabilidad</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.starter_f4" class="leading-snug">Fichas para aduanas (JSON-LD y PDF)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.starter_f5" class="leading-snug">Almacenamiento local seguro $0 costo</span>
+            </li>
+          </ul>
+        </div>
+        <a href="/app.html?plan=starter" class="w-full py-4 px-6 rounded-2xl font-black text-base sm:text-lg text-slate-800 dark:text-white bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 transition text-center flex items-center justify-center gap-2 mt-5 min-h-[50px] active:scale-95">
+          <span data-i18n="landing:pricing.cta_starter">Comenzar Gratis</span>
+          <span class="icon-svg w-5 h-5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span>
+        </a>
+      </div>
+
+      <!-- Growth Plan -->
+      <div class="p-6 sm:p-8 rounded-3xl glass-card !overflow-visible border-2 border-emerald-500 space-y-6 relative shadow-2xl flex flex-col justify-between">
+        <span class="absolute -top-3.5 right-6 z-20 text-xs sm:text-sm font-black px-4.5 py-1.5 rounded-full bg-emerald-500 text-white uppercase tracking-wider shadow-lg shadow-emerald-500/30 border border-emerald-400/40 inline-flex items-center gap-1 whitespace-nowrap" data-i18n="landing:pricing.recommended_badge">Recomendado</span>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 data-i18n="landing:pricing.growth" class="font-black text-2xl sm:text-3xl text-slate-900 dark:text-white">Crecimiento</h3>
+            <span class="text-sm font-black px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono" data-i18n="landing:pricing.growth_products">50 Productos</span>
+          </div>
+          <p class="text-4xl sm:text-5xl font-black text-emerald-500">$39.99 <span class="text-base font-bold text-slate-500 dark:text-slate-400" data-i18n="landing:pricing.per_month">/ mes</span></p>
+          <p class="text-base sm:text-[17px] text-slate-700 dark:text-slate-200 font-medium leading-relaxed" data-i18n="landing:pricing.growth_desc">Para marcas en expansión que buscan presencia profesional y exportación formal.</p>
+
+          <!-- Checklist -->
+          <ul class="space-y-3.5 pt-4 border-t border-emerald-500/20 text-base sm:text-[16.5px] text-slate-700 dark:text-slate-200 font-medium">
+            <li class="flex items-start gap-3 font-bold text-slate-900 dark:text-white">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.growth_f1" class="leading-snug">Hasta 50 productos activos</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.growth_f2" class="leading-snug">Todo lo del Plan Emprendedor</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.growth_f3" class="leading-snug">Personalización de marca (White-label)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.growth_f4" class="leading-snug">Etiquetas de packaging a 300 DPI</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.growth_f5" class="leading-snug">Firma criptográfica ECDSA P-256</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.growth_f6" class="leading-snug">Soporte prioritario para exportadores</span>
+            </li>
+          </ul>
+        </div>
+        <a href="/app.html?plan=growth" class="w-full py-4 px-6 rounded-2xl font-black text-base sm:text-lg text-white bg-emerald-600 hover:bg-emerald-500 shadow-xl shadow-emerald-600/30 transition text-center flex items-center justify-center gap-2 mt-5 min-h-[50px] active:scale-95">
+          <span data-i18n="landing:pricing.cta_growth">Seleccionar Crecimiento</span>
+          <span class="icon-svg w-5 h-5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span>
+        </a>
+      </div>
+
+      <!-- Scale Plan -->
+      <div class="p-6 sm:p-8 rounded-3xl glass-card space-y-6 shadow-sm flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 data-i18n="landing:pricing.scale" class="font-black text-2xl sm:text-3xl text-slate-900 dark:text-white">Fabricante</h3>
+            <span class="text-sm font-black px-3.5 py-1 rounded-full bg-slate-200/80 dark:bg-white/10 text-slate-700 dark:text-slate-200 font-mono" data-i18n="landing:pricing.scale_products">Ilimitado</span>
+          </div>
+          <p class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white">$99.99 <span class="text-base font-bold text-slate-500 dark:text-slate-400" data-i18n="landing:pricing.per_month">/ mes</span></p>
+          <p class="text-base sm:text-[17px] text-slate-700 dark:text-slate-200 font-medium leading-relaxed" data-i18n="landing:pricing.scale_desc">Para fábricas, grandes importadores y maquiladores de gran escala.</p>
+
+          <!-- Checklist -->
+          <ul class="space-y-3.5 pt-4 border-t border-slate-200/60 dark:border-white/10 text-base sm:text-[16.5px] text-slate-700 dark:text-slate-200 font-medium">
+            <li class="flex items-start gap-3 font-bold text-slate-900 dark:text-white">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.scale_f1" class="leading-snug">Productos y catálogos ilimitados</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.scale_f2" class="leading-snug">Todo lo del Plan Crecimiento</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.scale_f3" class="leading-snug">API de integración masiva (ERP/PIM)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.scale_f4" class="leading-snug">Certificados aduaneros masivos por lote</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 flex-none mt-0.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+              <span data-i18n="landing:pricing.scale_f5" class="leading-snug">Asesor de cuenta aduanera dedicado</span>
+            </li>
+          </ul>
+        </div>
+        <a href="/app.html?plan=scale" class="w-full py-4 px-6 rounded-2xl font-black text-base sm:text-lg text-slate-800 dark:text-white bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 transition text-center flex items-center justify-center gap-2 mt-5 min-h-[50px] active:scale-95">
+          <span data-i18n="landing:pricing.cta_scale">Contactar Fabricante</span>
+          <span class="icon-svg w-5 h-5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete Suite Legal Footer -->
+  <footer class="w-full border-t border-slate-200/80 dark:border-white/10 p-6 sm:p-12 text-center z-10 space-y-6">
+    <div class="flex flex-wrap justify-center gap-3 sm:gap-4 font-bold text-sm sm:text-base">
+      <a href="/privacy.html" data-i18n="common:footer.privacy" class="min-h-[48px] py-3 px-5 rounded-2xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs">Política de Privacidad</a>
+      <a href="/terms.html" data-i18n="common:footer.terms" class="min-h-[48px] py-3 px-5 rounded-2xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs">Términos de Servicio</a>
+      <a href="/imprint.html" data-i18n="common:footer.imprint" class="min-h-[48px] py-3 px-5 rounded-2xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs">Aviso Legal / Impressum</a>
+      <a href="/cookies.html" data-i18n="common:footer.cookies" class="min-h-[48px] py-3 px-5 rounded-2xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs">Política de Cookies</a>
+      <a href="/compliance-statement.html" data-i18n="common:footer.compliance" class="min-h-[48px] py-3 px-5 rounded-2xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs">Conformidad UE ESPR & GS1</a>
+      <a href="/security.html" data-i18n="common:footer.security" class="min-h-[48px] py-3 px-5 rounded-2xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs">Seguridad & Criptografía</a>
+      <button type="button" data-open-user-guide data-i18n="common:nav.user_guide" class="min-h-[48px] py-3 px-5 rounded-2xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs cursor-pointer">Guía de Usuario</button>
+      <button type="button" id="btn-open-contact-modal" data-open-contact-modal data-i18n="common:footer.contact" class="min-h-[48px] py-3 px-5 rounded-2xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs cursor-pointer">Contacto & Sugerencias</button>
+    </div>
+    <p class="text-sm sm:text-base text-slate-500 dark:text-slate-400 font-medium" data-i18n="common:footer.rights_text">© 2026 PassQ Technologies Ltd. • Digital Product Passports & Circular Traceability Platform</p>
+  </footer>
+
+</body>
+</html>

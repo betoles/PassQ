@@ -1,0 +1,193 @@
+{
+  "header": {
+    "title": "Digital Passport",
+    "verify_seal_title": "Verify Official Cryptographic Seal",
+    "certified_badge": "CERTIFIED DPP • VALID ED25519",
+    "verify_integrity_title": "Verify Cryptographic Integrity",
+    "loading_product": "Loading product...",
+    "verified_brand": "Verified Brand",
+    "gtin": "GTIN",
+    "serial": "Serial"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "materials": "Materials",
+    "repair": "Repair",
+    "recycling": "Customs / LCA"
+  },
+  "repair_score": {
+    "title": "Repairability Score",
+    "spare_parts": "Guaranteed spare parts for 5+ years",
+    "grade_excellent": "Excellent"
+  },
+  "materials": {
+    "country_of_origin": "Country of Origin",
+    "recycled_content": "Recycled Content",
+    "lca_breakdown": "Life Cycle Assessment (LCA)",
+    "lca_mfg": "Mfg:",
+    "lca_log": "Log:",
+    "lca_eol": "EoL:",
+    "carbon_footprint": "CO₂ Footprint",
+    "water_footprint": "Water Footprint"
+  },
+  "repair_guide": {
+    "step_prefix": "Step",
+    "order_parts": "Order Official Spare Parts",
+    "default_tools": "Standard household tools"
+  },
+  "spare_parts_modal": {
+    "title": "Guaranteed Original Spare Parts",
+    "subtitle": "Direct manufacturer parts with official certification",
+    "official_guarantee": "100% Official Compatibility Guarantee",
+    "btn_request": "Request from Manufacturer",
+    "email_subject": "Official Spare Parts Request: ",
+    "email_body": "Hello, I would like to request certified original spare parts for the product "
+  },
+  "recycling": {
+    "title": "Recycling & Disassembly Guidelines",
+    "toxic_free": "100% Compliant with RoHS, REACH, CE & WEEE directives.",
+    "default_instructions": "Separation and disposal in official circular recycling channels or municipal recycling centers."
+  },
+  "security": {
+    "verified_signature": "Digitally Signed & Tamper-Proof",
+    "verifier_note": "Authenticated with ed25519 cryptographic public key."
+  },
+  "top_bar": {
+    "scan_title": "Scan another QR code with camera",
+    "share_title": "Share passport"
+  },
+  "customs": {
+    "title": "Foreign Trade & Customs Information",
+    "hs_code_label": "HS / TARIC Code",
+    "regulation_label": "EU Regulation",
+    "urn_label": "Canonical Passport URN"
+  },
+  "buttons": {
+    "print_customs_pdf": "Print Official Customs Manifest (PDF)"
+  },
+  "footer": {
+    "disclaimer": "PassQ acts as a decentralized technical infrastructure provider. Accuracy of data, licenses, and regulatory compliance are solely the responsibility of the issuing brand."
+  },
+  "scanner": {
+    "title": "Live Optical Scanner",
+    "btn_torch": "Flashlight",
+    "btn_gallery": "Gallery",
+    "ram_notice": "<strong>100% RAM Privacy:</strong> Real-time local optical scanning. We do not store photos or collect personal data.",
+    "perm_error": "Camera permission denied. You can upload a photo containing the QR code.",
+    "no_qr_found": "No valid QR code was detected in the selected image."
+  },
+  "crypto": {
+    "modal_title": "Cryptographic Verification",
+    "status_label": "Authenticity Status:",
+    "status_valid": "VALID & IMMUTABLE",
+    "algorithm_label": "Signature Algorithm",
+    "sha256_label": "Canonical SHA-256 Digest",
+    "signature_label": "Manufacturer Digital Signature",
+    "timestamp_label": "Timestamp",
+    "btn_reverify": "Validate Live Cryptographic Integrity",
+    "verifying": "Running Web Crypto API (ECDSA P-256 + SHA-256)...",
+    "verified": "100% Authentic Signature & Integrity ({algo})"
+  },
+  "share": {
+    "title": "Digital Passport: {name}",
+    "text": "View the official Digital Product Passport for {name} certified by PassQ.",
+    "copied": "Passport link copied to clipboard."
+  },
+  "demo_products": {
+    "prod_001": {
+      "name": "EcoDry Alpine Jacket",
+      "brand": "Nordic Apex Gear",
+      "origin_country": "Mexico (Oaxaca)",
+      "materials": [
+        "Recycled Nylon (ECONYL®)",
+        "Bio-Polymer Membrane"
+      ],
+      "repair_guide": [
+        {
+          "title": "Front Waterproof Zipper Repair",
+          "tools": "Reinforced needle & thread / Pliers"
+        },
+        {
+          "title": "Thermal Waterproof Patch Application",
+          "tools": "Domestic iron at 110°C"
+        },
+        {
+          "title": "Elastic Drawcord Replacement",
+          "tools": "Bodkin or safety pin"
+        }
+      ],
+      "recycling_instructions": "The ECONYL® outer shell can be deposited in technical textile recycling containers. Remove metal buttons before industrial shredding."
+    },
+    "prod_002": {
+      "name": "Zero Modular Headphones",
+      "brand": "Aura Sound Labs",
+      "origin_country": "Germany",
+      "materials": [
+        "100% Recycled Aluminum",
+        "OceanBound Recycled Plastic",
+        "Glue-free Replaceable Li-Ion Battery"
+      ],
+      "repair_guide": [
+        {
+          "title": "Magnetic Ear Cushion Replacement",
+          "tools": "None (Magnetic snap-on)"
+        },
+        {
+          "title": "Removable Battery Pack Swap",
+          "tools": "Included Torx T5 screwdriver"
+        },
+        {
+          "title": "Modular Audio Cable Replacement",
+          "tools": "Plug & Play Jack / USB-C"
+        }
+      ],
+      "recycling_instructions": "Removable battery is suitable for designated battery drop-off bins. Aluminum chassis is 100% recyclable in metal foundries."
+    }
+  },
+  "spare_parts": {
+    "delivery_prefix": "Delivery",
+    "SP-YKK-842": {
+      "name": "Reinforced Waterproof YKK Zipper",
+      "delivery": "48h"
+    },
+    "SP-PTH-019": {
+      "name": "Thermal Waterproof Patch Kit",
+      "delivery": "24-48h"
+    },
+    "SP-CRD-004": {
+      "name": "Elastic Cord with Ergonomic Stopper",
+      "delivery": "24h"
+    },
+    "SP-BAT-800Z": {
+      "name": "800mAh Li-Ion Battery Module (Plug & Play)",
+      "delivery": "48h"
+    },
+    "SP-ALM-MAG": {
+      "name": "Viscoelastic Magnetic Ear Cushions",
+      "delivery": "24h"
+    },
+    "SP-CBL-MOD": {
+      "name": "Modular Braided 3.5mm / USB-C Cable",
+      "delivery": "24h"
+    },
+    "SP-TRN-STD": {
+      "name": "Standard Screw & Fastener Hardware Kit",
+      "delivery": "24h"
+    },
+    "SP-GEN-001": {
+      "name": "Certified Official Spare Part",
+      "delivery": "48-72h"
+    }
+  },
+  "print_modal": {
+    "title": "Official Customs Sheet",
+    "subtitle": "Official technical sheet ready for print or high-fidelity PDF export",
+    "format_label": "Format: Official A4 Sheet (300 DPI)",
+    "crypto_label": "Immutable Cryptographic Seal",
+    "device_notice": "Compatible with AirPrint (iOS), Save as PDF, WiFi network printing and digital file export.",
+    "btn_print_now": "Print / Save as PDF"
+  },
+  "toast": {
+    "jsonld_exported": "JSON-LD technical data sheet successfully exported."
+  }
+}

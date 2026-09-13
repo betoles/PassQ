@@ -1,0 +1,73 @@
+{
+  "title": "Unternehmens-Dashboard",
+  "welcome": "Willkommen zurück",
+  "stats": {
+    "active_products": "Aktive Produkte",
+    "total_scans": "Gesamte QR-Scans",
+    "avg_repair_score": "Ø Reparierbarkeit",
+    "compliance_rate": "EU-Konformität"
+  },
+  "products_table": {
+    "title": "Verwaltete digitale Pässe",
+    "subtitle": "Produktkatalog standardisiert nach GS1 Digital Link.",
+    "col_product": "Produkt",
+    "col_category": "Kategorie",
+    "col_gtin": "GTIN",
+    "col_score": "Score",
+    "col_status": "Status",
+    "col_actions": "Aktionen",
+    "status_compliant": "ESPR Bereit",
+    "btn_preview": "DPP anzeigen",
+    "btn_qr": "QR abrufen",
+    "btn_delete": "Produkt löschen",
+    "empty_title": "Keine digitalen Pässe vorhanden",
+    "empty_desc": "Erstellen Sie Ihren ersten Digitalen Produktpass mit dem Assistenten oben."
+  },
+  "delete_modal": {
+    "title": "Digitalen Produktpass löschen?",
+    "subtitle": "Dauerhafte Aktion auf Ihrem lokalen Speicher",
+    "warning": "Diese Aktion löscht den Digitalen Produktpass und seine kryptografischen Signaturen unwiderruflich aus der lokalen Datenbank dieses Geräts.",
+    "product_label": "Zu löschendes Produkt:",
+    "btn_cancel": "Abbrechen",
+    "btn_confirm": "Löschen"
+  },
+  "modal_qr": {
+    "title": "GS1 Digital Link QR-Code",
+    "subtitle": "Druckfähiger Vektorcode für Verpackungen und Etiketten.",
+    "copy_url": "Link kopieren",
+    "download_svg": "SVG Vektor herunterladen",
+    "download_png": "PNG (300 DPI) herunterladen"
+  },
+  "header": {
+    "subtitle": "Digitaler Produktpass-Manager & EU-ESPR-Konformität"
+  },
+  "privacy_section": {
+    "title": "Datensouveränität & Lokaler Datenschutz",
+    "desc": "PassQ ist <strong>100% Local-First</strong>. Keine Benutzerkonten, keine E-Mails, kein Standort. Ihre Produkte bleiben ausschließlich lokal auf diesem Gerät gespeichert.",
+    "btn_backup": "Backup exportieren (JSON)",
+    "btn_delete": "Alle App-Daten löschen",
+    "pillar_no_accounts": "<strong>Keine Konten:</strong> Keine Erfassung personenbezogener Daten.",
+    "pillar_camera_ram": "<strong>Kamera im RAM:</strong> Lokale optische Erkennung in Echtzeit.",
+    "pillar_no_gps": "<strong>Kein GPS:</strong> Keine Standortverfolgung."
+  },
+  "qr_modal": {
+    "studio_badge": "GS1 Digital Link Ausstellungsstudio",
+    "domain_label": "Passport-Auflösungsdomäne",
+    "gs1_badge": "GS1 DIGITAL LINK • ECC HIGH (30% FEHLERKORREKTUR)",
+    "btn_svg": "Vektor SVG",
+    "btn_png": "PNG 300 DPI",
+    "btn_packaging_label": "Offizielles Verpackungsetikett (300 DPI)",
+    "btn_copy_url": "Link kopieren"
+  },
+  "alerts": {
+    "url_copied": "GS1-Link in die Zwischenablage kopiert.",
+    "confirm_hard_reset": "Möchten Sie wirklich alle auf diesem Gerät gespeicherten Produkte und Daten unwiderruflich löschen? Dieser Vorgang kann nicht rückgängig gemacht werden.",
+    "data_cleared": "Alle lokalen Daten wurden erfolgreich gelöscht."
+  },
+  "trial": {
+    "active_title": "7-Tage-Testversion Aktiv",
+    "active_desc": "Sie haben unbegrenzten Zugriff auf alle Pro-Tools (Web-Crypto-Signatur, GS1 Mod 10 und Zollausfuhr).",
+    "day_badge": "Tag {day} von 7",
+    "lock_price_btn": "Gründerpreis sichern"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "title": "SME Management Dashboard",
+  "welcome": "Welcome back",
+  "stats": {
+    "active_products": "Active Products",
+    "total_scans": "Total QR Scans",
+    "avg_repair_score": "Avg. Repair Score",
+    "compliance_rate": "EU Compliance"
+  },
+  "products_table": {
+    "title": "Managed Digital Passports",
+    "subtitle": "Product catalog standardized under GS1 Digital Link.",
+    "col_product": "Product",
+    "col_category": "Category",
+    "col_gtin": "GTIN",
+    "col_score": "Score",
+    "col_status": "Status",
+    "col_actions": "Actions",
+    "status_compliant": "ESPR Ready",
+    "btn_preview": "View DPP",
+    "btn_qr": "Get QR",
+    "btn_delete": "Delete product",
+    "empty_title": "No digital passports found",
+    "empty_desc": "Create your first Digital Product Passport using the wizard above."
+  },
+  "delete_modal": {
+    "title": "Delete Digital Passport?",
+    "subtitle": "Permanent action on your local storage",
+    "warning": "This action will permanently delete the Digital Product Passport and its cryptographic signatures from this device's local database.",
+    "product_label": "Product to delete:",
+    "btn_cancel": "Cancel",
+    "btn_confirm": "Delete"
+  },
+  "modal_qr": {
+    "title": "GS1 Digital Link QR Code",
+    "subtitle": "Print-ready high resolution vector code for your labels and packaging.",
+    "copy_url": "Copy Link",
+    "download_svg": "Download SVG Vector",
+    "download_png": "Download PNG (300 DPI)"
+  },
+  "header": {
+    "subtitle": "Digital Product Passport Manager & EU ESPR Compliance"
+  },
+  "privacy_section": {
+    "title": "Data Sovereignty & Local Privacy",
+    "desc": "PassQ is <strong>100% Local-First</strong>. We do not require accounts, email, or geolocation. All your products are stored strictly on this local device.",
+    "btn_backup": "Export Backup (JSON)",
+    "btn_delete": "Delete All App Data",
+    "pillar_no_accounts": "<strong>No accounts:</strong> Zero personal data collection.",
+    "pillar_camera_ram": "<strong>Camera in RAM:</strong> Real-time local optical scanning.",
+    "pillar_no_gps": "<strong>Zero GPS:</strong> No geolocation tracking."
+  },
+  "qr_modal": {
+    "studio_badge": "GS1 Digital Link Issuance Studio",
+    "domain_label": "Passport Resolution Domain",
+    "gs1_badge": "GS1 DIGITAL LINK • ECC HIGH (30% ROBUSTNESS)",
+    "btn_svg": "Vector SVG",
+    "btn_png": "PNG 300 DPI",
+    "btn_packaging_label": "Official Packaging Label (300 DPI)",
+    "btn_copy_url": "Copy Link"
+  },
+  "alerts": {
+    "url_copied": "GS1 Link copied to clipboard.",
+    "confirm_hard_reset": "Are you sure you want to permanently delete all products and data stored on this device? This action cannot be undone.",
+    "data_cleared": "All local data has been successfully deleted."
+  },
+  "trial": {
+    "active_title": "Active 7-Day Free Trial",
+    "active_desc": "You have full, unlimited access to all Pro features (Web Crypto Signing, GS1 Mod 10 & Customs Export).",
+    "day_badge": "Day {day} of 7",
+    "lock_price_btn": "Lock Founder Rate"
+  }
+}

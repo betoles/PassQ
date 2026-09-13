@@ -1,0 +1,49 @@
+# PassQ Universal Robots.txt (Global & AI Search Engine Directives)
+User-agent: *
+Allow: /
+Allow: /p.html
+Allow: /index.html
+Allow: /compliance-statement.html
+Allow: /security.html
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /imprint.html
+Allow: /cookies.html
+Disallow: /api/
+
+# Global Search Bots
+User-agent: Googlebot
+User-agent: Googlebot-Mobile
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: DuckDuckBot
+Allow: /
+
+# AI Search & Retrieval Crawlers (ChatGPT, Perplexity, Gemini, Claude, Apple Intelligence)
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: cohere-ai
+Allow: /
+
+# Asian Search Engines (Baidu, Sogou, Naver)
+User-agent: Baiduspider
+User-agent: Baiduspider-mobile
+User-agent: Baiduspider-image
+User-agent: Sogou web spider
+User-agent: Sogou mobile spider
+User-agent: Yeti
+User-agent: NaverBot
+Allow: /
+
+# European & Eurasian Search Engines (Yandex, Qwant)
+User-agent: Yandex
+User-agent: YandexBot
+User-agent: YandexMobileBot
+User-agent: Qwantify
+Allow: /
+
+Sitemap: https://passq.app/sitemap.xml

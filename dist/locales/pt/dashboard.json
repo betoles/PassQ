@@ -1,0 +1,73 @@
+{
+  "title": "Painel de Controle da Empresa",
+  "welcome": "Bem-vindo de volta",
+  "stats": {
+    "active_products": "Produtos Ativos",
+    "total_scans": "Leituras QR Totais",
+    "avg_repair_score": "Reparabilidade Média",
+    "compliance_rate": "Conformidade UE"
+  },
+  "products_table": {
+    "title": "Passaportes Digitais Gerenciados",
+    "subtitle": "Catálogo de produtos padronizados sob a norma GS1 Digital Link.",
+    "col_product": "Produto",
+    "col_category": "Categoria",
+    "col_gtin": "GTIN",
+    "col_score": "Score",
+    "col_status": "Status",
+    "col_actions": "Ações",
+    "status_compliant": "ESPR Pronto",
+    "btn_preview": "Ver DPP",
+    "btn_qr": "Obter QR",
+    "btn_delete": "Excluir produto",
+    "empty_title": "Nenhum passaporte digital registrado",
+    "empty_desc": "Crie seu primeiro Passaporte Digital com o assistente acima."
+  },
+  "delete_modal": {
+    "title": "Excluir Passaporte Digital?",
+    "subtitle": "Ação permanente no seu armazenamento local",
+    "warning": "Esta ação excluirá irreversivelmente o Passaporte Digital do produto e suas assinaturas criptográficas do banco de dados local deste dispositivo.",
+    "product_label": "Produto a excluir:",
+    "btn_cancel": "Cancelar",
+    "btn_confirm": "Excluir"
+  },
+  "modal_qr": {
+    "title": "Código QR GS1 Digital Link",
+    "subtitle": "Código vetorial de alta resolução pronto para impressão.",
+    "copy_url": "Copiar Link",
+    "download_svg": "Baixar SVG Vetorial",
+    "download_png": "Baixar PNG (300 DPI)"
+  },
+  "header": {
+    "subtitle": "Gestor de Passaportes Digitais e Conformidade UE ESPR"
+  },
+  "privacy_section": {
+    "title": "Soberania de Dados & Privacidade Local",
+    "desc": "PassQ é <strong>100% Local-First</strong>. Não solicitamos contas, e-mail nem localização. Todos os seus produtos ficam salvos exclusivamente no armazenamento local deste dispositivo.",
+    "btn_backup": "Exportar Backup (JSON)",
+    "btn_delete": "Excluir Todos os Dados do App",
+    "pillar_no_accounts": "<strong>Sem contas:</strong> Zero coleta de dados pessoais.",
+    "pillar_camera_ram": "<strong>Câmera na RAM:</strong> Leitura óptica local em tempo real.",
+    "pillar_no_gps": "<strong>Zero GPS:</strong> Sem rastreamento de localização."
+  },
+  "qr_modal": {
+    "studio_badge": "Estúdio de Emissão GS1 Digital Link",
+    "domain_label": "Domínio de Resolução do Passaporte",
+    "gs1_badge": "GS1 DIGITAL LINK • ECC HIGH (30% ROBUSTEZ)",
+    "btn_svg": "Vetor SVG",
+    "btn_png": "PNG 300 DPI",
+    "btn_packaging_label": "Etiqueta de Embalagem Oficial (300 DPI)",
+    "btn_copy_url": "Copiar Link"
+  },
+  "alerts": {
+    "url_copied": "Link GS1 copiado para a área de transferência.",
+    "confirm_hard_reset": "Tem certeza de que deseja excluir permanentemente todos os produtos e dados armazenados neste dispositivo? Esta ação não pode ser desfeita.",
+    "data_cleared": "Todos os dados locais foram excluídos com sucesso."
+  },
+  "trial": {
+    "active_title": "Teste Grátis de 7 Dias Ativo",
+    "active_desc": "Você tem acesso total e ilimitado a todas as ferramentas Pro (Assinatura Web Crypto, GS1 Mod 10 e Fichas Aduaneiras).",
+    "day_badge": "Dia {day} de 7",
+    "lock_price_btn": "Garantir Preço de Fundador"
+  }
+}

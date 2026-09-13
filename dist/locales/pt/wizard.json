@@ -1,0 +1,60 @@
+{
+  "title": "Criar Passaporte Digital",
+  "subtitle": "Passo a passo guiado para cumprir as normas europeias.",
+  "steps": {
+    "identity": "Identidade e Marca",
+    "materials": "Composição e Pegada",
+    "repair": "Reparabilidade e Peças",
+    "review": "Revisão e Geração QR"
+  },
+  "fields": {
+    "product_name": "Nome do Produto",
+    "category": "Categoria",
+    "gtin": "GTIN / Código de Barras (8-14 dígitos)",
+    "origin_country": "País de Origem e Fabricação",
+    "material_name": "Composição de Materiais",
+    "carbon_kg": "Pegada de CO₂ Estimada (kg CO₂e)",
+    "disassembly_tools": "Ferramentas para Desmontagem",
+    "repair_duration_yrs": "Disponibilidade de Peças (Anos)",
+    "recycling_instructions": "Instruções de Fim de Vida"
+  },
+  "placeholders": {
+    "product_name": "ex. Jaqueta Alpina EcoDry",
+    "gtin": "7501234567890",
+    "origin": "Brasil",
+    "material_name": "Material (ex. Algodão Orgânico)",
+    "recycling": "Apto para reciclagem em postos de coleta autorizados."
+  },
+  "buttons": {
+    "add_material": "+ Adicionar Material",
+    "prev": "Voltar",
+    "next": "Avançar"
+  },
+  "categories": {
+    "textile": "Têxtil e Moda",
+    "footwear": "Calçados e Couro",
+    "electronics": "Eletrônicos de Consumo",
+    "furniture": "Móveis e Madeira"
+  },
+  "tools": {
+    "none": "Sem ferramentas (Fixação por pressão/clipes)",
+    "standard": "Ferramentas padrão (Chave de fenda / Allen)",
+    "specialized": "Ferramentas especializadas ou proprietárias"
+  },
+  "review": {
+    "estimated_score_label": "Score de Reparabilidade Estimado:",
+    "summary_product_label": "Produto:",
+    "summary_gtin_label": "GTIN:",
+    "summary_origin_label": "Origem:",
+    "legal_declaration": "Declaro que possuo os direitos legais e marcas deste produto, assumindo total responsabilidade sob os <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Termos de Serviço</a>."
+  },
+  "validation": {
+    "name_required": "Por favor, insira o nome do produto.",
+    "gtin_check_digit_error": "Dígito de controle GS1 inválido. O último dígito deve ser {expected} (você inseriu {actual}).",
+    "gtin_invalid": "O GTIN deve ter 8, 12, 13 ou 14 dígitos numéricos.",
+    "gtin_numeric_error": "Por favor, insira um código GTIN numérico válido.",
+    "materials_sum_error": "A soma dos materiais deve ser exatamente 100% (atual: {sum}%).",
+    "materials_empty_error": "Por favor, preencha o nome de todos os materiais.",
+    "legal_consent_required": "Você deve certificar os direitos para prosseguir."
+  }
+}

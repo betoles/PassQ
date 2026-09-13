@@ -1,0 +1,28 @@
+{
+  "title": "Cumplimiento Normativo y Aduanas",
+  "subtitle": "Alineación automática con regulaciones internacionales de ecodiseño y comercio circular.",
+  "regulations": {
+    "espr": {
+      "name": "Reglamento UE ESPR",
+      "desc": "Estándar de ecodiseño para productos sostenibles obligatorio en aduanas europeas."
+    },
+    "right_to_repair": {
+      "name": "Leyes Globales de Derecho a Reparar",
+      "desc": "Leyes estatales en EE. UU. (CA, NY, MN) y mandatos de índice de reparación en la UE."
+    },
+    "gs1": {
+      "name": "Estándar GS1 Digital Link",
+      "desc": "Enlace universal entre código de barras físico e información web (ISO/IEC 15459)."
+    },
+    "rohs_reach": {
+      "name": "Conformidad REACH / RoHS",
+      "desc": "Declaración de materiales libres de sustancias tóxicas o peligrosas."
+    }
+  },
+  "customs_report": {
+    "title": "Ficha Técnica Oficial para Aduanas",
+    "generated_for": "Generado para Autoridades de Control Aduanero y Vigilancia de Mercado",
+    "signature_valid": "Firma Digital: VÁLIDA (Verificado con ed25519)",
+    "authenticity_hash": "Hash de Autenticidad"
+  }
+}

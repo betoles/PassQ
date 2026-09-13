@@ -1,0 +1,73 @@
+{
+  "title": "企业产品护照控制台",
+  "welcome": "欢迎回来",
+  "stats": {
+    "active_products": "活跃产品总数",
+    "total_scans": "二维码扫描总量",
+    "avg_repair_score": "平均可维修评分",
+    "compliance_rate": "欧盟合规率"
+  },
+  "products_table": {
+    "title": "已纳管的数字产品护照",
+    "subtitle": "依据 GS1 数字链接标准规范化的产品目录库。",
+    "col_product": "产品名称",
+    "col_category": "产品品类",
+    "col_gtin": "GTIN 编码",
+    "col_score": "评分",
+    "col_status": "合规状态",
+    "col_actions": "操作",
+    "status_compliant": "ESPR 已合规",
+    "btn_preview": "查看护照",
+    "btn_qr": "获取二维码",
+    "btn_delete": "删除产品",
+    "empty_title": "暂无数字护照记录",
+    "empty_desc": "请使用上方的创建向导生成您的第一个数字产品护照。"
+  },
+  "delete_modal": {
+    "title": "确认删除此数字产品护照？",
+    "subtitle": "针对本地存储的永久性删除操作",
+    "warning": "此操作将从本设备的本地数据库中永久注销该数字产品护照及其加密签名，且不可撤销。",
+    "product_label": "拟删除产品：",
+    "btn_cancel": "取消",
+    "btn_confirm": "确认删除"
+  },
+  "modal_qr": {
+    "title": "GS1 Digital Link 智能二维码",
+    "subtitle": "符合印刷级矢量标准的商品二维码，可直接交付印刷厂制版。",
+    "copy_url": "复制链接",
+    "download_svg": "下载 SVG 矢量图",
+    "download_png": "下载 PNG (300 DPI 印刷图)"
+  },
+  "header": {
+    "subtitle": "数字产品护照管理与欧盟 ESPR 合规控制台"
+  },
+  "privacy_section": {
+    "title": "数据主权与本地隐私沙盒",
+    "desc": "PassQ 采用 <strong>100% 本地优先（Local-First）</strong> 架构。无需注册账户，不索取邮箱或 GPS 位置，所有产品数据仅存储在此设备本地内存与离线数据库中。",
+    "btn_backup": "导出完整数据备份 (JSON)",
+    "btn_delete": "彻底清除本地所有应用数据",
+    "pillar_no_accounts": "<strong>无需注册:</strong> 零个人敏感信息收集。",
+    "pillar_camera_ram": "<strong>内存读取:</strong> 摄像头光学帧在 RAM 实时解析，绝不存图。",
+    "pillar_no_gps": "<strong>零位置追踪:</strong> 绝不索取任何地理定位权限。"
+  },
+  "qr_modal": {
+    "studio_badge": "GS1 Digital Link 发行工作室",
+    "domain_label": "通行证解析域名",
+    "gs1_badge": "GS1 数字链接 • 30% ECC HIGH 工业级容错",
+    "btn_svg": "矢量 SVG 格式",
+    "btn_png": "高清 300 DPI PNG",
+    "btn_packaging_label": "官方包装箱标贴 (300 DPI)",
+    "btn_copy_url": "复制直达链接"
+  },
+  "alerts": {
+    "url_copied": "GS1 数字链接已成功复制到剪贴板。",
+    "confirm_hard_reset": "您确定要彻底删除保存在此设备上的所有产品数据和证书吗？该操作不可逆，请确保已导出备份。",
+    "data_cleared": "所有本地产品数据已安全彻底清除。"
+  },
+  "trial": {
+    "active_title": "7天免费试用进行中",
+    "active_desc": "您拥有所有Pro专业功能的完全无限制访问权限（Web Crypto加密签名、GS1 Mod 10与海关数据导出）。",
+    "day_badge": "第 {day} 天 / 共 7 天",
+    "lock_price_btn": "锁定创始人优惠价"
+  }
+}

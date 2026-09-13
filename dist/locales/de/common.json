@@ -1,0 +1,105 @@
+{
+  "app_name": "PassQ",
+  "tagline": "Digitale Produktpässe & Kreislauf-Rückverfolgbarkeit für KMU",
+  "nav": {
+    "home": "Startseite",
+    "features": "Funktionen",
+    "pricing": "Preise",
+    "compliance": "Konformität",
+    "dashboard": "KMU-Dashboard",
+    "create_dpp": "Neuer Pass",
+    "demo_dpp": "DPP-Demo",
+    "user_guide": "Benutzerhandbuch"
+  },
+  "buttons": {
+    "save": "Änderungen speichern",
+    "cancel": "Abbrechen",
+    "next": "Weiter",
+    "back": "Zurück",
+    "finish": "Fertigstellen & QR generieren",
+    "download_qr": "QR-Code herunterladen",
+    "export_pdf": "Offizielles Zoll-PDF exportieren",
+    "export_json": "JSON-LD exportieren (EU-Standard)",
+    "close": "Schließen",
+    "view_passport": "Öffentlichen Pass anzeigen"
+  },
+  "badges": {
+    "verified": "GS1 & EU verifiziert",
+    "circular": "Kreislaufwirtschaft",
+    "repairable": "Reparaturbereit"
+  },
+  "theme": {
+    "light": "Heller Modus",
+    "dark": "Dunkler Modus",
+    "system": "System",
+    "toggle": "Design wechseln"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "de": "Deutsch",
+    "fr": "Français",
+    "it": "Italiano",
+    "pt": "Português",
+    "zh": "中文"
+  },
+  "footer": {
+    "privacy": "Datenschutzerklärung",
+    "terms": "Nutzungsbedingungen",
+    "imprint": "Impressum / Rechtliche Hinweise",
+    "cookies": "Cookie-Richtlinie",
+    "compliance": "EU ESPR & GS1 Konformität",
+    "security": "Sicherheit & Kryptographie",
+    "contact": "Kontakt & Feedback",
+    "rights_text": "© 2026 PassQ Technologies Ltd. • Digital Product Passports & Circular Traceability Platform"
+  },
+  "contact_modal": {
+    "title": "Kontakt & Feedback",
+    "badge": "Benutzerorientierte Entwicklung",
+    "subtitle": "Ihr Feedback gestaltet die Zukunft von PassQ!",
+    "message": "Wir freuen uns darauf, unseren Nutzern zuzuhören, aus Ihren Erfahrungen zu lernen und die Plattform an Ihre individuellen Anforderungen anzupassen. Senden Sie uns Ihre Kommentare, Fragen, Verbesserungsvorschläge oder Funktionswünsche.",
+    "email_label": "Offizieller Kontaktkanal:",
+    "email_address": "passq-reportes@outlook.com",
+    "btn_send_email": "Direkte E-Mail senden",
+    "btn_copy_email": "E-Mail-Adresse kopieren",
+    "email_copied": "In die Zwischenablage kopiert!",
+    "response_time": "Antwort üblicherweise innerhalb von 72 Geschäftsstunden.",
+    "mail_subject": "Feedback und Verbesserungsvorschläge • PassQ",
+    "mail_body": "Hallo PassQ-Team,\n\nich möchte Ihnen folgendes Feedback und Anregungen mitteilen, um die Plattform an meine Bedürfnisse anzupassen:\n\n"
+  },
+  "billing": {
+    "badge": "Google Play Billing • 7 Tage kostenlose Testphase",
+    "title": "Offizielles Abonnement über Google Play",
+    "subtitle": "Alle Abrechnungen, Verlängerungen und Kündigungen werden zu 100% über die Google Play Console verwaltet. Keine Überraschungen, jederzeit mit 1 Klick in Ihrem Google-Konto kündbar.",
+    "trial_badge": "7T",
+    "trial_status_active": "Aktueller Teststatus: Tag {day} von 7 ({remaining} Tage verbleibend)",
+    "trial_status_ended": "Testphase abgeschlossen",
+    "trial_desc": "Sie haben uneingeschränkten Zugriff auf alle Pro-Tools. Bei jetzigem Abschluss wird erst nach Ablauf der 7-tägigen Testphase abgebucht.",
+    "founder_rate": "Gründertarif",
+    "plans": {
+      "starter": {
+        "name": "Starter (Unternehmer)",
+        "limit": "10 Produkte"
+      },
+      "growth": {
+        "name": "Growth (Gründertarif)",
+        "limit": "50 Produkte"
+      },
+      "scale": {
+        "name": "Scale (Hersteller)",
+        "limit": "Unbegrenzt"
+      }
+    },
+    "features": {
+      "days_free": "✓ 7 Tage kostenlos",
+      "play_billing": "✓ Google Play Billing"
+    },
+    "guarantees_title": "Google Play Garantien:",
+    "guarantee_1": "Offizielle Abrechnung über Google Play Store mit Steuerbeleg.",
+    "guarantee_2_prefix": "Jederzeit kündbar über ",
+    "guarantee_2_link": "Google Play Subscriptions",
+    "guarantee_2_suffix": " mit nur 1 Fingertipp.",
+    "guarantee_3": "Keine Speicherung von Kreditkartendaten auf PassQ-Servern.",
+    "btn_subscribe": "Weiter mit Google Play (7 Tage kostenlos)"
+  }
+}

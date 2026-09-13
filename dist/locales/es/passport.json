@@ -1,0 +1,193 @@
+{
+  "header": {
+    "title": "Digital Passport",
+    "verify_seal_title": "Verificar Firma Criptográfica Oficial",
+    "certified_badge": "DPP CERTIFICADO • ED25519 VÁLIDO",
+    "verify_integrity_title": "Verificar Integridad Criptográfica",
+    "loading_product": "Cargando producto...",
+    "verified_brand": "Marca Verificada",
+    "gtin": "GTIN",
+    "serial": "Serie"
+  },
+  "tabs": {
+    "overview": "Resumen",
+    "materials": "Materiales",
+    "repair": "Reparación",
+    "recycling": "Aduanas/LCA"
+  },
+  "repair_score": {
+    "title": "Índice de Reparabilidad",
+    "spare_parts": "Repuestos garantizados 5+ años",
+    "grade_excellent": "Excelente"
+  },
+  "materials": {
+    "country_of_origin": "País de Origen",
+    "recycled_content": "Contenido Reciclado",
+    "lca_breakdown": "Desglose Ciclo de Vida (LCA)",
+    "lca_mfg": "Fáb:",
+    "lca_log": "Transp:",
+    "lca_eol": "Fin:",
+    "carbon_footprint": "Huella CO₂",
+    "water_footprint": "Huella Hídrica"
+  },
+  "repair_guide": {
+    "step_prefix": "Paso",
+    "order_parts": "Pedir Repuestos Originales a la Marca",
+    "default_tools": "Herramientas estándar domésticas"
+  },
+  "spare_parts_modal": {
+    "title": "Repuestos Originales Garantizados",
+    "subtitle": "Piezas directas del fabricante con certificación oficial",
+    "official_guarantee": "Garantía oficial de compatibilidad 100%",
+    "btn_request": "Solicitar al Fabricante",
+    "email_subject": "Solicitud de Repuestos Oficiales: ",
+    "email_body": "Hola, deseo solicitar repuestos originales certificados para el producto "
+  },
+  "recycling": {
+    "title": "Directrices de Reciclaje y Desmontaje",
+    "toxic_free": "100% Conforme directivas RoHS, REACH, CE y WEEE.",
+    "default_instructions": "Separación y depósito en canal oficial de reciclaje circular o punto verde municipal."
+  },
+  "security": {
+    "verified_signature": "Firmado Digitalmente e Inviolable",
+    "verifier_note": "Autenticado con clave pública criptográfica ed25519."
+  },
+  "top_bar": {
+    "scan_title": "Escanear otro código con la cámara",
+    "share_title": "Compartir pasaporte"
+  },
+  "customs": {
+    "title": "Comercio Exterior & Datos Aduaneros",
+    "hs_code_label": "Código HS / TARIC",
+    "regulation_label": "Normativa UE",
+    "urn_label": "Passport URN Canónico"
+  },
+  "buttons": {
+    "print_customs_pdf": "Imprimir Ficha Oficial de Aduanas (PDF)"
+  },
+  "footer": {
+    "disclaimer": "PassQ actúa como proveedor de infraestructura técnica descentralizada. La veracidad de los datos, licencias y conformidad regulatoria corresponden exclusivamente a la entidad emisora del producto."
+  },
+  "scanner": {
+    "title": "Escáner Óptico en Vivo",
+    "btn_torch": "Linterna",
+    "btn_gallery": "Galería",
+    "ram_notice": "<strong>Privacidad 100% en RAM:</strong> Lectura óptica local en tiempo real. No guardamos fotos ni solicitamos ubicación ni datos personales.",
+    "perm_error": "Permiso de cámara no concedido. Puedes subir una foto con el código QR.",
+    "no_qr_found": "No se detectó un código QR válido en la imagen seleccionada."
+  },
+  "crypto": {
+    "modal_title": "Verificación Criptográfica",
+    "status_label": "Estado de Autenticidad:",
+    "status_valid": "VÁLIDO & INMUTABLE",
+    "algorithm_label": "Algoritmo de Firma",
+    "sha256_label": "Digest SHA-256",
+    "signature_label": "Firma Digital del Fabricante",
+    "timestamp_label": "Sello de Tiempo (Timestamp)",
+    "btn_reverify": "Validar Integridad Criptográfica en Vivo",
+    "verifying": "Ejecutando Web Crypto API (ECDSA P-256 + SHA-256)...",
+    "verified": "Firma e Integridad 100% Auténticas ({algo})"
+  },
+  "share": {
+    "title": "Pasaporte Digital: {name}",
+    "text": "Consulta el Pasaporte Digital oficial de {name} certificado por PassQ.",
+    "copied": "Enlace del Pasaporte copiado al portapapeles."
+  },
+  "demo_products": {
+    "prod_001": {
+      "name": "Chaqueta Alpina EcoDry",
+      "brand": "Nordic Apex Gear",
+      "origin_country": "México (Oaxaca)",
+      "materials": [
+        "Nylon Reciclado (ECONYL®)",
+        "Membrana Bio-Polímero"
+      ],
+      "repair_guide": [
+        {
+          "title": "Reparación de Cremallera Frontal",
+          "tools": "Aguja e hilo reforzado / Alicates"
+        },
+        {
+          "title": "Parche Impermeable Térmico",
+          "tools": "Plancha doméstica a 110°C"
+        },
+        {
+          "title": "Sustitución de Cordón Elástico",
+          "tools": "Pasador o imperdible"
+        }
+      ],
+      "recycling_instructions": "El tejido exterior de ECONYL® puede depositarse en contenedores de reciclaje textil técnico. Desmontar los botones metálicos antes del triturado."
+    },
+    "prod_002": {
+      "name": "Auriculares Modulares Zero",
+      "brand": "Aura Sound Labs",
+      "origin_country": "Alemania",
+      "materials": [
+        "Aluminio 100% Reciclado",
+        "Plástico Marino Reciclado (OceanBound)",
+        "Batería Li-Ion Reemplazable sin pegamento"
+      ],
+      "repair_guide": [
+        {
+          "title": "Reemplazo de Almohadillas Magnéticas",
+          "tools": "Ninguna (Acople magnético)"
+        },
+        {
+          "title": "Cambio de Batería Extraíble",
+          "tools": "Destornillador Torx T5 incluido"
+        },
+        {
+          "title": "Sustitución de Cable Jack / USB-C",
+          "tools": "Modular Plug & Play"
+        }
+      ],
+      "recycling_instructions": "Batería extraíble apta para contenedores de pilas. Chasis de aluminio 100% reciclable en fundición de metales."
+    }
+  },
+  "spare_parts": {
+    "delivery_prefix": "Envío",
+    "SP-YKK-842": {
+      "name": "Cremallera Estanca YKK Reforzada",
+      "delivery": "48h"
+    },
+    "SP-PTH-019": {
+      "name": "Kit Parches Térmicos Impermeables",
+      "delivery": "24-48h"
+    },
+    "SP-CRD-004": {
+      "name": "Cordón Elástico con Bloqueador Ergonómico",
+      "delivery": "24h"
+    },
+    "SP-BAT-800Z": {
+      "name": "Módulo Batería Li-Ion 800mAh (Plug & Play)",
+      "delivery": "48h"
+    },
+    "SP-ALM-MAG": {
+      "name": "Almohadillas Magnéticas Viscoelásticas",
+      "delivery": "24h"
+    },
+    "SP-CBL-MOD": {
+      "name": "Cable Modular Jack 3.5mm / USB-C Trenzado",
+      "delivery": "24h"
+    },
+    "SP-TRN-STD": {
+      "name": "Kit de Tornillería y Anclajes Estándar",
+      "delivery": "24h"
+    },
+    "SP-GEN-001": {
+      "name": "Pieza de Repuesto Oficial Certificada",
+      "delivery": "48-72h"
+    }
+  },
+  "print_modal": {
+    "title": "Ficha Oficial de Aduanas",
+    "subtitle": "Documento técnico oficial para impresión o exportación PDF",
+    "format_label": "Formato: Ficha Oficial A4 (300 DPI)",
+    "crypto_label": "Sello Criptográfico Inmutable",
+    "device_notice": "Compatible con AirPrint (iOS), Guardar como PDF, imprimir en red WiFi y exportación digital a archivos.",
+    "btn_print_now": "Imprimir / Guardar como PDF"
+  },
+  "toast": {
+    "jsonld_exported": "Ficha técnica JSON-LD exportada con éxito."
+  }
+}
