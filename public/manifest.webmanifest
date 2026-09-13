@@ -3,8 +3,8 @@
   "name": "PassQ • Digital Product Passport",
   "short_name": "PassQ",
   "description": "Digital Product Passports & Circular Traceability Platform compliant with EU ESPR 2024/1781 and GS1 Digital Link.",
-  "start_url": "/app.html",
-  "scope": "/",
+  "start_url": "./app.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#070b14",
   "theme_color": "#10b981",
@@ -14,25 +14,25 @@
   "prefer_related_applications": false,
   "icons": [
     {
-      "src": "/logo.svg",
+      "src": "./logo.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/icon-192x192.png",
+      "src": "./icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-512x512.png",
+      "src": "./icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/app-icon-rounded-512x512.png",
+      "src": "./app-icon-rounded-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
@@ -43,15 +43,15 @@
       "name": "Panel PyME",
       "short_name": "Dashboard",
       "description": "Gestionar Pasaportes Digitales de Producto",
-      "url": "/app.html",
-      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+      "url": "./app.html",
+      "icons": [{ "src": "./icon-192x192.png", "sizes": "192x192" }]
     },
     {
       "name": "Lector QR GS1",
       "short_name": "Escanear",
       "description": "Escanear Pasaporte Digital o Código GS1",
-      "url": "/p.html",
-      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+      "url": "./p.html",
+      "icons": [{ "src": "./icon-192x192.png", "sizes": "192x192" }]
     }
   ],
   "categories": ["business", "productivity", "utilities"]
