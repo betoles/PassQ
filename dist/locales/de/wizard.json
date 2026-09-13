@@ -34,7 +34,26 @@
     "textile": "Textil & Mode",
     "footwear": "Schuhe & Leder",
     "electronics": "Unterhaltungselektronik",
-    "furniture": "Möbel & Holz"
+    "furniture": "Möbel & Holz",
+    "battery": "Industrie- & EV-Batterien",
+    "cosmetics": "Kosmetik & Körperpflege",
+    "food": "Lebensmittel & Landwirtschaft",
+    "construction": "Bauwesen & Stahl"
+  },
+  "sector_fields": {
+    "title": "Sektorspezifische Compliance-Daten",
+    "battery_chemistry": "Zellchemie",
+    "battery_capacity": "Nennkapazität (Ah / kWh)",
+    "battery_recycled_metals": "Kritische recycelte Metalle (% Co, Li, Ni)",
+    "inci_ingredients": "INCI-Inhaltsstoffliste",
+    "pao_months": "Haltbarkeit nach dem Öffnen (Monate PAO)",
+    "allergens": "Deklarationspflichtige Allergene",
+    "food_batch": "Produktionscharge / Los",
+    "food_expiry": "Mindesthaltbarkeitsdatum / Verfall",
+    "food_temp": "Lagertemperatur (°C)",
+    "food_certifications": "Akkreditierte Zertifizierungen",
+    "epd_number": "Umwelt-Produktdeklaration (EPD / ISO 14025)",
+    "structural_lifespan": "Geschätzte Bemessungslebensdauer (Jahre)"
   },
   "tools": {
     "none": "Ohne Werkzeug (Klick-/Schnappverbindung)",

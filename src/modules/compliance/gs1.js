@@ -154,7 +154,20 @@ export class GS1Formatter {
           m: product.materials || [],
           hs: product.hs_code || '6202.40.00',
           o: product.origin_country || 'México',
-          sig: product.signature || ''
+          sig: product.signature || '',
+          // Sector-specific properties
+          ...(product.battery_chemistry && { b_chem: product.battery_chemistry }),
+          ...(product.battery_capacity && { b_cap: product.battery_capacity }),
+          ...(product.battery_recycled_metals && { b_met: product.battery_recycled_metals }),
+          ...(product.inci_ingredients && { c_inci: product.inci_ingredients }),
+          ...(product.pao_months && { c_pao: product.pao_months }),
+          ...(product.allergens && { c_alg: product.allergens }),
+          ...(product.food_batch && { f_lot: product.food_batch }),
+          ...(product.food_expiry && { f_exp: product.food_expiry }),
+          ...(product.food_temp && { f_tmp: product.food_temp }),
+          ...(product.food_certifications && { f_crt: product.food_certifications }),
+          ...(product.epd_number && { e_epd: product.epd_number }),
+          ...(product.structural_lifespan_yrs && { e_life: product.structural_lifespan_yrs })
         };
         const jsonStr = JSON.stringify(miniPayload);
         const b64 = btoa(unescape(encodeURIComponent(jsonStr)))
@@ -230,6 +243,76 @@ export class GS1Formatter {
    * Generates standardized JSON-LD structured data for EU customs and search engines
    */
   static generateJSONLD(product) {
+    const additionalProperties = [
+      {
+        "@type": "PropertyValue",
+        "name": "EcodesignRepairabilityScore",
+        "value": `${product.repair_score}/10`
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "CarbonFootprintKgCO2e",
+        "value": product.carbon_kg
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "HarmonizedSystemTariffCode",
+        "value": product.hs_code || "6202.40.00"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "DigitalProductPassportStandard",
+        "value": "EU-ESPR-2024/1781"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "PassportURN",
+        "value": product.passport_urn || `urn:espr:eu:2026:${product.gtin}:${product.serial}`
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "CryptographicVerificationHash",
+        "value": product.signature || "ed25519_verified"
+      }
+    ];
+
+    // Sector-specific JSON-LD extensions
+    if (product.category === 'battery') {
+      if (product.battery_chemistry) {
+        additionalProperties.push({ "@type": "PropertyValue", "name": "BatteryCellChemistry", "value": product.battery_chemistry });
+      }
+      if (product.battery_capacity) {
+        additionalProperties.push({ "@type": "PropertyValue", "name": "BatteryRatedCapacity", "value": product.battery_capacity });
+      }
+      if (product.battery_recycled_metals) {
+        additionalProperties.push({ "@type": "PropertyValue", "name": "CriticalRawMaterialsRecycledContent", "value": JSON.stringify(product.battery_recycled_metals) });
+      }
+    } else if (product.category === 'cosmetics') {
+      if (product.inci_ingredients) {
+        additionalProperties.push({ "@type": "PropertyValue", "name": "INCIIngredientsList", "value": product.inci_ingredients });
+      }
+      if (product.pao_months) {
+        additionalProperties.push({ "@type": "PropertyValue", "name": "PeriodAfterOpeningPAO", "value": `${product.pao_months}M` });
+      }
+    } else if (product.category === 'food') {
+      if (product.food_batch) {
+        additionalProperties.push({ "@type": "PropertyValue", "name": "ProductionBatchLot", "value": product.food_batch });
+      }
+      if (product.food_expiry) {
+        additionalProperties.push({ "@type": "PropertyValue", "name": "BestBeforeDate", "value": product.food_expiry });
+      }
+      if (product.food_temp) {
+        additionalProperties.push({ "@type": "PropertyValue", "name": "StorageTemperatureCondition", "value": product.food_temp });
+      }
+    } else if (product.category === 'construction') {
+      if (product.epd_number) {
+        additionalProperties.push({ "@type": "PropertyValue", "name": "EnvironmentalProductDeclarationEPD", "value": product.epd_number });
+      }
+      if (product.structural_lifespan_yrs) {
+        additionalProperties.push({ "@type": "PropertyValue", "name": "EstimatedDesignServiceLife", "value": `${product.structural_lifespan_yrs} years` });
+      }
+    }
+
     return {
       "@context": "https://schema.org/",
       "@type": "Product",
@@ -244,38 +327,7 @@ export class GS1Formatter {
         "@type": "Country",
         "name": product.origin_country || "México"
       },
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "EcodesignRepairabilityScore",
-          "value": `${product.repair_score}/10`
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "CarbonFootprintKgCO2e",
-          "value": product.carbon_kg
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "HarmonizedSystemTariffCode",
-          "value": product.hs_code || "6202.40.00"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "DigitalProductPassportStandard",
-          "value": "EU-ESPR-2024/1781"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "PassportURN",
-          "value": product.passport_urn || `urn:espr:eu:2026:${product.gtin}:${product.serial}`
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "CryptographicVerificationHash",
-          "value": product.signature || "ed25519_verified"
-        }
-      ]
+      "additionalProperty": additionalProperties
     };
   }
 }

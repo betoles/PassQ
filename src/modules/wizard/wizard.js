@@ -20,7 +20,22 @@ export class WizardController {
       repair_duration_yrs: 5,
       disassembly_tools: 'tools_standard',
       materials: [{ name: 'Algodón Orgánico', pct: 100 }],
-      recycling_instructions: 'Depositar en contenedor textil o punto limpio autorizado.'
+      recycling_instructions: 'Depositar en contenedor textil o punto limpio autorizado.',
+      // Sector-specific properties
+      battery_chemistry: 'Li-Ion (NMC)',
+      battery_capacity: '75 kWh',
+      battery_recycled_cobalt: 18,
+      battery_recycled_lithium: 8,
+      battery_recycled_nickel: 8,
+      inci_ingredients: '',
+      pao_months: 12,
+      allergens: '',
+      food_batch: '',
+      food_expiry: '',
+      food_temp: '2°C - 6°C',
+      food_certifications: 'Orgánico, FairTrade',
+      epd_number: '',
+      structural_lifespan_yrs: 50
     };
   }
 
@@ -35,6 +50,7 @@ export class WizardController {
     this.modal.classList.remove('hidden');
     this.updateToolOptionCards(this.formData.disassembly_tools || 'tools_standard');
     this.updateLiveScore();
+    this.renderSectorSpecificFields(this.formData.category || 'textile');
     this.renderStep();
   }
 
@@ -94,6 +110,90 @@ export class WizardController {
     this.setupCategoryDropdown();
   }
 
+  renderSectorSpecificFields(category) {
+    const container = document.getElementById('wizard-sector-fields-container');
+    const inputsBox = document.getElementById('wizard-sector-dynamic-inputs');
+    if (!container || !inputsBox) return;
+
+    if (['battery', 'cosmetics', 'food', 'construction'].includes(category)) {
+      container.classList.remove('hidden');
+    } else {
+      container.classList.add('hidden');
+      inputsBox.innerHTML = '';
+      return;
+    }
+
+    if (category === 'battery') {
+      inputsBox.innerHTML = `
+        <div>
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.battery_chemistry">${i18n.t('wizard:sector_fields.battery_chemistry', 'Química de Celda')}</label>
+          <input id="wizard-bat-chem" type="text" placeholder="Li-Ion (NMC 811) / LFP" value="${this.formData.battery_chemistry}" class="glass-input w-full py-2 px-3 rounded-xl text-xs font-semibold" />
+        </div>
+        <div>
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.battery_capacity">${i18n.t('wizard:sector_fields.battery_capacity', 'Capacidad (Ah/kWh)')}</label>
+          <input id="wizard-bat-cap" type="text" placeholder="75 kWh / 150 Ah" value="${this.formData.battery_capacity}" class="glass-input w-full py-2 px-3 rounded-xl text-xs font-semibold" />
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.battery_recycled_metals">${i18n.t('wizard:sector_fields.battery_recycled_metals', 'Metales Críticos Reciclados (% Co, Li, Ni)')}</label>
+          <div class="grid grid-cols-3 gap-2">
+            <input id="wizard-bat-co" type="number" placeholder="% Co" value="${this.formData.battery_recycled_cobalt}" class="glass-input py-2 px-2 rounded-xl text-xs text-center font-mono" title="Cobalto Reciclado %" />
+            <input id="wizard-bat-li" type="number" placeholder="% Li" value="${this.formData.battery_recycled_lithium}" class="glass-input py-2 px-2 rounded-xl text-xs text-center font-mono" title="Litio Reciclado %" />
+            <input id="wizard-bat-ni" type="number" placeholder="% Ni" value="${this.formData.battery_recycled_nickel}" class="glass-input py-2 px-2 rounded-xl text-xs text-center font-mono" title="Níquel Reciclado %" />
+          </div>
+        </div>
+      `;
+    } else if (category === 'cosmetics') {
+      inputsBox.innerHTML = `
+        <div class="sm:col-span-2">
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.inci_ingredients">${i18n.t('wizard:sector_fields.inci_ingredients', 'Fórmula INCI de Ingredientes')}</label>
+          <input id="wizard-cosm-inci" type="text" placeholder="Aqua, Glycerin, Niacinamide, Sodium Hyaluronate" value="${this.formData.inci_ingredients}" class="glass-input w-full py-2 px-3 rounded-xl text-xs" />
+        </div>
+        <div>
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.pao_months">${i18n.t('wizard:sector_fields.pao_months', 'Período tras Apertura (PAO)')}</label>
+          <select id="wizard-cosm-pao" class="glass-input w-full py-2 px-3 rounded-xl text-xs font-bold">
+            <option value="6" ${this.formData.pao_months === 6 ? 'selected' : ''}>6 Meses (6M)</option>
+            <option value="12" ${this.formData.pao_months === 12 ? 'selected' : ''}>12 Meses (12M)</option>
+            <option value="24" ${this.formData.pao_months === 24 ? 'selected' : ''}>24 Meses (24M)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.allergens">${i18n.t('wizard:sector_fields.allergens', 'Alérgenos Declarables')}</label>
+          <input id="wizard-cosm-alg" type="text" placeholder="Linalool, Limonene (o Ninguno)" value="${this.formData.allergens}" class="glass-input w-full py-2 px-3 rounded-xl text-xs" />
+        </div>
+      `;
+    } else if (category === 'food') {
+      inputsBox.innerHTML = `
+        <div>
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.food_batch">${i18n.t('wizard:sector_fields.food_batch', 'Lote de Fabricación')}</label>
+          <input id="wizard-food-batch" type="text" placeholder="LOTE-2026-B842" value="${this.formData.food_batch}" class="glass-input w-full py-2 px-3 rounded-xl text-xs font-mono" />
+        </div>
+        <div>
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.food_expiry">${i18n.t('wizard:sector_fields.food_expiry', 'Consumo Preferente / Caducidad')}</label>
+          <input id="wizard-food-exp" type="date" value="${this.formData.food_expiry || '2027-06-30'}" class="glass-input w-full py-2 px-3 rounded-xl text-xs font-mono" />
+        </div>
+        <div>
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.food_temp">${i18n.t('wizard:sector_fields.food_temp', 'Cadena de Frío (°C)')}</label>
+          <input id="wizard-food-temp" type="text" placeholder="Conservar entre 2°C y 6°C" value="${this.formData.food_temp}" class="glass-input w-full py-2 px-3 rounded-xl text-xs" />
+        </div>
+        <div>
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.food_certifications">${i18n.t('wizard:sector_fields.food_certifications', 'Certificaciones')}</label>
+          <input id="wizard-food-certs" type="text" placeholder="Orgánico, FairTrade, Kosher" value="${this.formData.food_certifications}" class="glass-input w-full py-2 px-3 rounded-xl text-xs" />
+        </div>
+      `;
+    } else if (category === 'construction') {
+      inputsBox.innerHTML = `
+        <div>
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.epd_number">${i18n.t('wizard:sector_fields.epd_number', 'Registro EPD / ISO 14025')}</label>
+          <input id="wizard-epd-num" type="text" placeholder="S-P-04892 (Environdec)" value="${this.formData.epd_number}" class="glass-input w-full py-2 px-3 rounded-xl text-xs font-mono" />
+        </div>
+        <div>
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.structural_lifespan">${i18n.t('wizard:sector_fields.structural_lifespan', 'Vida Útil de Diseño (Años)')}</label>
+          <input id="wizard-struct-life" type="number" placeholder="50" value="${this.formData.structural_lifespan_yrs}" class="glass-input w-full py-2 px-3 rounded-xl text-xs font-mono" />
+        </div>
+      `;
+    }
+  }
+
   setupCategoryDropdown() {
     const btn = document.getElementById('wizard-category-btn');
     const menu = document.getElementById('wizard-category-menu');
@@ -148,6 +248,7 @@ export class WizardController {
 
         hiddenInput.value = val;
         this.formData.category = val;
+        this.renderSectorSpecificFields(val);
 
         // Update active UI
         menu.querySelectorAll('.wizard-cat-opt').forEach(b => {
@@ -455,8 +556,29 @@ export class WizardController {
     const carbon_kg = parseFloat(document.getElementById('wizard-co2')?.value) || 2.8;
     const manufacturing_date = new Date().toISOString().split('T')[0];
     const passport_urn = `urn:espr:eu:2026:${gtin}:${serial}`;
-    const hs_code = '6202.40.00';
+    const hs_code = ComplianceCalculator.getDefaultHsCode(category);
     const materials = this.formData.materials.filter(m => m.name.trim() !== '');
+
+    // Extract sector-specific fields
+    const battery_chemistry = document.getElementById('wizard-bat-chem')?.value || (category === 'battery' ? 'Li-Ion (NMC)' : '');
+    const battery_capacity = document.getElementById('wizard-bat-cap')?.value || (category === 'battery' ? '75 kWh' : '');
+    const battery_recycled_metals = category === 'battery' ? {
+      cobalt_pct: parseFloat(document.getElementById('wizard-bat-co')?.value) || 18,
+      lithium_pct: parseFloat(document.getElementById('wizard-bat-li')?.value) || 8,
+      nickel_pct: parseFloat(document.getElementById('wizard-bat-ni')?.value) || 8
+    } : null;
+
+    const inci_ingredients = document.getElementById('wizard-cosm-inci')?.value || '';
+    const pao_months = parseInt(document.getElementById('wizard-cosm-pao')?.value) || 12;
+    const allergens = document.getElementById('wizard-cosm-alg')?.value || '';
+
+    const food_batch = document.getElementById('wizard-food-batch')?.value || '';
+    const food_expiry = document.getElementById('wizard-food-exp')?.value || '';
+    const food_temp = document.getElementById('wizard-food-temp')?.value || '';
+    const food_certifications = document.getElementById('wizard-food-certs')?.value || '';
+
+    const epd_number = document.getElementById('wizard-epd-num')?.value || '';
+    const structural_lifespan_yrs = parseInt(document.getElementById('wizard-struct-life')?.value) || 50;
 
     const repair_score = ComplianceCalculator.calculateRepairScore({
       disassembly_tools,
@@ -496,6 +618,11 @@ export class WizardController {
       disassembly_tools,
       materials,
       certifications: ["EU ESPR Verified", "PassQ Certified", "CE Compliant"],
+      // Sector-specific metadata
+      ...(category === 'battery' && { battery_chemistry, battery_capacity, battery_recycled_metals }),
+      ...(category === 'cosmetics' && { inci_ingredients, pao_months, allergens }),
+      ...(category === 'food' && { food_batch, food_expiry, food_temp, food_certifications }),
+      ...(category === 'construction' && { epd_number, structural_lifespan_yrs }),
       repair_guide: [
         { step: 1, title: "Mantenimiento Preventivo y Limpieza", time: "5 min", difficulty: "easy", tools: "Paño suave / jabón neutro" },
         { step: 2, title: "Sustitución de Piezas de Desgaste", time: "10 min", difficulty: "easy", tools: "Destornillador estándar" }

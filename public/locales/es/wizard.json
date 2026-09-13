@@ -30,7 +30,26 @@
     "textile": "Textil y Moda",
     "footwear": "Calzado y Piel",
     "electronics": "Electrónica de Consumo",
-    "furniture": "Muebles y Madera"
+    "furniture": "Muebles y Madera",
+    "battery": "Baterías y Acumuladores EV",
+    "cosmetics": "Cosmética y Cuidado Personal",
+    "food": "Alimentos y Bebidas",
+    "construction": "Construcción y Acero"
+  },
+  "sector_fields": {
+    "title": "Datos Normativos del Sector",
+    "battery_chemistry": "Química de Celda",
+    "battery_capacity": "Capacidad Nominal (Ah / kWh)",
+    "battery_recycled_metals": "Metales Críticos Reciclados (% Co, Li, Ni)",
+    "inci_ingredients": "Fórmula / Lista INCI de Ingredientes",
+    "pao_months": "Período tras Apertura (Meses PAO)",
+    "allergens": "Alérgenos Declarables",
+    "food_batch": "Lote de Fabricación",
+    "food_expiry": "Fecha de Consumo Preferente / Caducidad",
+    "food_temp": "Temperatura y Cadena de Frío (°C)",
+    "food_certifications": "Certificaciones Agroalimentarias",
+    "epd_number": "Declaración Ambiental de Producto (EPD / ISO 14025)",
+    "structural_lifespan": "Vida Útil Estimada de Diseño (Años)"
   },
   "tools": {
     "none": "Sin herramientas (Fijación por presión/clips)",
@@ -43,7 +62,16 @@
     "gtin": "7501234567890",
     "origin": "México",
     "material_name": "Material (ej. Algodón Orgánico)",
-    "recycling": "Apto para reciclaje en centros de acopio autorizados."
+    "recycling": "Apto para reciclaje en centros de acopio autorizados.",
+    "battery_chem": "ej. Li-Ion (NMC 811) / LFP",
+    "battery_cap": "ej. 75 kWh / 150 Ah",
+    "inci": "ej. Aqua, Glycerin, Niacinamide, Sodium Hyaluronate",
+    "allergens": "ej. Linalool, Limonene (o Sin Alérgenos)",
+    "food_batch": "ej. LOTE-2026-B842",
+    "food_temp": "ej. Conservar refrigerado entre 2°C y 6°C",
+    "food_certs": "ej. Orgánico Sagarpa, FairTrade, Kosher",
+    "epd": "ej. S-P-04892 (Environdec ISO 14025)",
+    "lifespan": "ej. 50"
   },
   "buttons": {
     "add_material": "+ Añadir Material",

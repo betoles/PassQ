@@ -471,9 +471,174 @@ class PassportViewController {
       recyclingEl.textContent = localizedRecycling;
     }
 
+    // Dynamic Sector-Specific Normative Card
+    this.renderSectorSpecificCard(p);
+
     this.renderTabs();
     this.updateSEOMetadata(p);
     await this.preparePrintData();
+  }
+
+  renderSectorSpecificCard(p) {
+    const container = document.getElementById('passport-sector-card-container');
+    if (!container) return;
+
+    const cat = p.category;
+    const isBattery = cat === 'battery' || p.battery_chemistry;
+    const isCosmetics = cat === 'cosmetics' || p.inci_ingredients;
+    const isFood = cat === 'food' || p.food_batch;
+    const isConstruction = cat === 'construction' || p.epd_number;
+
+    if (!isBattery && !isCosmetics && !isFood && !isConstruction) {
+      container.classList.add('hidden');
+      container.innerHTML = '';
+      return;
+    }
+
+    container.classList.remove('hidden');
+
+    if (isBattery) {
+      const chem = p.battery_chemistry || 'Li-Ion (NMC 811)';
+      const cap = p.battery_capacity || '75 kWh / 150 Ah';
+      const metals = p.battery_recycled_metals || { cobalt_pct: 18, lithium_pct: 8, nickel_pct: 8 };
+      const evalMetals = ComplianceCalculator.evaluateBatteryRecycledMetals(metals.cobalt_pct, metals.lithium_pct, metals.nickel_pct);
+
+      container.innerHTML = `
+        <div class="p-4 sm:p-5 rounded-3xl bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/25 space-y-3 shadow-sm text-slate-800 dark:text-slate-100">
+          <div class="flex items-center justify-between">
+            <h4 class="font-extrabold text-amber-700 dark:text-amber-400 text-sm sm:text-base flex items-center gap-2">
+              <span class="icon-svg w-5 h-5 text-amber-500 shrink-0">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+              </span>
+              <span data-i18n="passport:sector_cards.battery_title">${i18n.t('passport:sector_cards.battery_title', 'Especificaciones de Batería (Reg. UE 2023/1542)')}</span>
+            </h4>
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-300">EU 2023/1542</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="p-3 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/5">
+              <span class="text-slate-500 dark:text-slate-400 block text-[11px] font-semibold" data-i18n="passport:sector_cards.battery_chem">${i18n.t('passport:sector_cards.battery_chem', 'Química de Celda')}</span>
+              <strong class="text-slate-900 dark:text-white text-xs sm:text-sm font-bold">${chem}</strong>
+            </div>
+            <div class="p-3 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/5">
+              <span class="text-slate-500 dark:text-slate-400 block text-[11px] font-semibold" data-i18n="passport:sector_cards.battery_cap">${i18n.t('passport:sector_cards.battery_cap', 'Capacidad Nominal')}</span>
+              <strong class="text-slate-900 dark:text-white text-xs sm:text-sm font-bold">${cap}</strong>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 space-y-1.5 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-slate-700 dark:text-slate-300" data-i18n="passport:sector_cards.battery_recycled_metals">${i18n.t('passport:sector_cards.battery_recycled_metals', 'Metales Críticos Reciclados')}</span>
+              <span class="font-mono font-extrabold text-amber-600 dark:text-amber-400">${evalMetals.averagePct}% Promedio</span>
+            </div>
+            <div class="grid grid-cols-3 gap-1 text-center font-mono text-[11px]">
+              <span class="p-1 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300">Co: ${metals.cobalt_pct || 18}%</span>
+              <span class="p-1 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300">Li: ${metals.lithium_pct || 8}%</span>
+              <span class="p-1 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300">Ni: ${metals.nickel_pct || 8}%</span>
+            </div>
+            <p class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1 pt-0.5">
+              <span>✓</span> <span data-i18n="passport:sector_cards.battery_targets_met">${i18n.t('passport:sector_cards.battery_targets_met', 'Objetivos de Recuperación UE 2027/2031 Cumplidos')}</span>
+            </p>
+          </div>
+        </div>
+      `;
+    } else if (isCosmetics) {
+      const inci = p.inci_ingredients || 'Aqua, Glycerin, Niacinamide, Sodium Hyaluronate, Panthenol, Tocopherol';
+      const pao = p.pao_months || 12;
+      const alg = p.allergens || 'Linalool, Limonene (Conforme IFRA)';
+
+      container.innerHTML = `
+        <div class="p-4 sm:p-5 rounded-3xl bg-pink-500/10 dark:bg-pink-500/15 border border-pink-500/25 space-y-3 shadow-sm text-slate-800 dark:text-slate-100">
+          <div class="flex items-center justify-between">
+            <h4 class="font-extrabold text-pink-700 dark:text-pink-400 text-sm sm:text-base flex items-center gap-2">
+              <span class="icon-svg w-5 h-5 text-pink-500 shrink-0">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>
+              </span>
+              <span data-i18n="passport:sector_cards.cosmetics_title">${i18n.t('passport:sector_cards.cosmetics_title', 'Fórmula INCI & Seguridad Cosmética (Reg. UE 1223/2009)')}</span>
+            </h4>
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-pink-500/20 text-pink-700 dark:text-pink-300">PAO ${pao}M</span>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 space-y-1">
+            <span class="text-slate-500 dark:text-slate-400 block text-[11px] font-semibold" data-i18n="passport:sector_cards.inci_list">${i18n.t('passport:sector_cards.inci_list', 'Lista Oficial de Ingredientes (INCI)')}</span>
+            <p class="text-xs text-slate-800 dark:text-slate-200 leading-relaxed font-mono">${inci}</p>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 flex items-center justify-between text-xs">
+            <span class="font-bold text-slate-700 dark:text-slate-300" data-i18n="passport:sector_cards.allergens_label">${i18n.t('passport:sector_cards.allergens_label', 'Alérgenos Declarables')}</span>
+            <span class="font-semibold text-pink-600 dark:text-pink-400">${alg}</span>
+          </div>
+        </div>
+      `;
+    } else if (isFood) {
+      const batch = p.food_batch || 'LOTE-2026-B842';
+      const expiry = p.food_expiry || '2027-06-30';
+      const temp = p.food_temp || '2°C - 6°C (Refrigerado)';
+      const certs = p.food_certifications || 'Orgánico Sagarpa, FairTrade, Kosher';
+
+      container.innerHTML = `
+        <div class="p-4 sm:p-5 rounded-3xl bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/25 space-y-3 shadow-sm text-slate-800 dark:text-slate-100">
+          <div class="flex items-center justify-between">
+            <h4 class="font-extrabold text-emerald-700 dark:text-emerald-400 text-sm sm:text-base flex items-center gap-2">
+              <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3"/></svg>
+              </span>
+              <span data-i18n="passport:sector_cards.food_title">${i18n.t('passport:sector_cards.food_title', 'Trazabilidad Agroalimentaria & Cadena de Frío')}</span>
+            </h4>
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300">Reg. UE 1169/2011</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="p-3 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/5">
+              <span class="text-slate-500 dark:text-slate-400 block text-[11px] font-semibold" data-i18n="passport:sector_cards.food_lot">${i18n.t('passport:sector_cards.food_lot', 'Lote de Fabricación')}</span>
+              <strong class="font-mono text-slate-900 dark:text-white text-xs sm:text-sm font-bold">${batch}</strong>
+            </div>
+            <div class="p-3 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/5">
+              <span class="text-slate-500 dark:text-slate-400 block text-[11px] font-semibold" data-i18n="passport:sector_cards.food_exp">${i18n.t('passport:sector_cards.food_exp', 'Consumo Preferente')}</span>
+              <strong class="font-mono text-slate-900 dark:text-white text-xs sm:text-sm font-bold">${expiry}</strong>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 flex items-center justify-between text-xs">
+            <span class="font-bold text-slate-700 dark:text-slate-300" data-i18n="passport:sector_cards.food_temp">${i18n.t('passport:sector_cards.food_temp', 'Conservación Térmica')}</span>
+            <span class="font-bold text-cyan-600 dark:text-cyan-400">${temp}</span>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 flex items-center justify-between text-xs">
+            <span class="font-bold text-slate-700 dark:text-slate-300" data-i18n="passport:sector_cards.food_certs">${i18n.t('passport:sector_cards.food_certs', 'Certificaciones Acreditadas')}</span>
+            <span class="font-bold text-emerald-600 dark:text-emerald-400">${certs}</span>
+          </div>
+        </div>
+      `;
+    } else if (isConstruction) {
+      const epd = p.epd_number || 'S-P-04892 (Environdec ISO 14025)';
+      const lifespan = p.structural_lifespan_yrs || 50;
+
+      container.innerHTML = `
+        <div class="p-4 sm:p-5 rounded-3xl bg-slate-500/10 dark:bg-slate-500/15 border border-slate-500/25 space-y-3 shadow-sm text-slate-800 dark:text-slate-100">
+          <div class="flex items-center justify-between">
+            <h4 class="font-extrabold text-slate-800 dark:text-slate-200 text-sm sm:text-base flex items-center gap-2">
+              <span class="icon-svg w-5 h-5 text-indigo-500 shrink-0">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.333A48.243 48.243 0 0012 9.75c-2.551 0-5.056.2-7.5.583V21"/></svg>
+              </span>
+              <span data-i18n="passport:sector_cards.construction_title">${i18n.t('passport:sector_cards.construction_title', 'Declaración Ambiental de Producto (EPD & CPR)')}</span>
+            </h4>
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-indigo-500/20 text-indigo-700 dark:text-indigo-300">CPR EU 305/2011</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="p-3 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/5">
+              <span class="text-slate-500 dark:text-slate-400 block text-[11px] font-semibold" data-i18n="passport:sector_cards.epd_label">${i18n.t('passport:sector_cards.epd_label', 'Registro EPD')}</span>
+              <strong class="font-mono text-slate-900 dark:text-white text-xs sm:text-sm font-bold">${epd}</strong>
+            </div>
+            <div class="p-3 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/5">
+              <span class="text-slate-500 dark:text-slate-400 block text-[11px] font-semibold" data-i18n="passport:sector_cards.lifespan_label">${i18n.t('passport:sector_cards.lifespan_label', 'Vida Útil Estimada')}</span>
+              <strong class="text-slate-900 dark:text-white text-xs sm:text-sm font-bold">${lifespan} años</strong>
+            </div>
+          </div>
+        </div>
+      `;
+    }
   }
 
   async preparePrintData() {

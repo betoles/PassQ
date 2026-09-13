@@ -186,6 +186,19 @@ class HybridStorageManager {
           signature_algorithm: "ECDSA-P256-SHA256",
           signature_timestamp: new Date().toISOString(),
           certifications: ["EU ESPR Pass", "CE", "RoHS"],
+          // Sector-specific restored properties
+          battery_chemistry: decoded.b_chem || '',
+          battery_capacity: decoded.b_cap || '',
+          battery_recycled_metals: decoded.b_met || null,
+          inci_ingredients: decoded.c_inci || '',
+          pao_months: decoded.c_pao || '',
+          allergens: decoded.c_alg || '',
+          food_batch: decoded.f_lot || '',
+          food_expiry: decoded.f_exp || '',
+          food_temp: decoded.f_tmp || '',
+          food_certifications: decoded.f_crt || '',
+          epd_number: decoded.e_epd || '',
+          structural_lifespan_yrs: decoded.e_life || '',
           repair_guide: [
             { step: 1, title: "Desmontaje Estándar", time: "10 min", tools: "Herramientas estándar" }
           ],
