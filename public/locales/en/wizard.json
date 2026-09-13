@@ -70,7 +70,7 @@
     "food_batch": "e.g. LOT-2026-B842",
     "food_temp": "e.g. Keep refrigerated at 2°C to 6°C",
     "food_certs": "e.g. EU Organic, FairTrade, Kosher",
-    "epd": "e.g. S-P-04892 (Environdec ISO 14025)",
+    "epd": "e.g. S-P-04892 (Environdec)",
     "lifespan": "e.g. 50"
   },
   "buttons": {

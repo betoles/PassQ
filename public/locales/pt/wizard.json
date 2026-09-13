@@ -23,7 +23,9 @@
     "gtin": "7501234567890",
     "origin": "Brasil",
     "material_name": "Material (ex. Algodão Orgânico)",
-    "recycling": "Apto para reciclagem em postos de coleta autorizados."
+    "recycling": "Apto para reciclagem em postos de coleta autorizados.",
+    "epd": "ex. S-P-04892 (Environdec)",
+    "lifespan": "50"
   },
   "buttons": {
     "add_material": "+ Adicionar Material",

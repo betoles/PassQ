@@ -23,7 +23,9 @@
     "gtin": "7501234567890",
     "origin": "中国 (浙江/广东)",
     "material_name": "材质名称（例：100% 有机棉）",
-    "recycling": "支持交由官方授权的正规回收机构循环拆解再生。"
+    "recycling": "支持交由官方授权的正规回收机构循环拆解再生。",
+    "epd": "例: S-P-04892 (Environdec)",
+    "lifespan": "50"
   },
   "buttons": {
     "add_material": "+ 添加其他材质成分",

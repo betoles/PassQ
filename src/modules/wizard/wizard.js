@@ -211,12 +211,12 @@ export class WizardController {
     } else if (category === 'construction') {
       inputsBox.innerHTML = `
         <div>
-          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.epd_number">${i18n.t('wizard:sector_fields.epd_number', 'Registro EPD / ISO 14025')}</label>
-          <input id="wizard-epd-num" type="text" placeholder="S-P-04892 (Environdec)" value="${this.formData.epd_number}" class="glass-input w-full py-2 px-3 rounded-xl text-xs font-mono" />
+          <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.epd_number">${i18n.t('wizard:sector_fields.epd_number', 'Declaración Ambiental de Producto (EPD / ISO 14025)')}</label>
+          <input id="wizard-epd-num" type="text" placeholder="${i18n.t('wizard:placeholders.epd', 'ej. S-P-04892 (Environdec)')}" value="${this.formData.epd_number}" class="glass-input w-full py-2 px-3 rounded-xl text-xs sm:text-sm font-medium" />
         </div>
         <div>
           <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.structural_lifespan">${i18n.t('wizard:sector_fields.structural_lifespan', 'Vida Útil de Diseño (Años)')}</label>
-          <input id="wizard-struct-life" type="number" placeholder="50" value="${this.formData.structural_lifespan_yrs}" class="glass-input w-full py-2 px-3 rounded-xl text-xs font-mono" />
+          <input id="wizard-struct-life" type="number" placeholder="${i18n.t('wizard:placeholders.lifespan', '50')}" value="${this.formData.structural_lifespan_yrs}" class="glass-input w-full py-2 px-3 rounded-xl text-xs sm:text-sm font-medium" />
         </div>
       `;
     }

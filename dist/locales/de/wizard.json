@@ -23,7 +23,9 @@
     "gtin": "7501234567890",
     "origin": "Deutschland",
     "material_name": "Material (z.B. Bio-Baumwolle)",
-    "recycling": "Geeignet für das Recycling bei autorisierten Sammelstellen."
+    "recycling": "Geeignet für das Recycling bei autorisierten Sammelstellen.",
+    "epd": "z.B. S-P-04892 (Environdec)",
+    "lifespan": "50"
   },
   "buttons": {
     "add_material": "+ Material hinzufügen",

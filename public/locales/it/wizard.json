@@ -23,7 +23,9 @@
     "gtin": "7501234567890",
     "origin": "Italia",
     "material_name": "Materiale (es. Cotone Biologico)",
-    "recycling": "Idoneo al riciclo presso centri di raccolta autorizzati."
+    "recycling": "Idoneo al riciclo presso centri di raccolta autorizzati.",
+    "epd": "es. S-P-04892 (Environdec)",
+    "lifespan": "50"
   },
   "buttons": {
     "add_material": "+ Aggiungi Materiale",
