@@ -199,11 +199,12 @@
     }
   },
   "print_modal": {
-    "title": "Offizielles Zolldatenblatt",
-    "subtitle": "Offizielles technisches Datenblatt für Druck oder PDF-Export",
+    "title": "Offizielles Zoll- & Passblatt",
+    "subtitle": "Offizielles technisches Datenblatt für Zoll, Export und Audit",
     "format_label": "Format: Offizielles A4-Blatt (300 DPI)",
     "crypto_label": "Unveränderliches kryptographisches Siegel",
     "device_notice": "Kompatibel mit AirPrint (iOS), Als PDF speichern, WLAN-Druck und digitalem Dateiexport.",
+    "btn_download_pdf": "Offizielles technisches PDF herunterladen",
     "btn_print_now": "Drucken / Als PDF speichern"
   },
   "toast": {

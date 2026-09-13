@@ -180,11 +180,12 @@
     }
   },
   "print_modal": {
-    "title": "Fiche Officielle des Douanes",
-    "subtitle": "Document technique officiel prêt pour impression ou export PDF haute fidélité",
+    "title": "Fiche Officielle des Douanes et Passeport",
+    "subtitle": "Document technique officiel pour douanes, export et audit",
     "format_label": "Format: Fiche Officielle A4 (300 DPI)",
     "crypto_label": "Sceau cryptographique immuable",
     "device_notice": "Compatible avec AirPrint (iOS), Enregistrer en PDF, impression réseau WiFi et export de fichiers.",
+    "btn_download_pdf": "Télécharger la fiche technique officielle (PDF)",
     "btn_print_now": "Imprimer / Enregistrer en PDF"
   },
   "toast": {

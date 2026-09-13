@@ -180,11 +180,12 @@
     }
   },
   "print_modal": {
-    "title": "Scheda Ufficiale Doganale",
-    "subtitle": "Documento tecnico ufficiale pronto per la stampa o l'esportazione in PDF ad alta fedeltà",
+    "title": "Scheda Ufficiale Doganale e Passaporto",
+    "subtitle": "Documento tecnico ufficiale per dogana, esportazione e verifica",
     "format_label": "Formato: Scheda Ufficiale A4 (300 DPI)",
     "crypto_label": "Sigillo Crittografico Immutabile",
     "device_notice": "Compatibile con AirPrint (iOS), Salva come PDF, stampa di rete WiFi ed esportazione file.",
+    "btn_download_pdf": "Scarica Scheda Tecnica Ufficiale (PDF)",
     "btn_print_now": "Stampa / Salva in PDF"
   },
   "toast": {

@@ -180,11 +180,12 @@
     }
   },
   "print_modal": {
-    "title": "Ficha Oficial Aduaneira",
-    "subtitle": "Documento técnico oficial pronto para impressão ou exportação em PDF de alta fidelidade",
+    "title": "Ficha Oficial Aduaneira e Passaporte",
+    "subtitle": "Documento técnico oficial para alfândega, exportação e auditoria",
     "format_label": "Formato: Ficha Oficial A4 (300 DPI)",
     "crypto_label": "Selo Criptográfico Imutável",
     "device_notice": "Compatível com AirPrint (iOS), Guardar como PDF, impressão em rede WiFi e exportação de ficheiros.",
+    "btn_download_pdf": "Baixar Ficha Técnica Oficial em PDF",
     "btn_print_now": "Imprimir / Guardar como PDF"
   },
   "toast": {

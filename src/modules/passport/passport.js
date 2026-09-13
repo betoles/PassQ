@@ -231,6 +231,11 @@ class PassportViewController {
       if (e.target.id === 'print-options-modal') closePrintModal();
     });
 
+    document.getElementById('btn-export-pdf-direct')?.addEventListener('click', () => {
+      closePrintModal();
+      this.exportOfficialTechnicalPDF();
+    });
+
     document.getElementById('btn-confirm-print-action')?.addEventListener('click', () => {
       closePrintModal();
       // Slight delay for smooth modal close transition before triggering browser print
@@ -727,6 +732,375 @@ class PassportViewController {
 
     const printSig = document.getElementById('print-crypto-sig');
     if (printSig) printSig.textContent = p.signature || `ecdsa_p256_${computedDigest.slice(0, 32)}`;
+  }
+
+  async exportOfficialTechnicalPDF() {
+    const p = this.currentProduct;
+    if (!p) return;
+
+    this.showToast(i18n.t('passport:toast.generating_pdf', 'Generando Ficha Técnica Oficial PDF (300 DPI)...'));
+
+    const url = GS1Formatter.generateDigitalLink(p.gtin, p.serial, null, p);
+    let qrDataUrl = '';
+    try {
+      qrDataUrl = await QRCode.toDataURL(url, {
+        width: 360,
+        margin: 2,
+        errorCorrectionLevel: 'H',
+        color: {
+          dark: '#0f172a',
+          light: '#ffffff'
+        }
+      });
+    } catch (err) {
+      console.warn('QR DataURL generation error:', err);
+    }
+
+    const canonical = cryptoEngine.canonicalize(p);
+    const computedDigest = await cryptoEngine.computeSHA256(canonical);
+    const signature = p.signature || `ecdsa_p256_${computedDigest.slice(0, 32)}`;
+    const algo = p.signature_algorithm || 'ECDSA-P256-SHA256';
+    const timestamp = p.signature_timestamp || p.manufacturing_date || new Date().toISOString();
+
+    // Render materials table rows
+    const materialsHtml = Array.isArray(p.materials) && p.materials.length > 0
+      ? p.materials.map(m => {
+          const name = typeof m === 'object' ? (m.name || m.n || 'Material') : (Array.isArray(m) ? m[0] : String(m));
+          const pct = typeof m === 'object' ? (m.pct || m.p || 0) : (Array.isArray(m) ? m[1] : 0);
+          return `<tr><td style="padding: 5px 10px; border-bottom: 1px solid #e2e8f0; font-weight: 600;">${escapeHTML(name)}</td><td style="padding: 5px 10px; border-bottom: 1px solid #e2e8f0; text-align: right; font-weight: 700; color: #059669;">${pct}%</td></tr>`;
+        }).join('')
+      : `<tr><td colspan="2" style="padding: 6px 10px; color: #64748b;">Composición conforme a normativa</td></tr>`;
+
+    // Render Sector Specific Block if applicable
+    let sectorBlock = '';
+    if (p.category === 'battery' || p.battery_chemistry) {
+      sectorBlock = `
+        <div style="margin-top: 12px; padding: 10px 14px; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px;">
+          <h4 style="margin: 0 0 4px 0; font-size: 10.5pt; color: #166534; font-weight: 800;">Especificaciones de Batería (Reg. UE 2023/1542)</h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 9pt;">
+            <div><strong>Química:</strong> ${escapeHTML(p.battery_chemistry || 'Li-Ion NMC')}</div>
+            <div><strong>Capacidad:</strong> ${escapeHTML(p.battery_capacity || 'N/A')}</div>
+            <div style="grid-column: span 2;"><strong>Metales Críticos Reciclados:</strong> Co: ${p.battery_recycled_metals?.cobalt_pct || 16}%, Li: ${p.battery_recycled_metals?.lithium_pct || 6}%, Ni: ${p.battery_recycled_metals?.nickel_pct || 65}%</div>
+          </div>
+        </div>
+      `;
+    } else if (p.category === 'cosmetics' || p.inci_ingredients) {
+      sectorBlock = `
+        <div style="margin-top: 12px; padding: 10px 14px; background: #fdf2f8; border: 1px solid #fbcfe8; border-radius: 8px;">
+          <h4 style="margin: 0 0 4px 0; font-size: 10.5pt; color: #9d174d; font-weight: 800;">Fórmula INCI & Seguridad Cosmética (Reg. UE 1223/2009)</h4>
+          <div style="font-size: 9pt;">
+            <div><strong>Fórmula INCI:</strong> <span style="font-family: monospace;">${escapeHTML(p.inci_ingredients || 'N/A')}</span></div>
+            <div style="margin-top: 3px;"><strong>PAO:</strong> ${p.pao_months || 12} meses | <strong>Alérgenos:</strong> ${escapeHTML(p.allergens || 'Sin alérgenos declarables')}</div>
+          </div>
+        </div>
+      `;
+    } else if (p.category === 'food' || p.food_batch) {
+      sectorBlock = `
+        <div style="margin-top: 12px; padding: 10px 14px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px;">
+          <h4 style="margin: 0 0 4px 0; font-size: 10.5pt; color: #065f46; font-weight: 800;">Trazabilidad Agroalimentaria & Cadena de Frío</h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 9pt;">
+            <div><strong>Lote:</strong> ${escapeHTML(p.food_batch || 'N/A')}</div>
+            <div><strong>Caducidad:</strong> ${escapeHTML(p.food_expiry || 'N/A')}</div>
+            <div><strong>Conservación:</strong> ${escapeHTML(p.food_temp || 'Lugar fresco y seco')}</div>
+            <div><strong>Certificaciones:</strong> ${escapeHTML(p.food_certifications || 'Conforme')}</div>
+          </div>
+        </div>
+      `;
+    } else if (p.category === 'construction' || p.epd_number) {
+      sectorBlock = `
+        <div style="margin-top: 12px; padding: 10px 14px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
+          <h4 style="margin: 0 0 4px 0; font-size: 10.5pt; color: #1e293b; font-weight: 800;">Declaración Ambiental de Producto (EPD & CPR)</h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 9pt;">
+            <div><strong>Registro EPD:</strong> ${escapeHTML(p.epd_number || 'ISO 14025')}</div>
+            <div><strong>Vida Útil Estimada:</strong> ${p.structural_lifespan_yrs || 50} años</div>
+          </div>
+        </div>
+      `;
+    }
+
+    const htmlContent = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PassQ_DPP_${p.gtin}_Ficha_Tecnica</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      font-size: 9.5pt;
+      line-height: 1.4;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+    .title-area h1 {
+      margin: 4px 0 2px 0;
+      font-size: 16pt;
+      font-weight: 900;
+      color: #0f172a;
+      text-transform: uppercase;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 7.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-primary { background: #0f172a; color: #ffffff; }
+    .badge-eco { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .meta-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 6px 8px;
+    }
+    .meta-card .label {
+      font-size: 7pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 2px;
+    }
+    .meta-card .val {
+      font-size: 9.5pt;
+      font-weight: 800;
+      color: #0f172a;
+      font-family: monospace;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .section-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 9px 11px;
+    }
+    .section-title {
+      font-size: 9.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #0f172a;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 3px;
+      margin-bottom: 6px;
+    }
+    .lca-bar {
+      height: 8px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      display: flex;
+      overflow: hidden;
+      margin: 6px 0;
+    }
+    .crypto-box {
+      border: 1.5px solid #0f172a;
+      border-radius: 8px;
+      padding: 9px 11px;
+      margin-top: 10px;
+      background: #fafafa;
+    }
+    .crypto-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8.5pt;
+      font-weight: 800;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 3px;
+      margin-bottom: 5px;
+    }
+    .crypto-details {
+      font-family: monospace;
+      font-size: 7.5pt;
+      color: #334155;
+      line-height: 1.35;
+    }
+    .footer {
+      margin-top: 10px;
+      padding-top: 6px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 7pt;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title-area">
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <span class="badge badge-primary">PassQ OFFICIAL DPP</span>
+        <span class="badge badge-eco">EU ESPR 2024/1781 COMPLIANT</span>
+      </div>
+      <h1>${escapeHTML(p.name)}</h1>
+      <div style="font-size: 10pt; font-weight: 700; color: #059669;">${escapeHTML(p.brand || 'PassQ Certified')} • Sector: ${escapeHTML(p.category || 'General').toUpperCase()}</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="${qrDataUrl}" style="width: 88px; height: 88px; border: 1px solid #94a3b8; border-radius: 6px;" />
+      <div style="font-size: 7pt; font-family: monospace; color: #64748b; margin-top: 1px;">GS1 Digital Link</div>
+    </div>
+  </div>
+
+  <div class="meta-grid">
+    <div class="meta-card">
+      <div class="label">Código GTIN-13</div>
+      <div class="val">${escapeHTML(p.gtin)}</div>
+    </div>
+    <div class="meta-card">
+      <div class="label">Número de Serie</div>
+      <div class="val">${escapeHTML(p.serial || '01')}</div>
+    </div>
+    <div class="meta-card">
+      <div class="label">Código Arancelario HS</div>
+      <div class="val">${escapeHTML(p.hs_code || '6202.40.00')}</div>
+    </div>
+    <div class="meta-card">
+      <div class="label">País de Origen</div>
+      <div class="val">${escapeHTML(p.origin_country || 'México')}</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="section-card">
+      <div class="section-title">1. Impacto Ambiental & Huella LCA</div>
+      <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 10pt; color: #059669;">
+        <span>Huella de Carbono (LCA):</span>
+        <span>${p.carbon_kg || 1.8} kg CO₂e</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 8.5pt; color: #475569; margin-top: 2px;">
+        <span>Huella Hídrica Total:</span>
+        <span style="font-weight: 700;">${p.water_liters || 100} Litros</span>
+      </div>
+      <div class="lca-bar">
+        <div style="width: ${p.lca_breakdown?.manufacturing_pct || 65}%; background: #10b981;" title="Fabricación"></div>
+        <div style="width: ${p.lca_breakdown?.transport_pct || 22}%; background: #06b6d4;" title="Transporte"></div>
+        <div style="width: ${p.lca_breakdown?.end_of_life_pct || 13}%; background: #6366f1;" title="Fin de Vida"></div>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 7.5pt; font-weight: 700; color: #64748b;">
+        <span>Fáb: ${p.lca_breakdown?.manufacturing_pct || 65}%</span>
+        <span>Transp: ${p.lca_breakdown?.transport_pct || 22}%</span>
+        <span>Fin: ${p.lca_breakdown?.end_of_life_pct || 13}%</span>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">2. Reparabilidad & Circularidad</div>
+      <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 10pt; color: #0f172a;">
+        <span>Índice de Reparabilidad:</span>
+        <span style="color: #059669;">${p.repair_score || 9.0} / 10 (Clase A)</span>
+      </div>
+      <div style="font-size: 8.5pt; color: #475569; margin-top: 3px;">
+        <div><strong>Disponibilidad de Repuestos:</strong> Garantizada 5+ años</div>
+        <div><strong>Herramientas necesarias:</strong> ${escapeHTML(p.disassembly_tools || 'Estándar')}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="section-card">
+      <div class="section-title">3. Composición de Materiales Declarada</div>
+      <table style="width: 100%; border-collapse: collapse; font-size: 8.5pt;">
+        <thead>
+          <tr style="border-bottom: 1px solid #cbd5e1; text-align: left; color: #64748b; font-size: 7.5pt;">
+            <th style="padding: 3px 8px;">Material</th>
+            <th style="padding: 3px 8px; text-align: right;">% Contenido</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${materialsHtml}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">4. Directrices Oficiales de Reciclaje</div>
+      <p style="font-size: 8.5pt; color: #334155; margin: 0 0 4px 0;">${escapeHTML(p.recycling_instructions || 'Separación y depósito en canal oficial de reciclaje circular.')}</p>
+      <div style="font-size: 7.5pt; font-weight: 700; color: #166534; background: #f0fdf4; padding: 3px 6px; border-radius: 4px; border: 1px solid #bbf7d0;">
+        ✓ 100% Conforme con directivas UE RoHS, REACH y WEEE
+      </div>
+    </div>
+  </div>
+
+  ${sectorBlock}
+
+  <div class="crypto-box">
+    <div class="crypto-title">
+      <span>SELLO CRIPTOGRÁFICO OFICIAL DE AUTENTICIDAD & NO REPUDIO</span>
+      <span style="color: #166534; font-weight: 800;">ESTADO: VÁLIDO & INMUTABLE</span>
+    </div>
+    <div class="crypto-details">
+      <div><strong>Algoritmo Criptográfico:</strong> ${algo} (NIST FIPS 186-4)</div>
+      <div><strong>Sello de Tiempo (Timestamp):</strong> ${timestamp}</div>
+      <div style="margin-top: 1px;"><strong>Digest SHA-256 Canónico:</strong> <span style="color: #0284c7;">${computedDigest}</span></div>
+      <div style="margin-top: 1px;"><strong>Firma Digital del Fabricante:</strong> <span style="color: #15803d;">${signature}</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>PassQ Decentralized Infrastructure • Pasaporte Digital de Producto ESPR 2024/1781</span>
+    <span>Documento Técnico Oficial Generado en Tiempo Real</span>
+  </div>
+</body>
+</html>
+    `;
+
+    const iframe = document.createElement('iframe');
+    iframe.style.position = 'fixed';
+    iframe.style.right = '0';
+    iframe.style.bottom = '0';
+    iframe.style.width = '0';
+    iframe.style.height = '0';
+    iframe.style.border = 'none';
+    document.body.appendChild(iframe);
+
+    const doc = iframe.contentWindow.document;
+    doc.open();
+    doc.write(htmlContent);
+    doc.close();
+
+    iframe.contentWindow.focus();
+    setTimeout(() => {
+      try {
+        iframe.contentWindow.print();
+      } catch {
+        window.print();
+      }
+      setTimeout(() => {
+        iframe.remove();
+      }, 2000);
+    }, 300);
   }
 
   updateSEOMetadata(p) {

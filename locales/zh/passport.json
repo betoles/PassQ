@@ -180,11 +180,12 @@
     }
   },
   "print_modal": {
-    "title": "官方海关技术单据",
-    "subtitle": "专为高精度打印或导出高保真 PDF 准备的官方技术单据",
+    "title": "官方海关与产品护照规格书",
+    "subtitle": "适用于海关清关、跨境出口与合规审计的官方技术文件",
     "format_label": "规格: 官方 A4 格式 (300 DPI)",
     "crypto_label": "密码学防篡改签名印章",
     "device_notice": "完美兼容 AirPrint (iOS)、另存为 PDF、局域网 WiFi 无线打印及文件导出。",
+    "btn_download_pdf": "下载官方技术规格书 (PDF)",
     "btn_print_now": "立即打印 / 另存为 PDF"
   },
   "toast": {

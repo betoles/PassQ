@@ -199,11 +199,12 @@
     }
   },
   "print_modal": {
-    "title": "Official Customs Sheet",
-    "subtitle": "Official technical sheet ready for print or high-fidelity PDF export",
+    "title": "Official Customs & Passport Sheet",
+    "subtitle": "Official technical sheet ready for customs, export and audits",
     "format_label": "Format: Official A4 Sheet (300 DPI)",
     "crypto_label": "Immutable Cryptographic Seal",
     "device_notice": "Compatible with AirPrint (iOS), Save as PDF, WiFi network printing and digital file export.",
+    "btn_download_pdf": "Download Official Technical PDF",
     "btn_print_now": "Print / Save as PDF"
   },
   "toast": {
