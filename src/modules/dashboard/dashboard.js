@@ -399,7 +399,7 @@ class DashboardController {
         tbody.innerHTML = this.products.map(p => `
           <tr class="border-b border-slate-200/60 dark:border-white/5 hover:bg-white/40 dark:hover:bg-white/[0.02] transition catalog-row-optimized">
             <td class="py-4.5 px-4 font-bold text-base sm:text-lg text-slate-900 dark:text-white tracking-tight">${p.name}</td>
-            <td class="py-4.5 px-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 uppercase font-mono font-medium">${i18n.t(`wizard:categories.${p.category}`, p.category)}</td>
+            <td class="py-4.5 px-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 uppercase font-mono font-medium whitespace-nowrap">${i18n.t(`wizard:categories.${p.category}`, p.category)}</td>
             <td class="py-4.5 px-4 text-center">
               <span class="inline-block font-mono text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 tracking-wider px-3 py-1 rounded-xl bg-slate-200/70 dark:bg-white/10 border border-slate-300/60 dark:border-white/10 shadow-xs select-all">
                 ${p.gtin}
