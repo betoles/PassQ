@@ -196,103 +196,18 @@ export class WizardController {
   }
 
   setupCategoryDropdown() {
-    const btn = document.getElementById('wizard-category-btn');
-    const menu = document.getElementById('wizard-category-menu');
-    const hiddenInput = document.getElementById('wizard-category');
-    const chevron = document.getElementById('wizard-category-chevron');
-    const currentLabel = document.getElementById('wizard-category-current-label');
-    const container = document.getElementById('wizard-category-dropdown-container');
+    const select = document.getElementById('wizard-category');
+    if (!select) return;
 
-    if (!btn || !menu || !hiddenInput) return;
-
-    const open = () => {
-      btn.setAttribute('aria-expanded', 'true');
-      menu.classList.remove('hidden');
-      requestAnimationFrame(() => {
-        menu.classList.remove('opacity-0', 'scale-95');
-        menu.classList.add('opacity-100', 'scale-100');
-        if (chevron) chevron.classList.add('rotate-180');
-      });
-    };
-
-    const close = () => {
-      btn.setAttribute('aria-expanded', 'false');
-      menu.classList.remove('opacity-100', 'scale-100');
-      menu.classList.add('opacity-0', 'scale-95');
-      if (chevron) chevron.classList.remove('rotate-180');
-      setTimeout(() => {
-        if (btn.getAttribute('aria-expanded') !== 'true') {
-          menu.classList.add('hidden');
-        }
-      }, 150);
-    };
-
-    const toggle = () => {
-      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-      if (isExpanded) {
-        close();
-      } else {
-        open();
-      }
-    };
-
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      toggle();
-    });
-
-    menu.querySelectorAll('.wizard-cat-opt').forEach(optBtn => {
-      optBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const val = optBtn.getAttribute('data-cat-val');
-        if (!val) return;
-
-        hiddenInput.value = val;
-        this.formData.category = val;
-        this.renderSectorSpecificFields(val);
-        this.updateStep3SectorUI();
-
-        // Update active UI
-        menu.querySelectorAll('.wizard-cat-opt').forEach(b => {
-          const bVal = b.getAttribute('data-cat-val');
-          const isSel = bVal === val;
-          const check = b.querySelector('.cat-check');
-          if (isSel) {
-            b.className = 'wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20';
-            if (check) check.classList.remove('hidden');
-          } else {
-            b.className = 'wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent';
-            if (check) check.classList.add('hidden');
-          }
-        });
-
-        // Update trigger label
-        if (currentLabel) {
-          currentLabel.setAttribute('data-i18n', `wizard:categories.${val}`);
-          currentLabel.textContent = i18n.t(`wizard:categories.${val}`);
-        }
-
-        hiddenInput.dispatchEvent(new Event('change'));
-        this.updateLiveScore();
-        close();
-      });
-    });
-
-    document.addEventListener('click', (e) => {
-      if (container && !container.contains(e.target)) {
-        close();
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') close();
+    select.addEventListener('change', (e) => {
+      const val = e.target.value || 'textile';
+      this.formData.category = val;
+      this.renderSectorSpecificFields(val);
+      this.updateStep3SectorUI();
+      this.updateLiveScore();
     });
 
     i18n.onLanguageChange(() => {
-      const curVal = hiddenInput.value || 'textile';
-      if (currentLabel) {
-        currentLabel.textContent = i18n.t(`wizard:categories.${curVal}`);
-      }
       this.updateStep3SectorUI();
     });
   }
