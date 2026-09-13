@@ -58,12 +58,12 @@
     }
   }
   </script>
-  <script type="module" crossorigin src="./assets/app-B9hrwDRk.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/theme-SiwQJIbu.js">
+  <script type="module" crossorigin src="./assets/app-CHIdmfr-.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/theme-Dlu5_mnu.js">
   <link rel="modulepreload" crossorigin href="./assets/gs1-CkKC3tLx.js">
   <link rel="modulepreload" crossorigin href="./assets/crypto-BjlqRT8o.js">
   <link rel="modulepreload" crossorigin href="./assets/vendor-qrcode-CjSdxGTc.js">
-  <link rel="stylesheet" crossorigin href="./assets/theme-s5FhVtSu.css">
+  <link rel="stylesheet" crossorigin href="./assets/theme-D59ipRfK.css">
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-[#060a12] text-slate-800 dark:text-slate-100 flex flex-col p-3 sm:p-6 lg:p-8 transition-colors duration-300 relative overflow-x-hidden font-sans">
 
@@ -538,13 +538,13 @@
           <span class="text-xs font-mono text-emerald-500 font-bold" id="qr-matrix-density-badge">Matriz Óptima • Ultra-Rápido</span>
         </label>
         <div class="grid grid-cols-2 gap-2 p-1 rounded-2xl bg-slate-200/60 dark:bg-white/5 border border-slate-200/80 dark:border-white/10">
-          <button type="button" id="qr-mode-pdata" class="py-2.5 px-2 rounded-xl transition bg-emerald-600 text-white shadow-xs text-center flex flex-col items-center justify-center gap-0.5" data-qr-mode="pdata">
-            <span class="font-black text-xs sm:text-sm" data-i18n="dashboard:qr_modal.mode_offline_title">Universal Offline</span>
-            <span class="text-[11px] opacity-90 block truncate font-medium" data-i18n="dashboard:qr_modal.mode_offline_desc">Auto-resolución sin red</span>
+          <button type="button" id="qr-mode-pdata" class="w-full min-h-[64px] py-2.5 px-2 rounded-xl transition bg-emerald-600 text-white shadow-xs text-center flex flex-col items-center justify-center cursor-pointer" data-qr-mode="pdata">
+            <span class="font-black text-xs sm:text-sm text-center block w-full leading-snug" data-i18n="dashboard:qr_modal.mode_offline_title">Universal Offline</span>
+            <span class="text-[10.5px] sm:text-[11px] opacity-90 text-center block w-full font-medium leading-tight mt-1 whitespace-normal" data-i18n="dashboard:qr_modal.mode_offline_desc">Auto-resolución sin red</span>
           </button>
-          <button type="button" id="qr-mode-standard" class="py-2.5 px-2 rounded-xl transition text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-white/10 text-center flex flex-col items-center justify-center gap-0.5" data-qr-mode="standard">
-            <span class="font-black text-xs sm:text-sm" data-i18n="dashboard:qr_modal.mode_standard_title">Estándar GS1 Directo</span>
-            <span class="text-[11px] opacity-90 block truncate font-medium" data-i18n="dashboard:qr_modal.mode_standard_desc">Ultra-compacto (Micro-label)</span>
+          <button type="button" id="qr-mode-standard" class="w-full min-h-[64px] py-2.5 px-2 rounded-xl transition text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-white/10 text-center flex flex-col items-center justify-center cursor-pointer" data-qr-mode="standard">
+            <span class="font-black text-xs sm:text-sm text-center block w-full leading-snug" data-i18n="dashboard:qr_modal.mode_standard_title">Estándar GS1 Directo</span>
+            <span class="text-[10.5px] sm:text-[11px] opacity-90 text-center block w-full font-medium leading-tight mt-1 whitespace-normal" data-i18n="dashboard:qr_modal.mode_standard_desc">Ultra-compacto (Micro-label)</span>
           </button>
         </div>
       </div>
@@ -557,26 +557,26 @@
         </label>
         
         <div class="grid grid-cols-3 gap-2 p-1.5 rounded-2xl bg-slate-200/60 dark:bg-white/5 border border-slate-200/80 dark:border-white/10">
-          <button type="button" id="qr-target-prod" class="qr-target-btn py-2.5 px-2 rounded-xl transition bg-emerald-600 text-white shadow-xs text-center flex flex-col items-center justify-center gap-0.5" data-domain-type="prod">
-            <span class="flex items-center justify-center gap-1 font-black text-xs sm:text-sm">
+          <button type="button" id="qr-target-prod" class="qr-target-btn w-full min-h-[64px] py-2 px-1.5 rounded-xl transition bg-emerald-600 text-white shadow-xs text-center flex flex-col items-center justify-center cursor-pointer" data-domain-type="prod">
+            <span class="flex items-center justify-center gap-1 font-black text-xs sm:text-sm leading-snug text-center w-full">
               <span class="icon-svg w-3.5 h-3.5 shrink-0" data-icon="globe"></span>
-              <span>En Línea (Web)</span>
+              <span data-i18n="dashboard:qr_modal.domain_online">En Línea (Web)</span>
             </span>
-            <span class="text-[11px] sm:text-xs opacity-90 block truncate font-medium">WiFi / 4G / 5G</span>
+            <span class="text-[10px] sm:text-[11px] opacity-90 text-center block w-full font-medium leading-tight mt-1 whitespace-normal" data-i18n="dashboard:qr_modal.domain_online_sub">WiFi / 4G / 5G</span>
           </button>
-          <button type="button" id="qr-target-lan" class="qr-target-btn py-2.5 px-2 rounded-xl transition text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-white/10 text-center flex flex-col items-center justify-center gap-0.5" data-domain-type="lan">
-            <span class="flex items-center justify-center gap-1 font-black text-xs sm:text-sm">
+          <button type="button" id="qr-target-lan" class="qr-target-btn w-full min-h-[64px] py-2 px-1.5 rounded-xl transition text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-white/10 text-center flex flex-col items-center justify-center cursor-pointer" data-domain-type="lan">
+            <span class="flex items-center justify-center gap-1 font-black text-xs sm:text-sm leading-snug text-center w-full">
               <span class="icon-svg w-3.5 h-3.5 shrink-0" data-icon="devicePhoneMobile"></span>
-              <span>Dev Local (LAN)</span>
+              <span data-i18n="dashboard:qr_modal.domain_lan">Dev Local (LAN)</span>
             </span>
-            <span class="text-[11px] sm:text-xs opacity-90 block truncate font-medium">192.168.x.x</span>
+            <span class="text-[10px] sm:text-[11px] opacity-90 text-center block w-full font-medium leading-tight mt-1 whitespace-normal" data-i18n="dashboard:qr_modal.domain_lan_sub">192.168.x.x</span>
           </button>
-          <button type="button" id="qr-target-custom" class="qr-target-btn py-2.5 px-2 rounded-xl transition text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-white/10 text-center flex flex-col items-center justify-center gap-0.5" data-domain-type="custom">
-            <span class="flex items-center justify-center gap-1 font-black text-xs sm:text-sm">
+          <button type="button" id="qr-target-custom" class="qr-target-btn w-full min-h-[64px] py-2 px-1.5 rounded-xl transition text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-white/10 text-center flex flex-col items-center justify-center cursor-pointer" data-domain-type="custom">
+            <span class="flex items-center justify-center gap-1 font-black text-xs sm:text-sm leading-snug text-center w-full">
               <span class="icon-svg w-3.5 h-3.5 shrink-0" data-icon="tag"></span>
-              <span>Marca Propia</span>
+              <span data-i18n="dashboard:qr_modal.domain_custom">Marca Propia</span>
             </span>
-            <span class="text-[11px] sm:text-xs opacity-90 block truncate font-medium">Dominio Propio</span>
+            <span class="text-[10px] sm:text-[11px] opacity-90 text-center block w-full font-medium leading-tight mt-1 whitespace-normal" data-i18n="dashboard:qr_modal.domain_custom_sub">Dominio Propio</span>
           </button>
         </div>
 

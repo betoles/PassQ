@@ -459,6 +459,27 @@ html[lang="zh"] .text-sm {
   flex-shrink: 0 !important;
 }
 
+/* ==========================================================================
+   Segmented Multi-line Mode & Domain Button Shield (All 7 Languages)
+   ========================================================================== */
+[data-qr-mode],
+.qr-target-btn {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 64px !important;
+  height: auto !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  padding: 0.5rem 0.375rem !important;
+}
 
-
-
+[data-qr-mode] > span,
+.qr-target-btn > span {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
