@@ -187,6 +187,8 @@ export class GS1Formatter {
           k: product.carbon_kg != null ? Number(product.carbon_kg) : 1.8,
           w: product.water_liters != null ? Number(product.water_liters) : 100,
           m: compactMaterials,
+          ...(product.disassembly_tools && { dt: product.disassembly_tools === 'tools_none' ? 'none' : (product.disassembly_tools === 'tools_specialized' ? 'spec' : 'std') }),
+          ...(product.repair_duration_yrs && { dy: Number(product.repair_duration_yrs) }),
           ...(product.hs_code && { hs: product.hs_code }),
           ...(product.origin_country && { o: product.origin_country }),
           ...(sigClean && { s: sigClean }),

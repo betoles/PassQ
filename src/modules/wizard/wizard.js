@@ -1,5 +1,5 @@
 import { i18n } from '../../core/i18n/i18n.js';
-import { storage } from '../../core/storage/storage.js';
+import { storage, HybridStorageManager } from '../../core/storage/storage.js';
 import { ComplianceCalculator } from '../compliance/calculator.js';
 import { GS1Formatter } from '../compliance/gs1.js';
 import { cryptoEngine } from '../../core/crypto/crypto.js';
@@ -712,10 +712,7 @@ export class WizardController {
       ...(category === 'cosmetics' && { inci_ingredients, pao_months, allergens }),
       ...(category === 'food' && { food_batch, food_expiry, food_temp, food_certifications }),
       ...(category === 'construction' && { epd_number, structural_lifespan_yrs }),
-      repair_guide: storage.constructor?.getDefaultRepairGuide ? storage.constructor.getDefaultRepairGuide(category, disassembly_tools) : [
-        { step: 1, title: "Mantenimiento Preventivo y Limpieza", time: "5 min", difficulty: "easy", tools: "Lavado / paño suave" },
-        { step: 2, title: "Sustitución de Piezas de Desgaste", time: "10 min", difficulty: "easy", tools: "Herramientas estándar" }
-      ],
+      repair_guide: HybridStorageManager.getDefaultRepairGuide(category, disassembly_tools),
       recycling_instructions: document.getElementById('wizard-recycling')?.value || "Apto para reciclaje en centros de acopio autorizados.",
       signature: cryptoProof.signature,
       signature_raw: cryptoProof.signature_raw,

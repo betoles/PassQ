@@ -33,7 +33,14 @@
   "repair_guide": {
     "step_prefix": "Passo",
     "order_parts": "Richiedi Ricambi Originali al Produttore",
-    "default_tools": "Attrezzi domestici standard"
+    "default_tools": "Attrezzi domestici standard",
+    "specs_title": "Specifiche di Smontaggio & Riparazione",
+    "disassembly_tools_label": "Strumenti Richiesti",
+    "spare_parts_availability_label": "Disponibilità dei Ricambi",
+    "tools_none_desc": "Nessuno strumento richiesto (Fissaggio a scatto / Assemblaggio manuale)",
+    "tools_standard_desc": "Strumenti standard (Cacciavite / Chiave a brugola Allen)",
+    "tools_specialized_desc": "Strumenti specializzati o centro assistenza autorizzato",
+    "years_guarantee": "Garantito per {years} anni dal produttore"
   },
   "sector_cards": {
     "battery_title": "Passaporto Batteria (Regolamento UE 2023/1542)",
@@ -52,7 +59,10 @@
     "food_certs": "Certificazioni Accreditate",
     "construction_title": "Dichiarazione Ambientale di Prodotto (EPD & CPR)",
     "epd_label": "Registrazione EPD / ISO 14025",
-    "lifespan_label": "Vita Utile di Progetto Stimata"
+    "lifespan_label": "Vita Utile di Progetto Stimata",
+    "furniture_title": "Dichiarazione Forestale & Ecodesign (Reg. UE EUDR 2023/1115)",
+    "forestry_origin": "Tracciabilità Materie Prime e Legno",
+    "eudr_compliance": "Certificato a deforestazione zero ai sensi del Regolamento Europeo EUDR. Progettato per durabilità e smontaggio circolare."
   },
   "recycling": {
     "title": "Linee Guida per Riciclo e Smontaggio",

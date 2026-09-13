@@ -33,7 +33,14 @@
   "repair_guide": {
     "step_prefix": "Étape",
     "order_parts": "Commander des Pièces Détachées Officielles",
-    "default_tools": "Outils ménagers standards"
+    "default_tools": "Outils ménagers standards",
+    "specs_title": "Spécifications de Démontage & Réparation",
+    "disassembly_tools_label": "Outils Requis",
+    "spare_parts_availability_label": "Disponibilité des Pièces Détachées",
+    "tools_none_desc": "Aucun outil requis (Fixation par pression / Assemblage direct)",
+    "tools_standard_desc": "Outils standards (Tournevis / Clé Allen)",
+    "tools_specialized_desc": "Outils spécialisés ou d'atelier agréé",
+    "years_guarantee": "Garanti pendant {years} ans par le fabricant"
   },
   "sector_cards": {
     "battery_title": "Passeport Batterie (Règlement UE 2023/1542)",
@@ -52,7 +59,10 @@
     "food_certs": "Certifications Agréées",
     "construction_title": "Déclaration Environnementale de Produit (DEP & RPC)",
     "epd_label": "Enregistrement DEP / ISO 14025",
-    "lifespan_label": "Durée de Vie de Conception Estimée"
+    "lifespan_label": "Durée de Vie de Conception Estimée",
+    "furniture_title": "Déclaration Forestière & Écoconception (Règlement UE EUDR 2023/1115)",
+    "forestry_origin": "Traçabilité des Matières Premières & du Bois",
+    "eudr_compliance": "Certifié zéro déforestation selon le Règlement Européen EUDR. Conçu pour la durabilité et le démontage circulaire."
   },
   "recycling": {
     "title": "Directives de Recyclage et Démontage",

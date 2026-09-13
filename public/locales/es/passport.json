@@ -33,7 +33,14 @@
   "repair_guide": {
     "step_prefix": "Paso",
     "order_parts": "Pedir Repuestos Originales a la Marca",
-    "default_tools": "Herramientas estándar domésticas"
+    "default_tools": "Herramientas estándar domésticas",
+    "specs_title": "Condiciones de Desmontaje & Reparación",
+    "disassembly_tools_label": "Herramientas Requeridas",
+    "spare_parts_availability_label": "Disponibilidad de Repuestos",
+    "tools_none_desc": "Sin herramientas requeridas (Fijación por presión / Ensamble directo)",
+    "tools_standard_desc": "Herramientas estándar (Destornillador / Llave Allen)",
+    "tools_specialized_desc": "Herramientas especializadas o de taller oficial",
+    "years_guarantee": "Garantizados durante {years} años por el fabricante"
   },
   "sector_cards": {
     "battery_title": "Especificaciones de Batería (Reg. UE 2023/1542)",
@@ -52,7 +59,10 @@
     "food_certs": "Certificaciones Acreditadas",
     "construction_title": "Declaración Ambiental de Producto (EPD & Reg. CPR)",
     "epd_label": "Registro EPD / ISO 14025",
-    "lifespan_label": "Vida Útil Estimada de Diseño"
+    "lifespan_label": "Vida Útil Estimada de Diseño",
+    "furniture_title": "Declaración Forestal & Ecodiseño (Reg. UE EUDR 2023/1115)",
+    "forestry_origin": "Trazabilidad de Materia Prima y Madera",
+    "eudr_compliance": "Certificado libre de deforestación bajo el Reglamento Europeo EUDR. Diseño concebido para durabilidad, desmontaje y reutilización circular."
   },
   "spare_parts_modal": {
     "title": "Repuestos Originales Garantizados",

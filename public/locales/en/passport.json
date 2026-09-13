@@ -33,7 +33,14 @@
   "repair_guide": {
     "step_prefix": "Step",
     "order_parts": "Order Official Spare Parts",
-    "default_tools": "Standard household tools"
+    "default_tools": "Standard household tools",
+    "specs_title": "Disassembly & Repair Specifications",
+    "disassembly_tools_label": "Required Tools",
+    "spare_parts_availability_label": "Spare Parts Availability",
+    "tools_none_desc": "No tools required (Snap-fit / Direct manual assembly)",
+    "tools_standard_desc": "Standard tools (Screwdriver / Hex Allen Key)",
+    "tools_specialized_desc": "Specialized or official service center tools",
+    "years_guarantee": "Guaranteed for {years} years by the manufacturer"
   },
   "sector_cards": {
     "battery_title": "Battery Passport (EU Reg. 2023/1542)",
@@ -52,7 +59,10 @@
     "food_certs": "Accredited Certifications",
     "construction_title": "Environmental Product Declaration (EPD & CPR)",
     "epd_label": "EPD / ISO 14025 Registration",
-    "lifespan_label": "Estimated Design Service Life"
+    "lifespan_label": "Estimated Design Service Life",
+    "furniture_title": "Forestry Declaration & Ecodesign (EU Reg. EUDR 2023/1115)",
+    "forestry_origin": "Raw Material & Timber Traceability",
+    "eudr_compliance": "Certified deforestation-free under the European EUDR Regulation. Designed for long lifespan, disassembly, and circular reuse."
   },
   "spare_parts_modal": {
     "title": "Guaranteed Original Spare Parts",

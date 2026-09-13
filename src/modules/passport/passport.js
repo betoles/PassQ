@@ -524,6 +524,31 @@ class PassportViewController {
       }).join('');
     }
 
+    // Repair Summary Specs
+    const repairScoreBadge = document.getElementById('repair-score-badge');
+    if (repairScoreBadge) {
+      repairScoreBadge.textContent = `Score ${p.repair_score != null ? p.repair_score : '9.0'} / 10`;
+    }
+
+    const repairToolsDesc = document.getElementById('repair-tools-desc');
+    if (repairToolsDesc) {
+      const toolKey = p.disassembly_tools || 'tools_standard';
+      if (toolKey === 'tools_none' || toolKey === 'none') {
+        repairToolsDesc.textContent = i18n.t('passport:repair_guide.tools_none_desc', 'Sin herramientas requeridas (Fijación por presión / Ensamble directo)');
+      } else if (toolKey === 'tools_specialized' || toolKey === 'spec') {
+        repairToolsDesc.textContent = i18n.t('passport:repair_guide.tools_specialized_desc', 'Herramientas especializadas o de taller oficial');
+      } else {
+        repairToolsDesc.textContent = i18n.t('passport:repair_guide.tools_standard_desc', 'Herramientas estándar (Destornillador / Llave Allen)');
+      }
+    }
+
+    const repairDurationDesc = document.getElementById('repair-duration-desc');
+    if (repairDurationDesc) {
+      const yrs = p.repair_duration_yrs || 5;
+      const yrsTemplate = i18n.t('passport:repair_guide.years_guarantee', 'Garantizados durante {years} años por el fabricante');
+      repairDurationDesc.textContent = yrsTemplate.replace('{years}', yrs);
+    }
+
     // Recycling text
     const recyclingEl = document.getElementById('recycling-instructions-text');
     if (recyclingEl) {
@@ -547,8 +572,9 @@ class PassportViewController {
     const isCosmetics = cat === 'cosmetics' || p.inci_ingredients;
     const isFood = cat === 'food' || p.food_batch;
     const isConstruction = cat === 'construction' || p.epd_number;
+    const isFurniture = cat === 'furniture';
 
-    if (!isBattery && !isCosmetics && !isFood && !isConstruction) {
+    if (!isBattery && !isCosmetics && !isFood && !isConstruction && !isFurniture) {
       container.classList.add('hidden');
       container.innerHTML = '';
       return;
@@ -697,6 +723,30 @@ class PassportViewController {
               <span class="text-slate-500 dark:text-slate-400 block text-[11px] font-semibold" data-i18n="passport:sector_cards.lifespan_label">${i18n.t('passport:sector_cards.lifespan_label', 'Vida Útil Estimada')}</span>
               <strong class="text-slate-900 dark:text-white text-xs sm:text-sm font-bold">${lifespan} años</strong>
             </div>
+          </div>
+        </div>
+      `;
+    } else if (isFurniture) {
+      container.innerHTML = `
+        <div class="p-4 sm:p-5 rounded-3xl bg-amber-600/10 dark:bg-amber-600/15 border border-amber-600/25 space-y-3 shadow-sm text-slate-800 dark:text-slate-100">
+          <div class="flex items-center justify-between">
+            <h4 class="font-extrabold text-amber-800 dark:text-amber-300 text-sm sm:text-base flex items-center gap-2">
+              <span class="icon-svg w-5 h-5 text-amber-600 shrink-0">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3"/></svg>
+              </span>
+              <span data-i18n="passport:sector_cards.furniture_title">${i18n.t('passport:sector_cards.furniture_title', 'Declaración Forestal & Ecodiseño (Reg. UE EUDR 2023/1115)')}</span>
+            </h4>
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/20 text-amber-800 dark:text-amber-300">EUDR Deforestación Cero</span>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 space-y-1.5 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-slate-700 dark:text-slate-300" data-i18n="passport:sector_cards.forestry_origin">${i18n.t('passport:sector_cards.forestry_origin', 'Trazabilidad de Materia Prima y Madera')}</span>
+              <span class="font-bold text-emerald-600 dark:text-emerald-400">100% Legal & Sostenible</span>
+            </div>
+            <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="passport:sector_cards.eudr_compliance">
+              ${i18n.t('passport:sector_cards.eudr_compliance', 'Certificado libre de deforestación bajo el Reglamento Europeo EUDR. Diseño concebido para durabilidad, desmontaje y reutilización circular.')}
+            </p>
           </div>
         </div>
       `;

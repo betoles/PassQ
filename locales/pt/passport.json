@@ -33,7 +33,14 @@
   "repair_guide": {
     "step_prefix": "Passo",
     "order_parts": "Pedir Peças Originais ao Fabricante",
-    "default_tools": "Ferramentas domésticas padrão"
+    "default_tools": "Ferramentas domésticas padrão",
+    "specs_title": "Condições de Desmontagem & Reparação",
+    "disassembly_tools_label": "Ferramentas Necessárias",
+    "spare_parts_availability_label": "Disponibilidade de Peças",
+    "tools_none_desc": "Nenhuma ferramenta necessária (Fixação por pressão / Encaixe direto)",
+    "tools_standard_desc": "Ferramentas padrão (Chave de fenda / Chave Allen)",
+    "tools_specialized_desc": "Ferramentas especializadas ou assistência oficial",
+    "years_guarantee": "Garantido por {years} anos pelo fabricante"
   },
   "sector_cards": {
     "battery_title": "Passaporte da Bateria (Regulamento UE 2023/1542)",
@@ -52,7 +59,10 @@
     "food_certs": "Certificações Acreditadas",
     "construction_title": "Declaração Ambiental do Produto (EPD & CPR)",
     "epd_label": "Registro EPD / ISO 14025",
-    "lifespan_label": "Vida Útil de Projeto Estimada"
+    "lifespan_label": "Vida Útil de Projeto Estimada",
+    "furniture_title": "Declaração Florestal & Ecodesign (Reg. UE EUDR 2023/1115)",
+    "forestry_origin": "Rastreabilidade de Matéria-Prima e Madeira",
+    "eudr_compliance": "Certificado livre de desmatamento sob o Regulamento Europeu EUDR. Projetado para durabilidade e desmontagem circular."
   },
   "recycling": {
     "title": "Diretrizes de Reciclagem e Desmontagem",

@@ -379,6 +379,31 @@
     <!-- TAB 3: REPAIR GUIDE -->
     <div data-tab-content="repair" class="space-y-3 hidden">
       <h3 class="print-only hidden font-bold text-xs uppercase text-slate-800 border-b border-slate-300 pb-1 mb-2">3. Protocolo de Reparabilidad y Desmontaje</h3>
+
+      <!-- Repair & Disassembly Official Specifications Card -->
+      <div class="p-4 sm:p-5 rounded-3xl bg-white/60 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/10 space-y-3 shadow-sm">
+        <div class="flex items-center justify-between">
+          <h4 class="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base flex items-center gap-2">
+            <span class="icon-svg w-5 h-5 text-emerald-500 shrink-0">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.903 3.096l-7.794 7.794a2.25 2.25 0 0 1-3.182-3.182l7.794-7.794c.822-.821 1.311-2.009 1.22-3.085A4.5 4.5 0 0 1 17.25 2.25a4.5 4.5 0 0 1 4.5 4.5Z"/></svg>
+            </span>
+            <span data-i18n="passport:repair_guide.specs_title">Condiciones de Desmontaje & Reparación</span>
+          </h4>
+          <span id="repair-score-badge" class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">Score 9.2/10</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+          <div class="p-3.5 rounded-2xl bg-slate-200/50 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 space-y-1">
+            <span class="text-slate-500 dark:text-slate-400 block text-[11px] font-bold uppercase tracking-wider" data-i18n="passport:repair_guide.disassembly_tools_label">Herramientas Requeridas</span>
+            <strong id="repair-tools-desc" class="text-slate-900 dark:text-white text-xs sm:text-sm font-bold block">Herramientas estándar</strong>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-slate-200/50 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 space-y-1">
+            <span class="text-slate-500 dark:text-slate-400 block text-[11px] font-bold uppercase tracking-wider" data-i18n="passport:repair_guide.spare_parts_availability_label">Disponibilidad de Repuestos</span>
+            <strong id="repair-duration-desc" class="text-slate-900 dark:text-white text-xs sm:text-sm font-bold block">Garantizados durante 5 años</strong>
+          </div>
+        </div>
+      </div>
+
       <div id="repair-steps-list" class="space-y-2.5"></div>
       <button id="btn-open-spare-parts" class="w-full py-3.5 mt-2 rounded-2xl text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 transition flex items-center justify-center gap-2 shadow-sm">
         <span class="icon-svg w-4 h-4">

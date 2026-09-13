@@ -166,49 +166,140 @@ class HybridStorageManager {
   }
 
   static getDefaultRepairGuide(category, tools = 'tools_standard') {
+    const isNone = tools === 'tools_none' || tools === 'none';
+    const isSpecialized = tools === 'tools_specialized' || tools === 'spec';
+
     switch (category) {
       case 'textile':
+        if (isNone) {
+          return [
+            { step: 1, title: "Limpieza y Cuidado Textil Sostenible", time: "5 min", tools: "Lavado suave a 30°C / Secado al aire" },
+            { step: 2, title: "Abotonado y Broches a Presión", time: "2 min", tools: "Fijación manual sin herramientas" },
+            { step: 3, title: "Aplicación de Parches Térmicos", time: "5 min", tools: "Plancha doméstica a 110°C" }
+          ];
+        }
+        if (isSpecialized) {
+          return [
+            { step: 1, title: "Inspección Técnica de Costuras", time: "10 min", tools: "Taller textil especializado" },
+            { step: 2, title: "Retermosellado de Membrana", time: "24h", tools: "Prensa térmica de termosellado" }
+          ];
+        }
         return [
           { step: 1, title: "Limpieza y Cuidado Textil Sostenible", time: "5 min", tools: "Lavado suave a 30°C / Secado al aire" },
-          { step: 2, title: "Sustitución de Botones, Cierres o Fornituras", time: "10 min", tools: "Aguja e hilo reforzado" },
+          { step: 2, title: "Sustitución de Botones, Cierres o Cremalleras", time: "10 min", tools: "Aguja e hilo reforzado / Tijeras" },
           { step: 3, title: "Aplicación de Parches Térmicos en Zonas de Desgaste", time: "5 min", tools: "Plancha doméstica a 110°C" }
         ];
+
+      case 'furniture':
+        if (isNone) {
+          return [
+            { step: 1, title: "Ajuste y Encastre de Ensambles a Presión", time: "2 min", tools: "Sin herramientas (Encastre manual)" },
+            { step: 2, title: "Limpieza y Nutrición de Madera", time: "10 min", tools: "Paño de microfibra y aceite vegetal protector" },
+            { step: 3, title: "Sustitución de Topes y Protectores", time: "2 min", tools: "Acople a presión sin herramientas" }
+          ];
+        }
+        if (isSpecialized) {
+          return [
+            { step: 1, title: "Desmontaje de Bastidor con Extractor", time: "15 min", tools: "Llave dinamométrica / Extractor especializado" },
+            { step: 2, title: "Restauración Estructural Oficial", time: "48h", tools: "Maquinaria de ebanistería y prensa técnica" }
+          ];
+        }
+        return [
+          { step: 1, title: "Reapriete de Herrajes y Pernos de Unión", time: "5 min", tools: "Llave Allen estándar / Destornillador" },
+          { step: 2, title: "Lijado y Encerado Protector", time: "15 min", tools: "Lija fina P240 y cera natural" },
+          { step: 3, title: "Sustitución de Bisagras o Guías", time: "10 min", tools: "Destornillador estándar" }
+        ];
+
+      case 'electronics':
+        if (isNone) {
+          return [
+            { step: 1, title: "Limpieza Preventiva y Contactos", time: "3 min", tools: "Paño seco / Aire comprimido" },
+            { step: 2, title: "Sustitución de Almohadillas / Módulos Magnéticos", time: "1 min", tools: "Sin herramientas (Acople magnético/click)" },
+            { step: 3, title: "Extracción Rápida de Batería Modular", time: "2 min", tools: "Pestaña de liberación rápida (Quick-Release)" }
+          ];
+        }
+        if (isSpecialized) {
+          return [
+            { step: 1, title: "Desensamble en Banco Antiestático", time: "20 min", tools: "Estación de calor / Desoldador SMD" },
+            { step: 2, title: "Sustitución de Componentes SMD", time: "24h", tools: "Servicio Técnico Oficial Certificado" }
+          ];
+        }
+        return [
+          { step: 1, title: "Mantenimiento Preventivo y Limpieza", time: "5 min", tools: "Paño suave / alcohol isopropílico" },
+          { step: 2, title: "Sustitución de Batería Extraíble o Módulo", time: "10 min", tools: "Destornillador estándar de precisión" },
+          { step: 3, title: "Sustitución de Conector de Carga", time: "5 min", tools: "Destornillador estándar Torx / Phillips" }
+        ];
+
       case 'footwear':
+        if (isNone) {
+          return [
+            { step: 1, title: "Limpieza Superficial y Aireado", time: "3 min", tools: "Sin herramientas" },
+            { step: 2, title: "Cambio de Cordones y Plantillas", time: "2 min", tools: "Inserción manual sin herramientas" }
+          ];
+        }
+        if (isSpecialized) {
+          return [
+            { step: 1, title: "Risuolado Completo de Suela y Entresuela", time: "24h", tools: "Taller artesanal zapatero / Prensa de vulcanizado" }
+          ];
+        }
         return [
           { step: 1, title: "Limpieza y Nutrición de Piel / Tejido", time: "5 min", tools: "Cepillo de cerdas suaves / Crema protectora" },
-          { step: 2, title: "Sustitución de Cordones y Plantillas", time: "2 min", tools: "Sin herramientas" },
-          { step: 3, title: "Cambio de Tapas de Tacón o Risuolado", time: "24h", tools: "Taller zapatero artesanal" }
+          { step: 2, title: "Sustitución de Cordones y Plantillas", time: "2 min", tools: "Herramientas domésticas (Punzón / Alicate)" },
+          { step: 3, title: "Cambio de Tapas de Tacón", time: "10 min", tools: "Martillo doméstico de zapatero" }
         ];
+
+      case 'battery':
+        if (isNone) {
+          return [
+            { step: 1, title: "Comprobación Visual de Bornes", time: "2 min", tools: "Sin herramientas" },
+            { step: 2, title: "Extracción de Módulo Extraíble", time: "3 min", tools: "Palanca de enganche rápido manual" }
+          ];
+        }
+        if (isSpecialized) {
+          return [
+            { step: 1, title: "Diagnóstico Telemático de Celdas (SOH)", time: "5 min", tools: "Software BMS / Puerto OBD-II" },
+            { step: 2, title: "Sustitución Segura de Módulos de Alta Tensión", time: "30 min", tools: "Herramientas aisladas 1000V / EPP Categoría 4" }
+          ];
+        }
+        return [
+          { step: 1, title: "Diagnóstico Telemático y Salud de Celdas (SOH)", time: "5 min", tools: "Software BMS / Puerto OBD-II" },
+          { step: 2, title: "Sustitución de Fusible o Cableado", time: "10 min", tools: "Llave de vaso estándar aislada" }
+        ];
+
       case 'cosmetics':
         return [
           { step: 1, title: "Limpieza y Enjuague de Envase para Relleno", time: "3 min", tools: "Agua tibia / Secado completo" },
           { step: 2, title: "Recarga Oficial (Refill) y Colocación de Bomba", time: "1 min", tools: "Enrosque manual sin herramientas" }
         ];
+
       case 'food':
         return [
           { step: 1, title: "Conservación Óptima y Cadena de Frío", time: "Continuo", tools: "Refrigeración según etiqueta" },
           { step: 2, title: "Separación Limpia de Envase, Tapón y Etiqueta", time: "30 seg", tools: "Separación manual para reciclaje" }
         ];
-      case 'battery':
-        return [
-          { step: 1, title: "Diagnóstico Telemático y Salud de Celdas (SOH)", time: "5 min", tools: "Software BMS / Puerto OBD-II" },
-          { step: 2, title: "Sustitución de Módulos Degradados", time: "30 min", tools: "Herramientas aisladas 1000V / EPP" }
-        ];
-      case 'furniture':
-        return [
-          { step: 1, title: "Reapriete de Herrajes y Encastres", time: "5 min", tools: "Llave Allen estándar" },
-          { step: 2, title: "Lijado y Encerado Protector", time: "15 min", tools: "Cera natural / Lija fina" }
-        ];
+
       case 'construction':
+        if (isNone) {
+          return [
+            { step: 1, title: "Inspección Visual Periódica", time: "Anual", tools: "Inspección visual sin herramientas" },
+            { step: 2, title: "Desmontaje y Desacople Modular", time: "Fin de vida", tools: "Desencastre manual en seco" }
+          ];
+        }
+        if (isSpecialized) {
+          return [
+            { step: 1, title: "Ensayos No Destructivos y Ultrasonidos", time: "Quinquenal", tools: "Equipo de ultrasonidos y dinamometría" },
+            { step: 2, title: "Deconstrucción y Recuperación de Elementos", time: "Fin de vida", tools: "Grúa y cizalla hidráulica especializada" }
+          ];
+        }
         return [
-          { step: 1, title: "Inspección Periódica y Mantenimiento", time: "Anual", tools: "Inspección visual y ensayos no destructivos" },
-          { step: 2, title: "Deconstrucción y Recuperación de Elementos", time: "Fin de vida", tools: "Desatornillado mecánico en seco" }
+          { step: 1, title: "Inspección Periódica y Mantenimiento", time: "Anual", tools: "Inspección visual y llave estándar" },
+          { step: 2, title: "Deconstrucción y Desatornillado", time: "Fin de vida", tools: "Atornillador de impacto estándar" }
         ];
-      case 'electronics':
+
       default:
         return [
-          { step: 1, title: "Mantenimiento Preventivo y Limpieza", time: "5 min", tools: "Paño suave / alcohol isopropílico" },
-          { step: 2, title: "Sustitución de Batería Extraíble o Módulo", time: "10 min", tools: "Destornillador estándar de precisión" }
+          { step: 1, title: "Mantenimiento Preventivo y Limpieza", time: "5 min", tools: isNone ? "Sin herramientas" : "Herramientas estándar" },
+          { step: 2, title: "Sustitución de Piezas de Desgaste", time: "10 min", tools: isNone ? "Sin herramientas" : "Herramientas estándar" }
         ];
     }
   }
@@ -301,6 +392,14 @@ class HybridStorageManager {
               };
             }
 
+            // Decode disassembly tools & duration
+            let decodedTools = 'tools_standard';
+            if (decoded.dt === 'none' || decoded.dt === 'tools_none') decodedTools = 'tools_none';
+            else if (decoded.dt === 'spec' || decoded.dt === 'tools_specialized') decodedTools = 'tools_specialized';
+            else if (decoded.dt === 'std' || decoded.dt === 'tools_standard') decodedTools = 'tools_standard';
+
+            const decodedDuration = Math.max(1, Math.min(20, parseInt(decoded.dy || decoded.duration, 10) || 5));
+
             const dynProduct = {
               id: `dyn_${HybridStorageManager.sanitizeString(id, 40) || Date.now()}`,
               gtin: HybridStorageManager.sanitizeString(id, 20) || "0000000000000",
@@ -309,6 +408,8 @@ class HybridStorageManager {
               category: sanitizedCategory,
               brand: sanitizedBrand,
               repair_score: cleanRepairScore,
+              repair_duration_yrs: decodedDuration,
+              disassembly_tools: decodedTools,
               carbon_kg: cleanCarbon,
               water_liters: cleanWater,
               materials: sanitizedMaterials,
@@ -334,7 +435,7 @@ class HybridStorageManager {
               food_certifications: HybridStorageManager.sanitizeString(decoded.fc || decoded.f_crt, 100),
               epd_number: HybridStorageManager.sanitizeString(decoded.ee || decoded.e_epd, 60),
               structural_lifespan_yrs: Math.max(1, Math.min(200, parseInt(decoded.el || decoded.e_life, 10) || 50)),
-              repair_guide: HybridStorageManager.getDefaultRepairGuide(sanitizedCategory),
+              repair_guide: HybridStorageManager.getDefaultRepairGuide(sanitizedCategory, decodedTools),
               recycling_instructions: "Separación y depósito en canal oficial de reciclaje circular."
             };
             this.save(dynProduct);
@@ -435,3 +536,4 @@ class HybridStorageManager {
 }
 
 export const storage = new HybridStorageManager();
+export { HybridStorageManager };
