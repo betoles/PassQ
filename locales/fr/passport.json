@@ -35,6 +35,25 @@
     "order_parts": "Commander des Pièces Détachées Officielles",
     "default_tools": "Outils ménagers standards"
   },
+  "sector_cards": {
+    "battery_title": "Passeport Batterie (Règlement UE 2023/1542)",
+    "battery_chem": "Chimie des Cellules",
+    "battery_cap": "Capacité Nominale",
+    "battery_recycled_metals": "Métaux Critiques Recyclés",
+    "battery_targets_met": "Objectifs de Recyclage UE 2027/2031 Atteints",
+    "cosmetics_title": "Formule INCI & Sécurité (Règlement UE 1223/2009)",
+    "inci_list": "Liste Officielle des Ingrédients (INCI)",
+    "pao_label": "Période Après Ouverture (PAO)",
+    "allergens_label": "Allergènes Déclarables",
+    "food_title": "Traçabilité Agroalimentaire & Chaîne du Froid",
+    "food_lot": "Lot de Fabrication",
+    "food_exp": "Date de Durabilité Minimale / DLC",
+    "food_temp": "Conservation Thermique",
+    "food_certs": "Certifications Agréées",
+    "construction_title": "Déclaration Environnementale de Produit (DEP & RPC)",
+    "epd_label": "Enregistrement DEP / ISO 14025",
+    "lifespan_label": "Durée de Vie de Conception Estimée"
+  },
   "recycling": {
     "title": "Directives de Recyclage et Démontage",
     "toxic_free": "100% Conforme aux directives RoHS, REACH, CE et DEEE.",

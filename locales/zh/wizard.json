@@ -34,7 +34,26 @@
     "textile": "纺织服装与时尚品",
     "footwear": "鞋靴与皮革制品",
     "electronics": "消费电子与数码设备",
-    "furniture": "家具与木制品"
+    "furniture": "家具与木制品",
+    "battery": "工业动力电池与电动车储能",
+    "cosmetics": "美妆护肤与个人护理",
+    "food": "预包装食品与现代农业",
+    "construction": "绿色建筑材料与结构钢材"
+  },
+  "sector_fields": {
+    "title": "行业专属合规申报数据",
+    "battery_chemistry": "电芯化学体系",
+    "battery_capacity": "额定容量规格 (Ah / kWh)",
+    "battery_recycled_metals": "关键回收金属比例 (% 钴/锂/镍)",
+    "inci_ingredients": "INCI 国际化妆品原料配方表",
+    "pao_months": "开盖保质期 (PAO 月数)",
+    "allergens": "需申报过敏原标注",
+    "food_batch": "生产批次编号 (Lot)",
+    "food_expiry": "最佳赏味期 / 保质截止日期",
+    "food_temp": "仓储运输温控与冷链要求 (°C)",
+    "food_certifications": "权威资质认证 (有机/清真/公平贸易)",
+    "epd_number": "环境产品声明编号 (EPD / ISO 14025)",
+    "structural_lifespan": "设计使用年限寿命 (年)"
   },
   "tools": {
     "none": "无需任何工具（卡扣/卡槽按压固定）",
@@ -46,7 +65,7 @@
     "summary_product_label": "产品名称：",
     "summary_gtin_label": "GTIN 编码：",
     "summary_origin_label": "原产地：",
-    "legal_declaration": "我正式声明并保证依法拥有该产品的合法商标及出海资质，承担全部合规责任，并接受 <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">服务条款</a> 中的免责保护协议。"
+    "legal_declaration": "我正式声明并保证依法拥有该产品的合法商标及出海资质，承担全部合规责任，并接受 <a href=\"./terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">服务条款</a> 中的免责保护协议。"
   },
   "validation": {
     "name_required": "请填写完整的产品名称。",

@@ -68,9 +68,9 @@
     "mail_body": "Gentile team di PassQ,\n\nvorrei condividere i seguenti commenti e suggerimenti per adattare la piattaforma alle mie esigenze:\n\n"
   },
   "billing": {
-    "badge": "Google Play Billing • 7 Giorni di Prova Gratuita",
-    "title": "Abbonamento Ufficiale su Google Play",
-    "subtitle": "Tutti i pagamenti, rinnovi e cancellazioni sono gestiti al 100% da Google Play Console. Senza sorprese, cancella quando vuoi con 1 clic nel tuo account Google.",
+    "badge": "Google Play & PayPal • 7 Giorni di Prova Gratuita",
+    "title": "Abbonamenti Ufficiali PassQ",
+    "subtitle": "Abbonati in tutta sicurezza tramite Google Play Store (app mobile) o direttamente con PayPal / Carte di debito o credito (web & PC).",
     "trial_badge": "7D",
     "trial_status_active": "Stato Attuale della Prova: Giorno {day} di 7 ({remaining} giorni rimanenti)",
     "trial_status_ended": "Periodo di Prova Concluso",
@@ -92,14 +92,18 @@
     },
     "features": {
       "days_free": "✓ 7 Giorni Gratis",
-      "play_billing": "✓ Google Play Billing"
+      "play_billing": "✓ Google Play / PayPal"
     },
-    "guarantees_title": "Garanzie di Google Play:",
-    "guarantee_1": "Fatturazione ufficiale garantita da Google Play Store con ricevuta fiscale.",
-    "guarantee_2_prefix": "Cancellazione in qualsiasi momento da ",
-    "guarantee_2_link": "Google Play Subscriptions",
-    "guarantee_2_suffix": " con 1 solo tocco.",
+    "guarantees_title": "Garanzie e Sicurezza Ufficiali:",
+    "guarantee_1": "Google Play Store: Fatturazione ufficiale garantita da Google con ricevuta fiscale.",
+    "guarantee_2_prefix": "PayPal Sicuro: Protezione acquisti. Paga con saldo PayPal o carta senza obbligo di conto.",
+    "guarantee_2_link": "",
+    "guarantee_2_suffix": "",
     "guarantee_3": "Nessuna memorizzazione di carte di credito sui server PassQ.",
+    "btn_subscribe_play_main": "Google Play Store",
+    "btn_subscribe_play_sub": "(App Android • 7 Giorni Gratis)",
+    "btn_subscribe_paypal_main": "Paga con PayPal / Carta",
+    "btn_subscribe_paypal_sub": "(Web & PC • Attivazione Immediata)",
     "btn_subscribe": "Continua con Google Play (7 Giorni Gratis)",
     "btn_subscribe_main": "Continua con Google Play",
     "btn_subscribe_sub": "(7 Giorni Gratis)"

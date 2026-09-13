@@ -24,14 +24,14 @@
   },
   "tab2_content": {
     "title": "Procedura Guidata di Creazione (4 Semplici Passaggi)",
-    "step1_title": "Identità del Prodotto",
-    "step1_desc": "Nome commerciale, categoria (Tessile, Calzature, Elettronica, Mobili), codice a barre GTIN-13 e paese d'origine.",
+    "step1_title": "Identità del Prodotto & Settore",
+    "step1_desc": "Nome commerciale, categoria normativa (Tessile, Calzature, Elettronica, Mobili, Batterie EV, Cosmetici, Alimentare o Costruzioni), codice GTIN-13 validato GS1 Mod 10 e paese d'origine.",
     "step2_title": "Composizione Materiali & Impronta CO₂",
-    "step2_desc": "Percentuali dei materiali (es. 85% Poliestere riciclato, 15% Membrana) e impronta di carbonio in kg CO₂e.",
+    "step2_desc": "Percentuali dei materiali o dati settoriali (es. formula INCI, chimica batteria, lotto o EPD) e impronta di carbonio in kg CO₂e.",
     "step3_title": "Riparabilità & Cura",
     "step3_desc": "Strumenti di smontaggio e anni di disponibilità dei pezzi di ricambio. Calcolo automatico del punteggio di ecodesign.",
     "step4_title": "Codice Doganale & Firma Digitale",
-    "step4_desc": "Codice doganale HS/TARIC (es. 6202.40.00) e firma digitale generata localmente."
+    "step4_desc": "Codice doganale HS/TARIC (es. 6202.40.00) e firma digitale inviolabile ECDSA P-256 generata localmente."
   },
   "tab3_content": {
     "title": "Gestione del Catalogo & Operazioni Giornaliere",
@@ -39,7 +39,7 @@
     "catalog_desc": "La tabella «Passaporti Digitali Gestiti» nel pannello principale costituisce il tuo catalogo prodotti.",
     "actions_title": "Azioni dirette per riga:",
     "action_view": "Visualizza Passaporto: Apri la scheda pubblica per clienti e ispettori.",
-    "action_qr": "Codice QR: Finestra di download e stampa ad alta risoluzione.",
+    "action_qr": "Studio QR: Studio interattivo con modalità duale (Universal Offline / GS1 Diretto) ed esportazione vettoriale SVG e PNG 300 DPI.",
     "action_del": "Elimina: Cancellazione permanente per prodotti ritirati.",
     "export_title": "Esportazioni Ufficiali:",
     "export_desc": "Esporta PDF doganali di 3 pagine e pacchetti dati JSON-LD UE."

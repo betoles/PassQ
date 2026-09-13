@@ -35,6 +35,25 @@
     "order_parts": "Originale Ersatzteile bestellen",
     "default_tools": "Standard-Haushaltswerkzeuge"
   },
+  "sector_cards": {
+    "battery_title": "Batteriepass (EU-Verordnung 2023/1542)",
+    "battery_chem": "Zellchemie",
+    "battery_cap": "Nennkapazität",
+    "battery_recycled_metals": "Kritische recycelte Metalle",
+    "battery_targets_met": "EU 2027/2031 Verwertungsziele Erfüllt",
+    "cosmetics_title": "INCI-Rezeptur & Sicherheit (EU-Verordnung 1223/2009)",
+    "inci_list": "Offizielle Inhaltsstoffliste (INCI)",
+    "pao_label": "Haltbarkeit nach Öffnung (PAO)",
+    "allergens_label": "Deklarationspflichtige Allergene",
+    "food_title": "Rückverfolgbarkeit & Kühlkette",
+    "food_lot": "Produktionscharge / Los",
+    "food_exp": "Mindesthaltbarkeit / Verfall",
+    "food_temp": "Lagertemperatur",
+    "food_certs": "Akkreditierte Zertifizierungen",
+    "construction_title": "Umwelt-Produktdeklaration (EPD & BauPVO)",
+    "epd_label": "EPD / ISO 14025 Registrierung",
+    "lifespan_label": "Geschätzte Bemessungslebensdauer"
+  },
   "recycling": {
     "title": "Recycling- & Demontagerichtlinien",
     "toxic_free": "100% konform mit RoHS-, REACH-, CE- und WEEE-Richtlinien.",

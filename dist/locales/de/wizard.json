@@ -65,7 +65,7 @@
     "summary_product_label": "Produkt:",
     "summary_gtin_label": "GTIN:",
     "summary_origin_label": "Herkunft:",
-    "legal_declaration": "Ich bestätige, die gesetzlichen Rechte und Marken an diesem Produkt zu besitzen, und übernehme die volle Verantwortung gemäß den <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Nutzungsbedingungen</a>."
+    "legal_declaration": "Ich bestätige, die gesetzlichen Rechte und Marken an diesem Produkt zu besitzen, und übernehme die volle Verantwortung gemäß den <a href=\"./terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Nutzungsbedingungen</a>."
   },
   "validation": {
     "name_required": "Bitte geben Sie den Produktnamen ein.",

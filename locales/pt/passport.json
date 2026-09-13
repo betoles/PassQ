@@ -35,6 +35,25 @@
     "order_parts": "Pedir Peças Originais ao Fabricante",
     "default_tools": "Ferramentas domésticas padrão"
   },
+  "sector_cards": {
+    "battery_title": "Passaporte da Bateria (Regulamento UE 2023/1542)",
+    "battery_chem": "Química da Célula",
+    "battery_cap": "Capacidade Nominal",
+    "battery_recycled_metals": "Metais Críticos Reciclados",
+    "battery_targets_met": "Metas de Recuperação UE 2027/2031 Cumpridas",
+    "cosmetics_title": "Fórmula INCI & Segurança (Regulamento UE 1223/2009)",
+    "inci_list": "Lista Oficial de Ingredientes (INCI)",
+    "pao_label": "Período Após Abertura (PAO)",
+    "allergens_label": "Alérgenos Declaráveis",
+    "food_title": "Rastreabilidade Agroalimentar & Cadeia de Frio",
+    "food_lot": "Lote de Fabricação",
+    "food_exp": "Validade / Consumo Preferencial",
+    "food_temp": "Conservação Térmica",
+    "food_certs": "Certificações Acreditadas",
+    "construction_title": "Declaração Ambiental do Produto (EPD & CPR)",
+    "epd_label": "Registro EPD / ISO 14025",
+    "lifespan_label": "Vida Útil de Projeto Estimada"
+  },
   "recycling": {
     "title": "Diretrizes de Reciclagem e Desmontagem",
     "toxic_free": "100% Conforme às diretivas RoHS, REACH, CE e WEEE.",

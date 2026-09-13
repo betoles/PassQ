@@ -375,6 +375,12 @@ export class WizardController {
   }
 
   renderStep() {
+    // Scroll body container back to top on step transition
+    const scrollBody = document.getElementById('wizard-body-scroll');
+    if (scrollBody) {
+      scrollBody.scrollTop = 0;
+    }
+
     // Hide all steps, show current
     for (let i = 1; i <= this.totalSteps; i++) {
       const stepEl = document.getElementById(`wizard-step-${i}`);

@@ -24,14 +24,14 @@
   },
   "tab2_content": {
     "title": "Assistant de Création Guidé (4 Étapes Simples)",
-    "step1_title": "Identité du Produit",
-    "step1_desc": "Nom commercial, catégorie (Textile, Chaussures, Électronique, Meubles), code-barres GTIN-13 et pays d'origine.",
+    "step1_title": "Identité du Produit & Secteur",
+    "step1_desc": "Nom commercial, catégorie réglementaire (Textile, Chaussures, Électronique, Meubles, Batteries EV, Cosmétiques, Alimentation ou Construction), code GTIN-13 validé GS1 Mod 10 et pays d'origine.",
     "step2_title": "Composition des Matériaux & CO₂",
-    "step2_desc": "Décomposition des matériaux (ex. 85% Polyester recyclé, 15% Membrane) et empreinte carbone en kg CO₂e.",
+    "step2_desc": "Décomposition des matériaux ou métadonnées sectorielles (ex. formule INCI, chimie de batterie, lot ou EPD) et empreinte carbone en kg CO₂e.",
     "step3_title": "Réparabilité & Entretien",
     "step3_desc": "Outils de démontage requis et années de disponibilité des pièces détachées. PassQ calcule le score d'écoconception.",
     "step4_title": "Code Douanier & Signature Numérique",
-    "step4_desc": "Code douanier HS/TARIC (ex. 6202.40.00) et signature numérique inviolable générée localement."
+    "step4_desc": "Code douanier HS/TARIC (ex. 6202.40.00) et signature numérique inviolable ECDSA P-256 générée localement."
   },
   "tab3_content": {
     "title": "Gestion du Catalogue & Opérations Quotidiennes",
@@ -39,7 +39,7 @@
     "catalog_desc": "Sur le tableau de bord, le tableau «Passeports Numériques Gérés» regroupe l'ensemble de vos produits.",
     "actions_title": "Actions directes par produit:",
     "action_view": "Voir le passeport : Ouvre la vue publique pour clients et inspecteurs.",
-    "action_qr": "Obtenir le QR : Fenêtre de téléchargement et impression haute résolution.",
+    "action_qr": "Studio QR : Studio interactif avec mode double (Universal Offline / GS1 Direct) et export vectoriel SVG et PNG 300 DPI.",
     "action_del": "Supprimer : Suppression définitive du produit et de ses signatures.",
     "export_title": "Exportations Officielles:",
     "export_desc": "Fiches douanières PDF et données JSON-LD aux normes européennes."

@@ -84,7 +84,7 @@
     "summary_gtin_label": "GTIN:",
     "summary_origin_label": "Origen:",
     "qr_quality_title": "Calidad Óptica del Código QR",
-    "legal_declaration": "Certifico que tengo los derechos legales y marcas de este producto, y asumo la total responsabilidad de cumplir con las normativas locales y aduaneras vigentes, eximiendo a PassQ según los <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Términos de Servicio</a>."
+    "legal_declaration": "Certifico que tengo los derechos legales y marcas de este producto, y asumo la total responsabilidad de cumplir con las normativas locales y aduaneras vigentes, eximiendo a PassQ según los <a href=\"./terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Términos de Servicio</a>."
   },
   "sector_repair": {
     "textile_title": "Facilidad de Reparación y Fornituras",

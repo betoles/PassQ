@@ -68,9 +68,9 @@
     "mail_body": "Hello PassQ Team,\n\nI would like to share the following feedback and suggestions to adapt the platform to my needs:\n\n"
   },
   "billing": {
-    "badge": "Google Play Billing • 7-Day Free Trial",
-    "title": "Official Subscription via Google Play",
-    "subtitle": "All billing, renewals, and cancellations are 100% managed by Google Play Console. No surprises, cancel anytime with 1 click in your Google account.",
+    "badge": "Google Play & PayPal • 7-Day Free Trial",
+    "title": "Official PassQ Subscriptions",
+    "subtitle": "Subscribe securely via Google Play Store (mobile app) or directly via PayPal / Credit & Debit Cards (web & PC).",
     "trial_badge": "7D",
     "trial_status_active": "Current Trial Status: Day {day} of 7 ({remaining} days remaining)",
     "trial_status_ended": "Trial Period Ended",
@@ -92,14 +92,18 @@
     },
     "features": {
       "days_free": "✓ 7 Days Free",
-      "play_billing": "✓ Google Play Billing"
+      "play_billing": "✓ Google Play / PayPal"
     },
-    "guarantees_title": "Google Play Guarantees:",
-    "guarantee_1": "Official billing backed by Google Play Store with tax invoice.",
-    "guarantee_2_prefix": "Cancel anytime directly from ",
-    "guarantee_2_link": "Google Play Subscriptions",
-    "guarantee_2_suffix": " with 1 single tap.",
+    "guarantees_title": "Official Guarantees & Security:",
+    "guarantee_1": "Google Play Store: Official billing backed by Google with tax invoice.",
+    "guarantee_2_prefix": "PayPal Secure: Buyer protection. Pay with PayPal balance or debit/credit card.",
+    "guarantee_2_link": "",
+    "guarantee_2_suffix": "",
     "guarantee_3": "Zero credit card data stored on PassQ servers.",
+    "btn_subscribe_play_main": "Google Play Store",
+    "btn_subscribe_play_sub": "(Android App • 7 Days Free)",
+    "btn_subscribe_paypal_main": "Pay with PayPal / Card",
+    "btn_subscribe_paypal_sub": "(Web & PC • Instant Activation)",
     "btn_subscribe": "Continue with Google Play (7 Days Free)",
     "btn_subscribe_main": "Continue with Google Play",
     "btn_subscribe_sub": "(7 Days Free)"

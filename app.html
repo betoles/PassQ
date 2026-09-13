@@ -269,13 +269,13 @@
   </div>
 
   <!-- MODAL: 4-STEP WIZARD -->
-  <div id="wizard-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 hidden">
-    <div class="w-full max-w-lg rounded-3xl glass-card p-6 sm:p-8 space-y-5 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+  <div id="wizard-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 hidden">
+    <div class="w-full max-w-lg rounded-3xl glass-card shadow-2xl relative max-h-[92vh] sm:max-h-[88vh] flex flex-col overflow-hidden bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200/90 dark:border-white/15">
       
-      <!-- Wizard Header -->
-      <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-white/10 pb-4">
+      <!-- Wizard Header (Fixed Top) -->
+      <div class="flex-none flex items-center justify-between border-b border-slate-200/80 dark:border-white/10 p-5 sm:p-6 pb-4">
         <div>
-          <h3 data-i18n="wizard:title" class="font-extrabold text-lg text-slate-900 dark:text-white">Crear Pasaporte Digital</h3>
+          <h3 data-i18n="wizard:title" class="font-black text-lg sm:text-xl text-slate-900 dark:text-white">Crear Pasaporte Digital</h3>
           <p data-i18n="wizard:subtitle" class="text-xs text-slate-500 dark:text-slate-400">Paso a paso guiado para cumplir con la normativa europea.</p>
           <div class="flex gap-2 mt-3">
             <div class="step-indicator h-2.5 w-10 rounded-full bg-emerald-500 shadow-sm"></div>
@@ -284,219 +284,224 @@
             <div class="step-indicator h-2.5 w-4 rounded-full bg-slate-200 dark:bg-white/10"></div>
           </div>
         </div>
-        <button id="btn-close-wizard" class="text-slate-400 hover:text-white p-2 rounded-lg transition" title="Cerrar" data-i18n-title="common:buttons.close">
+        <button id="btn-close-wizard" class="h-9 w-9 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-500 dark:text-slate-300 flex items-center justify-center transition cursor-pointer" title="Cerrar" data-i18n-title="common:buttons.close">
           <span class="icon-svg w-5 h-5">
             <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
           </span>
         </button>
       </div>
 
-      <!-- STEP 1: IDENTITY -->
-      <div id="wizard-step-1" class="space-y-4">
-        <div>
-          <label data-i18n="wizard:fields.product_name" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Nombre del Producto</label>
-          <input id="wizard-name" type="text" placeholder="ej. Chaqueta Alpina EcoDry" data-i18n-placeholder="wizard:placeholders.product_name" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="relative" id="wizard-category-dropdown-container">
-            <label data-i18n="wizard:fields.category" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Categoría</label>
-            <input type="hidden" id="wizard-category" value="textile" />
-            
-            <!-- Encapsulated Custom Category Trigger Button -->
-            <button id="wizard-category-btn" type="button" class="glass-input w-full py-3 px-3.5 rounded-2xl text-sm font-semibold flex items-center justify-between transition cursor-pointer select-none bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 shadow-xs active:scale-[0.99]" aria-haspopup="true" aria-expanded="false">
-              <span id="wizard-category-current-label" data-i18n="wizard:categories.textile" class="truncate text-slate-800 dark:text-slate-100 font-bold">Textil y Moda</span>
-              <span class="icon-svg w-4 h-4 text-slate-400 dark:text-slate-500 transition-transform duration-200 shrink-0 ml-2" id="wizard-category-chevron">
-                <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
-              </span>
-            </button>
+      <!-- Wizard Scrollable Body (Fixed scroll container) -->
+      <div id="wizard-body-scroll" class="flex-1 overflow-y-auto p-5 sm:p-6 space-y-4 overscroll-contain">
+        
+        <!-- STEP 1: IDENTITY -->
+        <div id="wizard-step-1" class="space-y-4">
+          <div>
+            <label data-i18n="wizard:fields.product_name" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Nombre del Producto</label>
+            <input id="wizard-name" type="text" placeholder="ej. Chaqueta Alpina EcoDry" data-i18n-placeholder="wizard:placeholders.product_name" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="relative" id="wizard-category-dropdown-container">
+              <label data-i18n="wizard:fields.category" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Categoría</label>
+              <input type="hidden" id="wizard-category" value="textile" />
+              
+              <!-- Encapsulated Custom Category Trigger Button -->
+              <button id="wizard-category-btn" type="button" class="glass-input w-full py-3 px-3.5 rounded-2xl text-sm font-semibold flex items-center justify-between transition cursor-pointer select-none bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 shadow-xs active:scale-[0.99]" aria-haspopup="true" aria-expanded="false">
+                <span id="wizard-category-current-label" data-i18n="wizard:categories.textile" class="truncate text-slate-800 dark:text-slate-100 font-bold">Textil y Moda</span>
+                <span class="icon-svg w-4 h-4 text-slate-400 dark:text-slate-500 transition-transform duration-200 shrink-0 ml-2" id="wizard-category-chevron">
+                  <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                </span>
+              </button>
 
-            <!-- Encapsulated Category Options Menu (Strictly bounded to container width with smooth scroll) -->
-            <div id="wizard-category-menu" class="hidden opacity-0 scale-95 transition-all duration-150 ease-out absolute left-0 right-0 top-full mt-1.5 w-full max-h-52 overflow-y-auto p-1.5 rounded-2xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200/90 dark:border-white/15 shadow-2xl backdrop-blur-2xl z-50 origin-top overscroll-contain">
-              <div class="space-y-1" role="menu">
-                <button type="button" data-cat-val="textile" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20">
-                  <span data-i18n="wizard:categories.textile">Textil y Moda</span>
-                  <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0">
-                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                  </span>
-                </button>
-                <button type="button" data-cat-val="footwear" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
-                  <span data-i18n="wizard:categories.footwear">Calzado y Piel</span>
-                  <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
-                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                  </span>
-                </button>
-                <button type="button" data-cat-val="electronics" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
-                  <span data-i18n="wizard:categories.electronics">Electrónica de Consumo</span>
-                  <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
-                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                  </span>
-                </button>
-                <button type="button" data-cat-val="furniture" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
-                  <span data-i18n="wizard:categories.furniture">Muebles y Madera</span>
-                  <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
-                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                  </span>
-                </button>
-                <button type="button" data-cat-val="battery" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
-                  <span data-i18n="wizard:categories.battery">Baterías y Acumuladores EV</span>
-                  <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
-                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                  </span>
-                </button>
-                <button type="button" data-cat-val="cosmetics" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
-                  <span data-i18n="wizard:categories.cosmetics">Cosmética y Cuidado Personal</span>
-                  <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
-                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                  </span>
-                </button>
-                <button type="button" data-cat-val="food" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
-                  <span data-i18n="wizard:categories.food">Alimentos y Bebidas</span>
-                  <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
-                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                  </span>
-                </button>
-                <button type="button" data-cat-val="construction" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
-                  <span data-i18n="wizard:categories.construction">Construcción y Acero</span>
-                  <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
-                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                  </span>
-                </button>
+              <!-- Encapsulated Category Options Menu (Strictly bounded to container width with smooth scroll) -->
+              <div id="wizard-category-menu" class="hidden opacity-0 scale-95 transition-all duration-150 ease-out absolute left-0 right-0 top-full mt-1.5 w-full max-h-52 overflow-y-auto p-1.5 rounded-2xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200/90 dark:border-white/15 shadow-2xl backdrop-blur-2xl z-50 origin-top overscroll-contain">
+                <div class="space-y-1" role="menu">
+                  <button type="button" data-cat-val="textile" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20">
+                    <span data-i18n="wizard:categories.textile">Textil y Moda</span>
+                    <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0">
+                      <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                  </button>
+                  <button type="button" data-cat-val="footwear" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
+                    <span data-i18n="wizard:categories.footwear">Calzado y Piel</span>
+                    <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
+                      <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                  </button>
+                  <button type="button" data-cat-val="electronics" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
+                    <span data-i18n="wizard:categories.electronics">Electrónica de Consumo</span>
+                    <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
+                      <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                  </button>
+                  <button type="button" data-cat-val="furniture" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
+                    <span data-i18n="wizard:categories.furniture">Muebles y Madera</span>
+                    <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
+                      <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                  </button>
+                  <button type="button" data-cat-val="battery" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
+                    <span data-i18n="wizard:categories.battery">Baterías y Acumuladores EV</span>
+                    <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
+                      <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                  </button>
+                  <button type="button" data-cat-val="cosmetics" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
+                    <span data-i18n="wizard:categories.cosmetics">Cosmética y Cuidado Personal</span>
+                    <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
+                      <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                  </button>
+                  <button type="button" data-cat-val="food" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
+                    <span data-i18n="wizard:categories.food">Alimentos y Bebidas</span>
+                    <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
+                      <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                  </button>
+                  <button type="button" data-cat-val="construction" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
+                    <span data-i18n="wizard:categories.construction">Construcción y Acero</span>
+                    <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
+                      <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                  </button>
+                </div>
               </div>
+            </div>
+            <div>
+              <label data-i18n="wizard:fields.gtin" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">GTIN / Código de Barras (8-14 dígitos)</label>
+              <input id="wizard-gtin" type="text" placeholder="7501234567890" data-i18n-placeholder="wizard:placeholders.gtin" maxlength="14" class="glass-input w-full py-3 px-4 rounded-2xl text-sm font-mono" />
             </div>
           </div>
           <div>
-            <label data-i18n="wizard:fields.gtin" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">GTIN / Código de Barras (8-14 dígitos)</label>
-            <input id="wizard-gtin" type="text" placeholder="7501234567890" data-i18n-placeholder="wizard:placeholders.gtin" maxlength="14" class="glass-input w-full py-3 px-4 rounded-2xl text-sm font-mono" />
+            <label data-i18n="wizard:fields.origin_country" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">País de Origen y Fabricación</label>
+            <input id="wizard-origin" type="text" placeholder="México" data-i18n-placeholder="wizard:placeholders.origin" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
           </div>
-        </div>
-        <div>
-          <label data-i18n="wizard:fields.origin_country" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">País de Origen y Fabricación</label>
-          <input id="wizard-origin" type="text" placeholder="México" data-i18n-placeholder="wizard:placeholders.origin" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
-        </div>
 
-        <!-- Dynamic Sector-Specific Compliance Container -->
-        <div id="wizard-sector-fields-container" class="hidden p-4 rounded-2xl bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20 space-y-3">
-          <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-xs uppercase tracking-wide">
-            <span class="icon-svg w-4 h-4 shrink-0">
-              <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" /></svg>
-            </span>
-            <span id="wizard-sector-title" data-i18n="wizard:sector_fields.title">Datos Normativos del Sector</span>
-          </div>
-          <div id="wizard-sector-dynamic-inputs" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"></div>
-        </div>
-
-        <!-- Error feedback -->
-        <p id="step-1-error" class="text-xs text-rose-500 font-semibold hidden"></p>
-      </div>
-
-      <!-- STEP 2: MATERIALS -->
-      <div id="wizard-step-2" class="space-y-4 hidden">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <label data-i18n="wizard:fields.material_name" class="text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300">Composición de Materiales</label>
-            <span id="materials-sum-badge" class="text-[11px] font-bold font-mono px-2 py-0.5 rounded-full bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-300">100%</span>
-          </div>
-          <button id="btn-add-material" data-i18n="wizard:buttons.add_material" class="text-xs font-extrabold text-emerald-500 hover:underline">+ Añadir Material</button>
-        </div>
-        <div id="wizard-materials-inputs" class="space-y-2.5 max-h-48 overflow-y-auto pr-1"></div>
-        <div>
-          <label data-i18n="wizard:fields.carbon_kg" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Huella CO₂ Estimada (kg CO₂e)</label>
-          <input id="wizard-co2" type="number" step="0.1" value="3.5" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
-        </div>
-        <!-- Error feedback -->
-        <p id="step-2-error" class="text-xs text-rose-500 font-semibold hidden"></p>
-      </div>
-
-      <!-- STEP 3: REPAIRABILITY & CIRCULARITY (SECTOR ADAPTED) -->
-      <div id="wizard-step-3" class="space-y-4 hidden">
-        <div>
-          <label id="wizard-tools-title" data-i18n="wizard:fields.disassembly_tools" class="block text-xs sm:text-sm font-bold mb-2 uppercase tracking-wide text-slate-600 dark:text-slate-300">Herramientas para Desmontar</label>
-          <input type="hidden" id="wizard-tools" value="tools_standard" />
-          
-          <!-- Encapsulated Interactive Options Grid -->
-          <div class="grid grid-cols-1 gap-2.5" id="tools-option-group">
-            <button type="button" data-tool-val="tools_none" class="tool-option-card w-full p-3.5 rounded-2xl border transition flex items-center justify-between text-left border-slate-200/80 dark:border-white/10 bg-white/50 dark:bg-white/[0.03] hover:border-emerald-500/40 active:scale-[0.99]">
-              <div class="flex items-center gap-3">
-                <span class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-300 dark:border-white/20 flex items-center justify-center shrink-0">
-                  <span class="dot w-2.5 h-2.5 rounded-full bg-emerald-500 hidden"></span>
-                </span>
-                <span id="tool-text-none" data-i18n="wizard:tools.none" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Sin herramientas (Fijación por presión/clips)</span>
-              </div>
-            </button>
-
-            <button type="button" data-tool-val="tools_standard" class="tool-option-card active w-full p-3.5 rounded-2xl border-2 transition flex items-center justify-between text-left border-emerald-500 bg-emerald-500/10 dark:bg-emerald-500/15 shadow-xs active:scale-[0.99]">
-              <div class="flex items-center gap-3">
-                <span class="radio-indicator w-5 h-5 rounded-full border-2 border-emerald-500 flex items-center justify-center shrink-0">
-                  <span class="dot w-2.5 h-2.5 rounded-full bg-emerald-500 block"></span>
-                </span>
-                <span id="tool-text-standard" data-i18n="wizard:tools.standard" class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Herramientas estándar (Destornillador / Allen)</span>
-              </div>
-              <span class="icon-svg w-4 h-4 text-emerald-500 shrink-0">
-                <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+          <!-- Dynamic Sector-Specific Compliance Container -->
+          <div id="wizard-sector-fields-container" class="hidden p-4 rounded-2xl bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20 space-y-3">
+            <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-xs uppercase tracking-wide">
+              <span class="icon-svg w-4 h-4 shrink-0">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" /></svg>
               </span>
-            </button>
+              <span id="wizard-sector-title" data-i18n="wizard:sector_fields.title">Datos Normativos del Sector</span>
+            </div>
+            <div id="wizard-sector-dynamic-inputs" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"></div>
+          </div>
 
-            <button type="button" data-tool-val="tools_specialized" class="tool-option-card w-full p-3.5 rounded-2xl border transition flex items-center justify-between text-left border-slate-200/80 dark:border-white/10 bg-white/50 dark:bg-white/[0.03] hover:border-emerald-500/40 active:scale-[0.99]">
-              <div class="flex items-center gap-3">
-                <span class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-300 dark:border-white/20 flex items-center justify-center shrink-0">
-                  <span class="dot w-2.5 h-2.5 rounded-full bg-emerald-500 hidden"></span>
+          <!-- Error feedback -->
+          <p id="step-1-error" class="text-xs text-rose-500 font-semibold hidden"></p>
+        </div>
+
+        <!-- STEP 2: MATERIALS -->
+        <div id="wizard-step-2" class="space-y-4 hidden">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <label data-i18n="wizard:fields.material_name" class="text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300">Composición de Materiales</label>
+              <span id="materials-sum-badge" class="text-[11px] font-bold font-mono px-2 py-0.5 rounded-full bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-300">100%</span>
+            </div>
+            <button id="btn-add-material" data-i18n="wizard:buttons.add_material" class="text-xs font-extrabold text-emerald-500 hover:underline">+ Añadir Material</button>
+          </div>
+          <div id="wizard-materials-inputs" class="space-y-2.5 max-h-48 overflow-y-auto pr-1"></div>
+          <div>
+            <label data-i18n="wizard:fields.carbon_kg" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Huella CO₂ Estimada (kg CO₂e)</label>
+            <input id="wizard-co2" type="number" step="0.1" value="3.5" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
+          </div>
+          <!-- Error feedback -->
+          <p id="step-2-error" class="text-xs text-rose-500 font-semibold hidden"></p>
+        </div>
+
+        <!-- STEP 3: REPAIRABILITY & CIRCULARITY (SECTOR ADAPTED) -->
+        <div id="wizard-step-3" class="space-y-4 hidden">
+          <div>
+            <label id="wizard-tools-title" data-i18n="wizard:fields.disassembly_tools" class="block text-xs sm:text-sm font-bold mb-2 uppercase tracking-wide text-slate-600 dark:text-slate-300">Herramientas para Desmontar</label>
+            <input type="hidden" id="wizard-tools" value="tools_standard" />
+            
+            <!-- Encapsulated Interactive Options Grid -->
+            <div class="grid grid-cols-1 gap-2.5" id="tools-option-group">
+              <button type="button" data-tool-val="tools_none" class="tool-option-card w-full p-3.5 rounded-2xl border transition flex items-center justify-between text-left border-slate-200/80 dark:border-white/10 bg-white/50 dark:bg-white/[0.03] hover:border-emerald-500/40 active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <span class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-300 dark:border-white/20 flex items-center justify-center shrink-0">
+                    <span class="dot w-2.5 h-2.5 rounded-full bg-emerald-500 hidden"></span>
+                  </span>
+                  <span id="tool-text-none" data-i18n="wizard:tools.none" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Sin herramientas (Fijación por presión/clips)</span>
+                </div>
+              </button>
+
+              <button type="button" data-tool-val="tools_standard" class="tool-option-card active w-full p-3.5 rounded-2xl border-2 transition flex items-center justify-between text-left border-emerald-500 bg-emerald-500/10 dark:bg-emerald-500/15 shadow-xs active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <span class="radio-indicator w-5 h-5 rounded-full border-2 border-emerald-500 flex items-center justify-center shrink-0">
+                    <span class="dot w-2.5 h-2.5 rounded-full bg-emerald-500 block"></span>
+                  </span>
+                  <span id="tool-text-standard" data-i18n="wizard:tools.standard" class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Herramientas estándar (Destornillador / Allen)</span>
+                </div>
+                <span class="icon-svg w-4 h-4 text-emerald-500 shrink-0">
+                  <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
                 </span>
-                <span id="tool-text-specialized" data-i18n="wizard:tools.specialized" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Herramientas especializadas o propietarias</span>
-              </div>
-            </button>
+              </button>
+
+              <button type="button" data-tool-val="tools_specialized" class="tool-option-card w-full p-3.5 rounded-2xl border transition flex items-center justify-between text-left border-slate-200/80 dark:border-white/10 bg-white/50 dark:bg-white/[0.03] hover:border-emerald-500/40 active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <span class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-300 dark:border-white/20 flex items-center justify-center shrink-0">
+                    <span class="dot w-2.5 h-2.5 rounded-full bg-emerald-500 hidden"></span>
+                  </span>
+                  <span id="tool-text-specialized" data-i18n="wizard:tools.specialized" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Herramientas especializadas o propietarias</span>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div>
+            <label id="wizard-duration-label" data-i18n="wizard:fields.repair_duration_yrs" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Disponibilidad de Repuestos (Años)</label>
+            <input id="wizard-duration" type="number" min="1" max="15" value="7" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
+          </div>
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 flex justify-between items-center text-xs">
+            <span data-i18n="wizard:review.estimated_score_label" class="font-bold text-emerald-700 dark:text-emerald-300">Score de Reparabilidad Estimado:</span>
+            <span id="wizard-calculated-score" class="font-black text-base text-emerald-500">9.2 / 10</span>
           </div>
         </div>
-        <div>
-          <label id="wizard-duration-label" data-i18n="wizard:fields.repair_duration_yrs" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Disponibilidad de Repuestos (Años)</label>
-          <input id="wizard-duration" type="number" min="1" max="15" value="7" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
-        </div>
-        <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 flex justify-between items-center text-xs">
-          <span data-i18n="wizard:review.estimated_score_label" class="font-bold text-emerald-700 dark:text-emerald-300">Score de Reparabilidad Estimado:</span>
-          <span id="wizard-calculated-score" class="font-black text-base text-emerald-500">9.2 / 10</span>
-        </div>
-      </div>
 
-      <!-- STEP 4: REVIEW & FINISH -->
-      <div id="wizard-step-4" class="space-y-4 hidden">
-        <div class="p-4 sm:p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] border border-slate-200/80 dark:border-white/10 space-y-2.5">
-          <p class="flex items-center justify-between"><span data-i18n="wizard:review.summary_product_label" class="text-xs sm:text-sm uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Producto:</span> <strong id="summary-name" class="text-base sm:text-lg font-black text-slate-900 dark:text-white"></strong></p>
-          <p class="flex items-center justify-between"><span data-i18n="wizard:review.summary_gtin_label" class="text-xs sm:text-sm uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">GTIN:</span> <strong id="summary-gtin" class="font-mono text-base sm:text-lg text-emerald-600 dark:text-emerald-400 font-black tracking-wider"></strong></p>
-          <p class="flex items-center justify-between"><span data-i18n="wizard:review.summary_origin_label" class="text-xs sm:text-sm uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Origen:</span> <strong id="summary-origin" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white"></strong></p>
-        </div>
-
-        <!-- Real-time Optical Quality & Print Recommendation Badge -->
-        <div id="wizard-qr-density-card" class="p-3.5 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 flex items-center justify-between text-xs">
-          <div class="space-y-0.5">
-            <span class="font-bold text-slate-800 dark:text-slate-200 block" id="wizard-qr-quality-title" data-i18n="wizard:review.qr_quality_title">Calidad Óptica del Código QR</span>
-            <span class="text-slate-500 dark:text-slate-400 font-medium" id="wizard-qr-quality-desc">Densidad óptima para etiquetas</span>
+        <!-- STEP 4: REVIEW & FINISH -->
+        <div id="wizard-step-4" class="space-y-4 hidden">
+          <div class="p-4 sm:p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] border border-slate-200/80 dark:border-white/10 space-y-2.5">
+            <p class="flex items-center justify-between"><span data-i18n="wizard:review.summary_product_label" class="text-xs sm:text-sm uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Producto:</span> <strong id="summary-name" class="text-base sm:text-lg font-black text-slate-900 dark:text-white"></strong></p>
+            <p class="flex items-center justify-between"><span data-i18n="wizard:review.summary_gtin_label" class="text-xs sm:text-sm uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">GTIN:</span> <strong id="summary-gtin" class="font-mono text-base sm:text-lg text-emerald-600 dark:text-emerald-400 font-black tracking-wider"></strong></p>
+            <p class="flex items-center justify-between"><span data-i18n="wizard:review.summary_origin_label" class="text-xs sm:text-sm uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Origen:</span> <strong id="summary-origin" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white"></strong></p>
           </div>
-          <span id="wizard-qr-quality-badge" class="px-3 py-1 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs">ECC High • 2.8x2.8 cm</span>
+
+          <!-- Real-time Optical Quality & Print Recommendation Badge -->
+          <div id="wizard-qr-density-card" class="p-3.5 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 flex items-center justify-between text-xs">
+            <div class="space-y-0.5">
+              <span class="font-bold text-slate-800 dark:text-slate-200 block" id="wizard-qr-quality-title" data-i18n="wizard:review.qr_quality_title">Calidad Óptica del Código QR</span>
+              <span class="text-slate-500 dark:text-slate-400 font-medium" id="wizard-qr-quality-desc">Densidad óptima para etiquetas</span>
+            </div>
+            <span id="wizard-qr-quality-badge" class="px-3 py-1 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs">ECC High • 2.8x2.8 cm</span>
+          </div>
+
+          <div>
+            <label data-i18n="wizard:fields.recycling_instructions" class="block text-xs sm:text-sm font-extrabold mb-1.5 uppercase tracking-wide text-slate-700 dark:text-slate-200">Instrucciones de Fin de Vida</label>
+            <textarea id="wizard-recycling" rows="2" data-i18n-placeholder="wizard:placeholders.recycling" class="glass-input w-full py-3 px-4 rounded-2xl text-sm sm:text-base leading-relaxed font-medium">Apto para reciclaje en centros de acopio autorizados.</textarea>
+          </div>
+          
+          <!-- Legal & Regulatory Compliance Shield -->
+          <div class="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-2">
+            <label class="flex items-start gap-3 cursor-pointer text-left">
+              <input id="wizard-legal-consent" type="checkbox" checked class="mt-0.5 w-5 h-5 rounded text-emerald-600 focus:ring-emerald-500 cursor-pointer shrink-0" />
+              <span data-i18n-html="wizard:review.legal_declaration" class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
+                Certifico que tengo los derechos legales y marcas de este producto, y asumo la total responsabilidad de cumplir con las normativas locales y aduaneras vigentes, eximiendo a PassQ según los <a href="./terms.html" target="_blank" class="text-emerald-500 font-bold underline">Términos de Servicio</a>.
+              </span>
+            </label>
+            <p id="step-4-error" class="text-xs sm:text-sm text-rose-500 font-semibold hidden"></p>
+          </div>
         </div>
 
-        <div>
-          <label data-i18n="wizard:fields.recycling_instructions" class="block text-xs sm:text-sm font-extrabold mb-1.5 uppercase tracking-wide text-slate-700 dark:text-slate-200">Instrucciones de Fin de Vida</label>
-          <textarea id="wizard-recycling" rows="2" data-i18n-placeholder="wizard:placeholders.recycling" class="glass-input w-full py-3 px-4 rounded-2xl text-sm sm:text-base leading-relaxed font-medium">Apto para reciclaje en centros de acopio autorizados.</textarea>
-        </div>
-        
-        <!-- Legal & Regulatory Compliance Shield -->
-        <div class="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-2">
-          <label class="flex items-start gap-3 cursor-pointer text-left">
-            <input id="wizard-legal-consent" type="checkbox" checked class="mt-0.5 w-5 h-5 rounded text-emerald-600 focus:ring-emerald-500 cursor-pointer shrink-0" />
-            <span data-i18n-html="wizard:review.legal_declaration" class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
-              Certifico que tengo los derechos legales y marcas de este producto, y asumo la total responsabilidad de cumplir con las normativas locales y aduaneras vigentes, eximiendo a PassQ según los <a href="./terms.html" target="_blank" class="text-emerald-500 font-bold underline">Términos de Servicio</a>.
-            </span>
-          </label>
-          <p id="step-4-error" class="text-xs sm:text-sm text-rose-500 font-semibold hidden"></p>
-        </div>
       </div>
 
-      <!-- Wizard Navigation Buttons -->
-      <div class="flex justify-between items-center pt-4 border-t border-slate-200/80 dark:border-white/10">
-        <button id="btn-wizard-prev" class="py-3 px-6 rounded-2xl text-sm font-extrabold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition hidden flex items-center gap-2 min-h-[46px]">
+      <!-- Wizard Navigation Buttons (Fixed Bottom Bar - ALWAYS 100% VISIBLE) -->
+      <div class="flex-none p-4 sm:p-5 border-t border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/[0.03] backdrop-blur-md flex justify-between items-center z-10">
+        <button id="btn-wizard-prev" type="button" class="py-2.5 sm:py-3 px-5 rounded-2xl text-xs sm:text-sm font-extrabold text-slate-700 dark:text-slate-200 hover:bg-slate-200/80 dark:hover:bg-white/10 transition hidden flex items-center gap-2 min-h-[44px] cursor-pointer">
           <span class="icon-svg w-4 h-4"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg></span>
           <span data-i18n="wizard:buttons.prev">Atrás</span>
         </button>
-        <button id="btn-wizard-next" class="ml-auto py-3.5 px-7 rounded-2xl text-sm sm:text-base font-black text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg shadow-emerald-600/30 transition flex items-center gap-2 min-h-[48px] active:scale-[0.98]">
+        <button id="btn-wizard-next" type="button" class="ml-auto py-3 px-6 rounded-2xl text-xs sm:text-sm font-black text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg shadow-emerald-600/30 transition flex items-center gap-2 min-h-[46px] active:scale-[0.98] cursor-pointer">
           <span data-i18n="wizard:buttons.next">Siguiente</span>
           <span class="icon-svg w-5 h-5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span>
         </button>

@@ -30,7 +30,26 @@
     "textile": "Textile & Fashion",
     "footwear": "Footwear & Leather",
     "electronics": "Consumer Electronics",
-    "furniture": "Furniture & Wood"
+    "furniture": "Furniture & Wood",
+    "battery": "Industrial & EV Batteries",
+    "cosmetics": "Cosmetics & Personal Care",
+    "food": "Food & Agriculture",
+    "construction": "Construction & Steel"
+  },
+  "sector_fields": {
+    "title": "Sector-Specific Compliance Data",
+    "battery_chemistry": "Cell Chemistry",
+    "battery_capacity": "Rated Capacity (Ah / kWh)",
+    "battery_recycled_metals": "Critical Recycled Metals (% Co, Li, Ni)",
+    "inci_ingredients": "INCI Ingredients Formula List",
+    "pao_months": "Period After Opening (PAO Months)",
+    "allergens": "Reportable Allergens",
+    "food_batch": "Production Batch / Lot",
+    "food_expiry": "Best Before / Expiry Date",
+    "food_temp": "Storage Temperature (°C)",
+    "food_certifications": "Accredited Certifications",
+    "epd_number": "Environmental Product Declaration (EPD / ISO 14025)",
+    "structural_lifespan": "Estimated Design Service Life (Years)"
   },
   "tools": {
     "none": "No tools (Snap-fit / clips)",
@@ -43,7 +62,16 @@
     "gtin": "7501234567890",
     "origin": "United States",
     "material_name": "Material (e.g. Organic Cotton)",
-    "recycling": "Suitable for recycling at authorized collection centers."
+    "recycling": "Suitable for recycling at authorized collection centers.",
+    "battery_chem": "e.g. Li-Ion (NMC 811) / LFP",
+    "battery_cap": "e.g. 75 kWh / 150 Ah",
+    "inci": "e.g. Aqua, Glycerin, Niacinamide, Sodium Hyaluronate",
+    "allergens": "e.g. Linalool, Limonene (or None)",
+    "food_batch": "e.g. LOT-2026-B842",
+    "food_temp": "e.g. Keep refrigerated at 2°C to 6°C",
+    "food_certs": "e.g. EU Organic, FairTrade, Kosher",
+    "epd": "e.g. S-P-04892 (Environdec ISO 14025)",
+    "lifespan": "e.g. 50"
   },
   "buttons": {
     "add_material": "+ Add Material",
@@ -55,7 +83,8 @@
     "summary_product_label": "Product:",
     "summary_gtin_label": "GTIN:",
     "summary_origin_label": "Origin:",
-    "legal_declaration": "I certify that I hold the legal rights and trademarks for this product and assume full compliance responsibility, releasing PassQ under the <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Terms of Service</a>."
+    "qr_quality_title": "QR Code Optical Quality",
+    "legal_declaration": "I certify that I hold the legal rights and trademarks for this product and assume full compliance responsibility, releasing PassQ under the <a href=\"./terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Terms of Service</a>."
   },
   "sector_repair": {
     "textile_title": "Garment Repairability & Haberdashery",

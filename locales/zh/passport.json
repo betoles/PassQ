@@ -35,6 +35,25 @@
     "order_parts": "直达订购品牌官方原厂配件",
     "default_tools": "通用标准家用工具"
   },
+  "sector_cards": {
+    "battery_title": "欧盟动力电池产品护照 (欧盟法规 2023/1542)",
+    "battery_chem": "电芯化学体系",
+    "battery_cap": "额定容量规格",
+    "battery_recycled_metals": "关键原材料循环利用比例",
+    "battery_targets_met": "已达成欧盟 2027/2031 回收合规指标",
+    "cosmetics_title": "INCI 国际配方与安全评估 (欧盟法规 1223/2009)",
+    "inci_list": "官方全成分原料清单 (INCI)",
+    "pao_label": "开盖后最佳使用期限 (PAO)",
+    "allergens_label": "需标注过敏原信息",
+    "food_title": "食品全流程溯源与冷链安全",
+    "food_lot": "生产批次编号 (Lot)",
+    "food_exp": "最佳食用期限 / 保质期",
+    "food_temp": "仓储温控条件",
+    "food_certs": "权威质量与产地认证",
+    "construction_title": "环境产品声明与建筑法规 (EPD & CPR)",
+    "epd_label": "EPD / ISO 14025 注册备案号",
+    "lifespan_label": "设计评估使用年限"
+  },
   "recycling": {
     "title": "废弃物拆解回收与循环利用指引",
     "toxic_free": "100% 符合欧盟 RoHS、REACH、CE 及 WEEE 环保安全指令。",

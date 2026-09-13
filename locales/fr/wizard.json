@@ -34,7 +34,26 @@
     "textile": "Textile & Mode",
     "footwear": "Chaussures & Cuir",
     "electronics": "Électronique Grand Public",
-    "furniture": "Meubles & Bois"
+    "furniture": "Meubles & Bois",
+    "battery": "Batteries Industrielles & VE",
+    "cosmetics": "Cosmétiques & Soins",
+    "food": "Alimentation & Agriculture",
+    "construction": "Construction & Acier"
+  },
+  "sector_fields": {
+    "title": "Données Réglementaires Spécifiques",
+    "battery_chemistry": "Chimie des Cellules",
+    "battery_capacity": "Capacité Nominale (Ah / kWh)",
+    "battery_recycled_metals": "Métaux Critiques Recyclés (% Co, Li, Ni)",
+    "inci_ingredients": "Liste des Ingrédients INCI",
+    "pao_months": "Période Après Ouverture (Mois PAO)",
+    "allergens": "Allergènes Déclarables",
+    "food_batch": "Lot de Production",
+    "food_expiry": "Date Limite de Consommation (DLC/DLUO)",
+    "food_temp": "Température de Conservation (°C)",
+    "food_certifications": "Certifications Accréditées",
+    "epd_number": "Déclaration Environnementale de Produit (DEP / ISO 14025)",
+    "structural_lifespan": "Durée de Vie de Conception Estimée (Années)"
   },
   "tools": {
     "none": "Sans outils (Clips / Pression)",
@@ -46,7 +65,7 @@
     "summary_product_label": "Produit :",
     "summary_gtin_label": "GTIN :",
     "summary_origin_label": "Origine :",
-    "legal_declaration": "Je certifie détenir les droits légaux et marques de ce produit et assume l'entière conformité selon les <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Conditions Générales</a>."
+    "legal_declaration": "Je certifie détenir les droits légaux et marques de ce produit et assume l'entière conformité selon les <a href=\"./terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Conditions Générales</a>."
   },
   "validation": {
     "name_required": "Veuillez saisir le nom du produit.",
