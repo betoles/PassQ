@@ -102,29 +102,29 @@ export class UserGuideModal {
         
         <!-- Header Bar -->
         <div class="p-5 sm:p-6 border-b border-slate-200/80 dark:border-white/10 flex items-start justify-between gap-4 shrink-0">
-          <div class="space-y-1">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold tracking-wide">
+          <div class="space-y-1.5">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-bold tracking-wide">
               <span class="w-4 h-4 flex items-center">${Icons.bookOpen ? Icons.bookOpen("w-4 h-4") : ""}</span>
               <span>${badge}</span>
             </div>
-            <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
               <span>${title}</span>
             </h2>
-            <p class="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400">${subtitle}</p>
+            <p class="text-sm sm:text-base font-medium text-slate-600 dark:text-slate-300 leading-relaxed">${subtitle}</p>
           </div>
 
-          <button id="btn-close-guide-top" type="button" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-500 dark:text-slate-300 flex items-center justify-center transition cursor-pointer shrink-0" aria-label="Cerrar">
+          <button id="btn-close-guide-top" type="button" class="w-10 h-10 rounded-2xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-500 dark:text-slate-300 flex items-center justify-center transition cursor-pointer shrink-0" aria-label="Cerrar">
             ${Icons.close ? Icons.close("w-5 h-5") : "✕"}
           </button>
         </div>
 
         <!-- Navigation Tabs Bar -->
-        <div class="px-5 sm:px-6 py-2.5 border-b border-slate-200/60 dark:border-white/10 bg-slate-50/70 dark:bg-white/[0.02] overflow-x-auto no-scrollbar shrink-0">
-          <div class="flex items-center gap-2 min-w-max">
+        <div class="px-5 sm:px-6 py-3 border-b border-slate-200/60 dark:border-white/10 bg-slate-50/70 dark:bg-white/[0.02] overflow-x-auto no-scrollbar shrink-0">
+          <div class="flex items-center gap-2.5 min-w-max">
             ${tabs.map((tab) => {
               const isActive = this.activeTab === tab.id;
               return `
-                <button type="button" data-tab-target="${tab.id}" class="guide-tab-btn flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer select-none ${
+                <button type="button" data-tab-target="${tab.id}" class="guide-tab-btn flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm sm:text-[15px] font-bold transition cursor-pointer select-none ${
                   isActive
                     ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/20"
                     : "bg-white/80 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10"
@@ -146,16 +146,16 @@ export class UserGuideModal {
 
         <!-- Footer Actions Bar -->
         <div class="p-4 sm:p-5 border-t border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/[0.02] flex items-center justify-between gap-3 shrink-0">
-          <div class="flex items-center gap-2">
-            <button id="btn-guide-prev" type="button" class="px-3.5 py-2 rounded-xl bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-bold text-xs transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+          <div class="flex items-center gap-2.5">
+            <button id="btn-guide-prev" type="button" class="px-4 py-2.5 rounded-xl bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
               ← ${i18n.t("buttons.back", "Anterior")}
             </button>
-            <button id="btn-guide-next" type="button" class="px-3.5 py-2 rounded-xl bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-bold text-xs transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+            <button id="btn-guide-next" type="button" class="px-4 py-2.5 rounded-xl bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
               ${i18n.t("buttons.next", "Siguiente")} →
             </button>
           </div>
 
-          <button id="btn-guide-close-bottom" type="button" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-sm transition active:scale-95 cursor-pointer">
+          <button id="btn-guide-close-bottom" type="button" class="px-5 sm:px-6 py-2.5 sm:py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm sm:text-base shadow-md shadow-emerald-600/25 transition active:scale-95 cursor-pointer">
             ${btnClose}
           </button>
         </div>
@@ -200,44 +200,44 @@ export class UserGuideModal {
         return `
           <div class="space-y-4">
             <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-950 dark:text-emerald-200">
-              <h3 class="text-base sm:text-lg font-black mb-1.5 flex items-start sm:items-center gap-2.5 leading-snug">
-                <span class="w-5 h-5 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${Icons.sparkles ? Icons.sparkles("w-5 h-5") : "★"}</span>
+              <h3 class="text-lg sm:text-xl font-black mb-2 flex items-start sm:items-center gap-2.5 leading-snug">
+                <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${Icons.sparkles ? Icons.sparkles("w-6 h-6") : "★"}</span>
                 <span>${i18n.t("guide:tab1_content.title")}</span>
               </h3>
-              <p class="text-xs sm:text-sm leading-relaxed">${i18n.t("guide:tab1_content.intro")}</p>
+              <p class="text-sm sm:text-base leading-relaxed">${i18n.t("guide:tab1_content.intro")}</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">1</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">1</span>
                   <span>${i18n.t("guide:tab1_content.step1_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab1_content.step1_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab1_content.step1_desc")}</p>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">2</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">2</span>
                   <span>${i18n.t("guide:tab1_content.step2_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab1_content.step2_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab1_content.step2_desc")}</p>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">3</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">3</span>
                   <span>${i18n.t("guide:tab1_content.step3_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab1_content.step3_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab1_content.step3_desc")}</p>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">4</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">4</span>
                   <span>${i18n.t("guide:tab1_content.step4_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab1_content.step4_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab1_content.step4_desc")}</p>
               </div>
             </div>
           </div>
@@ -247,43 +247,43 @@ export class UserGuideModal {
         return `
           <div class="space-y-4">
             <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-950 dark:text-emerald-200">
-              <h3 class="text-base sm:text-lg font-black flex items-start sm:items-center gap-2.5 leading-snug">
-                <span class="w-5 h-5 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${Icons.plusCircle ? Icons.plusCircle("w-5 h-5") : ""}</span>
+              <h3 class="text-lg sm:text-xl font-black flex items-start sm:items-center gap-2.5 leading-snug">
+                <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${Icons.plusCircle ? Icons.plusCircle("w-6 h-6") : ""}</span>
                 <span>${i18n.t("guide:tab2_content.title")}</span>
               </h3>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">1</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">1</span>
                   <span>${i18n.t("guide:tab2_content.step1_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab2_content.step1_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab2_content.step1_desc")}</p>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">2</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">2</span>
                   <span>${i18n.t("guide:tab2_content.step2_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab2_content.step2_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab2_content.step2_desc")}</p>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">3</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">3</span>
                   <span>${i18n.t("guide:tab2_content.step3_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab2_content.step3_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab2_content.step3_desc")}</p>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">4</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">4</span>
                   <span>${i18n.t("guide:tab2_content.step4_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab2_content.step4_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${i18n.t("guide:tab2_content.step4_desc")}</p>
               </div>
             </div>
           </div>
@@ -292,43 +292,43 @@ export class UserGuideModal {
       case "tab3":
         return `
           <div class="space-y-4">
-            <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
-              <span class="w-5 h-5 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${Icons.folder ? Icons.folder("w-5 h-5") : ""}</span>
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
+              <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${Icons.folder ? Icons.folder("w-6 h-6") : ""}</span>
               <span>${i18n.t("guide:tab3_content.title")}</span>
             </h3>
 
-            <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 space-y-1.5">
-              <h4 class="font-bold text-sm text-emerald-600 dark:text-emerald-400">${i18n.t("guide:tab3_content.catalog_title")}</h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${i18n.t("guide:tab3_content.catalog_desc")}</p>
+            <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 space-y-2">
+              <h4 class="font-black text-base sm:text-lg text-emerald-700 dark:text-emerald-400">${i18n.t("guide:tab3_content.catalog_title")}</h4>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${i18n.t("guide:tab3_content.catalog_desc")}</p>
             </div>
 
-            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2.5">
-              <h4 class="font-bold text-sm text-slate-900 dark:text-white">${i18n.t("guide:tab3_content.actions_title")}</h4>
-              <ul class="space-y-2 text-xs sm:text-sm">
-                <li class="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-2.5">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                    ${Icons.eye ? Icons.eye("w-3.5 h-3.5") : ""}
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-3">
+              <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white">${i18n.t("guide:tab3_content.actions_title")}</h4>
+              <ul class="space-y-2.5 text-sm sm:text-base">
+                <li class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-3">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                    ${Icons.eye ? Icons.eye("w-4 h-4") : ""}
                   </span>
                   <span>${i18n.t("guide:tab3_content.action_view")}</span>
                 </li>
-                <li class="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-2.5">
-                  <span class="w-6 h-6 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                    ${Icons.qrCode ? Icons.qrCode("w-3.5 h-3.5") : ""}
+                <li class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-3">
+                  <span class="w-7 h-7 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                    ${Icons.qrCode ? Icons.qrCode("w-4 h-4") : ""}
                   </span>
                   <span>${i18n.t("guide:tab3_content.action_qr")}</span>
                 </li>
-                <li class="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-2.5">
-                  <span class="w-6 h-6 rounded-lg bg-rose-500/15 text-rose-500 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                    ${Icons.trash ? Icons.trash("w-3.5 h-3.5") : ""}
+                <li class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-3">
+                  <span class="w-7 h-7 rounded-xl bg-rose-500/15 text-rose-500 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                    ${Icons.trash ? Icons.trash("w-4 h-4") : ""}
                   </span>
                   <span>${i18n.t("guide:tab3_content.action_del")}</span>
                 </li>
               </ul>
             </div>
 
-            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-              <h4 class="font-bold text-sm text-slate-900 dark:text-white">${i18n.t("guide:tab3_content.export_title")}</h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${i18n.t("guide:tab3_content.export_desc")}</p>
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+              <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white">${i18n.t("guide:tab3_content.export_title")}</h4>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${i18n.t("guide:tab3_content.export_desc")}</p>
             </div>
           </div>
         `;
@@ -336,25 +336,25 @@ export class UserGuideModal {
       case "tab4":
         return `
           <div class="space-y-4">
-            <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
-              <span class="w-5 h-5 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${Icons.devicePhoneMobile ? Icons.devicePhoneMobile("w-5 h-5") : ""}</span>
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
+              <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${Icons.devicePhoneMobile ? Icons.devicePhoneMobile("w-6 h-6") : ""}</span>
               <span>${i18n.t("guide:tab4_content.title")}</span>
             </h3>
 
             <div class="p-4 sm:p-5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 space-y-2 text-cyan-950 dark:text-cyan-200">
-              <h4 class="font-black text-sm uppercase tracking-wide flex items-center gap-2">
-                <span class="w-4 h-4 text-cyan-500">${Icons.userSlash ? Icons.userSlash("w-4 h-4") : ""}</span>
+              <h4 class="font-black text-base sm:text-lg uppercase tracking-wide flex items-center gap-2.5">
+                <span class="w-5 h-5 text-cyan-500">${Icons.userSlash ? Icons.userSlash("w-5 h-5") : ""}</span>
                 <span>${i18n.t("guide:tab4_content.consumer_title")}</span>
               </h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${i18n.t("guide:tab4_content.consumer_desc")}</p>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${i18n.t("guide:tab4_content.consumer_desc")}</p>
             </div>
 
             <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 space-y-2 text-emerald-950 dark:text-emerald-200">
-              <h4 class="font-black text-sm uppercase tracking-wide flex items-center gap-2">
-                <span class="w-4 h-4 text-emerald-500">${Icons.shieldCheck ? Icons.shieldCheck("w-4 h-4") : ""}</span>
+              <h4 class="font-black text-base sm:text-lg uppercase tracking-wide flex items-center gap-2.5">
+                <span class="w-5 h-5 text-emerald-500">${Icons.shieldCheck ? Icons.shieldCheck("w-5 h-5") : ""}</span>
                 <span>${i18n.t("guide:tab4_content.customs_title")}</span>
               </h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${i18n.t("guide:tab4_content.customs_desc")}</p>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${i18n.t("guide:tab4_content.customs_desc")}</p>
             </div>
           </div>
         `;
@@ -362,24 +362,24 @@ export class UserGuideModal {
       case "tab5":
         return `
           <div class="space-y-4">
-            <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
-              <span class="w-5 h-5 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${Icons.shieldCheck ? Icons.shieldCheck("w-5 h-5") : ""}</span>
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
+              <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${Icons.shieldCheck ? Icons.shieldCheck("w-6 h-6") : ""}</span>
               <span>${i18n.t("guide:tab5_content.title")}</span>
             </h3>
 
-            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-              <h4 class="font-bold text-sm text-emerald-600 dark:text-emerald-400">${i18n.t("guide:tab5_content.local_title")}</h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${i18n.t("guide:tab5_content.local_desc")}</p>
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+              <h4 class="font-black text-base sm:text-lg text-emerald-700 dark:text-emerald-400">${i18n.t("guide:tab5_content.local_title")}</h4>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${i18n.t("guide:tab5_content.local_desc")}</p>
             </div>
 
-            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-              <h4 class="font-bold text-sm text-slate-900 dark:text-white">${i18n.t("guide:tab5_content.backup_title")}</h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${i18n.t("guide:tab5_content.backup_desc")}</p>
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+              <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white">${i18n.t("guide:tab5_content.backup_title")}</h4>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${i18n.t("guide:tab5_content.backup_desc")}</p>
             </div>
 
-            <div class="p-4 sm:p-5 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-950 dark:text-rose-200 space-y-1.5">
-              <h4 class="font-bold text-sm text-rose-600 dark:text-rose-400">${i18n.t("guide:tab5_content.wipe_title")}</h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${i18n.t("guide:tab5_content.wipe_desc")}</p>
+            <div class="p-4 sm:p-5 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-950 dark:text-rose-200 space-y-2">
+              <h4 class="font-black text-base sm:text-lg text-rose-700 dark:text-rose-400">${i18n.t("guide:tab5_content.wipe_title")}</h4>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${i18n.t("guide:tab5_content.wipe_desc")}</p>
             </div>
           </div>
         `;

@@ -165,27 +165,27 @@
         
         <!-- Header Bar -->
         <div class="p-5 sm:p-6 border-b border-slate-200/80 dark:border-white/10 flex items-start justify-between gap-4 shrink-0">
-          <div class="space-y-1">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold tracking-wide">
+          <div class="space-y-1.5">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-bold tracking-wide">
               <span class="w-4 h-4 flex items-center">${n.bookOpen?n.bookOpen("w-4 h-4"):""}</span>
               <span>${o}</span>
             </div>
-            <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
               <span>${a}</span>
             </h2>
-            <p class="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400">${r}</p>
+            <p class="text-sm sm:text-base font-medium text-slate-600 dark:text-slate-300 leading-relaxed">${r}</p>
           </div>
 
-          <button id="btn-close-guide-top" type="button" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-500 dark:text-slate-300 flex items-center justify-center transition cursor-pointer shrink-0" aria-label="Cerrar">
+          <button id="btn-close-guide-top" type="button" class="w-10 h-10 rounded-2xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-500 dark:text-slate-300 flex items-center justify-center transition cursor-pointer shrink-0" aria-label="Cerrar">
             ${n.close?n.close("w-5 h-5"):"✕"}
           </button>
         </div>
 
         <!-- Navigation Tabs Bar -->
-        <div class="px-5 sm:px-6 py-2.5 border-b border-slate-200/60 dark:border-white/10 bg-slate-50/70 dark:bg-white/[0.02] overflow-x-auto no-scrollbar shrink-0">
-          <div class="flex items-center gap-2 min-w-max">
+        <div class="px-5 sm:px-6 py-3 border-b border-slate-200/60 dark:border-white/10 bg-slate-50/70 dark:bg-white/[0.02] overflow-x-auto no-scrollbar shrink-0">
+          <div class="flex items-center gap-2.5 min-w-max">
             ${l.map(c=>{const p=this.activeTab===c.id;return`
-                <button type="button" data-tab-target="${c.id}" class="guide-tab-btn flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer select-none ${p?"bg-emerald-600 text-white shadow-md shadow-emerald-600/20":"bg-white/80 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10"}">
+                <button type="button" data-tab-target="${c.id}" class="guide-tab-btn flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm sm:text-[15px] font-bold transition cursor-pointer select-none ${p?"bg-emerald-600 text-white shadow-md shadow-emerald-600/20":"bg-white/80 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10"}">
                   <span class="icon-svg w-4 h-4 shrink-0 ${p?"text-white":"text-emerald-500 dark:text-emerald-400"}">
                     ${n[c.icon]?n[c.icon]("w-4 h-4"):""}
                   </span>
@@ -202,195 +202,195 @@
 
         <!-- Footer Actions Bar -->
         <div class="p-4 sm:p-5 border-t border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/[0.02] flex items-center justify-between gap-3 shrink-0">
-          <div class="flex items-center gap-2">
-            <button id="btn-guide-prev" type="button" class="px-3.5 py-2 rounded-xl bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-bold text-xs transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+          <div class="flex items-center gap-2.5">
+            <button id="btn-guide-prev" type="button" class="px-4 py-2.5 rounded-xl bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
               ← ${s.t("buttons.back","Anterior")}
             </button>
-            <button id="btn-guide-next" type="button" class="px-3.5 py-2 rounded-xl bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-bold text-xs transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+            <button id="btn-guide-next" type="button" class="px-4 py-2.5 rounded-xl bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
               ${s.t("buttons.next","Siguiente")} →
             </button>
           </div>
 
-          <button id="btn-guide-close-bottom" type="button" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-sm transition active:scale-95 cursor-pointer">
+          <button id="btn-guide-close-bottom" type="button" class="px-5 sm:px-6 py-2.5 sm:py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm sm:text-base shadow-md shadow-emerald-600/25 transition active:scale-95 cursor-pointer">
             ${i}
           </button>
         </div>
 
       </div>
-    `,e.querySelector("#user-guide-backdrop")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-close-guide-top")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-guide-close-bottom")?.addEventListener("click",()=>this.close()),e.querySelectorAll(".guide-tab-btn").forEach(c=>{c.addEventListener("click",()=>{const p=c.getAttribute("data-tab-target");p&&this.setTab(p)})});const d=l.findIndex(c=>c.id===this.activeTab),m=e.querySelector("#btn-guide-prev"),u=e.querySelector("#btn-guide-next");m&&(m.disabled=d<=0,m.addEventListener("click",()=>{d>0&&this.setTab(l[d-1].id)})),u&&(u.disabled=d>=l.length-1,u.addEventListener("click",()=>{d<l.length-1&&this.setTab(l[d+1].id)}))}renderTabContent(){switch(this.activeTab){case"tab1":return`
+    `,e.querySelector("#user-guide-backdrop")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-close-guide-top")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-guide-close-bottom")?.addEventListener("click",()=>this.close()),e.querySelectorAll(".guide-tab-btn").forEach(c=>{c.addEventListener("click",()=>{const p=c.getAttribute("data-tab-target");p&&this.setTab(p)})});const d=l.findIndex(c=>c.id===this.activeTab),h=e.querySelector("#btn-guide-prev"),u=e.querySelector("#btn-guide-next");h&&(h.disabled=d<=0,h.addEventListener("click",()=>{d>0&&this.setTab(l[d-1].id)})),u&&(u.disabled=d>=l.length-1,u.addEventListener("click",()=>{d<l.length-1&&this.setTab(l[d+1].id)}))}renderTabContent(){switch(this.activeTab){case"tab1":return`
           <div class="space-y-4">
             <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-950 dark:text-emerald-200">
-              <h3 class="text-base sm:text-lg font-black mb-1.5 flex items-start sm:items-center gap-2.5 leading-snug">
-                <span class="w-5 h-5 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.sparkles?n.sparkles("w-5 h-5"):"★"}</span>
+              <h3 class="text-lg sm:text-xl font-black mb-2 flex items-start sm:items-center gap-2.5 leading-snug">
+                <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.sparkles?n.sparkles("w-6 h-6"):"★"}</span>
                 <span>${s.t("guide:tab1_content.title")}</span>
               </h3>
-              <p class="text-xs sm:text-sm leading-relaxed">${s.t("guide:tab1_content.intro")}</p>
+              <p class="text-sm sm:text-base leading-relaxed">${s.t("guide:tab1_content.intro")}</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">1</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">1</span>
                   <span>${s.t("guide:tab1_content.step1_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab1_content.step1_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab1_content.step1_desc")}</p>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">2</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">2</span>
                   <span>${s.t("guide:tab1_content.step2_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab1_content.step2_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab1_content.step2_desc")}</p>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">3</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">3</span>
                   <span>${s.t("guide:tab1_content.step3_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab1_content.step3_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab1_content.step3_desc")}</p>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">4</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">4</span>
                   <span>${s.t("guide:tab1_content.step4_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab1_content.step4_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab1_content.step4_desc")}</p>
               </div>
             </div>
           </div>
         `;case"tab2":return`
           <div class="space-y-4">
             <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-950 dark:text-emerald-200">
-              <h3 class="text-base sm:text-lg font-black flex items-start sm:items-center gap-2.5 leading-snug">
-                <span class="w-5 h-5 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.plusCircle?n.plusCircle("w-5 h-5"):""}</span>
+              <h3 class="text-lg sm:text-xl font-black flex items-start sm:items-center gap-2.5 leading-snug">
+                <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.plusCircle?n.plusCircle("w-6 h-6"):""}</span>
                 <span>${s.t("guide:tab2_content.title")}</span>
               </h3>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">1</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">1</span>
                   <span>${s.t("guide:tab2_content.step1_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab2_content.step1_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab2_content.step1_desc")}</p>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">2</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">2</span>
                   <span>${s.t("guide:tab2_content.step2_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab2_content.step2_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab2_content.step2_desc")}</p>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">3</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">3</span>
                   <span>${s.t("guide:tab2_content.step3_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab2_content.step3_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab2_content.step3_desc")}</p>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs flex items-center justify-center shrink-0">4</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+                <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-sm flex items-center justify-center shrink-0">4</span>
                   <span>${s.t("guide:tab2_content.step4_title")}</span>
                 </h4>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab2_content.step4_desc")}</p>
+                <p class="text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed">${s.t("guide:tab2_content.step4_desc")}</p>
               </div>
             </div>
           </div>
         `;case"tab3":return`
           <div class="space-y-4">
-            <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
-              <span class="w-5 h-5 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.folder?n.folder("w-5 h-5"):""}</span>
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
+              <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.folder?n.folder("w-6 h-6"):""}</span>
               <span>${s.t("guide:tab3_content.title")}</span>
             </h3>
 
-            <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 space-y-1.5">
-              <h4 class="font-bold text-sm text-emerald-600 dark:text-emerald-400">${s.t("guide:tab3_content.catalog_title")}</h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${s.t("guide:tab3_content.catalog_desc")}</p>
+            <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 space-y-2">
+              <h4 class="font-black text-base sm:text-lg text-emerald-700 dark:text-emerald-400">${s.t("guide:tab3_content.catalog_title")}</h4>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${s.t("guide:tab3_content.catalog_desc")}</p>
             </div>
 
-            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2.5">
-              <h4 class="font-bold text-sm text-slate-900 dark:text-white">${s.t("guide:tab3_content.actions_title")}</h4>
-              <ul class="space-y-2 text-xs sm:text-sm">
-                <li class="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-2.5">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                    ${n.eye?n.eye("w-3.5 h-3.5"):""}
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-3">
+              <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white">${s.t("guide:tab3_content.actions_title")}</h4>
+              <ul class="space-y-2.5 text-sm sm:text-base">
+                <li class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-3">
+                  <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                    ${n.eye?n.eye("w-4 h-4"):""}
                   </span>
                   <span>${s.t("guide:tab3_content.action_view")}</span>
                 </li>
-                <li class="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-2.5">
-                  <span class="w-6 h-6 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                    ${n.qrCode?n.qrCode("w-3.5 h-3.5"):""}
+                <li class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-3">
+                  <span class="w-7 h-7 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                    ${n.qrCode?n.qrCode("w-4 h-4"):""}
                   </span>
                   <span>${s.t("guide:tab3_content.action_qr")}</span>
                 </li>
-                <li class="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-2.5">
-                  <span class="w-6 h-6 rounded-lg bg-rose-500/15 text-rose-500 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                    ${n.trash?n.trash("w-3.5 h-3.5"):""}
+                <li class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-3">
+                  <span class="w-7 h-7 rounded-xl bg-rose-500/15 text-rose-500 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                    ${n.trash?n.trash("w-4 h-4"):""}
                   </span>
                   <span>${s.t("guide:tab3_content.action_del")}</span>
                 </li>
               </ul>
             </div>
 
-            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-              <h4 class="font-bold text-sm text-slate-900 dark:text-white">${s.t("guide:tab3_content.export_title")}</h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${s.t("guide:tab3_content.export_desc")}</p>
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+              <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white">${s.t("guide:tab3_content.export_title")}</h4>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${s.t("guide:tab3_content.export_desc")}</p>
             </div>
           </div>
         `;case"tab4":return`
           <div class="space-y-4">
-            <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
-              <span class="w-5 h-5 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.devicePhoneMobile?n.devicePhoneMobile("w-5 h-5"):""}</span>
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
+              <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.devicePhoneMobile?n.devicePhoneMobile("w-6 h-6"):""}</span>
               <span>${s.t("guide:tab4_content.title")}</span>
             </h3>
 
             <div class="p-4 sm:p-5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 space-y-2 text-cyan-950 dark:text-cyan-200">
-              <h4 class="font-black text-sm uppercase tracking-wide flex items-center gap-2">
-                <span class="w-4 h-4 text-cyan-500">${n.userSlash?n.userSlash("w-4 h-4"):""}</span>
+              <h4 class="font-black text-base sm:text-lg uppercase tracking-wide flex items-center gap-2.5">
+                <span class="w-5 h-5 text-cyan-500">${n.userSlash?n.userSlash("w-5 h-5"):""}</span>
                 <span>${s.t("guide:tab4_content.consumer_title")}</span>
               </h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${s.t("guide:tab4_content.consumer_desc")}</p>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${s.t("guide:tab4_content.consumer_desc")}</p>
             </div>
 
             <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 space-y-2 text-emerald-950 dark:text-emerald-200">
-              <h4 class="font-black text-sm uppercase tracking-wide flex items-center gap-2">
-                <span class="w-4 h-4 text-emerald-500">${n.shieldCheck?n.shieldCheck("w-4 h-4"):""}</span>
+              <h4 class="font-black text-base sm:text-lg uppercase tracking-wide flex items-center gap-2.5">
+                <span class="w-5 h-5 text-emerald-500">${n.shieldCheck?n.shieldCheck("w-5 h-5"):""}</span>
                 <span>${s.t("guide:tab4_content.customs_title")}</span>
               </h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${s.t("guide:tab4_content.customs_desc")}</p>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${s.t("guide:tab4_content.customs_desc")}</p>
             </div>
           </div>
         `;case"tab5":return`
           <div class="space-y-4">
-            <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
-              <span class="w-5 h-5 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.shieldCheck?n.shieldCheck("w-5 h-5"):""}</span>
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
+              <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.shieldCheck?n.shieldCheck("w-6 h-6"):""}</span>
               <span>${s.t("guide:tab5_content.title")}</span>
             </h3>
 
-            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-              <h4 class="font-bold text-sm text-emerald-600 dark:text-emerald-400">${s.t("guide:tab5_content.local_title")}</h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${s.t("guide:tab5_content.local_desc")}</p>
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+              <h4 class="font-black text-base sm:text-lg text-emerald-700 dark:text-emerald-400">${s.t("guide:tab5_content.local_title")}</h4>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${s.t("guide:tab5_content.local_desc")}</p>
             </div>
 
-            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-1.5">
-              <h4 class="font-bold text-sm text-slate-900 dark:text-white">${s.t("guide:tab5_content.backup_title")}</h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${s.t("guide:tab5_content.backup_desc")}</p>
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2">
+              <h4 class="font-black text-base sm:text-lg text-slate-900 dark:text-white">${s.t("guide:tab5_content.backup_title")}</h4>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${s.t("guide:tab5_content.backup_desc")}</p>
             </div>
 
-            <div class="p-4 sm:p-5 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-950 dark:text-rose-200 space-y-1.5">
-              <h4 class="font-bold text-sm text-rose-600 dark:text-rose-400">${s.t("guide:tab5_content.wipe_title")}</h4>
-              <p class="text-xs sm:text-sm leading-relaxed">${s.t("guide:tab5_content.wipe_desc")}</p>
+            <div class="p-4 sm:p-5 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-950 dark:text-rose-200 space-y-2">
+              <h4 class="font-black text-base sm:text-lg text-rose-700 dark:text-rose-400">${s.t("guide:tab5_content.wipe_title")}</h4>
+              <p class="text-sm sm:text-[15px] leading-relaxed">${s.t("guide:tab5_content.wipe_desc")}</p>
             </div>
           </div>
-        `;default:return""}}}new H;const T=[{id:"passq_starter_monthly",nameKey:"starter",price:"$19.99 USD",period:"/ mes",trialDays:7},{id:"passq_growth_monthly",nameKey:"growth",price:"$39.99 USD",period:"/ mes",recommended:!0,trialDays:7},{id:"passq_scale_monthly",nameKey:"scale",price:"$99.99 USD",period:"/ mes",trialDays:7}];class y{constructor(){this.initTrial()}initTrial(){if(typeof window>"u")return;let e=localStorage.getItem("passq_trial_start");e||(e=Date.now().toString(),localStorage.setItem("passq_trial_start",e))}getTrialStatus(){if(typeof window>"u")return{day:1,daysRemaining:7,isTrialActive:!0,isSubscribed:!1};const e=localStorage.getItem("passq_play_subscription_active")==="true",a=localStorage.getItem("passq_play_subscription_plan")||"growth";let o=localStorage.getItem("passq_trial_start");o||(o=Date.now().toString(),localStorage.setItem("passq_trial_start",o));const r=Date.now()-parseInt(o,10),i=Math.min(7,Math.max(1,Math.floor(r/(1e3*60*60*24))+1)),l=Math.max(0,7-Math.floor(r/(1e3*60*60*24))),d=l>0;return{day:i,daysRemaining:l,isTrialActive:d,isSubscribed:e,activePlan:a,isAccessGranted:d||e}}async launchGooglePlayPurchase(e="passq_growth_monthly"){if("getDigitalGoodsService"in window)try{const o=await window.getDigitalGoodsService("https://play.google.com/billing");if(o){const r=await o.getDetails([e]);if(r&&r.length>0){const i=[{supportedMethods:"https://play.google.com/billing",data:{sku:e}}];return await(await new PaymentRequest(i).show()).complete("success"),localStorage.setItem("passq_play_subscription_active","true"),localStorage.setItem("passq_play_subscription_plan",e),{success:!0,method:"digital_goods_api"}}}}catch(o){console.warn("Google Play Digital Goods API flow:",o)}return window.open("https://play.google.com/store/account/subscriptions","_blank","noopener,noreferrer"),{success:!0,method:"play_store_external"}}}class q{constructor(){this.modalEl=null,this.isOpen=!1,this.billing=new y,this.selectedPlan="passq_growth_monthly",this.init()}init(){typeof document>"u"||(document.addEventListener("click",e=>{const a=e.target.closest("#btn-open-subscription-modal, [data-open-subscription-modal]");if(a){e.preventDefault();const o=a.getAttribute("data-plan")||"passq_growth_monthly";this.open(o)}}),document.addEventListener("keydown",e=>{e.key==="Escape"&&this.isOpen&&this.close()}),s.onLanguageChange(async()=>{this.isOpen&&(await s.loadNamespaces(["common"]),this.render())}))}async open(e="passq_growth_monthly"){this.selectedPlan=e,await s.loadNamespaces(["common"]),this.isOpen=!0,this.render(),document.body.classList.add("overflow-hidden")}close(){this.isOpen=!1,this.modalEl&&(this.modalEl.classList.add("opacity-0","pointer-events-none"),setTimeout(()=>{!this.isOpen&&this.modalEl&&(this.modalEl.remove(),this.modalEl=null)},200)),document.body.classList.remove("overflow-hidden")}render(){let e=document.getElementById("passq-subscription-modal-root");e||(e=document.createElement("div"),e.id="passq-subscription-modal-root",document.body.appendChild(e)),this.modalEl=e;const a=this.billing.getTrialStatus(),o=s.t("common:billing.badge","Google Play Billing • 7 Días de Prueba Gratis"),r=s.t("common:billing.title","Suscripción Oficial en Google Play"),i=s.t("common:billing.subtitle","Todos los cobros, renovaciones y cancelaciones son administrados 100% por Google Play Console. Sin sorpresas, cancela cuando quieras con 1 clic en tu cuenta de Google."),l=s.t("common:billing.trial_badge","7D"),d=s.t("common:billing.trial_status_active","Estado de Prueba Actual: Día {day} de 7 ({remaining} días restantes)"),m=s.t("common:billing.trial_status_ended","Prueba Concluida"),u=a.isTrialActive?d.replace("{day}",a.day).replace("{remaining}",a.daysRemaining):m,c=s.t("common:billing.trial_desc","Tienes acceso completo e ilimitado a todas las herramientas Pro. Al suscribirte ahora, no se te cobrará nada hasta terminar tus 7 días de prueba."),p=s.t("common:billing.founder_rate","Tarifa Fundador"),v=s.t("common:billing.features.days_free","✓ 7 Días Gratis"),f=s.t("common:billing.features.play_billing","✓ Google Play Billing"),w=s.t("common:billing.guarantees_title","Garantías de Google Play:"),g=s.t("common:billing.guarantee_1","Facturación oficial respaldada por Google Play Store con comprobante fiscal."),b=s.t("common:billing.guarantee_2_prefix","Cancelación en cualquier momento desde "),$=s.t("common:billing.guarantee_2_link","Google Play Subscriptions"),_=s.t("common:billing.guarantee_2_suffix"," con 1 solo toque."),M=s.t("common:billing.guarantee_3","Cero almacenamiento de tarjetas bancarias en servidores de PassQ."),C=s.t("common:billing.btn_subscribe_main","Continuar con Google Play"),L=s.t("common:billing.btn_subscribe_sub","(7 Días Gratis)"),k=s.t("common:buttons.close","Cerrar");e.className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md transition-opacity duration-200",e.innerHTML=`
+        `;default:return""}}}new H;const T=[{id:"passq_starter_monthly",nameKey:"starter",price:"$19.99 USD",period:"/ mes",trialDays:7},{id:"passq_growth_monthly",nameKey:"growth",price:"$39.99 USD",period:"/ mes",recommended:!0,trialDays:7},{id:"passq_scale_monthly",nameKey:"scale",price:"$99.99 USD",period:"/ mes",trialDays:7}];class y{constructor(){this.initTrial()}initTrial(){if(typeof window>"u")return;let e=localStorage.getItem("passq_trial_start");e||(e=Date.now().toString(),localStorage.setItem("passq_trial_start",e))}getTrialStatus(){if(typeof window>"u")return{day:1,daysRemaining:7,isTrialActive:!0,isSubscribed:!1};const e=localStorage.getItem("passq_play_subscription_active")==="true",a=localStorage.getItem("passq_play_subscription_plan")||"growth";let o=localStorage.getItem("passq_trial_start");o||(o=Date.now().toString(),localStorage.setItem("passq_trial_start",o));const r=Date.now()-parseInt(o,10),i=Math.min(7,Math.max(1,Math.floor(r/(1e3*60*60*24))+1)),l=Math.max(0,7-Math.floor(r/(1e3*60*60*24))),d=l>0;return{day:i,daysRemaining:l,isTrialActive:d,isSubscribed:e,activePlan:a,isAccessGranted:d||e}}async launchGooglePlayPurchase(e="passq_growth_monthly"){if("getDigitalGoodsService"in window)try{const o=await window.getDigitalGoodsService("https://play.google.com/billing");if(o){const r=await o.getDetails([e]);if(r&&r.length>0){const i=[{supportedMethods:"https://play.google.com/billing",data:{sku:e}}];return await(await new PaymentRequest(i).show()).complete("success"),localStorage.setItem("passq_play_subscription_active","true"),localStorage.setItem("passq_play_subscription_plan",e),{success:!0,method:"digital_goods_api"}}}}catch(o){console.warn("Google Play Digital Goods API flow:",o)}return window.open("https://play.google.com/store/account/subscriptions","_blank","noopener,noreferrer"),{success:!0,method:"play_store_external"}}}class q{constructor(){this.modalEl=null,this.isOpen=!1,this.billing=new y,this.selectedPlan="passq_growth_monthly",this.init()}init(){typeof document>"u"||(document.addEventListener("click",e=>{const a=e.target.closest("#btn-open-subscription-modal, [data-open-subscription-modal]");if(a){e.preventDefault();const o=a.getAttribute("data-plan")||"passq_growth_monthly";this.open(o)}}),document.addEventListener("keydown",e=>{e.key==="Escape"&&this.isOpen&&this.close()}),s.onLanguageChange(async()=>{this.isOpen&&(await s.loadNamespaces(["common"]),this.render())}))}async open(e="passq_growth_monthly"){this.selectedPlan=e,await s.loadNamespaces(["common"]),this.isOpen=!0,this.render(),document.body.classList.add("overflow-hidden")}close(){this.isOpen=!1,this.modalEl&&(this.modalEl.classList.add("opacity-0","pointer-events-none"),setTimeout(()=>{!this.isOpen&&this.modalEl&&(this.modalEl.remove(),this.modalEl=null)},200)),document.body.classList.remove("overflow-hidden")}render(){let e=document.getElementById("passq-subscription-modal-root");e||(e=document.createElement("div"),e.id="passq-subscription-modal-root",document.body.appendChild(e)),this.modalEl=e;const a=this.billing.getTrialStatus(),o=s.t("common:billing.badge","Google Play Billing • 7 Días de Prueba Gratis"),r=s.t("common:billing.title","Suscripción Oficial en Google Play"),i=s.t("common:billing.subtitle","Todos los cobros, renovaciones y cancelaciones son administrados 100% por Google Play Console. Sin sorpresas, cancela cuando quieras con 1 clic en tu cuenta de Google."),l=s.t("common:billing.trial_badge","7D"),d=s.t("common:billing.trial_status_active","Estado de Prueba Actual: Día {day} de 7 ({remaining} días restantes)"),h=s.t("common:billing.trial_status_ended","Prueba Concluida"),u=a.isTrialActive?d.replace("{day}",a.day).replace("{remaining}",a.daysRemaining):h,c=s.t("common:billing.trial_desc","Tienes acceso completo e ilimitado a todas las herramientas Pro. Al suscribirte ahora, no se te cobrará nada hasta terminar tus 7 días de prueba."),p=s.t("common:billing.founder_rate","Tarifa Fundador"),v=s.t("common:billing.features.days_free","✓ 7 Días Gratis"),f=s.t("common:billing.features.play_billing","✓ Google Play Billing"),w=s.t("common:billing.guarantees_title","Garantías de Google Play:"),g=s.t("common:billing.guarantee_1","Facturación oficial respaldada por Google Play Store con comprobante fiscal."),b=s.t("common:billing.guarantee_2_prefix","Cancelación en cualquier momento desde "),$=s.t("common:billing.guarantee_2_link","Google Play Subscriptions"),_=s.t("common:billing.guarantee_2_suffix"," con 1 solo toque."),M=s.t("common:billing.guarantee_3","Cero almacenamiento de tarjetas bancarias en servidores de PassQ."),C=s.t("common:billing.btn_subscribe_main","Continuar con Google Play"),L=s.t("common:billing.btn_subscribe_sub","(7 Días Gratis)"),k=s.t("common:buttons.close","Cerrar");e.className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md transition-opacity duration-200",e.innerHTML=`
       <div id="subscription-modal-backdrop" class="absolute inset-0"></div>
 
       <div class="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto rounded-3xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200 dark:border-white/15 shadow-2xl p-6 sm:p-8 backdrop-blur-2xl z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col gap-5">
@@ -430,16 +430,16 @@
 
         <!-- Plan Selection Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-          ${T.map(h=>{const S=this.selectedPlan===h.id,j=s.t(`common:billing.plans.${h.nameKey}.name`,h.nameKey.toUpperCase()),E=s.t(`common:billing.plans.${h.nameKey}.limit`,"PassQ Pro");return`
-              <div data-plan-select="${h.id}" class="p-4 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between relative select-none ${S?"border-emerald-500 bg-emerald-500/10 shadow-lg shadow-emerald-500/10":"border-slate-200/80 dark:border-white/10 bg-slate-50 dark:bg-white/5 hover:border-slate-300 dark:hover:border-white/20"}">
-                ${h.recommended?`
+          ${T.map(m=>{const S=this.selectedPlan===m.id,j=s.t(`common:billing.plans.${m.nameKey}.name`,m.nameKey.toUpperCase()),E=s.t(`common:billing.plans.${m.nameKey}.limit`,"PassQ Pro");return`
+              <div data-plan-select="${m.id}" class="p-4 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between relative select-none ${S?"border-emerald-500 bg-emerald-500/10 shadow-lg shadow-emerald-500/10":"border-slate-200/80 dark:border-white/10 bg-slate-50 dark:bg-white/5 hover:border-slate-300 dark:hover:border-white/20"}">
+                ${m.recommended?`
                   <span class="absolute -top-2.5 right-3 text-[10px] font-black px-2.5 py-0.5 rounded-full bg-emerald-500 text-white uppercase tracking-wider">
                     ${p}
                   </span>
                 `:""}
                 <div class="space-y-1.5">
                   <div class="text-xs font-black uppercase text-slate-500 dark:text-slate-400">${j}</div>
-                  <div class="text-lg sm:text-xl font-black text-slate-900 dark:text-white">${h.price}</div>
+                  <div class="text-lg sm:text-xl font-black text-slate-900 dark:text-white">${m.price}</div>
                   <div class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 font-mono">${E}</div>
                 </div>
                 <div class="mt-3 pt-2 border-t border-slate-200/60 dark:border-white/10 text-[11px] text-slate-600 dark:text-slate-300 font-medium space-y-1">
@@ -479,7 +479,7 @@
         </div>
 
       </div>
-    `,e.querySelector("#subscription-modal-backdrop")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-close-sub-modal")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-cancel-sub-modal")?.addEventListener("click",()=>this.close()),e.querySelectorAll("[data-plan-select]").forEach(h=>{h.addEventListener("click",()=>{this.selectedPlan=h.getAttribute("data-plan-select"),this.render()})}),e.querySelector("#btn-confirm-play-subscribe")?.addEventListener("click",async()=>{await this.billing.launchGooglePlayPurchase(this.selectedPlan),this.close()})}}new y;new q;const x=[{code:"es",short:"ES",name:"Español"},{code:"en",short:"EN",name:"English"},{code:"de",short:"DE",name:"Deutsch"},{code:"fr",short:"FR",name:"Français"},{code:"it",short:"IT",name:"Italiano"},{code:"pt",short:"PT",name:"Português"},{code:"zh",short:"ZH",name:"中文"}];class P{constructor(e="#lang-select"){this.target=typeof e=="string"?document.querySelector(e):e,this.container=null,this.isOpen=!1,this.init()}init(){const e=document.getElementById("custom-lang-dropdown-wrapper");if(e){this.container=e,this.updateActiveState(s.currentLanguage);return}if(!this.target)return;const a=this.target.parentElement;!a||!a.parentElement||(this.container=document.createElement("div"),this.container.className="relative inline-block text-left z-50 shrink-0",this.container.id="custom-lang-dropdown-wrapper",a.parentElement.replaceChild(this.container,a),this.render(),this.setupListeners(),s.onLanguageChange(o=>{this.updateActiveState(o)}))}render(){const e=s.currentLanguage||"es",a=x.find(r=>r.code===e)||x[0],o=n[`flag_${a.code}`]?n[`flag_${a.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0"):"";this.container.innerHTML=`
+    `,e.querySelector("#subscription-modal-backdrop")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-close-sub-modal")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-cancel-sub-modal")?.addEventListener("click",()=>this.close()),e.querySelectorAll("[data-plan-select]").forEach(m=>{m.addEventListener("click",()=>{this.selectedPlan=m.getAttribute("data-plan-select"),this.render()})}),e.querySelector("#btn-confirm-play-subscribe")?.addEventListener("click",async()=>{await this.billing.launchGooglePlayPurchase(this.selectedPlan),this.close()})}}new y;new q;const x=[{code:"es",short:"ES",name:"Español"},{code:"en",short:"EN",name:"English"},{code:"de",short:"DE",name:"Deutsch"},{code:"fr",short:"FR",name:"Français"},{code:"it",short:"IT",name:"Italiano"},{code:"pt",short:"PT",name:"Português"},{code:"zh",short:"ZH",name:"中文"}];class P{constructor(e="#lang-select"){this.target=typeof e=="string"?document.querySelector(e):e,this.container=null,this.isOpen=!1,this.init()}init(){const e=document.getElementById("custom-lang-dropdown-wrapper");if(e){this.container=e,this.updateActiveState(s.currentLanguage);return}if(!this.target)return;const a=this.target.parentElement;!a||!a.parentElement||(this.container=document.createElement("div"),this.container.className="relative inline-block text-left z-50 shrink-0",this.container.id="custom-lang-dropdown-wrapper",a.parentElement.replaceChild(this.container,a),this.render(),this.setupListeners(),s.onLanguageChange(o=>{this.updateActiveState(o)}))}render(){const e=s.currentLanguage||"es",a=x.find(r=>r.code===e)||x[0],o=n[`flag_${a.code}`]?n[`flag_${a.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0"):"";this.container.innerHTML=`
       <!-- Encapsulated Trigger Button -->
       <button id="custom-lang-btn" type="button" class="h-10 sm:h-11 px-3 sm:px-3.5 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm backdrop-blur-md hover:bg-white dark:hover:bg-slate-800 active:scale-95 text-slate-800 dark:text-slate-100 flex items-center gap-2 transition cursor-pointer select-none shrink-0 whitespace-nowrap" aria-haspopup="true" aria-expanded="false">
         <span id="custom-lang-current-flag" class="flex items-center shrink-0">${o}</span>
@@ -510,10 +510,10 @@
             `}).join("")}
         </div>
       </div>
-    `}setupListeners(){const e=this.container.querySelector("#custom-lang-btn"),a=this.container.querySelector("#custom-lang-menu");!e||!a||(e.addEventListener("click",o=>{o.stopPropagation(),this.toggleMenu()}),a.addEventListener("click",o=>{const r=o.target.closest(".lang-option-btn");if(!r)return;o.stopPropagation();const i=r.getAttribute("data-lang-code");i&&(s.setLanguage(i),this.closeMenu())}),document.addEventListener("click",o=>{this.isOpen&&!this.container.contains(o.target)&&this.closeMenu()}),document.addEventListener("keydown",o=>{o.key==="Escape"&&this.isOpen&&this.closeMenu()}))}toggleMenu(){this.isOpen?this.closeMenu():this.openMenu()}openMenu(){const e=this.container?.querySelector("#custom-lang-menu"),a=this.container?.querySelector("#custom-lang-chevron"),o=this.container?.querySelector("#custom-lang-btn");if(!e)return;this.isOpen=!0,this.container&&(this.container.style.zIndex="9999");const r=this.container.closest("header")||this.container.closest(".glass-card");r&&(r.style.zIndex="999"),e.classList.remove("hidden"),o&&o.setAttribute("aria-expanded","true"),requestAnimationFrame(()=>{e.classList.remove("opacity-0","scale-95"),e.classList.add("opacity-100","scale-100"),a&&a.classList.add("rotate-180")})}closeMenu(){const e=this.container?.querySelector("#custom-lang-menu"),a=this.container?.querySelector("#custom-lang-chevron"),o=this.container?.querySelector("#custom-lang-btn");e&&(this.isOpen=!1,o&&o.setAttribute("aria-expanded","false"),e.classList.remove("opacity-100","scale-100"),e.classList.add("opacity-0","scale-95"),a&&a.classList.remove("rotate-180"),setTimeout(()=>{if(!this.isOpen){e.classList.add("hidden"),this.container&&(this.container.style.zIndex="");const r=this.container?.closest("header")||this.container?.closest(".glass-card");r&&(r.style.zIndex="")}},150))}updateActiveState(e){const a=x.find(l=>l.code===e)||x[0],o=this.container?.querySelector("#custom-lang-current-flag"),r=this.container?.querySelector("#custom-lang-current-label");o&&n[`flag_${a.code}`]&&(o.innerHTML=n[`flag_${a.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0")),r&&(r.textContent=a.short);const i=this.container?.querySelector("#custom-lang-menu > div");i&&(i.innerHTML=x.map(l=>{const d=l.code===e,m=n[`flag_${l.code}`]?n[`flag_${l.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0"):"";return`
+    `}setupListeners(){const e=this.container.querySelector("#custom-lang-btn"),a=this.container.querySelector("#custom-lang-menu");!e||!a||(e.addEventListener("click",o=>{o.stopPropagation(),this.toggleMenu()}),a.addEventListener("click",o=>{const r=o.target.closest(".lang-option-btn");if(!r)return;o.stopPropagation();const i=r.getAttribute("data-lang-code");i&&(s.setLanguage(i),this.closeMenu())}),document.addEventListener("click",o=>{this.isOpen&&!this.container.contains(o.target)&&this.closeMenu()}),document.addEventListener("keydown",o=>{o.key==="Escape"&&this.isOpen&&this.closeMenu()}))}toggleMenu(){this.isOpen?this.closeMenu():this.openMenu()}openMenu(){const e=this.container?.querySelector("#custom-lang-menu"),a=this.container?.querySelector("#custom-lang-chevron"),o=this.container?.querySelector("#custom-lang-btn");if(!e)return;this.isOpen=!0,this.container&&(this.container.style.zIndex="9999");const r=this.container.closest("header")||this.container.closest(".glass-card");r&&(r.style.zIndex="999"),e.classList.remove("hidden"),o&&o.setAttribute("aria-expanded","true"),requestAnimationFrame(()=>{e.classList.remove("opacity-0","scale-95"),e.classList.add("opacity-100","scale-100"),a&&a.classList.add("rotate-180")})}closeMenu(){const e=this.container?.querySelector("#custom-lang-menu"),a=this.container?.querySelector("#custom-lang-chevron"),o=this.container?.querySelector("#custom-lang-btn");e&&(this.isOpen=!1,o&&o.setAttribute("aria-expanded","false"),e.classList.remove("opacity-100","scale-100"),e.classList.add("opacity-0","scale-95"),a&&a.classList.remove("rotate-180"),setTimeout(()=>{if(!this.isOpen){e.classList.add("hidden"),this.container&&(this.container.style.zIndex="");const r=this.container?.closest("header")||this.container?.closest(".glass-card");r&&(r.style.zIndex="")}},150))}updateActiveState(e){const a=x.find(l=>l.code===e)||x[0],o=this.container?.querySelector("#custom-lang-current-flag"),r=this.container?.querySelector("#custom-lang-current-label");o&&n[`flag_${a.code}`]&&(o.innerHTML=n[`flag_${a.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0")),r&&(r.textContent=a.short);const i=this.container?.querySelector("#custom-lang-menu > div");i&&(i.innerHTML=x.map(l=>{const d=l.code===e,h=n[`flag_${l.code}`]?n[`flag_${l.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0"):"";return`
           <button type="button" data-lang-code="${l.code}" class="lang-option-btn w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none ${d?"bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20":"text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent"}">
             <div class="flex items-center gap-2.5">
-              <span class="flex items-center shrink-0">${m}</span>
+              <span class="flex items-center shrink-0">${h}</span>
               <span>${l.name}</span>
             </div>
             <div class="flex items-center gap-1.5">
@@ -525,7 +525,7 @@
               `:""}
             </div>
           </button>
-        `}).join(""))}}class Z{constructor(){this.currentTheme=localStorage.getItem("passq_theme")||"dark",this.init()}init(){this.applyTheme(this.currentTheme),typeof document<"u"&&(document.readyState==="loading"?document.addEventListener("DOMContentLoaded",()=>{this.updateIconSlots(),this.initLanguageDropdown()}):(this.updateIconSlots(),this.initLanguageDropdown())),typeof window<"u"&&"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("./sw.js").catch(e=>{console.debug("ServiceWorker registration optional:",e)})}),window.matchMedia?.("(prefers-color-scheme: dark)")?.addEventListener("change",e=>{localStorage.getItem("passq_theme")||this.applyTheme(e.matches?"dark":"light")})}initLanguageDropdown(e="#lang-select"){typeof document<"u"&&document.querySelector(e)&&new P(e)}updateIconSlots(){const e=document.documentElement.classList.contains("dark");document.querySelectorAll("#theme-icon-slot, [data-theme-icon]").forEach(o=>{o.innerHTML=e?n.sun("w-5 h-5"):n.moon("w-5 h-5")})}applyTheme(e){if(this.currentTheme=e,localStorage.setItem("passq_theme",e),e==="dark")document.documentElement.classList.add("dark");else if(e==="light")document.documentElement.classList.remove("dark");else{const a=window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",a)}this.updateIconSlots()}toggleTheme(){const a=document.documentElement.classList.contains("dark")?"light":"dark";return this.applyTheme(a),a}}class V{constructor(){this.modalEl=null,this.isOpen=!1,this.init()}init(){typeof document>"u"||(document.addEventListener("click",e=>{e.target.closest("#btn-open-contact-modal, [data-open-contact-modal]")&&(e.preventDefault(),this.open())}),document.addEventListener("keydown",e=>{e.key==="Escape"&&this.isOpen&&this.close()}),s.onLanguageChange(()=>{this.isOpen&&this.render()}))}async open(){await s.loadNamespaces(["common"]),this.isOpen=!0,this.render(),document.body.classList.add("overflow-hidden")}close(){this.isOpen=!1,this.modalEl&&(this.modalEl.classList.add("opacity-0","pointer-events-none"),setTimeout(()=>{!this.isOpen&&this.modalEl&&(this.modalEl.remove(),this.modalEl=null)},200)),document.body.classList.remove("overflow-hidden")}render(){let e=document.getElementById("passq-contact-modal-root");e||(e=document.createElement("div"),e.id="passq-contact-modal-root",document.body.appendChild(e)),this.modalEl=e;const a=s.t("contact_modal.title","Contacto & Sugerencias"),o=s.t("contact_modal.badge","Escucha Activa del Usuario"),r=s.t("contact_modal.subtitle","¡Tu opinión impulsa la evolución continua de PassQ!"),i=s.t("contact_modal.message","Estamos en la mejor disposición de escuchar a los usuarios, aprender de tu experiencia y adaptar la plataforma a tus necesidades reales. Envíanos tus comentarios, dudas, sugerencias de mejora o solicitudes de funciones."),l=s.t("contact_modal.email_label","Canal Oficial de Contacto:"),d=s.t("contact_modal.email_address","passq-reportes@outlook.com"),m=s.t("contact_modal.btn_send_email","Enviar Correo Directo"),u=s.t("contact_modal.btn_copy_email","Copiar Dirección"),c=s.t("contact_modal.response_time","Respuesta habitual en menos de 72 horas hábiles."),p=encodeURIComponent(s.t("contact_modal.mail_subject","Comentarios y Sugerencias de Mejora • PassQ")),v=encodeURIComponent(s.t("contact_modal.mail_body",`Hola equipo de PassQ,
+        `}).join(""))}}class Z{constructor(){this.currentTheme=localStorage.getItem("passq_theme")||"dark",this.init()}init(){this.applyTheme(this.currentTheme),typeof document<"u"&&(document.readyState==="loading"?document.addEventListener("DOMContentLoaded",()=>{this.updateIconSlots(),this.initLanguageDropdown()}):(this.updateIconSlots(),this.initLanguageDropdown())),typeof window<"u"&&"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("./sw.js").catch(e=>{console.debug("ServiceWorker registration optional:",e)})}),window.matchMedia?.("(prefers-color-scheme: dark)")?.addEventListener("change",e=>{localStorage.getItem("passq_theme")||this.applyTheme(e.matches?"dark":"light")})}initLanguageDropdown(e="#lang-select"){typeof document<"u"&&document.querySelector(e)&&new P(e)}updateIconSlots(){const e=document.documentElement.classList.contains("dark");document.querySelectorAll("#theme-icon-slot, [data-theme-icon]").forEach(o=>{o.innerHTML=e?n.sun("w-5 h-5"):n.moon("w-5 h-5")})}applyTheme(e){if(this.currentTheme=e,localStorage.setItem("passq_theme",e),e==="dark")document.documentElement.classList.add("dark");else if(e==="light")document.documentElement.classList.remove("dark");else{const a=window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",a)}this.updateIconSlots()}toggleTheme(){const a=document.documentElement.classList.contains("dark")?"light":"dark";return this.applyTheme(a),a}}class V{constructor(){this.modalEl=null,this.isOpen=!1,this.init()}init(){typeof document>"u"||(document.addEventListener("click",e=>{e.target.closest("#btn-open-contact-modal, [data-open-contact-modal]")&&(e.preventDefault(),this.open())}),document.addEventListener("keydown",e=>{e.key==="Escape"&&this.isOpen&&this.close()}),s.onLanguageChange(()=>{this.isOpen&&this.render()}))}async open(){await s.loadNamespaces(["common"]),this.isOpen=!0,this.render(),document.body.classList.add("overflow-hidden")}close(){this.isOpen=!1,this.modalEl&&(this.modalEl.classList.add("opacity-0","pointer-events-none"),setTimeout(()=>{!this.isOpen&&this.modalEl&&(this.modalEl.remove(),this.modalEl=null)},200)),document.body.classList.remove("overflow-hidden")}render(){let e=document.getElementById("passq-contact-modal-root");e||(e=document.createElement("div"),e.id="passq-contact-modal-root",document.body.appendChild(e)),this.modalEl=e;const a=s.t("contact_modal.title","Contacto & Sugerencias"),o=s.t("contact_modal.badge","Escucha Activa del Usuario"),r=s.t("contact_modal.subtitle","¡Tu opinión impulsa la evolución continua de PassQ!"),i=s.t("contact_modal.message","Estamos en la mejor disposición de escuchar a los usuarios, aprender de tu experiencia y adaptar la plataforma a tus necesidades reales. Envíanos tus comentarios, dudas, sugerencias de mejora o solicitudes de funciones."),l=s.t("contact_modal.email_label","Canal Oficial de Contacto:"),d=s.t("contact_modal.email_address","passq-reportes@outlook.com"),h=s.t("contact_modal.btn_send_email","Enviar Correo Directo"),u=s.t("contact_modal.btn_copy_email","Copiar Dirección"),c=s.t("contact_modal.response_time","Respuesta habitual en menos de 72 horas hábiles."),p=encodeURIComponent(s.t("contact_modal.mail_subject","Comentarios y Sugerencias de Mejora • PassQ")),v=encodeURIComponent(s.t("contact_modal.mail_body",`Hola equipo de PassQ,
 
 Me gustaría compartir los siguientes comentarios y sugerencias para adaptar la plataforma a mis necesidades:
 
@@ -581,7 +581,7 @@ Me gustaría compartir los siguientes comentarios y sugerencias para adaptar la 
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
           <a href="${f}" id="btn-send-mail-action" class="flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-600/25 transition active:scale-[0.98] cursor-pointer">
             <span class="w-5 h-5 flex items-center">${n.envelope?n.envelope("w-5 h-5"):""}</span>
-            <span>${m}</span>
+            <span>${h}</span>
           </a>
 
           <button id="btn-cancel-contact-modal" type="button" class="px-5 py-3 rounded-2xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-semibold text-sm sm:text-base transition cursor-pointer">
