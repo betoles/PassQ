@@ -75,14 +75,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     }
 
-    if (!heroCanvas) return;
-
-    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    const subpathOrigin = window.location.href.split(/[?#]/)[0].replace(/\/[^\/]*$/, '');
-    const baseUrl = mode === 'wifi'
-      ? (isLocal ? 'http://192.168.100.6:5173' : subpathOrigin)
-      : 'https://passq.app';
-
+    const baseUrl = GS1Formatter.resolveBaseUrl(null);
     const sampleProduct = storage.getById('prod_001');
     const demoUrl = GS1Formatter.generateDigitalLink('7501234567893', '0842-MX', baseUrl, sampleProduct);
 
@@ -90,15 +83,17 @@ document.addEventListener('DOMContentLoaded', async () => {
       heroLink.href = demoUrl;
     }
 
-    await QRCode.toCanvas(heroCanvas, demoUrl, {
-      width: 180,
-      margin: 2,
-      errorCorrectionLevel: 'M',
-      color: {
-        dark: '#0f172a',
-        light: '#ffffff'
-      }
-    });
+    if (heroCanvas) {
+      await QRCode.toCanvas(heroCanvas, demoUrl, {
+        width: 180,
+        margin: 2,
+        errorCorrectionLevel: 'M',
+        color: {
+          dark: '#0f172a',
+          light: '#ffffff'
+        }
+      });
+    }
   }
 
   document.getElementById('hero-qr-mode-wifi')?.addEventListener('click', () => updateHeroQR('wifi'));
