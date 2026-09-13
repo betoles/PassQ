@@ -70,7 +70,7 @@
   <div class="max-w-6xl xl:max-w-7xl 2xl:max-w-[1340px] w-full mx-auto z-10 space-y-6">
 
     <!-- Header Navigation Bar -->
-    <header class="relative z-40 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 p-4.5 sm:p-6 rounded-3xl glass-card shadow-lg">
+    <header class="relative z-40 flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-4 p-4.5 sm:p-6 rounded-3xl glass-card shadow-lg">
       <div class="flex items-center justify-between shrink-0">
         <a href="./index.html" class="flex items-center gap-3.5 group">
           <div class="h-11 w-11 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-emerald-600/30 group-hover:scale-105 transition shrink-0">
@@ -78,7 +78,7 @@
           </div>
           <div>
             <div class="flex items-center gap-2">
-              <h1 class="text-xl sm:text-2xl font-black tracking-tight">PassQ</h1>
+              <h1 class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white">PassQ</h1>
               <span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20">B2B PyME</span>
             </div>
             <p data-i18n="dashboard:header.subtitle" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-semibold mt-0.5">Gestor de Pasaportes Digitales y Cumplimiento UE ESPR</p>
@@ -87,7 +87,7 @@
       </div>
 
       <!-- Controls & Actions Group -->
-      <div class="flex items-center justify-between md:justify-end gap-2 sm:gap-2.5 flex-nowrap overflow-x-auto md:overflow-visible pt-2 md:pt-0 border-t md:border-t-0 border-slate-200/60 dark:border-white/10 shrink-0">
+      <div class="flex flex-wrap sm:flex-nowrap items-center justify-start sm:justify-end gap-2.5 sm:gap-3 pt-3 xl:pt-0 border-t xl:border-t-0 border-slate-200/60 dark:border-white/10 shrink-0">
         <!-- Language Selector -->
         <div class="flex items-center h-10 sm:h-11 px-3 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm shrink-0">
           <span id="lang-flag-slot" class="flex items-center shrink-0"></span>
@@ -108,7 +108,7 @@
         </button>
 
         <!-- User Guide Modal Button -->
-        <button id="btn-open-user-guide" data-open-user-guide class="h-10 sm:h-11 px-3 sm:px-3.5 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center gap-1.5 sm:gap-2 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/40 transition text-xs sm:text-sm font-bold shrink-0 cursor-pointer active:scale-95 whitespace-nowrap" title="Guía de Usuario">
+        <button id="btn-open-user-guide" data-open-user-guide class="h-10 sm:h-11 px-3.5 sm:px-4 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/40 transition text-xs sm:text-sm font-bold shrink-0 cursor-pointer active:scale-95 whitespace-nowrap" title="Guía de Usuario">
           <span class="icon-svg w-4 h-4 text-emerald-500 shrink-0">
             <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
           </span>
@@ -116,7 +116,7 @@
         </button>
 
         <!-- Create Passport CTA Button -->
-        <button id="btn-open-wizard" class="h-10 sm:h-11 py-2 px-3.5 sm:px-5 rounded-2xl font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg shadow-emerald-600/30 transition flex items-center justify-center gap-1.5 sm:gap-2 shrink-0 active:scale-95 whitespace-nowrap cursor-pointer">
+        <button id="btn-open-wizard" class="h-10 sm:h-11 py-2 px-4 sm:px-5 rounded-2xl font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg shadow-emerald-600/30 transition flex items-center justify-center gap-2 shrink-0 active:scale-95 whitespace-nowrap cursor-pointer">
           <span class="icon-svg w-4 h-4 shrink-0">
             <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
           </span>
