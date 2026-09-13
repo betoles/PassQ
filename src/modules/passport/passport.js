@@ -90,6 +90,15 @@ class PassportViewController {
     const pdata = params.get('pdata');
     this.currentProduct = storage.getById(productId, pdata);
 
+    // Increment authentic scan telemetry count for this product
+    if (this.currentProduct && this.currentProduct.gtin) {
+      try {
+        const scanKey = `passq_scans_${this.currentProduct.gtin}`;
+        const currentCount = parseInt(localStorage.getItem(scanKey) || '0', 10) + 1;
+        localStorage.setItem(scanKey, currentCount.toString());
+      } catch {}
+    }
+
     // 3. Initialize Camera Scanner with Universal Parser
     this.scanner = new CameraScanner((scannedUrl) => {
       window.location.href = scannedUrl;

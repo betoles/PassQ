@@ -455,16 +455,32 @@ class DashboardController {
   }
 
   render() {
-    // 1. Stats
-    const totalScans = this.products.length * 142 + (this.products.length > 0 ? 89 : 0);
+    // 1. Stats: Real zero-based scan telemetry
+    const totalScans = this.products.reduce((acc, p) => {
+      const stored = parseInt(localStorage.getItem(`passq_scans_${p.gtin}`) || p.scan_count || '0', 10);
+      return acc + (isNaN(stored) ? 0 : stored);
+    }, 0);
+
     const avgScore = this.products.length > 0
-      ? (this.products.reduce((acc, p) => acc + (p.repair_score || 0), 0) / this.products.length).toFixed(1)
+      ? (this.products.reduce((acc, p) => acc + (parseFloat(p.repair_score) || 0), 0) / this.products.length).toFixed(1)
       : '0.0';
 
-    document.getElementById('stat-active-products').textContent = this.products.length;
-    document.getElementById('stat-total-scans').textContent = totalScans.toLocaleString();
-    document.getElementById('stat-avg-score').textContent = `${avgScore} / 10`;
-    document.getElementById('stat-compliance-rate').textContent = `100%`;
+    const compliantCount = this.products.filter(p => p.repair_score != null && p.gtin).length;
+    const complianceRate = this.products.length > 0
+      ? Math.round((compliantCount / this.products.length) * 100)
+      : 100;
+
+    const activeEl = document.getElementById('stat-active-products');
+    if (activeEl) activeEl.textContent = this.products.length;
+
+    const scansEl = document.getElementById('stat-total-scans');
+    if (scansEl) scansEl.textContent = totalScans.toLocaleString();
+
+    const scoreEl = document.getElementById('stat-avg-score');
+    if (scoreEl) scoreEl.textContent = `${avgScore} / 10`;
+
+    const compEl = document.getElementById('stat-compliance-rate');
+    if (compEl) compEl.textContent = `${complianceRate}%`;
 
     // 2. Table rows with pure SVG icons and generous touch targets
     const tbody = document.getElementById('products-table-body');
