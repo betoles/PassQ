@@ -24,14 +24,14 @@
   },
   "tab2_content": {
     "title": "Geführter Erstellungsassistent (4 Einfache Schritte)",
-    "step1_title": "Produktidentität",
-    "step1_desc": "Produktname, Kategorie (Textil, Schuhe, Elektronik, Möbel), GTIN-13-Barcode und Herkunftsland.",
+    "step1_title": "Produktidentität & Sektor",
+    "step1_desc": "Produktname, regulatorische Kategorie (Textil, Schuhe, Elektronik, Möbel, EV-Batterien, Kosmetik, Lebensmittel oder Bau), GTIN-13 mit GS1 Mod 10 und Herkunftsland.",
     "step2_title": "Materialzusammensetzung & CO₂",
-    "step2_desc": "Materialanteile (z. B. 85 % recyceltes Polyester, 15 % Membran) und CO₂-Fußabdruck in kg CO₂e.",
+    "step2_desc": "Materialanteile oder Sektordaten (z. B. INCI-Formel, Batteriechemie, Charge oder EPD) und CO₂-Fußabdruck in kg CO₂e.",
     "step3_title": "Reparierbarkeit & Pflege",
     "step3_desc": "Erforderliche Demontagewerkzeuge und Verfügbarkeit von Ersatzteilen in Jahren. PassQ berechnet den Ökodesign-Score.",
     "step4_title": "Zollcode & Digitale Signatur",
-    "step4_desc": "HS/TARIC-Zollcode (z. B. 6202.40.00) und manipulationssichere Signatur im Browser."
+    "step4_desc": "HS/TARIC-Zollcode (z. B. 6202.40.00) und manipulationssichere ECDSA P-256 Signatur im Browser."
   },
   "tab3_content": {
     "title": "Katalogverwaltung & Täglicher Betrieb",
@@ -39,7 +39,7 @@
     "catalog_desc": "Die Tabelle «Verwaltete Digitale Pässe» auf dem Dashboard ist Ihr Produktkatalog.",
     "actions_title": "Direkte Aktionen pro Zeile:",
     "action_view": "Pass anzeigen: Öffnet die öffentliche Ansicht für Kunden und Zollprüfer.",
-    "action_qr": "QR-Code abrufen: Modal mit hochauflösendem Vektor-QR-Code zum Herunterladen.",
+    "action_qr": "QR-Studio: Interaktives Studio mit Dual-Modus (Universal Offline / GS1 Direkt) sowie SVG- und PNG-300-DPI-Export.",
     "action_del": "Löschen: Dauerhaftes Löschen des Produkts und der kryptografischen Signaturen.",
     "export_title": "Offizielle Exporte:",
     "export_desc": "Zoll-PDFs und EU-konforme JSON-LD-Dateien."

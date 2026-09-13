@@ -24,14 +24,14 @@
   },
   "tab2_content": {
     "title": "Guided Creation Wizard (4 Simple Steps)",
-    "step1_title": "Product Identity",
-    "step1_desc": "Set the commercial name, category (Textile, Footwear, Electronics, Furniture), GTIN-13 (EAN) barcode, and country of origin.",
+    "step1_title": "Product Identity & Sector",
+    "step1_desc": "Set the commercial name, regulatory category (Textile, Footwear, Electronics, Furniture, EV Batteries, Cosmetics, Food, or Construction), GTIN-13 barcode with GS1 Mod 10 validation, and country of origin.",
     "step2_title": "Materials Composition & CO₂",
-    "step2_desc": "Add percentage breakdown for each material (e.g., 85% Recycled Polyester, 15% Membrane) and estimated carbon footprint in kg CO₂e.",
+    "step2_desc": "Add percentage breakdown for materials or sector metadata (e.g. INCI formula, battery chemistry, lot batch or EPD) and estimated carbon footprint in kg CO₂e.",
     "step3_title": "Repairability & Care",
     "step3_desc": "Select disassembly tools required and years of spare parts availability. PassQ automatically calculates the EU Ecodesign Score (e.g., 9.2/10).",
     "step4_title": "Customs Code & Digital Signature",
-    "step4_desc": "Enter the HS/TARIC customs code (e.g., 6202.40.00). The browser creates a tamper-evident digital signature to prevent counterfeiting."
+    "step4_desc": "Enter the HS/TARIC customs code (e.g., 6202.40.00). The browser creates a tamper-evident ECDSA P-256 digital signature to prevent counterfeiting."
   },
   "tab3_content": {
     "title": "Catalog Management & Daily Operations",
@@ -39,7 +39,7 @@
     "catalog_desc": "On your dashboard, the «Managed Digital Passports» table represents your active product catalog.",
     "actions_title": "Direct actions per product row:",
     "action_view": "View Passport: Open the public passport view seen by consumers and inspectors.",
-    "action_qr": "Get QR Code: Modal with high-resolution vector QR ready for download or print.",
+    "action_qr": "QR Studio: Interactive studio with dual mode (Universal Offline / GS1 Direct) and SVG / PNG 300 DPI export.",
     "action_del": "Delete: Permanently erase the product and cryptographic signatures.",
     "export_title": "Official Exports:",
     "export_desc": "Export official 3-page Customs PDFs and W3C/EU standard JSON-LD data packages."

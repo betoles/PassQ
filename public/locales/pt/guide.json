@@ -24,14 +24,14 @@
   },
   "tab2_content": {
     "title": "Assistente Guiado de Criação (4 Passos Simples)",
-    "step1_title": "Identidade do Produto",
-    "step1_desc": "Nome comercial, categoria (Têxtil, Calçado, Eletrônicos, Móveis), código de barras GTIN-13 e país de origem.",
+    "step1_title": "Identidade do Produto & Setor",
+    "step1_desc": "Nome comercial, categoria regulatória (Têxtil, Calçado, Eletrônicos, Móveis, Baterias EV, Cosméticos, Alimentos ou Construção), código GTIN-13 validado com GS1 Mod 10 e país de origem.",
     "step2_title": "Composição de Materiais e CO₂",
-    "step2_desc": "Desdobramento percentual dos materiais (ex.: 85% Poliéster reciclado, 15% Membrana) e pegada estimada em kg CO₂e.",
+    "step2_desc": "Desdobramento percentual dos materiais ou dados setoriais (ex.: fórmula INCI, química da bateria, lote ou EPD) e pegada estimada em kg CO₂e.",
     "step3_title": "Reparabilidade e Cuidados",
     "step3_desc": "Ferramentas de desmontagem necessárias e anos de garantia de peças sobressalentes. Cálculo automático do índice de ecodesign.",
     "step4_title": "Classificação Aduaneira e Assinatura",
-    "step4_desc": "Código aduaneiro HS/TARIC (ex.: 6202.40.00) e assinatura digital inviolável gerada no navegador."
+    "step4_desc": "Código aduaneiro HS/TARIC (ex.: 6202.40.00) e assinatura digital inviolável ECDSA P-256 gerada no navegador."
   },
   "tab3_content": {
     "title": "Gestão do Catálogo & Rotina Diária",
@@ -39,7 +39,7 @@
     "catalog_desc": "Na tela inicial, a tabela «Passaportes Digitais Gerenciados» representa todo o seu catálogo de produtos.",
     "actions_title": "Ações diretas em cada linha:",
     "action_view": "Ver Passaporte: Abre a visualização pública para clientes e inspetores.",
-    "action_qr": "Obter QR Code: Janela de download e impressão em alta resolução.",
+    "action_qr": "Estúdio QR: Estúdio interativo com modo duplo (Universal Offline / GS1 Direto) e exportação vetorial SVG e PNG 300 DPI.",
     "action_del": "Eliminar: Eliminação permanente do produto e respetivas assinaturas.",
     "export_title": "Exportações Oficiais:",
     "export_desc": "Geração de PDFs aduaneiros de 3 páginas e dados JSON-LD padrão UE."

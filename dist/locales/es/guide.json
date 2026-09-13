@@ -24,14 +24,14 @@
   },
   "tab2_content": {
     "title": "Asistente Guiado de Creación (4 Pasos Sencillos)",
-    "step1_title": "Identidad del Producto",
-    "step1_desc": "Define el nombre comercial, categoría (Textil, Calzado, Electrónica, Muebles), código de barras GTIN-13 (EAN) y país de origen.",
+    "step1_title": "Identidad del Producto y Sector",
+    "step1_desc": "Define el nombre comercial, categoría normativa (Textil, Calzado, Electrónica, Muebles, Baterías EV, Cosmética, Alimentos o Construcción), código GTIN-13 validado con GS1 Mod 10 y país de origen.",
     "step2_title": "Composición de Materiales y CO₂",
-    "step2_desc": "Añade los porcentajes de cada material (ej. 85% Poliéster reciclado, 15% Membrana) y la huella de carbono estimada en kg CO₂e.",
+    "step2_desc": "Añade los porcentajes de cada material o datos sectoriales (ej. fórmula INCI, química de batería, lote o EPD) y la huella de carbono estimada en kg CO₂e.",
     "step3_title": "Reparabilidad y Cuidados",
     "step3_desc": "Indica qué herramientas se necesitan para reparar el producto y los años de disponibilidad de repuestos. PassQ calcula automáticamente el Score de Ecodiseño (ej. 9.2/10).",
     "step4_title": "Clasificación Aduanera y Firma",
-    "step4_desc": "Ingresa el código arancelario HS/TARIC (ej. 6202.40.00). El navegador genera una firma digital única para evitar falsificaciones."
+    "step4_desc": "Ingresa el código arancelario HS/TARIC (ej. 6202.40.00). El navegador genera una firma digital ECDSA P-256 única para evitar falsificaciones."
   },
   "tab3_content": {
     "title": "Gestión del Catálogo y Operaciones Diarias",
@@ -39,7 +39,7 @@
     "catalog_desc": "En la pantalla principal del panel verás la tabla «Pasaportes Digitales Gestionados». Cada producto que crees se almacena allí.",
     "actions_title": "Acciones directas disponibles en cada fila:",
     "action_view": "Ver Pasaporte: Abre la vista pública que verán tus clientes e inspectores.",
-    "action_qr": "Obtener QR: Ventana con tu código QR vectorial listo para descargar o imprimir.",
+    "action_qr": "Estudio QR: Ventana interactiva con selector dual (Universal Offline / GS1 Directo) y exportación vectorial SVG y PNG 300 DPI.",
     "action_del": "Eliminar: Borra el producto y sus firmas criptográficas si fue retirado.",
     "export_title": "Exportaciones Oficiales:",
     "export_desc": "Exporta la Ficha Aduanera en PDF oficial de 3 páginas y el archivo de datos JSON-LD conforme al estándar W3C y UE."
