@@ -52,6 +52,11 @@
   },
   "qr_modal": {
     "studio_badge": "GS1 Digital Link 发行工作室",
+    "mode_label": "发行模式与网络连通性",
+    "mode_offline_title": "通用离线模式",
+    "mode_offline_desc": "无网络时秒级自解析",
+    "mode_standard_title": "GS1 直连标准",
+    "mode_standard_desc": "超紧凑矩阵 (微型标签)",
     "domain_label": "通行证解析域名",
     "gs1_badge": "GS1 数字链接 • 30% ECC HIGH 工业级容错",
     "btn_svg": "矢量 SVG 格式",
