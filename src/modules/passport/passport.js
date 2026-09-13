@@ -753,8 +753,8 @@ class PassportViewController {
     let qrDataUrl = '';
     try {
       qrDataUrl = await QRCode.toDataURL(url, {
-        width: 360,
-        margin: 2,
+        width: 480,
+        margin: 4,
         errorCorrectionLevel: 'H',
         color: {
           dark: '#0f172a',
@@ -976,9 +976,9 @@ class PassportViewController {
       <h1>${escapeHTML(p.name)}</h1>
       <div style="font-size: 10pt; font-weight: 700; color: #059669;">${escapeHTML(p.brand || 'PassQ Certified')} • Sector: ${escapeHTML(p.category || 'General').toUpperCase()}</div>
     </div>
-    <div style="text-align: center;">
-      <img src="${qrDataUrl}" style="width: 88px; height: 88px; border: 1px solid #94a3b8; border-radius: 6px;" />
-      <div style="font-size: 7pt; font-family: monospace; color: #64748b; margin-top: 1px;">GS1 Digital Link</div>
+    <div style="text-align: center; background: #ffffff; padding: 4px; border: 1px solid #cbd5e1; border-radius: 6px;">
+      <img src="${qrDataUrl}" style="width: 92px; height: 92px; display: block; image-rendering: -webkit-optimize-contrast; image-rendering: pixelated; shape-rendering: crispEdges;" alt="GS1 Digital Link QR" />
+      <div style="font-size: 6.5pt; font-family: monospace; font-weight: 700; color: #475569; margin-top: 2px;">GS1 DIGITAL LINK</div>
     </div>
   </div>
 
