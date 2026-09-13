@@ -68,6 +68,8 @@
     "active_title": "Active 7-Day Free Trial",
     "active_desc": "You have full, unlimited access to all Pro features (Web Crypto Signing, GS1 Mod 10 & Customs Export).",
     "day_badge": "Day {day} of 7",
-    "lock_price_btn": "Lock Founder Rate"
+    "lock_price_btn": "Lock Founder Rate",
+    "lock_price_main": "Lock Founder Rate",
+    "lock_price_sub": "(7 Days Free)"
   }
 }

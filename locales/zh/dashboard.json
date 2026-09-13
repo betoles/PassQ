@@ -68,6 +68,8 @@
     "active_title": "7天免费试用进行中",
     "active_desc": "您拥有所有Pro专业功能的完全无限制访问权限（Web Crypto加密签名、GS1 Mod 10与海关数据导出）。",
     "day_badge": "第 {day} 天 / 共 7 天",
-    "lock_price_btn": "锁定创始人优惠价"
+    "lock_price_btn": "锁定创始人优惠价",
+    "lock_price_main": "锁定创始人优惠价",
+    "lock_price_sub": "(7天免费试用)"
   }
 }
