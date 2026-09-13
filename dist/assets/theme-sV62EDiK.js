@@ -504,8 +504,8 @@
         </span>
       </button>
 
-      <!-- Anchored Absolute Dropdown Menu (Directly aligned with trigger button) -->
-      <div id="custom-lang-menu" class="hidden opacity-0 scale-95 transition-all duration-150 ease-out absolute left-0 sm:left-auto sm:right-0 top-full mt-2 w-48 sm:w-52 p-1.5 rounded-2xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200/90 dark:border-white/15 shadow-2xl backdrop-blur-2xl z-[9999] origin-top-left sm:origin-top-right">
+      <!-- Anchored Absolute Dropdown Menu (Anchored to right, expanding to left) -->
+      <div id="custom-lang-menu" class="hidden opacity-0 scale-95 transition-all duration-150 ease-out absolute right-0 top-full mt-2 w-48 sm:w-52 p-1.5 rounded-2xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200/90 dark:border-white/15 shadow-2xl backdrop-blur-2xl z-[9999] origin-top-right">
         <div class="space-y-1" role="menu" aria-orientation="vertical">
           ${x.map(r=>{const i=r.code===e,l=n[`flag_${r.code}`]?n[`flag_${r.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0"):"";return`
               <button type="button" data-lang-code="${r.code}" class="lang-option-btn w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none ${i?"bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20":"text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent"}">

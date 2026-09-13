@@ -68,8 +68,8 @@ export class LanguageDropdown {
         </span>
       </button>
 
-      <!-- Anchored Absolute Dropdown Menu (Directly aligned with trigger button) -->
-      <div id="custom-lang-menu" class="hidden opacity-0 scale-95 transition-all duration-150 ease-out absolute left-0 sm:left-auto sm:right-0 top-full mt-2 w-48 sm:w-52 p-1.5 rounded-2xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200/90 dark:border-white/15 shadow-2xl backdrop-blur-2xl z-[9999] origin-top-left sm:origin-top-right">
+      <!-- Anchored Absolute Dropdown Menu (Anchored to right, expanding to left) -->
+      <div id="custom-lang-menu" class="hidden opacity-0 scale-95 transition-all duration-150 ease-out absolute right-0 top-full mt-2 w-48 sm:w-52 p-1.5 rounded-2xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200/90 dark:border-white/15 shadow-2xl backdrop-blur-2xl z-[9999] origin-top-right">
         <div class="space-y-1" role="menu" aria-orientation="vertical">
           ${LANGUAGES.map(lang => {
             const isSelected = lang.code === currentLang;
