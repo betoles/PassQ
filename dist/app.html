@@ -58,9 +58,9 @@
     }
   }
   </script>
-  <script type="module" crossorigin src="./assets/app-DpIgwbV5.js"></script>
+  <script type="module" crossorigin src="./assets/app-CatFndCk.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/theme-Ct5_PpAN.js">
-  <link rel="modulepreload" crossorigin href="./assets/gs1-DQ5SGh2U.js">
+  <link rel="modulepreload" crossorigin href="./assets/gs1-C1EC-_-a.js">
   <link rel="modulepreload" crossorigin href="./assets/crypto-BjlqRT8o.js">
   <link rel="modulepreload" crossorigin href="./assets/vendor-qrcode-CjSdxGTc.js">
   <link rel="stylesheet" crossorigin href="./assets/theme-Cvtdz1gC.css">
@@ -468,6 +468,16 @@
           <p class="flex items-center justify-between"><span data-i18n="wizard:review.summary_gtin_label" class="text-xs sm:text-sm uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">GTIN:</span> <strong id="summary-gtin" class="font-mono text-base sm:text-lg text-emerald-600 dark:text-emerald-400 font-black tracking-wider"></strong></p>
           <p class="flex items-center justify-between"><span data-i18n="wizard:review.summary_origin_label" class="text-xs sm:text-sm uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Origen:</span> <strong id="summary-origin" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white"></strong></p>
         </div>
+
+        <!-- Real-time Optical Quality & Print Recommendation Badge -->
+        <div id="wizard-qr-density-card" class="p-3.5 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 flex items-center justify-between text-xs">
+          <div class="space-y-0.5">
+            <span class="font-bold text-slate-800 dark:text-slate-200 block" id="wizard-qr-quality-title" data-i18n="wizard:review.qr_quality_title">Calidad Óptica del Código QR</span>
+            <span class="text-slate-500 dark:text-slate-400 font-medium" id="wizard-qr-quality-desc">Densidad óptima para etiquetas</span>
+          </div>
+          <span id="wizard-qr-quality-badge" class="px-3 py-1 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-black text-xs">ECC High • 2.8x2.8 cm</span>
+        </div>
+
         <div>
           <label data-i18n="wizard:fields.recycling_instructions" class="block text-xs sm:text-sm font-extrabold mb-1.5 uppercase tracking-wide text-slate-700 dark:text-slate-200">Instrucciones de Fin de Vida</label>
           <textarea id="wizard-recycling" rows="2" data-i18n-placeholder="wizard:placeholders.recycling" class="glass-input w-full py-3 px-4 rounded-2xl text-sm sm:text-base leading-relaxed font-medium">Apto para reciclaje en centros de acopio autorizados.</textarea>
@@ -516,11 +526,29 @@
         </button>
       </div>
 
+      <!-- Mode Selector: Universal Offline vs GS1 Standard Direct -->
+      <div class="space-y-1.5">
+        <label class="text-xs sm:text-sm font-extrabold text-slate-800 dark:text-slate-200 flex items-center justify-between" data-i18n="dashboard:qr_modal.mode_label">
+          <span>Modo de Emisión y Conectividad</span>
+          <span class="text-xs font-mono text-emerald-500 font-bold" id="qr-matrix-density-badge">Matriz Óptima • Ultra-Rápido</span>
+        </label>
+        <div class="grid grid-cols-2 gap-2 p-1 rounded-2xl bg-slate-200/60 dark:bg-white/5 border border-slate-200/80 dark:border-white/10">
+          <button type="button" id="qr-mode-pdata" class="py-2.5 px-2 rounded-xl transition bg-emerald-600 text-white shadow-xs text-center flex flex-col items-center justify-center gap-0.5" data-qr-mode="pdata">
+            <span class="font-black text-xs sm:text-sm" data-i18n="dashboard:qr_modal.mode_offline_title">Universal Offline</span>
+            <span class="text-[11px] opacity-90 block truncate font-medium" data-i18n="dashboard:qr_modal.mode_offline_desc">Auto-resolución sin red</span>
+          </button>
+          <button type="button" id="qr-mode-standard" class="py-2.5 px-2 rounded-xl transition text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-white/10 text-center flex flex-col items-center justify-center gap-0.5" data-qr-mode="standard">
+            <span class="font-black text-xs sm:text-sm" data-i18n="dashboard:qr_modal.mode_standard_title">Estándar GS1 Directo</span>
+            <span class="text-[11px] opacity-90 block truncate font-medium" data-i18n="dashboard:qr_modal.mode_standard_desc">Ultra-compacto (Micro-label)</span>
+          </button>
+        </div>
+      </div>
+
       <!-- Target Environment / Domain Selector -->
       <div class="space-y-2">
         <label class="text-xs sm:text-sm font-extrabold text-slate-800 dark:text-slate-200 flex items-center justify-between" data-i18n="dashboard:qr_modal.domain_label">
           <span>Dominio de Resolución del Pasaporte</span>
-          <span class="text-xs font-mono text-emerald-500 font-bold" id="qr-matrix-density-badge">Matriz V2 • Ultrarrápido</span>
+          <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 font-bold" id="qr-min-print-badge">Impresión: 2.8 x 2.8 cm</span>
         </label>
         
         <div class="grid grid-cols-3 gap-2 p-1.5 rounded-2xl bg-slate-200/60 dark:bg-white/5 border border-slate-200/80 dark:border-white/10">

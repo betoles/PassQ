@@ -41,6 +41,7 @@ class DashboardController {
     const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('192.168.');
     this.activeDomainType = savedType || (isLocalDev ? 'lan' : 'prod'); // 'prod' | 'lan' | 'custom'
     this.activeBaseUrl = savedDomain || GS1Formatter.resolveBaseUrl();
+    this.activeQRMode = localStorage.getItem('passq_qr_mode') || 'pdata'; // 'pdata' | 'standard'
     this.activeECC = 'H';
   }
 
@@ -180,6 +181,18 @@ class DashboardController {
   }
 
   setupQRStudioListeners() {
+    // Mode Buttons (Universal Offline vs GS1 Standard Direct)
+    const btnPdata = document.getElementById('qr-mode-pdata');
+    const btnStandard = document.getElementById('qr-mode-standard');
+
+    btnPdata?.addEventListener('click', () => {
+      this.setQRMode('pdata');
+    });
+
+    btnStandard?.addEventListener('click', () => {
+      this.setQRMode('standard');
+    });
+
     // Environment Buttons
     const btnProd = document.getElementById('qr-target-prod');
     const btnLan = document.getElementById('qr-target-lan');
@@ -212,7 +225,14 @@ class DashboardController {
     // Copy GS1 Link to clipboard
     document.getElementById('btn-copy-url')?.addEventListener('click', () => {
       if (!this.activeProductForQR) return;
-      const url = GS1Formatter.generateDigitalLink(this.activeProductForQR.gtin, this.activeProductForQR.serial, this.activeBaseUrl, this.activeProductForQR);
+      const includeOffline = this.activeQRMode === 'pdata';
+      const url = GS1Formatter.generateDigitalLink(
+        this.activeProductForQR.gtin,
+        this.activeProductForQR.serial,
+        this.activeBaseUrl,
+        this.activeProductForQR,
+        { includeOfflinePayload: includeOffline }
+      );
       navigator.clipboard.writeText(url).then(() => {
         alert(i18n.t('dashboard:alerts.url_copied', 'Enlace GS1 copiado al portapapeles.'));
       });
@@ -221,7 +241,14 @@ class DashboardController {
     // Industrial SVG Vector Download (ECC High 30%, 4-Module Quiet Zone)
     document.getElementById('btn-download-svg')?.addEventListener('click', async () => {
       if (!this.activeProductForQR) return;
-      const url = GS1Formatter.generateDigitalLink(this.activeProductForQR.gtin, this.activeProductForQR.serial, this.activeBaseUrl, this.activeProductForQR);
+      const includeOffline = this.activeQRMode === 'pdata';
+      const url = GS1Formatter.generateDigitalLink(
+        this.activeProductForQR.gtin,
+        this.activeProductForQR.serial,
+        this.activeBaseUrl,
+        this.activeProductForQR,
+        { includeOfflinePayload: includeOffline }
+      );
       const svgString = await QRCode.toString(url, {
         type: 'svg',
         margin: 4,
@@ -240,7 +267,14 @@ class DashboardController {
     // Industrial PNG 300 DPI Download (ECC High 30%, 4-Module Quiet Zone)
     document.getElementById('btn-download-png')?.addEventListener('click', async () => {
       if (!this.activeProductForQR) return;
-      const url = GS1Formatter.generateDigitalLink(this.activeProductForQR.gtin, this.activeProductForQR.serial, this.activeBaseUrl, this.activeProductForQR);
+      const includeOffline = this.activeQRMode === 'pdata';
+      const url = GS1Formatter.generateDigitalLink(
+        this.activeProductForQR.gtin,
+        this.activeProductForQR.serial,
+        this.activeBaseUrl,
+        this.activeProductForQR,
+        { includeOfflinePayload: includeOffline }
+      );
       const dataUrl = await QRCode.toDataURL(url, {
         width: 1200,
         margin: 4,
@@ -258,6 +292,33 @@ class DashboardController {
       if (!this.activeProductForQR) return;
       await this.exportPackagingLabel(this.activeProductForQR);
     });
+  }
+
+  setQRMode(mode) {
+    this.activeQRMode = mode;
+    const btnPdata = document.getElementById('qr-mode-pdata');
+    const btnStandard = document.getElementById('qr-mode-standard');
+    
+    const activeClasses = ['bg-emerald-600', 'text-white', 'shadow-xs'];
+    const inactiveClasses = ['text-slate-700', 'dark:text-slate-200', 'hover:bg-white/50', 'dark:hover:bg-white/10'];
+
+    if (mode === 'pdata') {
+      btnPdata?.classList.add(...activeClasses);
+      btnPdata?.classList.remove(...inactiveClasses);
+      btnStandard?.classList.remove(...activeClasses);
+      btnStandard?.classList.add(...inactiveClasses);
+    } else {
+      btnStandard?.classList.add(...activeClasses);
+      btnStandard?.classList.remove(...inactiveClasses);
+      btnPdata?.classList.remove(...activeClasses);
+      btnPdata?.classList.add(...inactiveClasses);
+    }
+
+    try {
+      localStorage.setItem('passq_qr_mode', mode);
+    } catch {}
+
+    this.renderQRStudio();
   }
 
   setQRDomainType(type) {
@@ -317,22 +378,34 @@ class DashboardController {
     const qrCanvas = document.getElementById('qr-canvas');
     if (!qrCanvas) return;
 
-    const url = GS1Formatter.generateDigitalLink(this.activeProductForQR.gtin, this.activeProductForQR.serial, this.activeBaseUrl, this.activeProductForQR);
+    const includeOffline = this.activeQRMode === 'pdata';
+    const url = GS1Formatter.generateDigitalLink(
+      this.activeProductForQR.gtin,
+      this.activeProductForQR.serial,
+      this.activeBaseUrl,
+      this.activeProductForQR,
+      { includeOfflinePayload: includeOffline }
+    );
     
     // Update live metrics & URL
     const urlEl = document.getElementById('modal-qr-url');
     if (urlEl) urlEl.textContent = url;
 
+    const metrics = GS1Formatter.getQROpticalMetrics(url, 'H');
+
     const lengthBadge = document.getElementById('qr-url-length-badge');
     if (lengthBadge) {
-      const len = url.length;
-      const ver = len <= 45 ? 'V2 (25x25)' : len <= 70 ? 'V3/V4 (29x29)' : 'V5';
-      lengthBadge.textContent = `${len} caracteres • Matriz ${ver}`;
+      lengthBadge.textContent = `${metrics.charLength} caracteres • Matriz ${metrics.matrixSize} (V${metrics.version})`;
     }
 
     const densityBadge = document.getElementById('qr-matrix-density-badge');
     if (densityBadge) {
-      densityBadge.textContent = 'ISO/IEC 18004 • Ultra-Scannable (<50ms)';
+      densityBadge.textContent = metrics.scannabilitySpeed;
+    }
+
+    const minPrintBadge = document.getElementById('qr-min-print-badge');
+    if (minPrintBadge) {
+      minPrintBadge.textContent = `Impresión Mín: ${metrics.minPrintLabel}`;
     }
 
     const eccBadge = document.getElementById('qr-ecc-badge');
@@ -458,6 +531,7 @@ class DashboardController {
     document.getElementById('modal-gtin').textContent = `GTIN: ${product.gtin} • Serie: ${product.serial}`;
 
     // Default to 'prod' or preserve active selection
+    this.setQRMode(this.activeQRMode || 'pdata');
     this.setQRDomainType(this.activeDomainType || 'prod');
 
     modal?.classList.remove('hidden');
@@ -492,7 +566,8 @@ class DashboardController {
     ctx.textAlign = 'left';
 
     // 3. Render High-Res QR Code onto canvas (4-module Quiet Zone, ECC High 30%)
-    const url = GS1Formatter.generateDigitalLink(product.gtin, product.serial, this.activeBaseUrl, product);
+    const includeOffline = this.activeQRMode === 'pdata';
+    const url = GS1Formatter.generateDigitalLink(product.gtin, product.serial, this.activeBaseUrl, product, { includeOfflinePayload: includeOffline });
     const qrDataUrl = await QRCode.toDataURL(url, {
       width: 420,
       margin: 4,

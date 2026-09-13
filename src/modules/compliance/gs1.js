@@ -184,6 +184,87 @@ export class GS1Formatter {
   }
 
   /**
+   * Evaluates QR Code optical density, matrix size, and physical printing requirements.
+   * Based on ISO/IEC 18004 standards and industrial thermal/flexo scanning tolerances.
+   * @param {string} url
+   * @param {string} eccLevel 'L' | 'M' | 'Q' | 'H'
+   * @returns {{
+   *   charLength: number,
+   *   version: number,
+   *   matrixSize: string,
+   *   modules: number,
+   *   densityTier: 'compact'|'standard'|'extended',
+   *   minPrintMm: number,
+   *   minPrintLabel: string,
+   *   scannabilityTier: 'optimal'|'good'|'wide_label_required',
+   *   scannabilitySpeed: string
+   * }}
+   */
+  static getQROpticalMetrics(url = '', eccLevel = 'H') {
+    const charLength = typeof url === 'string' ? url.length : 0;
+    
+    // Byte capacities for ECC Level H (ISO/IEC 18004)
+    const capacitiesH = [
+      7, 14, 24, 34, 44, 58, 64, 84, 98, 119,
+      137, 155, 177, 207, 231, 255, 283, 315, 347, 387,
+      425, 458, 498, 550, 597, 647, 700, 757, 817, 881,
+      948, 1018, 1091, 1167, 1246, 1328, 1413, 1501, 1592, 1686
+    ];
+
+    let version = 1;
+    for (let i = 0; i < capacitiesH.length; i++) {
+      if (charLength <= capacitiesH[i]) {
+        version = i + 1;
+        break;
+      }
+      if (i === capacitiesH.length - 1) {
+        version = 40;
+      }
+    }
+
+    const modules = 21 + 4 * (version - 1);
+    const matrixSize = `${modules}x${modules}`;
+
+    let densityTier = 'compact';
+    let minPrintMm = 20;
+    let minPrintLabel = '2.0 x 2.0 cm (20x20 mm)';
+    let scannabilityTier = 'optimal';
+    let scannabilitySpeed = '< 30ms (Ultra-Rápido)';
+
+    if (version <= 6) {
+      densityTier = 'compact';
+      minPrintMm = 20;
+      minPrintLabel = '2.0 x 2.0 cm (20x20 mm)';
+      scannabilityTier = 'optimal';
+      scannabilitySpeed = '< 30ms (Ultra-Rápido)';
+    } else if (version <= 14) {
+      densityTier = 'standard';
+      minPrintMm = 28;
+      minPrintLabel = '2.8 x 2.8 cm (28x28 mm)';
+      scannabilityTier = 'good';
+      scannabilitySpeed = '< 60ms (Óptimo)';
+    } else {
+      densityTier = 'extended';
+      minPrintMm = 40;
+      minPrintLabel = '4.0 x 4.0 cm (40x40 mm)';
+      scannabilityTier = 'wide_label_required';
+      scannabilitySpeed = '< 100ms (Estándar)';
+    }
+
+    return {
+      charLength,
+      version,
+      matrixSize,
+      modules,
+      densityTier,
+      minPrintMm,
+      minPrintLabel,
+      scannabilityTier,
+      scannabilitySpeed
+    };
+  }
+
+  /**
    * Universal Multiformat Scanned Value Parser
    * Handles GS1 Digital Link URIs, raw GTINs, URL parameters and URNs
    */

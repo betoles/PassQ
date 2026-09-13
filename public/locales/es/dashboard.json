@@ -52,6 +52,11 @@
   },
   "qr_modal": {
     "studio_badge": "Estudio de Emisión GS1 Digital Link",
+    "mode_label": "Modo de Emisión y Conectividad",
+    "mode_offline_title": "Universal Offline",
+    "mode_offline_desc": "Auto-resolución sin red",
+    "mode_standard_title": "Estándar GS1 Directo",
+    "mode_standard_desc": "Ultra-compacto (Micro-label)",
     "domain_label": "Dominio de Resolución del Pasaporte",
     "gs1_badge": "GS1 DIGITAL LINK • ECC HIGH (30% ROBUSTEZ)",
     "btn_svg": "Vector SVG",

@@ -83,6 +83,7 @@
     "summary_product_label": "Product:",
     "summary_gtin_label": "GTIN:",
     "summary_origin_label": "Origin:",
+    "qr_quality_title": "QR Code Optical Quality",
     "legal_declaration": "I certify that I hold the legal rights and trademarks for this product and assume full compliance responsibility, releasing PassQ under the <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Terms of Service</a>."
   }
 }

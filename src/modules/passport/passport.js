@@ -672,8 +672,8 @@ class PassportViewController {
       try {
         await QRCode.toCanvas(printQrCanvas, url, {
           width: 320,
-          margin: 2,
-          errorCorrectionLevel: 'M',
+          margin: 4,
+          errorCorrectionLevel: 'H',
           color: {
             dark: '#0f172a',
             light: '#ffffff'

@@ -539,10 +539,37 @@ export class WizardController {
     const name = document.getElementById('wizard-name')?.value || 'Producto sin nombre';
     const gtin = document.getElementById('wizard-gtin')?.value || '7501234567893';
     const origin = document.getElementById('wizard-origin')?.value || 'México';
+    const category = document.getElementById('wizard-category')?.value || 'textile';
 
     document.getElementById('summary-name').textContent = name;
     document.getElementById('summary-gtin').textContent = gtin;
     document.getElementById('summary-origin').textContent = origin;
+
+    // Simulate product payload to calculate real-time QR optical metrics
+    const sampleProduct = {
+      name,
+      gtin,
+      serial: 'SN-01',
+      category,
+      brand: 'Mi Marca',
+      repair_score: 9.0,
+      carbon_kg: parseFloat(document.getElementById('wizard-co2')?.value) || 2.8,
+      materials: this.formData.materials.filter(m => m.name.trim() !== ''),
+      origin_country: origin
+    };
+
+    const simulatedUrl = GS1Formatter.generateDigitalLink(gtin, 'SN-01', null, sampleProduct, { includeOfflinePayload: true });
+    const metrics = GS1Formatter.getQROpticalMetrics(simulatedUrl, 'H');
+
+    const descEl = document.getElementById('wizard-qr-quality-desc');
+    const badgeEl = document.getElementById('wizard-qr-quality-badge');
+
+    if (descEl) {
+      descEl.textContent = `Etiqueta mín: ${metrics.minPrintLabel} • ${metrics.scannabilitySpeed}`;
+    }
+    if (badgeEl) {
+      badgeEl.textContent = `Matriz ${metrics.matrixSize} (V${metrics.version}) • ECC H`;
+    }
   }
 
   async savePassport() {
