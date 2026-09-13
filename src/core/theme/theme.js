@@ -40,7 +40,7 @@ export class LanguageDropdown {
     if (!wrapper || !wrapper.parentElement) return;
 
     this.container = document.createElement('div');
-    this.container.className = 'relative inline-block text-left z-30 shrink-0';
+    this.container.className = 'relative inline-block text-left z-50 shrink-0';
     this.container.id = 'custom-lang-dropdown-wrapper';
 
     wrapper.parentElement.replaceChild(this.container, wrapper);
@@ -69,7 +69,7 @@ export class LanguageDropdown {
       </button>
 
       <!-- Anchored Absolute Dropdown Menu (Directly aligned with trigger button) -->
-      <div id="custom-lang-menu" class="hidden opacity-0 scale-95 transition-all duration-150 ease-out absolute right-0 top-full mt-2 w-48 sm:w-52 p-1.5 rounded-2xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200/90 dark:border-white/15 shadow-2xl backdrop-blur-2xl z-50 origin-top-right">
+      <div id="custom-lang-menu" class="hidden opacity-0 scale-95 transition-all duration-150 ease-out absolute right-0 top-full mt-2 w-48 sm:w-52 p-1.5 rounded-2xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200/90 dark:border-white/15 shadow-2xl backdrop-blur-2xl z-[9999] origin-top-right">
         <div class="space-y-1" role="menu" aria-orientation="vertical">
           ${LANGUAGES.map(lang => {
             const isSelected = lang.code === currentLang;
@@ -148,6 +148,14 @@ export class LanguageDropdown {
     if (!menu) return;
 
     this.isOpen = true;
+    if (this.container) {
+      this.container.style.zIndex = '9999';
+    }
+    const headerParent = this.container.closest('header') || this.container.closest('.glass-card');
+    if (headerParent) {
+      headerParent.style.zIndex = '999';
+    }
+
     menu.classList.remove('hidden');
     if (btn) btn.setAttribute('aria-expanded', 'true');
 
@@ -173,6 +181,13 @@ export class LanguageDropdown {
     setTimeout(() => {
       if (!this.isOpen) {
         menu.classList.add('hidden');
+        if (this.container) {
+          this.container.style.zIndex = '';
+        }
+        const headerParent = this.container?.closest('header') || this.container?.closest('.glass-card');
+        if (headerParent) {
+          headerParent.style.zIndex = '';
+        }
       }
     }, 150);
   }
