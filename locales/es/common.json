@@ -72,9 +72,12 @@
     "title": "Suscripciones Oficiales PassQ",
     "subtitle": "Suscríbete con total seguridad a través de Google Play Store (móvil) o directamente con PayPal / Tarjeta de débito o crédito (web y computadoras).",
     "trial_badge": "7D",
+    "trial_status_ready": "Prueba de 7 Días Disponible (Inicia con tu 1er pasaporte)",
+    "trial_desc_ready": "Tu prueba gratuita de 7 días se activará automáticamente cuando crees tu primer pasaporte digital.",
     "trial_status_active": "Estado de Prueba Actual: Día {day} de 7 ({remaining} días restantes)",
     "trial_status_ended": "Prueba Concluida",
     "trial_desc": "Tienes acceso completo e ilimitado a todas las herramientas Pro. Al suscribirte ahora, no se te cobrará nada hasta terminar tus 7 días de prueba.",
+    "trial_desc_ended": "Tu periodo de prueba ha finalizado. Suscríbete para continuar emitiendo y gestionando pasaportes digitales.",
     "founder_rate": "Tarifa Fundador",
     "plans": {
       "starter": {

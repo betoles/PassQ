@@ -77,8 +77,14 @@
     "data_cleared": "All local data has been successfully deleted."
   },
   "trial": {
+    "ready_title": "7-Day Free Trial",
+    "ready_desc": "Your 7-day free trial with unlimited access to all Pro features will begin automatically when you create your first passport.",
+    "ready_badge": "7 Days Available",
     "active_title": "Active 7-Day Free Trial",
     "active_desc": "You have full, unlimited access to all Pro features (Web Crypto Signing, GS1 Mod 10 & Customs Export).",
+    "ended_title": "Trial Period Ended",
+    "ended_desc": "Subscribe to continue generating and exporting digital product passports with cryptographic signatures and customs compliance.",
+    "ended_badge": "Trial Ended",
     "day_badge": "Day {day} of 7",
     "lock_price_btn": "Lock Founder Rate",
     "lock_price_main": "Lock Founder Rate",

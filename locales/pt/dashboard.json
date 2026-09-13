@@ -77,8 +77,14 @@
     "data_cleared": "Todos os dados locais foram excluídos com sucesso."
   },
   "trial": {
+    "ready_title": "Teste Gratuito de 7 Dias",
+    "ready_desc": "Seu período de teste de 7 dias com acesso ilimitado a todas as ferramentas Pro começará automaticamente ao criar seu primeiro passaporte.",
+    "ready_badge": "7 Dias Disponíveis",
     "active_title": "Teste Grátis de 7 Dias Ativo",
     "active_desc": "Você tem acesso total e ilimitado a todas as ferramentas Pro (Assinatura Web Crypto, GS1 Mod 10 e Fichas Aduaneiras).",
+    "ended_title": "Período de Teste Encerrado",
+    "ended_desc": "Assine para continuar gerando e exportando passaportes digitais com assinatura criptográfica e conformidade aduaneira.",
+    "ended_badge": "Teste Concluído",
     "day_badge": "Dia {day} de 7",
     "lock_price_btn": "Garantir Preço de Fundador",
     "lock_price_main": "Garantir Preço de Fundador",
