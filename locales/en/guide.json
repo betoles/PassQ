@@ -56,7 +56,7 @@
     "local_title": "0% Accounts, 0% Tracking, 100% On-Device",
     "local_desc": "PassQ never stores your product catalogs on centralized servers. All data lives exclusively inside your browser internal storage (LocalStorage / IndexedDB).",
     "backup_title": "One-Click Backups:",
-    "backup_desc": "Export your entire database in seconds to transfer it to another computer or restore it whenever needed.",
+    "backup_desc": "You can back up all your passports with a single click by downloading a secure JSON file to your device. This downloadable file allows you to transfer your entire catalog to another computer, share it with your team, or restore it whenever needed.",
     "wipe_title": "Hard Delete (GDPR Ready):",
     "wipe_desc": "A dedicated permanent purge control resets the application to a clean slate whenever you choose."
   }
