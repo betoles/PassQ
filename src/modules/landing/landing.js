@@ -5,6 +5,7 @@ import { Icons, renderIcons } from '../../core/icons/icons.js';
 import { storage } from '../../core/storage/storage.js';
 import { GS1Formatter } from '../compliance/gs1.js';
 import { userGuideModal } from '../guide/guide.js';
+import { playSubscriptionModal } from '../../core/billing/play-billing.js';
 import QRCode from 'qrcode';
 
 function updateFlagSlot(lang) {

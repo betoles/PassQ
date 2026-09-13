@@ -6,6 +6,7 @@ import { Icons, renderIcons } from '../../core/icons/icons.js';
 import { WizardController } from '../wizard/wizard.js';
 import { GS1Formatter } from '../compliance/gs1.js';
 import { userGuideModal } from '../guide/guide.js';
+import { playSubscriptionModal, playBilling } from '../../core/billing/play-billing.js';
 import QRCode from 'qrcode';
 
 function updateFlagSlot(lang) {
@@ -76,6 +77,21 @@ class DashboardController {
     this.setupTrialStatus();
     this.render();
     updateFlagSlot(i18n.currentLanguage);
+
+    // Auto-open Google Play subscription modal if linked with ?plan=
+    const urlParams = new URLSearchParams(window.location.search);
+    const planParam = urlParams.get('plan');
+    if (planParam) {
+      const planMap = {
+        starter: 'passq_starter_monthly',
+        growth: 'passq_growth_monthly',
+        scale: 'passq_scale_monthly'
+      };
+      const targetPlan = planMap[planParam] || 'passq_growth_monthly';
+      setTimeout(() => {
+        playSubscriptionModal.open(targetPlan);
+      }, 300);
+    }
   }
 
   checkTermsConsent() {
