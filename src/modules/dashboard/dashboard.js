@@ -13,6 +13,21 @@ function updateFlagSlot(lang) {
   if (flagSlot && Icons[`flag_${lang}`]) {
     flagSlot.innerHTML = Icons[`flag_${lang}`]('w-4 h-3 inline-block rounded-xs shadow-xs align-middle mr-1.5');
   }
+
+  const consentFlagSlot = document.getElementById('consent-modal-lang-flag-slot');
+  if (consentFlagSlot && Icons[`flag_${lang}`]) {
+    consentFlagSlot.innerHTML = Icons[`flag_${lang}`]('w-4 h-3 inline-block rounded-xs shadow-xs align-middle mr-1.5');
+  }
+
+  const mainLangSelect = document.getElementById('lang-select');
+  if (mainLangSelect && mainLangSelect.value !== lang) {
+    mainLangSelect.value = lang;
+  }
+
+  const consentLangSelect = document.getElementById('consent-modal-lang-select');
+  if (consentLangSelect && consentLangSelect.value !== lang) {
+    consentLangSelect.value = lang;
+  }
 }
 
 class DashboardController {
@@ -33,23 +48,7 @@ class DashboardController {
     await i18n.loadNamespaces(['common', 'dashboard', 'wizard', 'legal', 'guide']);
     theme.updateIconSlots();
     renderIcons();
-
-    // Initialize Language Selector and Flag Slot
-    const langSelect = document.getElementById('lang-select');
-    if (langSelect) {
-      langSelect.value = i18n.currentLanguage;
-      updateFlagSlot(i18n.currentLanguage);
-      langSelect.addEventListener('change', (e) => {
-        const selected = e.target.value;
-        updateFlagSlot(selected);
-        i18n.setLanguage(selected);
-      });
-    }
-
-    // Initialize Theme Toggle Button
-    document.getElementById('theme-toggle-btn')?.addEventListener('click', () => {
-      theme.toggleTheme();
-    });
+    i18n.translateDOM();
 
     this.products = storage.getAll();
 
@@ -65,6 +64,7 @@ class DashboardController {
       updateFlagSlot(newLang);
       theme.updateIconSlots();
       renderIcons();
+      this.setupTrialStatus();
       this.render();
     });
     this.wizard.init();
@@ -75,15 +75,6 @@ class DashboardController {
     this.setupTrialStatus();
     this.render();
     updateFlagSlot(i18n.currentLanguage);
-
-    i18n.onLanguageChange(async (newLang) => {
-      await i18n.loadNamespaces(['common', 'dashboard', 'wizard', 'legal']);
-      this.render();
-      this.setupTrialStatus();
-      updateFlagSlot(newLang);
-      theme.updateIconSlots();
-      renderIcons();
-    });
   }
 
   checkTermsConsent() {
@@ -114,8 +105,17 @@ class DashboardController {
     const langSelect = document.getElementById('lang-select');
     if (langSelect) {
       langSelect.value = i18n.currentLanguage;
-      updateFlagSlot(i18n.currentLanguage);
       langSelect.addEventListener('change', (e) => {
+        const selected = e.target.value;
+        updateFlagSlot(selected);
+        i18n.setLanguage(selected);
+      });
+    }
+
+    const consentLangSelect = document.getElementById('consent-modal-lang-select');
+    if (consentLangSelect) {
+      consentLangSelect.value = i18n.currentLanguage;
+      consentLangSelect.addEventListener('change', (e) => {
         const selected = e.target.value;
         updateFlagSlot(selected);
         i18n.setLanguage(selected);
