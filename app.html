@@ -58,7 +58,7 @@
     }
   }
   </script>
-  <script type="module" crossorigin src="./assets/app-su0xHVs0.js"></script>
+  <script type="module" crossorigin src="./assets/app-Bp1BtOcS.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/theme-CeGM-G9e.js">
   <link rel="modulepreload" crossorigin href="./assets/gs1-ZDnncb2i.js">
   <link rel="modulepreload" crossorigin href="./assets/crypto-BjlqRT8o.js">
@@ -412,10 +412,10 @@
         <p id="step-2-error" class="text-xs text-rose-500 font-semibold hidden"></p>
       </div>
 
-      <!-- STEP 3: REPAIRABILITY -->
+      <!-- STEP 3: REPAIRABILITY & CIRCULARITY (SECTOR ADAPTED) -->
       <div id="wizard-step-3" class="space-y-4 hidden">
         <div>
-          <label data-i18n="wizard:fields.disassembly_tools" class="block text-xs sm:text-sm font-bold mb-2 uppercase tracking-wide text-slate-600 dark:text-slate-300">Herramientas para Desmontar</label>
+          <label id="wizard-tools-title" data-i18n="wizard:fields.disassembly_tools" class="block text-xs sm:text-sm font-bold mb-2 uppercase tracking-wide text-slate-600 dark:text-slate-300">Herramientas para Desmontar</label>
           <input type="hidden" id="wizard-tools" value="tools_standard" />
           
           <!-- Encapsulated Interactive Options Grid -->
@@ -425,7 +425,7 @@
                 <span class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-300 dark:border-white/20 flex items-center justify-center shrink-0">
                   <span class="dot w-2.5 h-2.5 rounded-full bg-emerald-500 hidden"></span>
                 </span>
-                <span data-i18n="wizard:tools.none" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Sin herramientas (Fijación por presión/clips)</span>
+                <span id="tool-text-none" data-i18n="wizard:tools.none" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Sin herramientas (Fijación por presión/clips)</span>
               </div>
             </button>
 
@@ -434,7 +434,7 @@
                 <span class="radio-indicator w-5 h-5 rounded-full border-2 border-emerald-500 flex items-center justify-center shrink-0">
                   <span class="dot w-2.5 h-2.5 rounded-full bg-emerald-500 block"></span>
                 </span>
-                <span data-i18n="wizard:tools.standard" class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Herramientas estándar (Destornillador / Allen)</span>
+                <span id="tool-text-standard" data-i18n="wizard:tools.standard" class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Herramientas estándar (Destornillador / Allen)</span>
               </div>
               <span class="icon-svg w-4 h-4 text-emerald-500 shrink-0">
                 <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
@@ -446,13 +446,13 @@
                 <span class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-300 dark:border-white/20 flex items-center justify-center shrink-0">
                   <span class="dot w-2.5 h-2.5 rounded-full bg-emerald-500 hidden"></span>
                 </span>
-                <span data-i18n="wizard:tools.specialized" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Herramientas especializadas o propietarias</span>
+                <span id="tool-text-specialized" data-i18n="wizard:tools.specialized" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Herramientas especializadas o propietarias</span>
               </div>
             </button>
           </div>
         </div>
         <div>
-          <label data-i18n="wizard:fields.repair_duration_yrs" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Disponibilidad de Repuestos (Años)</label>
+          <label id="wizard-duration-label" data-i18n="wizard:fields.repair_duration_yrs" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Disponibilidad de Repuestos (Años)</label>
           <input id="wizard-duration" type="number" min="1" max="15" value="7" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
         </div>
         <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 flex justify-between items-center text-xs">
