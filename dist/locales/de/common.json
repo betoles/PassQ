@@ -68,9 +68,9 @@
     "mail_body": "Hallo PassQ-Team,\n\nich möchte Ihnen folgendes Feedback und Anregungen mitteilen, um die Plattform an meine Bedürfnisse anzupassen:\n\n"
   },
   "billing": {
-    "badge": "Google Play Billing • 7 Tage kostenlose Testphase",
-    "title": "Offizielles Abonnement über Google Play",
-    "subtitle": "Alle Abrechnungen, Verlängerungen und Kündigungen werden zu 100% über die Google Play Console verwaltet. Keine Überraschungen, jederzeit mit 1 Klick in Ihrem Google-Konto kündbar.",
+    "badge": "Google Play & PayPal • 7 Tage kostenlose Testphase",
+    "title": "Offizielle PassQ Abonnements",
+    "subtitle": "Sicher abonnieren über Google Play Store (Mobil-App) oder direkt via PayPal / Kredit- & Debitkarten (Web & PC).",
     "trial_badge": "7T",
     "trial_status_active": "Aktueller Teststatus: Tag {day} von 7 ({remaining} Tage verbleibend)",
     "trial_status_ended": "Testphase abgeschlossen",
@@ -92,14 +92,18 @@
     },
     "features": {
       "days_free": "✓ 7 Tage kostenlos",
-      "play_billing": "✓ Google Play Billing"
+      "play_billing": "✓ Google Play / PayPal"
     },
-    "guarantees_title": "Google Play Garantien:",
-    "guarantee_1": "Offizielle Abrechnung über Google Play Store mit Steuerbeleg.",
-    "guarantee_2_prefix": "Jederzeit kündbar über ",
-    "guarantee_2_link": "Google Play Subscriptions",
-    "guarantee_2_suffix": " mit nur 1 Fingertipp.",
+    "guarantees_title": "Offizielle Garantien & Sicherheit:",
+    "guarantee_1": "Google Play Store: Offizielle Abrechnung über Google mit Steuerbeleg.",
+    "guarantee_2_prefix": "Sicheres PayPal: Käuferschutz. Zahlen mit PayPal-Guthaben oder Debit-/Kreditkarte.",
+    "guarantee_2_link": "",
+    "guarantee_2_suffix": "",
     "guarantee_3": "Keine Speicherung von Kreditkartendaten auf PassQ-Servern.",
+    "btn_subscribe_play_main": "Google Play Store",
+    "btn_subscribe_play_sub": "(Android App • 7 Tage kostenlos)",
+    "btn_subscribe_paypal_main": "Mit PayPal / Karte zahlen",
+    "btn_subscribe_paypal_sub": "(Web & PC • Sofortige Aktivierung)",
     "btn_subscribe": "Weiter mit Google Play (7 Tage kostenlos)",
     "btn_subscribe_main": "Weiter mit Google Play",
     "btn_subscribe_sub": "(7 Tage kostenlos)"

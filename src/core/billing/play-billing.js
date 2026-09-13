@@ -1,23 +1,30 @@
 /**
- * PassQ Google Play Billing & 7-Day Free Trial Engine
- * 100% Google Play Console Subscriptions & Digital Goods API Integration
+ * PassQ Official Billing & Subscriptions Engine
+ * Dual Support: Google Play Billing (Mobile) & PayPal Merchant Checkout (Web/PC)
+ * PayPal Merchant ID: EQNTHLAVHUL52
  */
 
 import { i18n } from '../i18n/i18n.js';
 import { Icons } from '../icons/icons.js';
 
+export const PAYPAL_MERCHANT_ID = 'EQNTHLAVHUL52';
+
 export const PLAY_SUBSCRIPTIONS = [
   {
     id: 'passq_starter_monthly',
     nameKey: 'starter',
+    name: 'Starter Plan',
     price: '$19.99 USD',
+    amount: '19.99',
     period: '/ mes',
     trialDays: 7,
   },
   {
     id: 'passq_growth_monthly',
     nameKey: 'growth',
+    name: 'Growth Plan',
     price: '$39.99 USD',
+    amount: '39.99',
     period: '/ mes',
     recommended: true,
     trialDays: 7,
@@ -25,7 +32,9 @@ export const PLAY_SUBSCRIPTIONS = [
   {
     id: 'passq_scale_monthly',
     nameKey: 'scale',
+    name: 'Scale Plan',
     price: '$99.99 USD',
+    amount: '99.99',
     period: '/ mes',
     trialDays: 7,
   }
@@ -105,6 +114,36 @@ export class PlayBillingManager {
     window.open(playStoreUrl, '_blank', 'noopener,noreferrer');
     return { success: true, method: 'play_store_external' };
   }
+
+  launchPayPalPurchase(sku = 'passq_growth_monthly') {
+    const plan = PLAY_SUBSCRIPTIONS.find(p => p.id === sku) || PLAY_SUBSCRIPTIONS[1];
+    const currentOrigin = typeof window !== 'undefined' ? window.location.href : 'https://betoles.github.io/PassQ/';
+    const baseCleanUrl = currentOrigin.split('?')[0].split('#')[0];
+    const returnUrl = baseCleanUrl.replace(/\/[^/]*$/, '/app.html?billing=paypal_success');
+    const cancelUrl = baseCleanUrl.replace(/\/[^/]*$/, '/app.html?billing=paypal_cancel');
+
+    // PayPal Standard Subscriptions Checkout URL with Merchant Account ID
+    const params = new URLSearchParams({
+      cmd: '_xclick-subscriptions',
+      business: PAYPAL_MERCHANT_ID,
+      item_name: `PassQ DPP - ${plan.name} ($${plan.amount} USD/mo)`,
+      item_number: plan.id,
+      no_shipping: '1',
+      no_note: '1',
+      currency_code: 'USD',
+      a3: plan.amount,
+      p3: '1',
+      t3: 'M',
+      src: '1',
+      sra: '1',
+      return: returnUrl,
+      cancel_return: cancelUrl
+    });
+
+    const paypalUrl = `https://www.paypal.com/cgi-bin/webscr?${params.toString()}`;
+    window.open(paypalUrl, '_blank', 'noopener,noreferrer');
+    return { success: true, method: 'paypal_web', url: paypalUrl };
+  }
 }
 
 export class PlaySubscriptionModal {
@@ -177,9 +216,9 @@ export class PlaySubscriptionModal {
     const trial = this.billing.getTrialStatus();
 
     // Localized dynamic texts
-    const badgeText = i18n.t('common:billing.badge', 'Google Play Billing • 7 Días de Prueba Gratis');
-    const titleText = i18n.t('common:billing.title', 'Suscripción Oficial en Google Play');
-    const subtitleText = i18n.t('common:billing.subtitle', 'Todos los cobros, renovaciones y cancelaciones son administrados 100% por Google Play Console. Sin sorpresas, cancela cuando quieras con 1 clic en tu cuenta de Google.');
+    const badgeText = i18n.t('common:billing.badge', 'Google Play & PayPal • 7 Días de Prueba Gratis');
+    const titleText = i18n.t('common:billing.title', 'Suscripciones Oficiales PassQ');
+    const subtitleText = i18n.t('common:billing.subtitle', 'Suscríbete con total seguridad a través de Google Play Store (móvil) o directamente con PayPal / Tarjeta de débito o crédito (web y computadoras).');
     const trialBadgeText = i18n.t('common:billing.trial_badge', '7D');
     const trialActiveTemplate = i18n.t('common:billing.trial_status_active', 'Estado de Prueba Actual: Día {day} de 7 ({remaining} días restantes)');
     const trialEndedText = i18n.t('common:billing.trial_status_ended', 'Prueba Concluida');
@@ -189,15 +228,16 @@ export class PlaySubscriptionModal {
     const trialDescText = i18n.t('common:billing.trial_desc', 'Tienes acceso completo e ilimitado a todas las herramientas Pro. Al suscribirte ahora, no se te cobrará nada hasta terminar tus 7 días de prueba.');
     const founderRateText = i18n.t('common:billing.founder_rate', 'Tarifa Fundador');
     const daysFreeText = i18n.t('common:billing.features.days_free', '✓ 7 Días Gratis');
-    const playBillingFeatureText = i18n.t('common:billing.features.play_billing', '✓ Google Play Billing');
-    const guaranteesTitle = i18n.t('common:billing.guarantees_title', 'Garantías de Google Play:');
-    const guarantee1 = i18n.t('common:billing.guarantee_1', 'Facturación oficial respaldada por Google Play Store con comprobante fiscal.');
-    const guarantee2Prefix = i18n.t('common:billing.guarantee_2_prefix', 'Cancelación en cualquier momento desde ');
-    const guarantee2Link = i18n.t('common:billing.guarantee_2_link', 'Google Play Subscriptions');
-    const guarantee2Suffix = i18n.t('common:billing.guarantee_2_suffix', ' con 1 solo toque.');
-    const guarantee3 = i18n.t('common:billing.guarantee_3', 'Cero almacenamiento de tarjetas bancarias en servidores de PassQ.');
-    const btnSubscribeMain = i18n.t('common:billing.btn_subscribe_main', 'Continuar con Google Play');
-    const btnSubscribeSub = i18n.t('common:billing.btn_subscribe_sub', '(7 Días Gratis)');
+    const playBillingFeatureText = i18n.t('common:billing.features.play_billing', '✓ Google Play / PayPal');
+    const guaranteesTitle = i18n.t('common:billing.guarantees_title', 'Garantías y Seguridad Oficial:');
+    const guarantee1 = i18n.t('common:billing.guarantee_1', 'Google Play Store: Facturación oficial respaldada por Google con comprobante fiscal.');
+    const guarantee2Prefix = i18n.t('common:billing.guarantee_2_prefix', 'PayPal Seguro: Protección al comprador. Paga con saldo PayPal o tarjeta de débito/crédito.');
+    const guarantee3 = i18n.t('common:billing.guarantee_3', 'Cero almacenamiento de datos bancarios o tarjetas en servidores de PassQ.');
+    
+    const btnSubscribePlayMain = i18n.t('common:billing.btn_subscribe_play_main', 'Google Play Store');
+    const btnSubscribePlaySub = i18n.t('common:billing.btn_subscribe_play_sub', '(App Android • 7 Días Gratis)');
+    const btnSubscribePaypalMain = i18n.t('common:billing.btn_subscribe_paypal_main', 'Pagar con PayPal / Tarjeta');
+    const btnSubscribePaypalSub = i18n.t('common:billing.btn_subscribe_paypal_sub', '(Web & PC • Activación Inmediata)');
     const btnCloseText = i18n.t('common:buttons.close', 'Cerrar');
 
     container.className = 'fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md transition-opacity duration-200';
@@ -209,7 +249,7 @@ export class PlaySubscriptionModal {
         <!-- Header -->
         <div class="flex items-center justify-between">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-black tracking-wide">
-            <span class="w-4 h-4 flex items-center">${Icons.googlePlay ? Icons.googlePlay('w-4 h-4') : '▶'}</span>
+            <span class="w-4 h-4 flex items-center">${Icons.shieldCheck ? Icons.shieldCheck('w-4 h-4') : '🛡️'}</span>
             <span>${badgeText}</span>
           </div>
 
@@ -270,7 +310,7 @@ export class PlaySubscriptionModal {
           }).join('')}
         </div>
 
-        <!-- Google Play Guarantees -->
+        <!-- Guarantees & Trust -->
         <div class="p-3.5 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-xs text-slate-600 dark:text-slate-300 space-y-1.5">
           <div class="flex items-center gap-2 font-bold text-slate-900 dark:text-white">
             <span class="w-4 h-4 text-emerald-500">${Icons.shieldCheck ? Icons.shieldCheck('w-4 h-4') : '✓'}</span>
@@ -278,24 +318,32 @@ export class PlaySubscriptionModal {
           </div>
           <ul class="list-disc pl-5 space-y-1 leading-relaxed text-[11.5px]">
             <li>${guarantee1}</li>
-            <li>${guarantee2Prefix}<a href="https://play.google.com/store/account/subscriptions" target="_blank" class="text-emerald-500 underline font-bold">${guarantee2Link}</a>${guarantee2Suffix}</li>
+            <li>${guarantee2Prefix}</li>
             <li>${guarantee3}</li>
           </ul>
         </div>
 
-        <!-- Primary CTA Button -->
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
-          <button id="btn-confirm-play-subscribe" type="button" class="flex-1 min-h-[58px] py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-xl shadow-emerald-600/35 transition active:scale-[0.98] flex items-center justify-center gap-3.5 cursor-pointer">
-            <span class="w-6 h-6 flex items-center shrink-0">${Icons.googlePlay ? Icons.googlePlay('w-6 h-6') : '▶'}</span>
+        <!-- Dual CTA Buttons (PayPal for Web/PC + Google Play for App/Mobile) -->
+        <div class="flex flex-col sm:flex-row items-stretch gap-3 pt-1">
+          
+          <!-- PayPal / Card Button (Web & PC Primary) -->
+          <button id="btn-confirm-paypal-subscribe" type="button" class="flex-1 min-h-[58px] py-3.5 px-4 rounded-2xl bg-[#0070ba] hover:bg-[#005ea6] text-white shadow-xl shadow-blue-600/25 transition active:scale-[0.98] flex items-center justify-center gap-3 cursor-pointer">
+            <span class="w-6 h-6 flex items-center shrink-0 text-white">${Icons.paypal ? Icons.paypal('w-6 h-6') : '🅿'}</span>
             <div class="flex flex-col items-center sm:items-start text-center sm:text-left leading-tight">
-              <span class="font-black text-sm sm:text-base tracking-tight">${btnSubscribeMain}</span>
-              <span class="text-xs sm:text-[13px] font-extrabold text-emerald-100 opacity-95">${btnSubscribeSub}</span>
+              <span class="font-black text-sm sm:text-base tracking-tight">${btnSubscribePaypalMain}</span>
+              <span class="text-xs font-bold text-blue-100 opacity-95">${btnSubscribePaypalSub}</span>
             </div>
           </button>
 
-          <button id="btn-cancel-sub-modal" type="button" class="px-5 py-3.5 rounded-2xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-bold text-sm transition cursor-pointer">
-            ${btnCloseText}
+          <!-- Google Play Button (Mobile / TWA Primary) -->
+          <button id="btn-confirm-play-subscribe" type="button" class="flex-1 min-h-[58px] py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-xl shadow-emerald-600/25 transition active:scale-[0.98] flex items-center justify-center gap-3 cursor-pointer">
+            <span class="w-6 h-6 flex items-center shrink-0">${Icons.googlePlay ? Icons.googlePlay('w-6 h-6') : '▶'}</span>
+            <div class="flex flex-col items-center sm:items-start text-center sm:text-left leading-tight">
+              <span class="font-black text-sm sm:text-base tracking-tight">${btnSubscribePlayMain}</span>
+              <span class="text-xs font-bold text-emerald-100 opacity-95">${btnSubscribePlaySub}</span>
+            </div>
           </button>
+
         </div>
 
       </div>
@@ -304,13 +352,17 @@ export class PlaySubscriptionModal {
     // Wire events
     container.querySelector('#subscription-modal-backdrop')?.addEventListener('click', () => this.close());
     container.querySelector('#btn-close-sub-modal')?.addEventListener('click', () => this.close());
-    container.querySelector('#btn-cancel-sub-modal')?.addEventListener('click', () => this.close());
 
     container.querySelectorAll('[data-plan-select]').forEach(card => {
       card.addEventListener('click', () => {
         this.selectedPlan = card.getAttribute('data-plan-select');
         this.render();
       });
+    });
+
+    container.querySelector('#btn-confirm-paypal-subscribe')?.addEventListener('click', () => {
+      this.billing.launchPayPalPurchase(this.selectedPlan);
+      this.close();
     });
 
     container.querySelector('#btn-confirm-play-subscribe')?.addEventListener('click', async () => {
@@ -322,3 +374,4 @@ export class PlaySubscriptionModal {
 
 export const playBilling = new PlayBillingManager();
 export const playSubscriptionModal = new PlaySubscriptionModal();
+

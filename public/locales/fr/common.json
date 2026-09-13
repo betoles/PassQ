@@ -68,9 +68,9 @@
     "mail_body": "Bonjour l'équipe PassQ,\n\nJe souhaite partager avec vous les commentaires et suggestions suivants pour adapter la plateforme à mes besoins :\n\n"
   },
   "billing": {
-    "badge": "Google Play Billing • 7 Jours d'Essai Gratuit",
-    "title": "Abonnement Officiel sur Google Play",
-    "subtitle": "Tous les paiements, renouvellements et résiliations sont gérés à 100% par Google Play Console. Sans surprise, résiliez à tout moment en 1 clic dans votre compte Google.",
+    "badge": "Google Play & PayPal • 7 Jours d'Essai Gratuit",
+    "title": "Abonnements Officiels PassQ",
+    "subtitle": "Abonnez-vous en toute sécurité via le Google Play Store (app mobile) ou directement par PayPal / Carte bancaire (web & PC).",
     "trial_badge": "7J",
     "trial_status_active": "Statut de l'essai : Jour {day} sur 7 ({remaining} jours restants)",
     "trial_status_ended": "Période d'essai terminée",
@@ -92,14 +92,18 @@
     },
     "features": {
       "days_free": "✓ 7 Jours Gratuits",
-      "play_billing": "✓ Google Play Billing"
+      "play_billing": "✓ Google Play / PayPal"
     },
-    "guarantees_title": "Garanties Google Play :",
-    "guarantee_1": "Facturation officielle garantie par Google Play Store avec reçu fiscal.",
-    "guarantee_2_prefix": "Résiliation à tout moment depuis ",
-    "guarantee_2_link": "Google Play Subscriptions",
-    "guarantee_2_suffix": " en 1 seul geste.",
+    "guarantees_title": "Garanties & Sécurité Officielles :",
+    "guarantee_1": "Google Play Store : Facturation officielle garantie par Google avec reçu fiscal.",
+    "guarantee_2_prefix": "PayPal Sécurisé : Protection des achats. Payez par solde PayPal ou carte sans compte requis.",
+    "guarantee_2_link": "",
+    "guarantee_2_suffix": "",
     "guarantee_3": "Zéro stockage de cartes bancaires sur les serveurs de PassQ.",
+    "btn_subscribe_play_main": "Google Play Store",
+    "btn_subscribe_play_sub": "(App Android • 7 Jours Gratuits)",
+    "btn_subscribe_paypal_main": "Payer par PayPal / Carte",
+    "btn_subscribe_paypal_sub": "(Web & PC • Activation Immédiate)",
     "btn_subscribe": "Continuer avec Google Play (7 Jours Gratuits)",
     "btn_subscribe_main": "Continuer avec Google Play",
     "btn_subscribe_sub": "(7 Jours Gratuits)"
