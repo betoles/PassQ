@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   PassQ Premium Glassmorphism & High-Legibility Design System
+   Compatible with: iOS Safari, Android, iPadOS, Tablets, 4K Displays
+   ========================================================================== */
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Refined Light Glass */
+  --glass-bg-light: rgba(255, 255, 255, 0.82);
+  --glass-border-light: rgba(255, 255, 255, 0.95);
+  --glass-inner-border-light: rgba(203, 213, 225, 0.4);
+  --glass-shadow-light: 0 20px 40px -15px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(226, 232, 240, 0.8);
+
+  /* Refined Deep OLED Glass */
+  --glass-bg-dark: rgba(15, 23, 42, 0.78);
+  --glass-border-dark: rgba(255, 255, 255, 0.14);
+  --glass-inner-border-dark: rgba(255, 255, 255, 0.06);
+  --glass-shadow-dark: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  --min-touch-target: 46px;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* GPU Hardware Acceleration */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
+
+/* Premium Frosted Glass Card */
+.glass-card {
+  background: var(--glass-bg-light);
+  border: 1px solid var(--glass-border-light);
+  box-shadow: var(--glass-shadow-light);
+  transform: translateZ(0);
+  position: relative;
+  overflow: hidden;
+}
+
+@supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.78);
+    -webkit-backdrop-filter: blur(20px) saturate(190%);
+    backdrop-filter: blur(20px) saturate(190%);
+  }
+  
+  .dark .glass-card {
+    background: rgba(13, 20, 36, 0.76);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
+    backdrop-filter: blur(24px) saturate(190%);
+  }
+}
+
+.dark .glass-card {
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
+  box-shadow: var(--glass-shadow-dark);
+}
+
+/* High-Contrast Crisp Inputs */
+.glass-input {
+  font-family: var(--font-sans);
+  font-size: 16px !important;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(203, 213, 225, 0.9);
+  min-height: var(--min-touch-target);
+  color: #0f172a;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .glass-input {
+    font-size: 14.5px !important;
+  }
+}
+
+.dark .glass-input {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  color: #f8fafc;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25);
+  background: #ffffff;
+}
+
+.dark .glass-input:focus {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: #34d399;
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2);
+}
+
+/* Accessible Ergonomic Touch Targets (46px Minimum) */
+button, a.btn, select {
+  min-height: var(--min-touch-target);
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Smooth Interactive Micro-Scales */
+button:active, a.btn:active {
+  transform: scale(0.975);
+}
+
+/* Ambient Bioluminescent Lighting */
+.glow-orb-emerald {
+  position: absolute;
+  width: 22rem;
+  height: 22rem;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.24) 0%, rgba(16, 185, 129, 0) 70%);
+  border-radius: 9999px;
+  filter: blur(45px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-orb-cyan {
+  position: absolute;
+  width: 26rem;
+  height: 26rem;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, rgba(6, 182, 212, 0) 70%);
+  border-radius: 9999px;
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Mono Code Fonts */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* High Contrast Badges */
+.badge-eco {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18) 0%, rgba(5, 150, 105, 0.24) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #059669;
+}
+.dark .badge-eco {
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.3);
+}
+
+/* ==========================================================================
+   High-Performance SVG Vector Icon Utilities (Rock-Solid Multi-Language Resilient)
+   ========================================================================== */
+.icon-svg {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  flex: none !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  stroke-width: 1.8;
+  color: currentColor;
+  box-sizing: border-box;
+  contain: layout size;
+}
+
+.icon-svg svg {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+  pointer-events: none;
+}
+
+/* Strict sizing locks to guarantee SVGs never deform across all viewport widths and languages */
+.icon-svg.w-3\.5, .icon-svg.h-3\.5 { width: 0.875rem !important; min-width: 0.875rem !important; max-width: 0.875rem !important; height: 0.875rem !important; min-height: 0.875rem !important; max-height: 0.875rem !important; }
+.icon-svg.w-4, .icon-svg.h-4 { width: 1rem !important; min-width: 1rem !important; max-width: 1rem !important; height: 1rem !important; min-height: 1rem !important; max-height: 1rem !important; }
+.icon-svg.w-4\.5, .icon-svg.h-4\.5 { width: 1.125rem !important; min-width: 1.125rem !important; max-width: 1.125rem !important; height: 1.125rem !important; min-height: 1.125rem !important; max-height: 1.125rem !important; }
+.icon-svg.w-5, .icon-svg.h-5 { width: 1.25rem !important; min-width: 1.25rem !important; max-width: 1.25rem !important; height: 1.25rem !important; min-height: 1.25rem !important; max-height: 1.25rem !important; }
+.icon-svg.w-6, .icon-svg.h-6 { width: 1.5rem !important; min-width: 1.5rem !important; max-width: 1.5rem !important; height: 1.5rem !important; min-height: 1.5rem !important; max-height: 1.5rem !important; }
+.icon-svg.w-7, .icon-svg.h-7 { width: 1.75rem !important; min-width: 1.75rem !important; max-width: 1.75rem !important; height: 1.75rem !important; min-height: 1.75rem !important; max-height: 1.75rem !important; }
+.icon-svg.w-8, .icon-svg.h-8 { width: 2rem !important; min-width: 2rem !important; max-width: 2rem !important; height: 2rem !important; min-height: 2rem !important; max-height: 2rem !important; }
+
+/* Fallback sizing when no explicit size class is present */
+.icon-svg:not([class*="w-"]) {
+  width: 1.25rem !important;
+  min-width: 1.25rem !important;
+  max-width: 1.25rem !important;
+}
+.icon-svg:not([class*="h-"]) {
+  height: 1.25rem !important;
+  min-height: 1.25rem !important;
+  max-height: 1.25rem !important;
+}
+
+/* Responsive Ergonomic Tabs for DPP Navigation (Android / iOS / Desktop) */
+nav:has(>[data-tab]) {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 0.25rem !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+nav:has(>[data-tab])::-webkit-scrollbar {
+  display: none !important;
+}
+
+@media (min-width: 640px) {
+  nav:has(>[data-tab]) {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+[data-tab] {
+  flex: 1 0 auto !important;
+  min-width: max-content !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+}
+
+@media (min-width: 640px) {
+  [data-tab] {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+}
+
+/* Universal No-Scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   Core Web Vitals & Rendering Optimizations
+   ========================================================================== */
+.contain-content {
+  contain: layout style paint;
+}
+
+.catalog-row-optimized {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 72px;
+}
+
+.passport-section-optimized {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 240px;
+}
+
+/* ==========================================================================
+   Legal & Policy Document Typography (Balanced Justification & Hyphenation)
+   ========================================================================== */
+.legal-prose {
+  text-rendering: optimizeLegibility;
+}
+
+.legal-prose p,
+.legal-prose li,
+.legal-prose .legal-text,
+.legal-prose section p,
+.legal-prose div p,
+.legal-prose blockquote {
+  text-align: justify !important;
+  text-justify: inter-word !important;
+  text-align-last: left !important;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-height: 1.75;
+}
+
+/* Ensure headings, list markers, badges, and headers remain left-aligned / natural */
+.legal-prose h1,
+.legal-prose h2,
+.legal-prose h3,
+.legal-prose h4,
+.legal-prose th,
+.legal-prose td,
+.legal-prose .text-left,
+.legal-prose button,
+.legal-prose select,
+.legal-prose nav,
+.legal-prose header,
+.legal-prose [data-icon],
+.legal-prose .icon-svg {
+  text-align: left;
+  hyphens: none;
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

@@ -1,0 +1,73 @@
+{
+  "title": "Tableau de Bord Entreprise",
+  "welcome": "Bienvenue",
+  "stats": {
+    "active_products": "Produits Actifs",
+    "total_scans": "Scans QR Totaux",
+    "avg_repair_score": "Score Moyen Réparabilité",
+    "compliance_rate": "Conformité UE"
+  },
+  "products_table": {
+    "title": "Passeports Numériques Gérés",
+    "subtitle": "Catalogue de produits standardisés selon la norme GS1 Digital Link.",
+    "col_product": "Produit",
+    "col_category": "Catégorie",
+    "col_gtin": "GTIN",
+    "col_score": "Score",
+    "col_status": "Statut",
+    "col_actions": "Actions",
+    "status_compliant": "Prêt ESPR",
+    "btn_preview": "Voir DPP",
+    "btn_qr": "Obtenir QR",
+    "btn_delete": "Supprimer le produit",
+    "empty_title": "Aucun passeport numérique enregistré",
+    "empty_desc": "Créez votre premier Passeport Numérique avec l'assistant ci-dessus."
+  },
+  "delete_modal": {
+    "title": "Supprimer le Passeport Numérique ?",
+    "subtitle": "Action définitive sur votre stockage local",
+    "warning": "Cette action supprimera irréversiblement le Passeport Numérique du produit et ses signatures cryptographiques de la base de données locale de cet appareil.",
+    "product_label": "Produit à supprimer :",
+    "btn_cancel": "Annuler",
+    "btn_confirm": "Supprimer"
+  },
+  "modal_qr": {
+    "title": "Code QR GS1 Digital Link",
+    "subtitle": "Code vectoriel haute résolution prêt pour l'impression.",
+    "copy_url": "Copier le Lien",
+    "download_svg": "Télécharger SVG Vectoriel",
+    "download_png": "Télécharger PNG (300 DPI)"
+  },
+  "header": {
+    "subtitle": "Gestionnaire de Passeports Numériques & Conformité UE ESPR"
+  },
+  "privacy_section": {
+    "title": "Souveraineté des Données & Confidentialité Locale",
+    "desc": "PassQ est <strong>100% Local-First</strong>. Nous n'exigeons aucun compte, e-mail ni géolocalisation. Tous vos produits sont sauvegardés exclusivement sur cet appareil.",
+    "btn_backup": "Exporter Sauvegarde (JSON)",
+    "btn_delete": "Supprimer Toutes les Données",
+    "pillar_no_accounts": "<strong>Sans compte:</strong> Zéro collecte de données personnelles.",
+    "pillar_camera_ram": "<strong>Caméra en RAM:</strong> Analyse optique locale en temps réel.",
+    "pillar_no_gps": "<strong>Zéro GPS:</strong> Aucun suivi de position."
+  },
+  "qr_modal": {
+    "studio_badge": "Studio d'Émission GS1 Digital Link",
+    "domain_label": "Domaine de Résolution du Passeport",
+    "gs1_badge": "GS1 DIGITAL LINK • ECC HIGH (30% ROBUSTESSE)",
+    "btn_svg": "Vecteur SVG",
+    "btn_png": "PNG 300 DPI",
+    "btn_packaging_label": "Étiquette d'Emballage Officielle (300 DPI)",
+    "btn_copy_url": "Copier le Lien"
+  },
+  "alerts": {
+    "url_copied": "Lien GS1 copié dans le presse-papiers.",
+    "confirm_hard_reset": "Êtes-vous sûr de vouloir supprimer définitivement tous les produits et données stockés sur cet appareil ? Cette action est irréversible.",
+    "data_cleared": "Toutes les données locales ont été effacées avec succès."
+  },
+  "trial": {
+    "active_title": "Essai Gratuit de 7 Jours Actif",
+    "active_desc": "Vous bénéficiez d'un accès complet et illimité à tous les outils Pro (Signature Web Crypto, GS1 Mod 10 et Douanes).",
+    "day_badge": "Jour {day} sur 7",
+    "lock_price_btn": "Sécuriser le tarif Fondateur"
+  }
+}

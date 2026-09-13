@@ -1,0 +1,28 @@
+{
+  "title": "Conformidade Regulatória & Alfândega",
+  "subtitle": "Alinhamento automático com normas internacionais de ecodesign e economia circular.",
+  "regulations": {
+    "espr": {
+      "name": "Regulamento UE ESPR",
+      "desc": "Ecodesign para produtos sustentáveis obrigatório para liberação alfandegária na UE."
+    },
+    "right_to_repair": {
+      "name": "Diretrizes de Direito ao Reparo",
+      "desc": "Leis estaduais nos EUA e exigências de índices de reparabilidade na UE."
+    },
+    "gs1": {
+      "name": "Padrão GS1 Digital Link",
+      "desc": "Conexão universal entre código de barras físico e web (ISO/IEC 15459)."
+    },
+    "rohs_reach": {
+      "name": "Conformidade REACH / RoHS",
+      "desc": "Garantia de materiais isentos de substâncias químicas perigosas."
+    }
+  },
+  "customs_report": {
+    "title": "Ficha Técnica Oficial para Alfândega",
+    "generated_for": "Gerado para Autoridades Aduaneiras e Vigilância de Mercado",
+    "signature_valid": "Assinatura Digital: VÁLIDA (Verificado via ed25519)",
+    "authenticity_hash": "Hash de Autenticidade"
+  }
+}

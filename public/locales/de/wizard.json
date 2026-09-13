@@ -1,0 +1,60 @@
+{
+  "title": "Digitalen Produktpass erstellen",
+  "subtitle": "Schritt-für-Schritt-Anleitung zur Erfüllung der EU-Vorgaben.",
+  "steps": {
+    "identity": "Identität & Marke",
+    "materials": "Zusammensetzung & Fußabdruck",
+    "repair": "Reparierbarkeit & Ersatzteile",
+    "review": "Überprüfung & QR-Generierung"
+  },
+  "fields": {
+    "product_name": "Produktname",
+    "category": "Kategorie",
+    "gtin": "GTIN / Barcode (8-14 Ziffern)",
+    "origin_country": "Herkunfts- & Herstellungsland",
+    "material_name": "Materialzusammensetzung",
+    "carbon_kg": "Geschätzter CO₂-Fußabdruck (kg CO₂e)",
+    "disassembly_tools": "Erforderliche Demontagewerkzeuge",
+    "repair_duration_yrs": "Ersatzteilverfügbarkeit (Jahre)",
+    "recycling_instructions": "Hinweise zum Lebensende"
+  },
+  "placeholders": {
+    "product_name": "z.B. EcoDry Alpine Jacke",
+    "gtin": "7501234567890",
+    "origin": "Deutschland",
+    "material_name": "Material (z.B. Bio-Baumwolle)",
+    "recycling": "Geeignet für das Recycling bei autorisierten Sammelstellen."
+  },
+  "buttons": {
+    "add_material": "+ Material hinzufügen",
+    "prev": "Zurück",
+    "next": "Weiter"
+  },
+  "categories": {
+    "textile": "Textil & Mode",
+    "footwear": "Schuhe & Leder",
+    "electronics": "Unterhaltungselektronik",
+    "furniture": "Möbel & Holz"
+  },
+  "tools": {
+    "none": "Ohne Werkzeug (Klick-/Schnappverbindung)",
+    "standard": "Standardwerkzeuge (Schraubendreher / Inbus)",
+    "specialized": "Spezial- oder proprietäre Werkzeuge"
+  },
+  "review": {
+    "estimated_score_label": "Geschätzter Reparierbarkeitsindex:",
+    "summary_product_label": "Produkt:",
+    "summary_gtin_label": "GTIN:",
+    "summary_origin_label": "Herkunft:",
+    "legal_declaration": "Ich bestätige, die gesetzlichen Rechte und Marken an diesem Produkt zu besitzen, und übernehme die volle Verantwortung gemäß den <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Nutzungsbedingungen</a>."
+  },
+  "validation": {
+    "name_required": "Bitte geben Sie den Produktnamen ein.",
+    "gtin_check_digit_error": "Ungültige GS1-Prüfziffer. Für diesen Code muss die letzte Ziffer {expected} sein (eingegeben: {actual}).",
+    "gtin_invalid": "Die GTIN muss 8, 12, 13 oder 14 Ziffern lang sein.",
+    "gtin_numeric_error": "Bitte geben Sie einen gültigen numerischen GTIN-Code ein.",
+    "materials_sum_error": "Die Materialsumme muss genau 100% betragen (aktuell: {sum}%).",
+    "materials_empty_error": "Bitte füllen Sie den Namen für alle Materialien aus.",
+    "legal_consent_required": "Sie müssen die Rechteinhaberschaft bestätigen und die Bedingungen akzeptieren."
+  }
+}

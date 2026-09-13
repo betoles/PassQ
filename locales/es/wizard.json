@@ -1,0 +1,60 @@
+{
+  "title": "Crear Pasaporte Digital",
+  "steps": {
+    "identity": "Identidad y Marca",
+    "materials": "Composición y Huella",
+    "repair": "Reparabilidad y Repuestos",
+    "review": "Revisión y Generación QR"
+  },
+  "fields": {
+    "product_name": "Nombre del Producto",
+    "category": "Categoría",
+    "gtin": "GTIN / Código de Barras (8-14 dígitos)",
+    "origin_country": "País de Origen y Fabricación",
+    "material_name": "Composición de Materiales",
+    "carbon_kg": "Huella CO₂ Estimada (kg CO₂e)",
+    "disassembly_tools": "Herramientas para Desmontar",
+    "repair_duration_yrs": "Disponibilidad de Repuestos (Años)",
+    "recycling_instructions": "Instrucciones de Fin de Vida"
+  },
+  "validation": {
+    "name_required": "Por favor, ingresa el nombre del producto.",
+    "gtin_check_digit_error": "Dígito de control GS1 inválido. Para este código, el último dígito debe ser {expected} (ingresaste {actual}).",
+    "gtin_invalid": "El GTIN debe tener 8, 12, 13 o 14 dígitos numéricos.",
+    "gtin_numeric_error": "Por favor, ingresa un código GTIN numérico válido.",
+    "materials_sum_error": "La suma de materiales debe ser exactamente 100% (actual: {sum}%).",
+    "materials_empty_error": "Por favor, completa el nombre de todos los materiales.",
+    "legal_consent_required": "Debes certificar la titularidad de los derechos y aceptar la exención regulatoria para continuar."
+  },
+  "categories": {
+    "textile": "Textil y Moda",
+    "footwear": "Calzado y Piel",
+    "electronics": "Electrónica de Consumo",
+    "furniture": "Muebles y Madera"
+  },
+  "tools": {
+    "none": "Sin herramientas (Fijación por presión/clips)",
+    "standard": "Herramientas estándar (Destornillador / Allen)",
+    "specialized": "Herramientas especializadas o propietarias"
+  },
+  "subtitle": "Paso a paso guiado para cumplir con la normativa europea.",
+  "placeholders": {
+    "product_name": "ej. Chaqueta Alpina EcoDry",
+    "gtin": "7501234567890",
+    "origin": "México",
+    "material_name": "Material (ej. Algodón Orgánico)",
+    "recycling": "Apto para reciclaje en centros de acopio autorizados."
+  },
+  "buttons": {
+    "add_material": "+ Añadir Material",
+    "prev": "Atrás",
+    "next": "Siguiente"
+  },
+  "review": {
+    "estimated_score_label": "Score de Reparabilidad Estimado:",
+    "summary_product_label": "Producto:",
+    "summary_gtin_label": "GTIN:",
+    "summary_origin_label": "Origen:",
+    "legal_declaration": "Certifico que tengo los derechos legales y marcas de este producto, y asumo la total responsabilidad de cumplir con las normativas locales y aduaneras vigentes, eximiendo a PassQ según los <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Términos de Servicio</a>."
+  }
+}

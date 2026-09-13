@@ -1,0 +1,257 @@
+{
+  "description": "Catálogo Maestro de Palabras Clave Globales (SEO & SEM) para PassQ en 7 Idiomas",
+  "languages": {
+    "en": {
+      "language": "English (Global / US / UK / CA / AU)",
+      "clusters": {
+        "regulatory_compliance": [
+          "Digital Product Passport software",
+          "EU ESPR compliance software for SMEs",
+          "Ecodesign for Sustainable Products Regulation",
+          "US Right to Repair compliance software",
+          "Battery Passport EU regulation",
+          "Textile DPP EU 2026",
+          "Customs clearance digital product passport",
+          "Digital Product Passport standard ISO IEC"
+        ],
+        "tech_and_standards": [
+          "GS1 Digital Link QR generator",
+          "GS1 2D barcode for retail",
+          "Schema.org product JSON-LD generator",
+          "Dynamic QR code for product packaging",
+          "Product traceability QR platform",
+          "Digital repair manual builder",
+          "Cryptographic verification QR code"
+        ],
+        "commercial_buyer_intent": [
+          "Best Digital Product Passport platform for small business",
+          "Affordable DPP software for manufacturers",
+          "Shopify Digital Product Passport app",
+          "How to create digital product passport for my brand",
+          "No code product passport generator",
+          "Automated customs report generator"
+        ],
+        "industry_verticals": [
+          "Sustainable fashion digital passport",
+          "Apparel traceability QR label",
+          "Footwear repairability index calculator",
+          "Electronics right to repair manual software",
+          "Furniture timber origin traceability QR",
+          "Circular economy product passport"
+        ]
+      }
+    },
+    "es": {
+      "language": "Español (España y Latinoamérica)",
+      "clusters": {
+        "regulatory_compliance": [
+          "Pasaporte Digital de Producto software",
+          "Reglamento ESPR Unión Europea PyMEs",
+          "Normativa ecodiseño productos sostenibles",
+          "Ley derecho a reparar calzado y ropa",
+          "Ficha técnica oficial para aduanas europeas",
+          "Requisitos de exportación textil a Europa",
+          "Certificado digital de trazabilidad producto"
+        ],
+        "tech_and_standards": [
+          "Generador de QR GS1 Digital Link",
+          "Código de barras QR dinámico para empaques",
+          "Generador JSON-LD Schema.org producto",
+          "Trazabilidad de origen y cadena de suministro",
+          "Manual de reparación interactivo en QR",
+          "Etiquetado inteligente para productos físicos"
+        ],
+        "commercial_buyer_intent": [
+          "Software pasaporte digital barato para pymes",
+          "Crear pasaporte digital de producto online",
+          "Plataforma de trazabilidad QR para marcas",
+          "App pasaporte digital Shopify y WooCommerce",
+          "Cómo poner código QR de reparación a mi producto",
+          "Evitar retención de aduanas con pasaporte digital"
+        ],
+        "industry_verticals": [
+          "Pasaporte digital para marcas de ropa y moda",
+          "Trazabilidad para exportadores de calzado y piel",
+          "Índice de reparabilidad para electrónica de consumo",
+          "Pasaporte ecológico para muebles y madera",
+          "Trazabilidad circular para artesanías y manufactura"
+        ]
+      }
+    },
+    "de": {
+      "language": "Deutsch (Deutschland, Österreich, Schweiz - DACH)",
+      "clusters": {
+        "regulatory_compliance": [
+          "Digitaler Produktpass Software",
+          "EU ESPR Verordnung KMU Software",
+          "Ökodesign-Verordnung digitaler Pass",
+          "Recht auf Reparatur Deutschland Gesetz",
+          "Batteriepass EU Richtlinie Software",
+          "Zollkonformität digitaler Produktpass",
+          "Lieferkettensorgfaltspflichtengesetz QR Pass"
+        ],
+        "tech_and_standards": [
+          "GS1 Digital Link QR-Code Generator",
+          "Dynamischer QR-Code für Produktverpackungen",
+          "JSON-LD Schema Produktdatenblatt",
+          "Interaktive Reparaturanleitung QR",
+          "Kreislaufwirtschaft Rückverfolgbarkeit QR",
+          "Digitale Kennzeichnung Industrie 4.0"
+        ],
+        "commercial_buyer_intent": [
+          "Digitaler Produktpass Plattform für Mittelstand",
+          "Günstige DPP Software für KMU",
+          "Digitalen Produktpass online erstellen",
+          "DPP Lösung für Shopify und E-Commerce",
+          "Produktpass QR-Code für Hersteller"
+        ],
+        "industry_verticals": [
+          "Textil Produktpass Nachhaltigkeit",
+          "Digitaler Pass für Maschinenbau und Elektronik",
+          "Reparierbarkeitsindex Rechner Haushaltsgeräte",
+          "Möbel Holz Herkunftsnachweis QR",
+          "Kreislauffähigkeit Zertifizierung Pass"
+        ]
+      }
+    },
+    "fr": {
+      "language": "Français (France, Belgique, Suisse, Canada)",
+      "clusters": {
+        "regulatory_compliance": [
+          "Passeport Numérique des Produits logiciel",
+          "Règlement européen ESPR conformité PME",
+          "Loi AGEC traçabilité et passeport produit",
+          "Indice de réparabilité obligatoire logiciel",
+          "Indice de durabilité France calcul",
+          "Dossier technique douane passeport numérique",
+          "Passeport batterie et textile UE"
+        ],
+        "tech_and_standards": [
+          "Générateur QR code GS1 Digital Link",
+          "QR code dynamique pour étiquette vêtement",
+          "Format JSON-LD conformité douanière",
+          "Guide de réparation interactif par QR",
+          "Traçabilité chaîne d'approvisionnement QR",
+          "Fiche produit écoconception dématérialisée"
+        ],
+        "commercial_buyer_intent": [
+          "Logiciel passeport numérique pas cher pour PME",
+          "Créer un passeport numérique de produit en ligne",
+          "Application DPP pour marques écoresponsables",
+          "Solution étiquetage QR loi AGEC",
+          "Plateforme traçabilité circulaire pour artisans"
+        ],
+        "industry_verticals": [
+          "Passeport numérique mode et textile éthique",
+          "Calculateur indice de réparabilité électroménager",
+          "Traçabilité chaussures et maroquinerie",
+          "Passeport bois et ameublement durable",
+          "Passeport circularité pour cosmétiques et tech"
+        ]
+      }
+    },
+    "it": {
+      "language": "Italiano (Italia, Svizzera)",
+      "clusters": {
+        "regulatory_compliance": [
+          "Passaporto Digitale di Prodotto software",
+          "Regolamento UE ESPR conformità PMI",
+          "Normativa ecodesign prodotti sostenibili",
+          "Diritto alla riparazione software etichettatura",
+          "Documentazione doganale passaporto digitale",
+          "Etichettatura ambientale obbligatoria QR"
+        ],
+        "tech_and_standards": [
+          "Generatore QR code GS1 Digital Link",
+          "Codice QR dinamico per packaging e moda",
+          "Tracciabilità di filiera e origine Made in Italy",
+          "Manuale di riparazione digitale QR",
+          "Dati strutturati JSON-LD dogana europea"
+        ],
+        "commercial_buyer_intent": [
+          "Software passaporto digitale economico per PMI",
+          "Come creare passaporto digitale di prodotto",
+          "Piattaforma tracciabilità QR per aziende moda",
+          "App passaporto digitale per e-commerce",
+          "Software conformità export unione europea"
+        ],
+        "industry_verticals": [
+          "Passaporto digitale moda e tessile sostenibile",
+          "Tracciabilità calzature e pelletteria Made in Italy",
+          "Passaporto ecologico design e mobili in legno",
+          "Indice di riparabilità elettronica ed elettrodomestici",
+          "Economia circolare e riciclo materiali QR"
+        ]
+      }
+    },
+    "pt": {
+      "language": "Português (Brasil, Portugal)",
+      "clusters": {
+        "regulatory_compliance": [
+          "Passaporte Digital de Produto software",
+          "Regulamento UE ESPR conformidade PMEs",
+          "Normas de ecodesign produtos sustentáveis",
+          "Direito ao reparo rotulagem inteligente",
+          "Desembaraço aduaneiro passaporte digital",
+          "Exigências de exportação para União Europeia"
+        ],
+        "tech_and_standards": [
+          "Gerador de QR Code GS1 Digital Link",
+          "Código QR dinâmico para etiquetas e caixas",
+          "Rastreabilidade de cadeia de suprimentos QR",
+          "Manual interativo de conserto e reparo QR",
+          "Exportador JSON-LD Schema de produtos"
+        ],
+        "commercial_buyer_intent": [
+          "Software de passaporte digital barato para pequenas empresas",
+          "Como criar passaporte digital de produto online",
+          "Plataforma de rastreabilidade QR para exportadores",
+          "Aplicativo de passaporte digital para marcas Shopify",
+          "Evitar bloqueio alfandegário na Europa"
+        ],
+        "industry_verticals": [
+          "Passaporte digital para indústria têxtil e vestuário",
+          "Rastreabilidade de calçados e couro exportação",
+          "Índice de reparabilidade para eletrônicos",
+          "Passaporte sustentável para móveis de madeira",
+          "Economia circular e reciclagem pós-consumo"
+        ]
+      }
+    },
+    "zh": {
+      "language": "中文 (中国大陆 / 出海企业 / 跨境电商)",
+      "clusters": {
+        "regulatory_compliance": [
+          "欧盟数字产品护照软件",
+          "欧盟ESPR可持续产品生态设计法规合规",
+          "出海企业数字产品护照DPP生成器",
+          "欧盟电池护照合规软件",
+          "欧洲海关清关数字产品护照",
+          "全球商品可维修权法规软件",
+          "纺织服装出口欧盟DPP认证"
+        ],
+        "tech_and_standards": [
+          "GS1 Digital Link 智能二维码生成器",
+          "商品动态二维码防伪与溯源平台",
+          "Schema.org JSON-LD 结构化数据海关导出",
+          "交互式数字维修保养指南",
+          "供应链原材料溯源与碳足迹计算"
+        ],
+        "commercial_buyer_intent": [
+          "中小制造企业高性价比数字产品护照平台",
+          "跨境电商独立站数字产品护照插件",
+          "如何快速生成符合欧盟标准的商品二维码",
+          "出海品牌零代码DPP系统",
+          "避免出口欧洲海关查验扣关软件"
+        ],
+        "industry_verticals": [
+          "外贸服装与纺织品数字护照",
+          "出口鞋类与箱包皮革溯源二维码",
+          "消费电子可维修性指数评估系统",
+          "出口家具木材原产地合规溯源",
+          "储能与锂电池绿色护照合规"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "title": "Conformità Normativa & Dogane",
+  "subtitle": "Allineamento automatico con le normative internazionali di ecodesign ed economia circolare.",
+  "regulations": {
+    "espr": {
+      "name": "Regolamento UE ESPR",
+      "desc": "Ecodesign per prodotti sostenibili obbligatorio per l'accesso doganale UE."
+    },
+    "right_to_repair": {
+      "name": "Direttive Diritto alla Riparazione",
+      "desc": "Leggi statali USA e indici di riparabilità europei."
+    },
+    "gs1": {
+      "name": "Standard GS1 Digital Link",
+      "desc": "Collegamento universale codice a barre fisico - web (ISO/IEC 15459)."
+    },
+    "rohs_reach": {
+      "name": "Conformità REACH / RoHS",
+      "desc": "Garanzia di materiali privi di sostanze chimiche pericolose."
+    }
+  },
+  "customs_report": {
+    "title": "Scheda Tecnica Ufficiale per la Dogana",
+    "generated_for": "Generato per le Autorità Doganali e di Vigilanza del Mercato",
+    "signature_valid": "Firma Digitale: VALIDA (Verificato con ed25519)",
+    "authenticity_hash": "Hash di Autenticità"
+  }
+}

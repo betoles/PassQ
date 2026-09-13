@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Política de Cookies • PassQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/glassmorphism.css">
+</head>
+<body class="min-h-screen bg-slate-100 dark:bg-[#070b14] text-slate-900 dark:text-slate-100 p-4 sm:p-8 font-sans">
+  <div class="max-w-3xl mx-auto glass-card p-6 sm:p-10 rounded-3xl space-y-6 shadow-xl border border-slate-200/80 dark:border-white/10 legal-prose">
+    <header class="border-b border-slate-200/60 dark:border-white/10 pb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div>
+        <a href="/index.html" class="inline-flex items-center gap-2.5 min-h-[46px] px-4.5 py-2.5 rounded-2xl bg-emerald-500/15 dark:bg-emerald-500/20 border-2 border-emerald-500/40 hover:border-emerald-500 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-white font-black text-xs sm:text-sm tracking-wider uppercase shadow-sm hover:shadow-md hover:shadow-emerald-500/20 active:scale-95 transition-all group mb-3 select-none">
+          <span class="w-6 h-6 rounded-xl bg-emerald-500/20 group-hover:bg-white/20 text-emerald-700 dark:text-emerald-300 group-hover:text-white flex items-center justify-center transition-colors shrink-0">
+            <span class="icon-svg w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>
+            </span>
+          </span>
+          <span data-i18n="legal:nav.back_to_passq">Volver a PassQ</span>
+        </a>
+        <h1 data-i18n="legal:cookies.title" class="text-2xl sm:text-3xl font-black mt-2 text-slate-900 dark:text-white flex items-center gap-2.5">
+          <span class="p-2 rounded-2xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/20" data-icon="cookie" data-icon-class="w-6 h-6"></span>
+          <span>Política de Cookies de PassQ</span>
+        </h1>
+        <p data-i18n="legal:cookies.subtitle" class="text-sm sm:text-base text-slate-500 dark:text-slate-400 mt-1 font-medium">Directiva ePrivacy 2002/58/CE y Reglamento General de Protección de Datos (GDPR)</p>
+      </div>
+
+      <div class="flex items-center gap-2 self-end sm:self-auto shrink-0">
+        <div class="flex items-center h-10 px-3 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-xs">
+          <span id="lang-flag-slot" class="flex items-center shrink-0"></span>
+          <select id="lang-select" class="bg-transparent text-sm font-bold text-slate-800 dark:text-slate-200 outline-none cursor-pointer">
+            <option value="es" class="bg-white dark:bg-slate-900">ES • Español</option>
+            <option value="en" class="bg-white dark:bg-slate-900">EN • English</option>
+            <option value="de" class="bg-white dark:bg-slate-900">DE • Deutsch</option>
+            <option value="fr" class="bg-white dark:bg-slate-900">FR • Français</option>
+            <option value="it" class="bg-white dark:bg-slate-900">IT • Italiano</option>
+            <option value="pt" class="bg-white dark:bg-slate-900">PT • Português</option>
+            <option value="zh" class="bg-white dark:bg-slate-900">ZH • 中文</option>
+          </select>
+        </div>
+        <button id="theme-toggle-btn" class="h-10 w-10 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-emerald-500 transition" title="Cambiar tema">
+          <span class="icon-svg w-4 h-4" id="theme-icon-slot"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="space-y-6 text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-normal text-justify">
+      <section class="space-y-2.5">
+        <h2 data-i18n="legal:cookies.s1_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">1. Declaración de Cero Cookies de Rastreo (Zero Tracking)</h2>
+        <p data-i18n="legal:cookies.s1_p1" class="text-sm sm:text-base leading-relaxed"><strong>PassQ no utiliza cookies de publicidad, rastreo entre sitios ni analíticas de terceros.</strong> Creemos en una web limpia y privada que respeta la autonomía del usuario.</p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 data-i18n="legal:cookies.s2_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">2. Tecnologías de Almacenamiento Local Estrictamente Necesarias</h2>
+        <p data-i18n="legal:cookies.s2_p1" class="text-sm sm:text-base leading-relaxed">Para el correcto funcionamiento técnico de la aplicación y permitir su uso sin conexión (offline), empleamos exclusivamente almacenamiento local del navegador (LocalStorage / IndexedDB):</p>
+        <div class="overflow-x-auto my-3 -mx-2 sm:mx-0">
+          <table class="w-full text-left text-sm border border-slate-200/80 dark:border-white/10 rounded-2xl overflow-hidden shadow-xs">
+            <thead class="bg-slate-200/70 dark:bg-white/5 font-extrabold text-xs sm:text-sm uppercase tracking-wider text-slate-700 dark:text-slate-200">
+              <tr>
+                <th data-i18n="legal:cookies.th_key" class="py-3.5 px-4">Clave de Almacenamiento</th>
+                <th data-i18n="legal:cookies.th_type" class="py-3.5 px-4">Tipo</th>
+                <th data-i18n="legal:cookies.th_purpose" class="py-3.5 px-4">Finalidad</th>
+                <th data-i18n="legal:cookies.th_persistence" class="py-3.5 px-4">Persistencia</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200/60 dark:divide-white/5 text-xs sm:text-sm">
+              <tr class="hover:bg-slate-200/30 dark:hover:bg-white/[0.02] transition">
+                <td class="py-3.5 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">passq_theme</td>
+                <td class="py-3.5 px-4 font-mono">LocalStorage</td>
+                <td data-i18n="legal:cookies.row1_purpose" class="py-3.5 px-4">Preferencia visual de modo oscuro/claro</td>
+                <td data-i18n="legal:cookies.permanent_local" class="py-3.5 px-4 font-medium">Permanente (Local)</td>
+              </tr>
+              <tr class="hover:bg-slate-200/30 dark:hover:bg-white/[0.02] transition">
+                <td class="py-3.5 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">passq_lang</td>
+                <td class="py-3.5 px-4 font-mono">LocalStorage</td>
+                <td data-i18n="legal:cookies.row2_purpose" class="py-3.5 px-4">Preferencia de idioma del usuario</td>
+                <td data-i18n="legal:cookies.permanent_local" class="py-3.5 px-4 font-medium">Permanente (Local)</td>
+              </tr>
+              <tr class="hover:bg-slate-200/30 dark:hover:bg-white/[0.02] transition">
+                <td class="py-3.5 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">passq_products_db</td>
+                <td class="py-3.5 px-4 font-mono">IndexedDB / Local</td>
+                <td data-i18n="legal:cookies.row3_purpose" class="py-3.5 px-4">Base de datos local de pasaportes creados</td>
+                <td data-i18n="legal:cookies.user_controlled" class="py-3.5 px-4 font-medium">Controlada por el usuario</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script type="module" src="/src/modules/legal/legal.js"></script>
+</body>
+</html>

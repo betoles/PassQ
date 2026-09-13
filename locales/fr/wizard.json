@@ -1,0 +1,60 @@
+{
+  "title": "Créer un Passeport Numérique",
+  "subtitle": "Guide pas à pas pour respecter les normes européennes.",
+  "steps": {
+    "identity": "Identité & Marque",
+    "materials": "Composition & Empreinte",
+    "repair": "Réparabilité & Pièces",
+    "review": "Vérification & Génération QR"
+  },
+  "fields": {
+    "product_name": "Nom du Produit",
+    "category": "Catégorie",
+    "gtin": "GTIN / Code-barres (8-14 chiffres)",
+    "origin_country": "Pays d'Origine et Fabrication",
+    "material_name": "Composition des Matériaux",
+    "carbon_kg": "Empreinte CO₂ Estimée (kg CO₂e)",
+    "disassembly_tools": "Outils de Démontage Nécessaires",
+    "repair_duration_yrs": "Disponibilité des Pièces (Années)",
+    "recycling_instructions": "Directives de Fin de Vie"
+  },
+  "placeholders": {
+    "product_name": "ex. Veste Alpine EcoDry",
+    "gtin": "7501234567890",
+    "origin": "France",
+    "material_name": "Matériau (ex. Coton Biologique)",
+    "recycling": "Convient au recyclage dans les centres de collecte agréés."
+  },
+  "buttons": {
+    "add_material": "+ Ajouter un Matériau",
+    "prev": "Retour",
+    "next": "Suivant"
+  },
+  "categories": {
+    "textile": "Textile & Mode",
+    "footwear": "Chaussures & Cuir",
+    "electronics": "Électronique Grand Public",
+    "furniture": "Meubles & Bois"
+  },
+  "tools": {
+    "none": "Sans outils (Clips / Pression)",
+    "standard": "Outils standards (Tournevis / Clé Allen)",
+    "specialized": "Outils spécialisés ou propriétaires"
+  },
+  "review": {
+    "estimated_score_label": "Score de Réparabilité Estimé :",
+    "summary_product_label": "Produit :",
+    "summary_gtin_label": "GTIN :",
+    "summary_origin_label": "Origine :",
+    "legal_declaration": "Je certifie détenir les droits légaux et marques de ce produit et assume l'entière conformité selon les <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Conditions Générales</a>."
+  },
+  "validation": {
+    "name_required": "Veuillez saisir le nom du produit.",
+    "gtin_check_digit_error": "Clé de contrôle GS1 invalide. Pour ce code, le dernier chiffre doit être {expected} (saisi : {actual}).",
+    "gtin_invalid": "Le GTIN doit comporter 8, 12, 13 ou 14 chiffres numériques.",
+    "gtin_numeric_error": "Veuillez saisir un code GTIN numérique valide.",
+    "materials_sum_error": "La somme des matériaux doit être exactement de 100% (actuel : {sum}%).",
+    "materials_empty_error": "Veuillez renseigner le nom de tous les matériaux.",
+    "legal_consent_required": "Vous devez certifier la titularité des droits pour continuer."
+  }
+}

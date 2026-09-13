@@ -1,0 +1,63 @@
+{
+  "title": "Benutzerhandbuch • PassQ",
+  "badge": "Interaktives & Didaktisches Handbuch",
+  "subtitle": "Beherrschen Sie den Lebenszyklus Ihrer Digitalen Produktpässe in wenigen Minuten.",
+  "btn_close": "Handbuch Schließen",
+  "tabs": {
+    "tab1": "Praxisbeispiel",
+    "tab2": "Pass Erstellen",
+    "tab3": "Katalog & QR",
+    "tab4": "Kundenansicht",
+    "tab5": "Datenschutz & Daten"
+  },
+  "tab1_content": {
+    "title": "Die Reise Ihres Produkts: Der Praxisfall von Sofia",
+    "intro": "Stellen wir uns Sofia vor, Inhaberin der Modemarke «Nordic Apex Gear». Sie hat eine Charge von 200 «EcoDry Alpine Jackets» produziert und benötigt eine intelligente Kennzeichnung für den Verkauf und den zollfreien EU-Export.",
+    "step1_title": "Erstellung in 4 Minuten",
+    "step1_desc": "Sofia öffnet PassQ, durchläuft die 4 geführten Schritte und schließt ab. Der Pass wird sofort mit einer kryptografischen Signatur gesichert.",
+    "step2_title": "GS1 QR-Code Druck",
+    "step2_desc": "Sie lädt den hochauflösenden GS1 Digital Link QR-Code herunter und lässt ihn auf Textiletiketten und Hangtags drucken.",
+    "step3_title": "Sofortiges Zolldokument",
+    "step3_desc": "Mit einem Klick erstellt sie das 3-seitige Zoll-PDF und die JSON-LD-Datei für den Nachweis der EU-ESPR-Konformität.",
+    "step4_title": "Scannen durch Kunden und Zoll",
+    "step4_desc": "Kunden in Berlin, Paris oder Madrid sehen Materialien und Pflegehinweise in ihrer Sprache. Zollbeamte prüfen die Echtheit sofort."
+  },
+  "tab2_content": {
+    "title": "Geführter Erstellungsassistent (4 Einfache Schritte)",
+    "step1_title": "Produktidentität",
+    "step1_desc": "Produktname, Kategorie (Textil, Schuhe, Elektronik, Möbel), GTIN-13-Barcode und Herkunftsland.",
+    "step2_title": "Materialzusammensetzung & CO₂",
+    "step2_desc": "Materialanteile (z. B. 85 % recyceltes Polyester, 15 % Membran) und CO₂-Fußabdruck in kg CO₂e.",
+    "step3_title": "Reparierbarkeit & Pflege",
+    "step3_desc": "Erforderliche Demontagewerkzeuge und Verfügbarkeit von Ersatzteilen in Jahren. PassQ berechnet den Ökodesign-Score.",
+    "step4_title": "Zollcode & Digitale Signatur",
+    "step4_desc": "HS/TARIC-Zollcode (z. B. 6202.40.00) und manipulationssichere Signatur im Browser."
+  },
+  "tab3_content": {
+    "title": "Katalogverwaltung & Täglicher Betrieb",
+    "catalog_title": "Ihr zentraler Produktkatalog:",
+    "catalog_desc": "Die Tabelle «Verwaltete Digitale Pässe» auf dem Dashboard ist Ihr Produktkatalog.",
+    "actions_title": "Direkte Aktionen pro Zeile:",
+    "action_view": "Pass anzeigen: Öffnet die öffentliche Ansicht für Kunden und Zollprüfer.",
+    "action_qr": "QR-Code abrufen: Modal mit hochauflösendem Vektor-QR-Code zum Herunterladen.",
+    "action_del": "Löschen: Dauerhaftes Löschen des Produkts und der kryptografischen Signaturen.",
+    "export_title": "Offizielle Exporte:",
+    "export_desc": "Zoll-PDFs und EU-konforme JSON-LD-Dateien."
+  },
+  "tab4_content": {
+    "title": "Was sehen Kunden und Zollbehörden?",
+    "consumer_title": "Für Endverbraucher:",
+    "consumer_desc": "Automatisches Erkennen der Sprache beim Smartphone-Scan mit Anzeige von Materialien und Pflegehinweisen.",
+    "customs_title": "Für Zoll und Prüfer:",
+    "customs_desc": "Grünes Siegel für kryptografisch verifizierte Echtheit ohne Manipulationsrisiko."
+  },
+  "tab5_content": {
+    "title": "Datenschutz & Datensouveränität (Local-First)",
+    "local_title": "0 % Konten, 0 % Tracking, 100 % Lokal",
+    "local_desc": "Alle Daten verbleiben ausschließlich im internen Speicher Ihres Browsers (LocalStorage / IndexedDB).",
+    "backup_title": "1-Klick-Datensicherung:",
+    "backup_desc": "Exportieren Sie Ihren Katalog einfach auf andere Geräte.",
+    "wipe_title": "Sicheres Löschen:",
+    "wipe_desc": "Vollständige DSGVO-Bereinigung zur Wiederherstellung des Ausgangszustands."
+  }
+}

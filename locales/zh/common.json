@@ -1,0 +1,105 @@
+{
+  "app_name": "PassQ",
+  "tagline": "为中小企业打造的数字产品护照与循环追溯平台",
+  "nav": {
+    "home": "首页",
+    "features": "核心功能",
+    "pricing": "价格方案",
+    "compliance": "合规标准",
+    "dashboard": "企业控制台",
+    "create_dpp": "创建新护照",
+    "demo_dpp": "示范护照",
+    "user_guide": "用户指南"
+  },
+  "buttons": {
+    "save": "保存更改",
+    "cancel": "取消",
+    "next": "下一步",
+    "back": "上一步",
+    "finish": "完成并生成二维码",
+    "download_qr": "下载二维码",
+    "export_pdf": "导出官方海关清单 (PDF)",
+    "export_json": "导出 JSON-LD (欧盟标准)",
+    "close": "关闭",
+    "view_passport": "查看公开产品护照"
+  },
+  "badges": {
+    "verified": "GS1 & 欧盟官方认证",
+    "circular": "循环经济标准",
+    "repairable": "高可维修性"
+  },
+  "theme": {
+    "light": "浅色模式",
+    "dark": "深色模式",
+    "system": "跟随系统",
+    "toggle": "切换外观主题"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "de": "Deutsch",
+    "fr": "Français",
+    "it": "Italiano",
+    "pt": "Português",
+    "zh": "中文"
+  },
+  "footer": {
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "imprint": "法律声明 / 印记",
+    "cookies": "Cookie 政策",
+    "compliance": "欧盟 ESPR 与 GS1 合规声明",
+    "security": "安全与密码学架构",
+    "contact": "联系与建议",
+    "rights_text": "© 2026 PassQ Technologies Ltd. • 数字产品护照与循环追溯平台"
+  },
+  "contact_modal": {
+    "title": "联系与建议",
+    "badge": "倾听用户心声",
+    "subtitle": "您的宝贵反馈推动 PassQ 的持续进化！",
+    "message": "我们非常重视每一位用户的声音，乐于倾听您的实际使用体验，并根据您的实际业务需求不断优化和定制平台。欢迎随时发送宝贵意见、改进建议、疑问或功能请求。",
+    "email_label": "官方联系邮箱：",
+    "email_address": "passq-reportes@outlook.com",
+    "btn_send_email": "直接发送邮件",
+    "btn_copy_email": "复制邮箱地址",
+    "email_copied": "已复制到剪贴板！",
+    "response_time": "通常在 72 个工作小时内回复。",
+    "mail_subject": "关于 PassQ 的宝贵建议与反馈",
+    "mail_body": "PassQ 团队，您好：\n\n我想分享以下使用反馈与改进建议，希望能帮助平台更好地契合我们的实际需求：\n\n"
+  },
+  "billing": {
+    "badge": "Google Play 官方企业级订阅 • 7天全功能免费试用",
+    "title": "Google Play 官方安全订阅",
+    "subtitle": "所有计费、续订与退订均 100% 由 Google Play 官方控制台托管。零扣费陷阱，随时可在 Google 账户中一键取消。",
+    "trial_badge": "7天",
+    "trial_status_active": "当前试用期状态：第 {day} 天 / 共 7 天 (剩余 {remaining} 天)",
+    "trial_status_ended": "免费试用期已结束",
+    "trial_desc": "您拥有全部 Pro 级专业工具的完整无限访问权限。现在订阅，在 7 天试用期结束前不会扣取任何费用。",
+    "founder_rate": "创始特惠",
+    "plans": {
+      "starter": {
+        "name": "Starter (初创版)",
+        "limit": "10 款产品"
+      },
+      "growth": {
+        "name": "Growth (创始特惠版)",
+        "limit": "50 款产品"
+      },
+      "scale": {
+        "name": "Scale (制造商版)",
+        "limit": "无限制"
+      }
+    },
+    "features": {
+      "days_free": "✓ 7天免费试用",
+      "play_billing": "✓ Google Play 官方计费"
+    },
+    "guarantees_title": "Google Play 官方服务保障：",
+    "guarantee_1": "由 Google Play Store 提供官方合规计费与增值税发票凭据。",
+    "guarantee_2_prefix": "随时可通过 ",
+    "guarantee_2_link": "Google Play 订阅中心",
+    "guarantee_2_suffix": " 一键退订。",
+    "guarantee_3": "PassQ 服务器端绝不存储任何银行卡或支付敏感信息。",
+    "btn_subscribe": "前往 Google Play 继续 (7天免费试用)"
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "header": {
+    "title": "Digital Passport",
+    "verify_seal_title": "Verificar Selo Criptográfico Oficial",
+    "certified_badge": "DPP CERTIFICADO • ED25519 VÁLIDO",
+    "verify_integrity_title": "Verificar Integridade Criptográfica",
+    "loading_product": "Carregando produto...",
+    "verified_brand": "Marca Verificada",
+    "gtin": "GTIN",
+    "serial": "Série"
+  },
+  "tabs": {
+    "overview": "Resumo",
+    "materials": "Materiais",
+    "repair": "Reparação",
+    "recycling": "Aduanas / LCA"
+  },
+  "repair_score": {
+    "title": "Índice de Reparabilidade",
+    "spare_parts": "Peças de reposição garantidas por 5+ anos",
+    "grade_excellent": "Excelente"
+  },
+  "materials": {
+    "country_of_origin": "País de Origem",
+    "recycled_content": "Conteúdo Reciclado",
+    "lca_breakdown": "Avaliação do Ciclo de Vida (ACV)",
+    "lca_mfg": "Fabr:",
+    "lca_log": "Transp:",
+    "lca_eol": "Fim:",
+    "carbon_footprint": "Pegada de CO₂",
+    "water_footprint": "Pegada Hídrica"
+  },
+  "repair_guide": {
+    "step_prefix": "Passo",
+    "order_parts": "Pedir Peças Originais ao Fabricante",
+    "default_tools": "Ferramentas domésticas padrão"
+  },
+  "recycling": {
+    "title": "Diretrizes de Reciclagem e Desmontagem",
+    "toxic_free": "100% Conforme às diretivas RoHS, REACH, CE e WEEE.",
+    "default_instructions": "Separação e depósito em canais oficiais de reciclagem circular ou centros de recolha municipais."
+  },
+  "security": {
+    "verified_signature": "Assinado Digitalmente e Inviolável",
+    "verifier_note": "Autenticado via chave pública criptográfica ed25519."
+  },
+  "top_bar": {
+    "scan_title": "Escanear outro código com a câmera",
+    "share_title": "Compartilhar passaporte"
+  },
+  "customs": {
+    "title": "Comércio Exterior & Dados Aduaneiros",
+    "hs_code_label": "Código HS / TARIC",
+    "regulation_label": "Normativa UE",
+    "urn_label": "URN Canônico do Passaporte"
+  },
+  "buttons": {
+    "print_customs_pdf": "Imprimir Ficha Aduaneira Oficial (PDF)"
+  },
+  "footer": {
+    "disclaimer": "PassQ atua como provedora de infraestrutura técnica descentralizada. A veracidade dos dados cabe ao emissor do produto."
+  },
+  "spare_parts_modal": {
+    "title": "Peças Originais Garantidas",
+    "subtitle": "Peças diretas do fabricante com certificação oficial",
+    "official_guarantee": "Garantia oficial de compatibilidade 100%",
+    "btn_request": "Solicitar ao Fabricante",
+    "email_subject": "Solicitação de Peças Originais: ",
+    "email_body": "Olá, desejo solicitar peças originais certificadas para o produto "
+  },
+  "scanner": {
+    "title": "Scanner Óptico ao Vivo",
+    "btn_torch": "Lanterna",
+    "btn_gallery": "Galeria",
+    "ram_notice": "<strong>Privacidade 100% em RAM:</strong> Leitura óptica local em tempo real. Não guardamos fotos nem coletamos dados pessoais.",
+    "perm_error": "Permissão de câmera negada. Você pode enviar uma foto com o código QR.",
+    "no_qr_found": "Nenhum código QR válido detectado na imagem selecionada."
+  },
+  "crypto": {
+    "modal_title": "Verificação Criptográfica",
+    "status_label": "Status de Autenticidade:",
+    "status_valid": "VÁLIDO & IMUTÁVEL",
+    "algorithm_label": "Algoritmo de Assinatura",
+    "sha256_label": "Digest SHA-256 Canônico",
+    "signature_label": "Assinatura Digital do Fabricante",
+    "timestamp_label": "Carimbo de Data/Hora (Timestamp)",
+    "btn_reverify": "Validar Integridade Criptográfica ao Vivo",
+    "verifying": "Executando Web Crypto API (ECDSA P-256 + SHA-256)...",
+    "verified": "Assinatura e Integridade 100% Autênticas ({algo})"
+  },
+  "share": {
+    "title": "Passaporte Digital: {name}",
+    "text": "Consulte o Passaporte Digital oficial de {name} certificado pela PassQ.",
+    "copied": "Link do passaporte copiado para a área de transferência."
+  },
+  "demo_products": {
+    "prod_001": {
+      "name": "Jaqueta Alpina EcoDry",
+      "brand": "Nordic Apex Gear",
+      "origin_country": "México (Oaxaca)",
+      "materials": [
+        "Nylon Reciclado (ECONYL®)",
+        "Membrana Bio-Polímero"
+      ],
+      "repair_guide": [
+        {
+          "title": "Reparação de zíper frontal estanque",
+          "tools": "Agulha e linha reforçada / Alicate"
+        },
+        {
+          "title": "Aplicação de remendo térmico impermeável",
+          "tools": "Ferro de passar doméstico a 110°C"
+        },
+        {
+          "title": "Substituição de cordão elástico",
+          "tools": "Passador ou alfinete de segurança"
+        }
+      ],
+      "recycling_instructions": "O tecido exterior ECONYL® pode ser depositado em contentores de reciclagem têxtil técnica. Desmontar botões metálicos antes da trituração."
+    },
+    "prod_002": {
+      "name": "Auscultadores Modulares Zero",
+      "brand": "Aura Sound Labs",
+      "origin_country": "Alemanha",
+      "materials": [
+        "100% Alumínio Reciclado",
+        "Plástico Marinho Reciclado (OceanBound)",
+        "Bateria Li-Ion substituível sem cola"
+      ],
+      "repair_guide": [
+        {
+          "title": "Substituição de almofadas magnéticas",
+          "tools": "Nenhuma (Encaixe magnético)"
+        },
+        {
+          "title": "Troca de módulo de bateria removível",
+          "tools": "Chave Torx T5 incluída"
+        },
+        {
+          "title": "Substituição de cabo de áudio modular",
+          "tools": "Plug & Play Jack / USB-C modular"
+        }
+      ],
+      "recycling_instructions": "Bateria removível apta para ecopontos de pilhas. Chassi de alumínio 100% reciclável em fundições de metal."
+    }
+  },
+  "spare_parts": {
+    "delivery_prefix": "Envio",
+    "SP-YKK-842": {
+      "name": "Zíper estanque YKK reforçado",
+      "delivery": "48h"
+    },
+    "SP-PTH-019": {
+      "name": "Kit de remendos térmicos impermeáveis",
+      "delivery": "24-48h"
+    },
+    "SP-CRD-004": {
+      "name": "Cordão elástico com bloqueador ergonómico",
+      "delivery": "24h"
+    },
+    "SP-BAT-800Z": {
+      "name": "Módulo de bateria Li-Ion 800mAh (Plug & Play)",
+      "delivery": "48h"
+    },
+    "SP-ALM-MAG": {
+      "name": "Almofadas magnéticas viscoelásticas",
+      "delivery": "24h"
+    },
+    "SP-CBL-MOD": {
+      "name": "Cabo modular entrançado Jack 3.5mm / USB-C",
+      "delivery": "24h"
+    },
+    "SP-TRN-STD": {
+      "name": "Kit de parafusos e fixações padrão",
+      "delivery": "24h"
+    },
+    "SP-GEN-001": {
+      "name": "Peça de reposição oficial certificada",
+      "delivery": "48-72h"
+    }
+  },
+  "print_modal": {
+    "title": "Ficha Oficial Aduaneira",
+    "subtitle": "Documento técnico oficial pronto para impressão ou exportação em PDF de alta fidelidade",
+    "format_label": "Formato: Ficha Oficial A4 (300 DPI)",
+    "crypto_label": "Selo Criptográfico Imutável",
+    "device_notice": "Compatível com AirPrint (iOS), Guardar como PDF, impressão em rede WiFi e exportação de ficheiros.",
+    "btn_print_now": "Imprimir / Guardar como PDF"
+  },
+  "toast": {
+    "jsonld_exported": "Ficha técnica JSON-LD exportada com sucesso."
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Seguridad & Criptografía • PassQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/glassmorphism.css">
+</head>
+<body class="min-h-screen bg-slate-100 dark:bg-[#070b14] text-slate-900 dark:text-slate-100 p-4 sm:p-8 font-sans">
+  <div class="max-w-3xl mx-auto glass-card p-6 sm:p-10 rounded-3xl space-y-6 shadow-xl border border-slate-200/80 dark:border-white/10 legal-prose">
+    <header class="border-b border-slate-200/60 dark:border-white/10 pb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div>
+        <a href="/index.html" class="inline-flex items-center gap-2.5 min-h-[46px] px-4.5 py-2.5 rounded-2xl bg-emerald-500/15 dark:bg-emerald-500/20 border-2 border-emerald-500/40 hover:border-emerald-500 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-white font-black text-xs sm:text-sm tracking-wider uppercase shadow-sm hover:shadow-md hover:shadow-emerald-500/20 active:scale-95 transition-all group mb-3 select-none">
+          <span class="w-6 h-6 rounded-xl bg-emerald-500/20 group-hover:bg-white/20 text-emerald-700 dark:text-emerald-300 group-hover:text-white flex items-center justify-center transition-colors shrink-0">
+            <span class="icon-svg w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>
+            </span>
+          </span>
+          <span data-i18n="legal:nav.back_to_passq">Volver a PassQ</span>
+        </a>
+        <h1 data-i18n="legal:security.title" class="text-2xl sm:text-3xl font-black mt-2 text-slate-900 dark:text-white flex items-center gap-2.5">
+          <span class="p-2 rounded-2xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/20" data-icon="shieldCheck" data-icon-class="w-6 h-6"></span>
+          <span>Seguridad & Arquitectura Criptográfica</span>
+        </h1>
+        <p data-i18n="legal:security.subtitle" class="text-sm sm:text-base text-slate-500 dark:text-slate-400 mt-1 font-medium">Firmas Digitales Asimétricas ed25519 y Verificación Local</p>
+      </div>
+
+      <div class="flex items-center gap-2 self-end sm:self-auto shrink-0">
+        <div class="flex items-center h-10 px-3 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-xs">
+          <span id="lang-flag-slot" class="flex items-center shrink-0"></span>
+          <select id="lang-select" class="bg-transparent text-sm font-bold text-slate-800 dark:text-slate-200 outline-none cursor-pointer">
+            <option value="es" class="bg-white dark:bg-slate-900">ES • Español</option>
+            <option value="en" class="bg-white dark:bg-slate-900">EN • English</option>
+            <option value="de" class="bg-white dark:bg-slate-900">DE • Deutsch</option>
+            <option value="fr" class="bg-white dark:bg-slate-900">FR • Français</option>
+            <option value="it" class="bg-white dark:bg-slate-900">IT • Italiano</option>
+            <option value="pt" class="bg-white dark:bg-slate-900">PT • Português</option>
+            <option value="zh" class="bg-white dark:bg-slate-900">ZH • 中文</option>
+          </select>
+        </div>
+        <button id="theme-toggle-btn" class="h-10 w-10 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-emerald-500 transition" title="Cambiar tema">
+          <span class="icon-svg w-4 h-4" id="theme-icon-slot"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="space-y-6 text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-normal text-justify">
+      <section class="space-y-2.5">
+        <h2 data-i18n="legal:security.s1_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">1. Autenticidad e Inmutabilidad de los Pasaportes</h2>
+        <p data-i18n="legal:security.s1_p1" class="text-sm sm:text-base leading-relaxed">Cada pasaporte digital emitido mediante PassQ cuenta con una <strong>firma digital ed25519</strong> generada con la clave privada del fabricante. Esto asegura que la información de materiales, huella de carbono y reparabilidad no pueda ser alterada por terceros ni falsificada durante los controles aduaneros.</p>
+      </section>
+
+      <section class="space-y-2.5">
+        <h2 data-i18n="legal:security.s2_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">2. Política de Divulgación Responsable</h2>
+        <p data-i18n="legal:security.s2_p1" class="text-sm sm:text-base leading-relaxed">Si eres un investigador de seguridad y encuentras una vulnerabilidad en nuestra implementación, agradecemos tu reporte responsable a través de: <span class="font-mono text-emerald-500 font-bold">passq-reportes@outlook.com</span></p>
+      </section>
+    </div>
+  </div>
+
+  <script type="module" src="/src/modules/legal/legal.js"></script>
+</body>
+</html>

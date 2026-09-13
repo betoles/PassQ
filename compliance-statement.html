@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Declaración de Conformidad UE ESPR & GS1 • PassQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/glassmorphism.css">
+</head>
+<body class="min-h-screen bg-slate-100 dark:bg-[#070b14] text-slate-900 dark:text-slate-100 p-4 sm:p-8 font-sans">
+  <div class="max-w-3xl mx-auto glass-card p-6 sm:p-10 rounded-3xl space-y-6 shadow-xl border border-slate-200/80 dark:border-white/10 legal-prose">
+    <header class="border-b border-slate-200/60 dark:border-white/10 pb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div>
+        <a href="/index.html" class="inline-flex items-center gap-2.5 min-h-[46px] px-4.5 py-2.5 rounded-2xl bg-emerald-500/15 dark:bg-emerald-500/20 border-2 border-emerald-500/40 hover:border-emerald-500 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-white font-black text-xs sm:text-sm tracking-wider uppercase shadow-sm hover:shadow-md hover:shadow-emerald-500/20 active:scale-95 transition-all group mb-3 select-none">
+          <span class="w-6 h-6 rounded-xl bg-emerald-500/20 group-hover:bg-white/20 text-emerald-700 dark:text-emerald-300 group-hover:text-white flex items-center justify-center transition-colors shrink-0">
+            <span class="icon-svg w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>
+            </span>
+          </span>
+          <span data-i18n="legal:nav.back_to_passq">Volver a PassQ</span>
+        </a>
+        <h1 data-i18n="legal:compliance.title" class="text-2xl sm:text-3xl font-black mt-2 text-slate-900 dark:text-white flex items-center gap-2.5">
+          <span class="p-2 rounded-2xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/20" data-icon="shieldCheck" data-icon-class="w-6 h-6"></span>
+          <span>Declaración de Conformidad Regulatoria</span>
+        </h1>
+        <p data-i18n="legal:compliance.subtitle" class="text-sm sm:text-base text-slate-500 dark:text-slate-400 mt-1 font-medium">Reglamento (UE) 2024/1781 (ESPR), GS1 Digital Link y Derecho a Reparar</p>
+      </div>
+
+      <div class="flex items-center gap-2 self-end sm:self-auto shrink-0">
+        <div class="flex items-center h-10 px-3 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-xs">
+          <span id="lang-flag-slot" class="flex items-center shrink-0"></span>
+          <select id="lang-select" class="bg-transparent text-sm font-bold text-slate-800 dark:text-slate-200 outline-none cursor-pointer">
+            <option value="es" class="bg-white dark:bg-slate-900">ES • Español</option>
+            <option value="en" class="bg-white dark:bg-slate-900">EN • English</option>
+            <option value="de" class="bg-white dark:bg-slate-900">DE • Deutsch</option>
+            <option value="fr" class="bg-white dark:bg-slate-900">FR • Français</option>
+            <option value="it" class="bg-white dark:bg-slate-900">IT • Italiano</option>
+            <option value="pt" class="bg-white dark:bg-slate-900">PT • Português</option>
+            <option value="zh" class="bg-white dark:bg-slate-900">ZH • 中文</option>
+          </select>
+        </div>
+        <button id="theme-toggle-btn" class="h-10 w-10 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-emerald-500 transition" title="Cambiar tema">
+          <span class="icon-svg w-4 h-4" id="theme-icon-slot"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="space-y-6 text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-normal text-justify">
+      
+      <!-- 0. MARCO DE ACEPTACIÓN REGULATORIA -->
+      <section class="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 space-y-2.5 text-slate-800 dark:text-slate-200 shadow-xs">
+        <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-extrabold text-base sm:text-lg text-left">
+          <span data-icon="handshake" data-icon-class="w-5 h-5"></span>
+          <h2 data-i18n="legal:compliance.s0_title">0. Aceptación de las Salvaguardas Regulatorias</h2>
+        </div>
+        <p data-i18n="legal:compliance.s0_p1" class="text-sm sm:text-base leading-relaxed text-justify">
+          Al emplear la aplicación, el usuario acepta que los pasaportes generados actúan como soporte de interoperabilidad técnica y que la veracidad y legalidad de la información reportada ante las autoridades es responsabilidad indelegable del fabricante o distribuidor.
+        </p>
+      </section>
+
+      <!-- 1. ALINEACIÓN CON EL REGLAMENTO UE ESPR -->
+      <section class="space-y-2.5">
+        <h2 data-i18n="legal:compliance.s1_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight text-left">1. Marco Normativo Europeo (EU ESPR 2024/1781)</h2>
+        <p data-i18n="legal:compliance.s1_p1" class="text-sm sm:text-base leading-relaxed text-justify">PassQ ha sido concebido y desarrollado siguiendo las directrices técnicas del <strong>Reglamento de Ecodiseño para Productos Sostenibles (ESPR)</strong> del Parlamento Europeo y del Consejo, promoviendo la circularidad, transparencia de materiales y durabilidad de los productos.</p>
+      </section>
+
+      <!-- 2. ESTÁNDAR GS1 DIGITAL LINK -->
+      <section class="space-y-2.5">
+        <h2 data-i18n="legal:compliance.s2_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight text-left">2. Interoperabilidad con Estándares Globales GS1</h2>
+        <p data-i18n="legal:compliance.s2_p1" class="text-sm sm:text-base leading-relaxed text-justify">Los pasaportes generados emplean la estructura oficial de <strong>GS1 Digital Link URI</strong> (ISO/IEC 15459), garantizando la compatibilidad con terminales de punto de venta minorista, escáneres ópticos aduaneros y lectores móviles estándar.</p>
+      </section>
+
+      <!-- 3. DERECHO A REPARAR -->
+      <section class="space-y-2.5">
+        <h2 data-i18n="legal:compliance.s3_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight text-left">3. Compatibilidad con el Derecho a Reparar (Right to Repair)</h2>
+        <p data-i18n="legal:compliance.s3_p1" class="text-sm sm:text-base leading-relaxed text-justify">La plataforma integra el cálculo orientativo del <em>Índice Francés y Europeo de Reparabilidad</em>, documentando tiempos de reparación, herramientas requeridas y catálogo de piezas de repuesto originales.</p>
+      </section>
+
+      <!-- SALVAGUARDA LEGAL Y EXENCIÓN REGULATORIA -->
+      <section class="p-5 rounded-2xl bg-amber-500/10 border border-amber-500/25 space-y-2 text-amber-900 dark:text-amber-300 shadow-xs">
+        <h3 data-i18n="legal:compliance.disclaimer_title" class="font-extrabold text-xs sm:text-sm uppercase tracking-wide flex items-center gap-2 text-left">
+          <span data-icon="scale" data-icon-class="w-4.5 h-4.5"></span>
+          <span>Cláusula de Delimitación de Responsabilidad Regulatoria:</span>
+        </h3>
+        <p data-i18n="legal:compliance.disclaimer_p1" class="text-xs sm:text-sm leading-relaxed text-justify">
+          PassQ provee la infraestructura tecnológica y el software de estructuración de datos. <strong>La responsabilidad legal de comprobar la adecuación a las leyes de cada país corresponde exclusivamente al fabricante, importador o distribuidor.</strong> Las autoridades aduaneras y ministerios de cada estado miembro o nación conservan la potestad final sobre el despacho de mercancías. PassQ no garantiza la exención de trámites o auditorías físicas requeridas por la ley aplicable en cada territorio.
+        </p>
+      </section>
+
+      <!-- CANAL DE TRANSPARENCIA -->
+      <section class="p-5 rounded-2xl bg-white/70 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/10 space-y-3 shadow-xs">
+        <h3 data-i18n="legal:compliance.suggestions_title" class="font-extrabold text-slate-900 dark:text-white text-xs sm:text-sm uppercase tracking-wider text-left">Canal de Sugerencias y Actualización de Normas Nacionales:</h3>
+        <p data-i18n="legal:compliance.suggestions_p1" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+          Si su país ha emitido una nueva circular aduanera o decreto de trazabilidad y desea que PassQ incorpore nuevos campos o herramientas, puede enviar sus sugerencias o reportes a:
+        </p>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+          <span class="font-mono text-sm sm:text-base text-emerald-600 dark:text-emerald-400 font-bold">passq-reportes@outlook.com</span>
+          <a href="mailto:passq-reportes@outlook.com?subject=Sugerencia%20de%20Nueva%20Norma%20o%20Herramienta" class="min-h-[40px] inline-flex items-center justify-center py-2 px-4 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs sm:text-sm font-extrabold hover:bg-slate-300 dark:hover:bg-slate-700 transition active:scale-95 shadow-xs">
+            <span data-i18n="legal:compliance.btn_report_update">Reportar Actualización</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script type="module" src="/src/modules/legal/legal.js"></script>
+</body>
+</html>

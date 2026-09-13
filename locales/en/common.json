@@ -1,0 +1,105 @@
+{
+  "app_name": "PassQ",
+  "tagline": "Digital Product Passports & Circular Traceability for SMEs",
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "compliance": "Compliance",
+    "dashboard": "SME Dashboard",
+    "create_dpp": "New Passport",
+    "demo_dpp": "Demo DPP",
+    "user_guide": "User Guide"
+  },
+  "buttons": {
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish & Generate QR",
+    "download_qr": "Download QR Code",
+    "export_pdf": "Export Official Customs PDF",
+    "export_json": "Export JSON-LD (EU Standard)",
+    "close": "Close",
+    "view_passport": "View Public Passport"
+  },
+  "badges": {
+    "verified": "GS1 & EU Verified",
+    "circular": "Circular Economy",
+    "repairable": "Ready for Repair"
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "system": "System",
+    "toggle": "Toggle Theme"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "de": "Deutsch",
+    "fr": "Français",
+    "it": "Italiano",
+    "pt": "Português",
+    "zh": "中文"
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "imprint": "Legal Notice / Impressum",
+    "cookies": "Cookie Policy",
+    "compliance": "EU ESPR & GS1 Compliance",
+    "security": "Security & Cryptography",
+    "contact": "Contact & Feedback",
+    "rights_text": "© 2026 PassQ Technologies Ltd. • Digital Product Passports & Circular Traceability Platform"
+  },
+  "contact_modal": {
+    "title": "Contact & Feedback",
+    "badge": "User-Driven Development",
+    "subtitle": "Your feedback shapes the future of PassQ!",
+    "message": "We are fully dedicated to listening to our users, learning from your experience, and adapting the platform to your real-world needs. Send us your comments, questions, improvement suggestions, or feature requests.",
+    "email_label": "Official Contact Channel:",
+    "email_address": "passq-reportes@outlook.com",
+    "btn_send_email": "Send Direct Email",
+    "btn_copy_email": "Copy Email Address",
+    "email_copied": "Copied to clipboard!",
+    "response_time": "Typical response time within 72 business hours.",
+    "mail_subject": "Feedback and Improvement Suggestions • PassQ",
+    "mail_body": "Hello PassQ Team,\n\nI would like to share the following feedback and suggestions to adapt the platform to my needs:\n\n"
+  },
+  "billing": {
+    "badge": "Google Play Billing • 7-Day Free Trial",
+    "title": "Official Subscription via Google Play",
+    "subtitle": "All billing, renewals, and cancellations are 100% managed by Google Play Console. No surprises, cancel anytime with 1 click in your Google account.",
+    "trial_badge": "7D",
+    "trial_status_active": "Current Trial Status: Day {day} of 7 ({remaining} days remaining)",
+    "trial_status_ended": "Trial Period Ended",
+    "trial_desc": "You have full, unlimited access to all Pro features. By subscribing now, you will not be charged until your 7-day trial ends.",
+    "founder_rate": "Founder Rate",
+    "plans": {
+      "starter": {
+        "name": "Starter (Entrepreneur)",
+        "limit": "10 Products"
+      },
+      "growth": {
+        "name": "Growth (Founder Rate)",
+        "limit": "50 Products"
+      },
+      "scale": {
+        "name": "Scale (Manufacturer)",
+        "limit": "Unlimited"
+      }
+    },
+    "features": {
+      "days_free": "✓ 7 Days Free",
+      "play_billing": "✓ Google Play Billing"
+    },
+    "guarantees_title": "Google Play Guarantees:",
+    "guarantee_1": "Official billing backed by Google Play Store with tax invoice.",
+    "guarantee_2_prefix": "Cancel anytime directly from ",
+    "guarantee_2_link": "Google Play Subscriptions",
+    "guarantee_2_suffix": " with 1 single tap.",
+    "guarantee_3": "Zero credit card data stored on PassQ servers.",
+    "btn_subscribe": "Continue with Google Play (7 Days Free)"
+  }
+}

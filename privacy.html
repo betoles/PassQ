@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Política de Privacidad y Protección de Datos • PassQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/glassmorphism.css">
+</head>
+<body class="min-h-screen bg-slate-100 dark:bg-[#070b14] text-slate-900 dark:text-slate-100 p-4 sm:p-8 font-sans">
+  <div class="max-w-3xl mx-auto glass-card p-6 sm:p-10 rounded-3xl space-y-6 shadow-xl border border-slate-200/80 dark:border-white/10 legal-prose">
+    <header class="border-b border-slate-200/60 dark:border-white/10 pb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div>
+        <a href="/index.html" class="inline-flex items-center gap-2.5 min-h-[46px] px-4.5 py-2.5 rounded-2xl bg-emerald-500/15 dark:bg-emerald-500/20 border-2 border-emerald-500/40 hover:border-emerald-500 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-white font-black text-xs sm:text-sm tracking-wider uppercase shadow-sm hover:shadow-md hover:shadow-emerald-500/20 active:scale-95 transition-all group mb-3 select-none">
+          <span class="w-6 h-6 rounded-xl bg-emerald-500/20 group-hover:bg-white/20 text-emerald-700 dark:text-emerald-300 group-hover:text-white flex items-center justify-center transition-colors shrink-0">
+            <span class="icon-svg w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>
+            </span>
+          </span>
+          <span data-i18n="legal:nav.back_to_passq">Volver a PassQ</span>
+        </a>
+        <h1 data-i18n="legal:privacy.title" class="text-2xl sm:text-3xl font-black mt-2 text-slate-900 dark:text-white flex items-center gap-2.5">
+          <span class="p-2 rounded-2xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/20" data-icon="shieldCheck" data-icon-class="w-6 h-6"></span>
+          <span>Política de Privacidad y Protección de Datos</span>
+        </h1>
+        <p data-i18n="legal:privacy.subtitle" class="text-sm sm:text-base text-slate-500 dark:text-slate-400 mt-1 font-medium">Compromiso de Privacidad por Diseño (Privacy by Design) • Última actualización: 10 de Septiembre de 2026</p>
+      </div>
+
+      <div class="flex items-center gap-2 self-end sm:self-auto shrink-0">
+        <div class="flex items-center h-10 px-3 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-xs">
+          <span id="lang-flag-slot" class="flex items-center shrink-0"></span>
+          <select id="lang-select" class="bg-transparent text-sm font-bold text-slate-800 dark:text-slate-200 outline-none cursor-pointer">
+            <option value="es" class="bg-white dark:bg-slate-900">ES • Español</option>
+            <option value="en" class="bg-white dark:bg-slate-900">EN • English</option>
+            <option value="de" class="bg-white dark:bg-slate-900">DE • Deutsch</option>
+            <option value="fr" class="bg-white dark:bg-slate-900">FR • Français</option>
+            <option value="it" class="bg-white dark:bg-slate-900">IT • Italiano</option>
+            <option value="pt" class="bg-white dark:bg-slate-900">PT • Português</option>
+            <option value="zh" class="bg-white dark:bg-slate-900">ZH • 中文</option>
+          </select>
+        </div>
+        <button id="theme-toggle-btn" class="h-10 w-10 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-emerald-500 transition" title="Cambiar tema">
+          <span class="icon-svg w-4 h-4" id="theme-icon-slot"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Resumen Destacado de Privacidad con Iconos SVG -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+      <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 space-y-1.5 shadow-xs">
+        <div class="flex items-center gap-2 text-emerald-500">
+          <span data-icon="userSlash" data-icon-class="w-4.5 h-4.5"></span>
+          <span data-i18n="legal:privacy.badge_no_accounts" class="font-black text-xs sm:text-sm uppercase tracking-wide">0% Cuentas / 0% Registro</span>
+        </div>
+        <p data-i18n="legal:privacy.badge_no_accounts_desc" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-snug">No solicitamos correos, nombres, contraseñas ni datos bancarios para usar la app.</p>
+      </div>
+      <div class="p-4 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 space-y-1.5 shadow-xs">
+        <div class="flex items-center gap-2 text-cyan-500">
+          <span data-icon="cpuChip" data-icon-class="w-4.5 h-4.5"></span>
+          <span data-i18n="legal:privacy.badge_camera_ram" class="font-black text-xs sm:text-sm uppercase tracking-wide">Cámara 100% en RAM</span>
+        </div>
+        <p data-i18n="legal:privacy.badge_camera_ram_desc" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-snug">Los fotogramas se leen localmente y se destruyen al instante. Cero fotos o videos guardados.</p>
+      </div>
+      <div class="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 space-y-1.5 shadow-xs">
+        <div class="flex items-center gap-2 text-indigo-500">
+          <span data-icon="mapPinSlash" data-icon-class="w-4.5 h-4.5"></span>
+          <span data-i18n="legal:privacy.badge_no_gps" class="font-black text-xs sm:text-sm uppercase tracking-wide">0% Ubicación / 0% GPS</span>
+        </div>
+        <p data-i18n="legal:privacy.badge_no_gps_desc" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-snug">Jamás rastreamos, solicitamos ni almacenamos tu ubicación geográfica.</p>
+      </div>
+    </div>
+
+    <div class="space-y-6 text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-normal text-justify">
+      
+      <!-- 0. ACEPTACIÓN POR INSTALACIÓN Y USO -->
+      <section class="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 space-y-2 text-slate-800 dark:text-slate-200 shadow-xs">
+        <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-extrabold text-base sm:text-lg">
+          <span data-icon="handshake" data-icon-class="w-5 h-5"></span>
+          <h2 data-i18n="legal:privacy.s0_title">0. Aceptación Expresa por Instalación, Acceso y Uso</h2>
+        </div>
+        <p data-i18n="legal:privacy.s0_p1" class="text-sm sm:text-base leading-relaxed">
+          Al descargar, instalar, acceder, escanear o utilizar de cualquier forma la aplicación PassQ, el usuario declara de manera libre, voluntaria e informada que acepta en su totalidad y sin reservas la presente Política de Privacidad, los principios de soberanía de datos y la arquitectura técnica de procesamiento local.
+        </p>
+      </section>
+
+      <!-- 1. PRINCIPIO DE CERO RECOLECCIÓN -->
+      <section class="space-y-2.5">
+        <h2 data-i18n="legal:privacy.s1_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">1. Principio Fundamental: Cero Recolección y Sin Creación de Cuentas</h2>
+        <p data-i18n="legal:privacy.s1_p1" class="text-sm sm:text-base leading-relaxed">En <strong>PassQ Technologies Ltd.</strong> diseñamos software con el estándar más alto de soberanía del usuario. <strong>No recopilamos, no almacenamos en la nube, no vendemos ni transferimos ningún dato personal.</strong></p>
+        <p data-i18n="legal:privacy.s1_p2" class="text-sm sm:text-base leading-relaxed">Para utilizar PassQ y generar pasaportes digitales de producto (DPP) o escanear códigos QR GS1, <strong>el usuario NO necesita crear una cuenta, ni ingresar correo electrónico, nombre, número telefónico ni métodos de pago</strong>.</p>
+      </section>
+
+      <!-- 2. USO DE LA CÁMARA DEL DISPOSITIVO -->
+      <section class="space-y-2.5">
+        <h2 data-i18n="legal:privacy.s2_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">2. Uso Exclusivo y Transparente de la Cámara del Dispositivo</h2>
+        <p data-i18n="legal:privacy.s2_p1" class="text-sm sm:text-base leading-relaxed">La aplicación solicita acceso al sensor óptico de la cámara <strong>única y exclusivamente cuando el usuario presiona voluntariamente el botón de escanear</strong>.</p>
+        <ul class="list-disc pl-5 space-y-1.5 text-sm sm:text-base">
+          <li data-i18n="legal:privacy.s2_li1"><strong>Procesamiento Local en RAM:</strong> Cada fotograma capturado por el sensor se analiza en tiempo real dentro de la memoria RAM temporal del dispositivo mediante la API nativa de decodificación óptica.</li>
+          <li data-i18n="legal:privacy.s2_li2"><strong>Cero Almacenamiento y Cero Subida a Servidores:</strong> Ninguna imagen, captura de pantalla, foto o video se graba en el almacenamiento permanente ni se transmite a través de internet a ningún servidor. Al cerrar el escáner o suspender la pestaña, el flujo de la cámara se cancela y se libera la memoria de inmediato.</li>
+          <li data-i18n="legal:privacy.s2_li3"><strong>Sin Acceso en Segundo Plano:</strong> PassQ jamás accede a la cámara, micrófono ni a ningún sensor en segundo plano.</li>
+        </ul>
+      </section>
+
+      <!-- 3. CERO GEOLOCALIZACIÓN -->
+      <section class="space-y-2.5">
+        <h2 data-i18n="legal:privacy.s3_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">3. Cero Acceso a Ubicación, GPS o Rastreo</h2>
+        <p data-i18n="legal:privacy.s3_p1" class="text-sm sm:text-base leading-relaxed">PassQ <strong>no solicita, no accede, no registra ni procesa coordenadas de geolocalización (GPS), antenas de telefonía o redes Wi-Fi</strong>. La aplicación opera con total anonimato e indiferencia respecto al lugar físico donde te encuentres.</p>
+      </section>
+
+      <!-- 4. ALMACENAMIENTO SOBERANO EN TU DISPOSITIVO -->
+      <section class="space-y-2.5">
+        <h2 data-i18n="legal:privacy.s4_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">4. Almacenamiento Soberano en el Dispositivo (Local-First)</h2>
+        <p data-i18n="legal:privacy.s4_p1" class="text-sm sm:text-base leading-relaxed">Todos los pasaportes de producto, borradores, datos de materiales, guías de reparación y configuraciones creadas se guardan <strong>exclusivamente en la base de datos interna del navegador del usuario (LocalStorage e IndexedDB)</strong>.</p>
+        <p data-i18n="legal:privacy.s4_p2" class="text-sm sm:text-base leading-relaxed">PassQ no posee bases de datos centrales donde se alojen los catálogos de los usuarios. La soberanía y custodia de la información pertenece 100% al usuario en su propio equipo.</p>
+      </section>
+
+      <!-- 5. BOTÓN DE BORRADO PERMANENTE Y TOTAL -->
+      <section class="space-y-2.5">
+        <h2 data-i18n="legal:privacy.s5_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">5. Derecho al Borrado Permanente e Inmediato (GDPR & Apple Guideline 5.1.1(v))</h2>
+        <p data-i18n="legal:privacy.s5_p1" class="text-sm sm:text-base leading-relaxed">De conformidad con las directrices más estrictas de privacidad de la Unión Europea (GDPR) y las políticas de la Apple App Store y Google Play Store, la aplicación incluye un <strong>botón directo de "Borrado Permanente"</strong> en el panel de control.</p>
+        <p data-i18n="legal:privacy.s5_p2" class="text-sm sm:text-base leading-relaxed">Al accionar este botón, el sistema ejecuta un comando de purga que elimina de manera instantánea e irreversible todos los datos, claves y pasaportes guardados en el dispositivo, restableciendo la app a su estado virgen.</p>
+      </section>
+
+      <!-- 6. CERO COOKIES DE TERCEROS NI TELEMETRÍA -->
+      <section class="space-y-2.5">
+        <h2 data-i18n="legal:privacy.s6_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">6. Cero Cookies de Terceros ni Telemetría Invasiva</h2>
+        <p data-i18n="legal:privacy.s6_p1" class="text-sm sm:text-base leading-relaxed">No empleamos cookies publicitarias, píxeles de rastreo ni servicios de analítica invasiva de terceros. Toda la lógica de la aplicación se ejecuta localmente.</p>
+      </section>
+
+      <!-- 7. CONTACTO OFICIAL -->
+      <section class="space-y-2.5 pt-3 border-t border-slate-200/60 dark:border-white/10">
+        <h2 data-i18n="legal:privacy.s7_title" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">7. Canal Oficial de Privacidad</h2>
+        <p data-i18n="legal:privacy.s7_p1" class="text-sm sm:text-base leading-relaxed">Para cualquier consulta o solicitud relativa a esta política de privacidad, puedes escribir a nuestro canal institucional:</p>
+        <p><strong class="text-emerald-500 font-mono text-base">passq-reportes@outlook.com</strong></p>
+      </section>
+
+    </div>
+  </div>
+
+  <script type="module" src="/src/modules/legal/legal.js"></script>
+</body>
+</html>

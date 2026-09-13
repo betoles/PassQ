@@ -1,0 +1,63 @@
+{
+  "title": "Guida Utente • PassQ",
+  "badge": "Manuale Interattivo & Didattico",
+  "subtitle": "Padroneggia il ciclo di vita dei tuoi Passaporti Digitali in pochi minuti.",
+  "btn_close": "Chiudi Guida",
+  "tabs": {
+    "tab1": "Caso Pratico",
+    "tab2": "Crea Passaporto",
+    "tab3": "Catalogo & QR",
+    "tab4": "Vista Clienti & Dogana",
+    "tab5": "Privacy & Dati"
+  },
+  "tab1_content": {
+    "title": "Il Viaggio del tuo Prodotto: Il Caso Reale di Sofia",
+    "intro": "Immaginiamo Sofia, titolare del marchio «Nordic Apex Gear». Ha appena realizzato un lotto di 200 giacche «Chaqueta Alpina EcoDry» e deve etichettarle per la vendita e l'esportazione in UE.",
+    "step1_title": "Creazione in 4 minuti",
+    "step1_desc": "Sofia apre PassQ, completa i 4 passaggi guidati e conferma. Il passaporto viene protetto con una firma crittografica univoca.",
+    "step2_title": "Stampa del QR Code GS1",
+    "step2_desc": "Scarica il QR Code ad alta risoluzione conforme allo standard GS1 Digital Link per stamparlo su etichette e cartellini.",
+    "step3_title": "Documentazione Doganale Immediata",
+    "step3_desc": "Genera con un clic il PDF doganale ufficiale di 3 pagine e il file JSON-LD per attestare la conformità alla norma UE ESPR 2024/1781.",
+    "step4_title": "Scansione Clienti e Dogane",
+    "step4_desc": "Un acquirente a Roma, Parigi o Berlino visualizza composizione e consigli di cura nella propria lingua. Gli ispettori verificano l'autenticità all'istante."
+  },
+  "tab2_content": {
+    "title": "Procedura Guidata di Creazione (4 Semplici Passaggi)",
+    "step1_title": "Identità del Prodotto",
+    "step1_desc": "Nome commerciale, categoria (Tessile, Calzature, Elettronica, Mobili), codice a barre GTIN-13 e paese d'origine.",
+    "step2_title": "Composizione Materiali & Impronta CO₂",
+    "step2_desc": "Percentuali dei materiali (es. 85% Poliestere riciclato, 15% Membrana) e impronta di carbonio in kg CO₂e.",
+    "step3_title": "Riparabilità & Cura",
+    "step3_desc": "Strumenti di smontaggio e anni di disponibilità dei pezzi di ricambio. Calcolo automatico del punteggio di ecodesign.",
+    "step4_title": "Codice Doganale & Firma Digitale",
+    "step4_desc": "Codice doganale HS/TARIC (es. 6202.40.00) e firma digitale generata localmente."
+  },
+  "tab3_content": {
+    "title": "Gestione del Catalogo & Operazioni Giornaliere",
+    "catalog_title": "Il tuo Catalogo Centrale:",
+    "catalog_desc": "La tabella «Passaporti Digitali Gestiti» nel pannello principale costituisce il tuo catalogo prodotti.",
+    "actions_title": "Azioni dirette per riga:",
+    "action_view": "Visualizza Passaporto: Apri la scheda pubblica per clienti e ispettori.",
+    "action_qr": "Codice QR: Finestra di download e stampa ad alta risoluzione.",
+    "action_del": "Elimina: Cancellazione permanente per prodotti ritirati.",
+    "export_title": "Esportazioni Ufficiali:",
+    "export_desc": "Esporta PDF doganali di 3 pagine e pacchetti dati JSON-LD UE."
+  },
+  "tab4_content": {
+    "title": "Cosa Vedono Clienti e Dogane?",
+    "consumer_title": "Per il Consumatore Finale:",
+    "consumer_desc": "La scansione da smartphone rileva automaticamente la lingua e illustra materiali e consigli per la cura.",
+    "customs_title": "Per Ispettori e Autorità:",
+    "customs_desc": "Distintivo verde di autenticità crittografica verificata per controlli doganali immediati."
+  },
+  "tab5_content": {
+    "title": "Privacy & Sovranità dei Dati (Local-First)",
+    "local_title": "0% Account, 0% Tracciamento, 100% sul tuo Dispositivo",
+    "local_desc": "I dati risiedono esclusivamente nella memoria locale del tuo browser (LocalStorage / IndexedDB).",
+    "backup_title": "Backup in 1 Clic:",
+    "backup_desc": "Esporta il catalogo per trasferirlo su un altro computer in qualsiasi momento.",
+    "wipe_title": "Cancellazione Sicura:",
+    "wipe_desc": "Ripristino totale dell'app conforme ai requisiti GDPR."
+  }
+}

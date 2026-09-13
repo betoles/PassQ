@@ -1,0 +1,63 @@
+{
+  "title": "Guía de Usuario • PassQ",
+  "badge": "Manual Interactivo & Didáctico",
+  "subtitle": "Domina el ciclo de vida de tus Pasaportes Digitales en minutos.",
+  "btn_close": "Cerrar Guía",
+  "tabs": {
+    "tab1": "Caso Práctico",
+    "tab2": "Crear Pasaporte",
+    "tab3": "Tu Catálogo & QR",
+    "tab4": "Vista de Clientes",
+    "tab5": "Privacidad & Datos"
+  },
+  "tab1_content": {
+    "title": "El Viaje de tu Producto: Caso Real de Sofía",
+    "intro": "Imaginemos a Sofía, dueña de la marca textil «Nordic Apex Gear». Acaba de fabricar un lote de 200 piezas de su «Chaqueta Alpina EcoDry» y necesita etiquetarla inteligentemente para vender en su tienda y exportar a la Unión Europea sin complicaciones aduaneras.",
+    "step1_title": "Creación en 4 minutos",
+    "step1_desc": "Sofía abre PassQ desde su navegador, llena los 4 pasos guiados (identidad, materiales, ecodiseño y código arancelario) y presiona Finalizar. Su pasaporte queda blindado con una firma criptográfica única.",
+    "step2_title": "Impresión del QR GS1",
+    "step2_desc": "Desde su panel descarga el código QR en alta resolución bajo el estándar mundial GS1 Digital Link y lo envía a su taller para estamparlo en la etiqueta de tela y la tarjeta colgante del producto.",
+    "step3_title": "Ficha Aduanera Inmediata",
+    "step3_desc": "Genera con un clic el PDF oficial de aduanas y el archivo JSON-LD para anexarlos a la factura de exportación, demostrando el cumplimiento de la norma europea ESPR 2024/1781.",
+    "step4_title": "Escaneo por Clientes y Aduanas",
+    "step4_desc": "Cuando un comprador en Madrid, París o Berlín escanea la chaqueta con su celular, ve la historia, materiales y cuidados en su propio idioma. Los inspectores de aduanas validan la autenticidad al instante."
+  },
+  "tab2_content": {
+    "title": "Asistente Guiado de Creación (4 Pasos Sencillos)",
+    "step1_title": "Identidad del Producto",
+    "step1_desc": "Define el nombre comercial, categoría (Textil, Calzado, Electrónica, Muebles), código de barras GTIN-13 (EAN) y país de origen.",
+    "step2_title": "Composición de Materiales y CO₂",
+    "step2_desc": "Añade los porcentajes de cada material (ej. 85% Poliéster reciclado, 15% Membrana) y la huella de carbono estimada en kg CO₂e.",
+    "step3_title": "Reparabilidad y Cuidados",
+    "step3_desc": "Indica qué herramientas se necesitan para reparar el producto y los años de disponibilidad de repuestos. PassQ calcula automáticamente el Score de Ecodiseño (ej. 9.2/10).",
+    "step4_title": "Clasificación Aduanera y Firma",
+    "step4_desc": "Ingresa el código arancelario HS/TARIC (ej. 6202.40.00). El navegador genera una firma digital única para evitar falsificaciones."
+  },
+  "tab3_content": {
+    "title": "Gestión del Catálogo y Operaciones Diarias",
+    "catalog_title": "Tu Catálogo Central:",
+    "catalog_desc": "En la pantalla principal del panel verás la tabla «Pasaportes Digitales Gestionados». Cada producto que crees se almacena allí.",
+    "actions_title": "Acciones directas disponibles en cada fila:",
+    "action_view": "Ver Pasaporte: Abre la vista pública que verán tus clientes e inspectores.",
+    "action_qr": "Obtener QR: Ventana con tu código QR vectorial listo para descargar o imprimir.",
+    "action_del": "Eliminar: Borra el producto y sus firmas criptográficas si fue retirado.",
+    "export_title": "Exportaciones Oficiales:",
+    "export_desc": "Exporta la Ficha Aduanera en PDF oficial de 3 páginas y el archivo de datos JSON-LD conforme al estándar W3C y UE."
+  },
+  "tab4_content": {
+    "title": "¿Qué ven tus Clientes y las Aduanas?",
+    "consumer_title": "Para el Consumidor Final:",
+    "consumer_desc": "Al apuntar la cámara de cualquier teléfono al QR de la etiqueta, la app detecta automáticamente el idioma del usuario y muestra materiales, huella ambiental, consejos de cuidado y reciclaje.",
+    "customs_title": "Para Inspectores y Autoridades:",
+    "customs_desc": "La aduana verifica la insignia verde de «Autenticidad Criptográfica Verificada», asegurando que los datos de origen y fracción arancelaria son legítimos e inalterables."
+  },
+  "tab5_content": {
+    "title": "Privacidad y Soberanía Total de Datos (Local-First)",
+    "local_title": "0% Cuentas, 0% Rastreo, 100% en tu Dispositivo",
+    "local_desc": "PassQ no almacena tus catálogos en servidores centrales. Toda la información vive exclusivamente en la base de datos interna de tu propio navegador (LocalStorage / IndexedDB).",
+    "backup_title": "Copias de Seguridad (Backup):",
+    "backup_desc": "Puedes respaldar todos tus pasaportes con un solo clic para transferirlos a otra computadora o restaurarlos cuando lo necesites.",
+    "wipe_title": "Borrado Seguro:",
+    "wipe_desc": "Cuentas con un botón de borrado permanente para purgar los datos locales cuando desees restablecer la app a su estado inicial."
+  }
+}

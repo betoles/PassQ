@@ -1,0 +1,398 @@
+================================================================================
+          GUÍA MAESTRA DE LANZAMIENTO, PUBLICACIÓN E INDEXACIÓN
+                       PASSQ • DIGITAL PRODUCT PASSPORT
+              (INCLUYE FLUJO 100% GRATUITO CON GITHUB Y GITHUB PAGES)
+================================================================================
+
+Esta guía contiene el procedimiento completo paso a paso (FASE 1 a FASE 3) para
+empaquetar PassQ para Google Play Store, desplegarla 100% gratis en GitHub Pages
+con HTTPS y dominio personalizado, y gestionar la indexación en Google Search
+Console directamente con tu repositorio de GitHub.
+
+================================================================================
+FASE 1: EMPAQUETAR Y PUBLICAR EN GOOGLE PLAY STORE (TWA CON BUBBLEWRAP)
+================================================================================
+
+PassQ es una PWA de alto rendimiento compatible con Trusted Web Activity (TWA).
+Google proporciona la herramienta oficial "Bubblewrap" para convertirla en un
+paquete `.aab` (Android App Bundle) firmado y listo para Play Store.
+
+--------------------------------------------------------------------------------
+Paso 1.1: Instalar Bubblewrap CLI
+--------------------------------------------------------------------------------
+Abre tu terminal y ejecuta:
+
+    npm install -g @bubblewrap/cli
+
+Verifica la instalación:
+
+    bubblewrap --version
+
+Nota: Bubblewrap puede solicitarte permiso para descargar e instalar
+automáticamente el Android SDK y OpenJDK si no los tienes en tu equipo. Acepta con 'Y'.
+
+--------------------------------------------------------------------------------
+Paso 1.2: Inicializar el proyecto Android
+--------------------------------------------------------------------------------
+Crea una carpeta de compilación para el paquete Android (por ejemplo en tu escritorio):
+
+    mkdir passq-android
+    cd passq-android
+    bubblewrap init --manifest=https://passq.app/manifest.webmanifest
+
+Responde a las preguntas interactivas de configuración:
+  * Application Name: PassQ • Digital Product Passport
+  * Short Name: PassQ
+  * Application ID (Package Name): app.passq.twa (o com.passq.app)
+  * Display Mode: standalone
+  * Orientation: default
+  * Status Bar Color: #070b14
+  * Navigation Bar Color: #070b14
+  * Splash Screen / Icon: Selecciona el icono del manifest.
+  * Signing Key (Keystore): Elige "Create a new keystore"
+      - Ruta de salida: passq-release-key.jks
+      - Password: Elige una contraseña segura y GUÁRDALA MUY BIEN.
+      - Key Alias: passq-key
+      - CN / Organización: PassQ Technologies (o tu nombre/empresa)
+
+--------------------------------------------------------------------------------
+Paso 1.3: Compilar el archivo de producción (.aab)
+--------------------------------------------------------------------------------
+Dentro del directorio `passq-android`, ejecuta:
+
+    bubblewrap build
+
+Esto te solicitará la contraseña de tu Keystore y generará el archivo:
+    `app-release-bundle.aab`
+
+--------------------------------------------------------------------------------
+Paso 1.4: Configuración en Google Play Console
+--------------------------------------------------------------------------------
+1. Accede a tu consola de desarrollador en: https://play.google.com/console
+2. Haz clic en "Crear aplicación":
+   - Nombre: PassQ
+   - Idioma predeterminado: Español (o Inglés)
+   - Tipo de app: Aplicación | Gratuita
+3. Completa la sección obligatoria "Contenido de la aplicación":
+   - Política de privacidad: https://passq.app/privacy.html (o tu URL de GitHub Pages)
+   - Acceso a la app: Todas las funciones disponibles sin cuentas.
+   - Anuncios: No contiene anuncios.
+   - Seguridad de los datos: Declara que no recopilas datos en servidores externos y que el acceso a la cámara es únicamente para lectura local en memoria RAM.
+4. En el menú lateral izquierdo, ve a "Producción" (o "Pruebas internas"):
+   - Sube tu archivo `app-release-bundle.aab`.
+
+--------------------------------------------------------------------------------
+Paso 1.5: Obtener la Huella Criptográfica SHA-256 (App Signing Fingerprint)
+--------------------------------------------------------------------------------
+1. En Google Play Console, ve al menú lateral izquierdo:
+   Configuración -> Firma de aplicaciones (App Signing).
+2. En "Certificado de la clave de firma de la app", copia la:
+   "Huella digital del certificado SHA-256" (ej: 14:6D:E9:7C:0F:CD:CF:AE...)
+
+--------------------------------------------------------------------------------
+Paso 1.6: Actualizar `assetlinks.json` en PassQ
+--------------------------------------------------------------------------------
+Abre tu archivo local `public/.well-known/assetlinks.json` y pega la huella SHA-256:
+
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.passq.twa",
+      "sha256_cert_fingerprints": [
+        "PEGA_AQUÍ_LA_HUELLA_SHA256_DE_GOOGLE_PLAY"
+      ]
+    }
+  }
+]
+
+
+--------------------------------------------------------------------------------
+Paso 1.7: Configurar Perfil de Pagos en Google Play Console (7 Días de Prueba y SAT)
+--------------------------------------------------------------------------------
+
+Google Play simplifica la facturación y el cumplimiento fiscal en México ante el SAT
+al actuar como intermediario digital (Régimen de Plataformas Tecnológicas) y emitir
+constancias mensuales automáticas de retención de IVA e ISR con RFC.
+
+1. CREAR TU PERFIL DE PAGOS EN GOOGLE PLAY:
+   - En tu Google Play Console (https://play.google.com/console), ve a:
+     Configuración -> Perfil de pagos (Payment Profile).
+   - Ingresa tus datos fiscales de México (RFC de Persona Física con Actividad Empresarial,
+     Persona Moral o RESICO) y tu cuenta bancaria nacional (CLABE interbancaria de 18 dígitos).
+
+2. CREAR LAS 3 SUSCRIPCIONES CON 7 DÍAS DE PRUEBA GRATIS:
+   - En el menú lateral izquierdo, ve a:
+     Monetización -> Productos integrados en la app -> Suscripciones.
+   - Crea los 3 planes de PassQ:
+     * Plan Starter: $19.99 USD / mes (o su equivalente en pesos mexicanos, ej. $399 MXN)
+     * Plan Growth (Tarifa Fundador): $39.99 USD / mes (ej. $799 MXN)
+     * Plan Scale: $99.99 USD / mes (ej. $1,999 MXN)
+   - En cada suscripción, dentro del plan base o fase de oferta, marca la opción:
+     ✅ "Prueba gratuita" (Free Trial): 7 días naturales.
+
+3. EXPERIENCIA Y FLUJO PARA TUS CLIENTES:
+   - El cliente descarga PassQ desde Google Play o presiona "Comenzar" en la app.
+   - Google le muestra la ventana nativa de Google Play / Google Pay confirmando:
+     "Prueba gratis durante 7 días. No se cobrará nada hoy".
+   - Si no cancela antes del día 7, Google cobra automáticamente la mensualidad
+     y te transfiere tus ganancias netas a tu cuenta bancaria con el reporte fiscal listo para el SAT.
+
+
+================================================================================
+FASE 2: ALOJAMIENTO 100% GRATIS EN GITHUB PAGES CON HTTPS Y DOMINIO
+================================================================================
+
+GitHub te permite alojar PassQ de forma 100% gratuita, con CDN global y
+certificado SSL/HTTPS automático incluido.
+
+--------------------------------------------------------------------------------
+Paso 2.1: Crear tu repositorio en GitHub
+--------------------------------------------------------------------------------
+1. Entra a https://github.com y crea un nuevo repositorio público o privado
+   (por ejemplo: `passq`).
+2. En tu terminal local, dentro de la carpeta `/Users/beto/Desktop/PassQ`:
+
+    git init
+    git add .
+    git commit -m "feat: Lanzamiento inicial de PassQ con soporte GS1 y Web Crypto"
+    git branch -M main
+    git remote add origin https://github.com/TU_USUARIO/passq.git
+    git push -u origin main
+
+--------------------------------------------------------------------------------
+Paso 2.2: Configurar despliegue automático con GitHub Pages
+--------------------------------------------------------------------------------
+Para que GitHub compile automáticamente Vite y publique la carpeta `dist/`:
+
+1. En la raíz de tu proyecto, crea la carpeta `.github/workflows/`
+2. Agrega el archivo `.github/workflows/deploy.yml` con este contenido:
+
+```yaml
+name: Deploy PassQ to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+3. Guarda y sube los cambios:
+    git add .
+    git commit -m "ci: Configurar despliegue automático a GitHub Pages"
+    git push
+
+4. En GitHub, ve a tu repositorio -> **Settings** -> **Pages**:
+   - En **Source**, selecciona: **GitHub Actions**.
+   - ¡Tu sitio se compilará y quedará publicado en vivo en segundos!
+
+--------------------------------------------------------------------------------
+Paso 2.3: Conectar tu Dominio Personalizado en GitHub (Ej. `passq.app`)
+--------------------------------------------------------------------------------
+1. En GitHub -> **Settings** -> **Pages** -> En **Custom domain**, escribe:
+   `passq.app` (o tu dominio).
+2. Marca la casilla **"Enforce HTTPS"** (GitHub activará el certificado SSL gratis).
+3. En tu proveedor de dominio (Namecheap, GoDaddy, Cloudflare, etc.), agrega estos 4 registros DNS tipo A de GitHub:
+   - 185.199.108.153
+   - 185.199.109.153
+   - 185.199.110.153
+   - 185.199.111.153
+   - Y un registro CNAME con host `www` apuntando a `TU_USUARIO.github.io`.
+
+
+================================================================================
+FASE 3: GOOGLE SEARCH CONSOLE E INDEXACIÓN GESTIONADA DESDE GITHUB
+================================================================================
+
+Puedes realizar toda la verificación de Google y la entrega del Sitemap usando
+tu flujo de trabajo en GitHub.
+
+--------------------------------------------------------------------------------
+Paso 3.1: Dar de alta la propiedad en Google Search Console
+--------------------------------------------------------------------------------
+1. Entra a: https://search.google.com/search-console con tu cuenta de Google.
+2. Haz clic en **Añadir propiedad** (esquina superior izquierda).
+3. Selecciona **Prefijo de la URL** e ingresa:
+   `https://passq.app/` (o tu URL de GitHub Pages `https://TU_USUARIO.github.io/passq/`).
+
+--------------------------------------------------------------------------------
+Paso 3.2: Verificar la propiedad directamente desde GitHub (Método Rápido)
+--------------------------------------------------------------------------------
+Google Search Console te ofrecerá varios métodos:
+
+* MÉTODO A: Archivo HTML de Verificación de Google
+  1. Descarga el archivo que te ofrece Google (ejemplo: `google1a2b3c4d5e.html`).
+  2. Muévelo a la carpeta `public/` de tu proyecto PassQ local.
+  3. Sube el cambio a GitHub:
+     git add public/
+     git commit -m "seo: Agregar archivo de verificación de Google Search Console"
+     git push
+  4. GitHub Pages lo publicará automáticamente.
+  5. En Google Search Console, presiona el botón **"Verificar"**.
+
+* MÉTODO B: Etiqueta Meta en HTML
+  1. Copia la meta tag que te da Google: `<meta name="google-site-verification" content="..." />`.
+  2. Pégala en el `<head>` de tu archivo `index.html`.
+  3. Sube a GitHub (`git commit` y `git push`) y presiona **"Verificar"**.
+
+--------------------------------------------------------------------------------
+Paso 3.3: Enviar el archivo `sitemap.xml`
+--------------------------------------------------------------------------------
+Tu archivo `sitemap.xml` ya está configurado en tu repositorio dentro de `public/sitemap.xml`.
+Al desplegar en GitHub Pages, queda disponible automáticamente en:
+`https://tudominio.com/sitemap.xml`
+
+1. En Google Search Console, ve al menú lateral izquierdo -> **Sitemaps**.
+2. En el campo "Añadir un nuevo sitemap", escribe:
+   `sitemap.xml`
+3. Haz clic en **Enviar**.
+Google leerá todas las páginas, los 7 idiomas (hreflang) y las rutas de tu pasaporte.
+
+--------------------------------------------------------------------------------
+Paso 3.4: Probar Datos Estructurados Schema.org en Vivo
+--------------------------------------------------------------------------------
+1. En la barra superior de Search Console, introduce `https://passq.app/` y presiona Enter.
+2. Haz clic en **"Probar URL publicada"**.
+3. Google te confirmará:
+   - ✅ Página optimizada para móviles.
+   - ✅ Datos estructurados detectados: `SoftwareApplication` y `Product`.
+4. Haz clic en **"Solicitar indexación"** para que Google empiece a mostrar tu app en las búsquedas.
+
+
+================================================================================
+FASE 4: INTEGRACIÓN DE PASARELA DE PAGO CON GOOGLE PAY Y STRIPE (7 DÍAS DE PRUEBA)
+================================================================================
+
+Para monetizar PassQ y recibir pagos con Google Pay, Apple Pay y tarjetas de crédito
+de marcas de todo el mundo, la forma más rápida, segura y sin backend ($0 servidores)
+es utilizar los **Payment Links oficiales de Stripe con soporte nativo de Google Pay**.
+
+--------------------------------------------------------------------------------
+Paso 4.1: Crear tu cuenta en Stripe y Activar Google Pay
+--------------------------------------------------------------------------------
+1. Regístrate gratis en: https://dashboard.stripe.com/register
+2. Completa tus datos bancarios para recibir transferencias directas de las ventas.
+3. En el menú superior, ve a **Configuración** -> **Métodos de pago** (Payment Methods).
+4. Asegúrate de que **Google Pay** y **Apple Pay** estén marcados como **"Activado" (Enabled)**.
+   (Stripe los activa automáticamente por defecto en todos los navegadores compatibles).
+
+--------------------------------------------------------------------------------
+Paso 4.2: Crear los 3 Productos Recurrentes con 7 Días de Prueba Gratis
+--------------------------------------------------------------------------------
+En tu Stripe Dashboard, ve a la sección **Catálogo de productos** (Product Catalog)
+y crea los 3 planes de PassQ:
+
+1. PRODUCTO 1: Starter (Emprendedor)
+   - Nombre: PassQ Starter (Plan Emprendedor)
+   - Precio: 19.99 USD
+   - Facturación: Recurrente (Mensual)
+   - Haz clic en "Guardar producto".
+
+2. PRODUCTO 2: Growth (Crecimiento) ⭐
+   - Nombre: PassQ Growth (Plan Crecimiento - Tarifa Fundador)
+   - Precio: 39.99 USD
+   - Facturación: Recurrente (Mensual)
+   - Haz clic en "Guardar producto".
+
+3. PRODUCTO 3: Scale (Fabricante)
+   - Nombre: PassQ Scale (Plan Fabricante)
+   - Precio: 99.99 USD
+   - Facturación: Recurrente (Mensual)
+   - Haz clic en "Guardar producto".
+
+--------------------------------------------------------------------------------
+Paso 4.3: Generar los Enlaces de Pago (Payment Links) con 7 Días de Prueba
+--------------------------------------------------------------------------------
+Para cada uno de los 3 productos creados:
+
+1. Ve a **Enlaces de pago** (Payment Links) -> Haz clic en **"Nuevo enlace de pago"**.
+2. Selecciona el producto (ej. *PassQ Growth*).
+3. En la barra lateral derecha de opciones, activa la casilla:
+   ✅ **"Período de prueba gratuito" (Free trial)**: Introduce **7 días**.
+4. En "Opciones avanzadas":
+   - Permitir códigos de promoción: Sí (útil para descuentos a marcas aliadas).
+   - Recopilar dirección de facturación del cliente: Sí (para emitir facturas automáticas).
+5. Haz clic en **"Crear enlace"** y copia la URL generada:
+   (Ejemplo: `https://buy.stripe.com/test_5kAaF123...` o `https://buy.stripe.com/live_...`)
+
+--------------------------------------------------------------------------------
+Paso 4.4: Conectar los Enlaces en los Botones de PassQ
+--------------------------------------------------------------------------------
+Abre `index.html` y actualiza los atributos `href` de los botones de precio:
+
+- Plan Starter ($19.99):
+  `<a href="TU_ENLACE_STRIPE_STARTER" class="...">`
+
+- Plan Growth ($39.99):
+  `<a href="TU_ENLACE_STRIPE_GROWTH" class="...">`
+
+- Plan Scale ($99.99):
+  `<a href="TU_ENLACE_STRIPE_SCALE" class="...">`
+
+- Banner de Tarifa de Fundador:
+  `<a href="TU_ENLACE_STRIPE_GROWTH" class="...">`
+
+*Resultado para el usuario*: Cuando un cliente en Android, Mac o Windows haga clic
+en "Comenzar", se abrirá la pasarela segura de Stripe con el botón de **Google Pay (1-Click Checkout)**,
+iniciando sus 7 días de prueba sin cobrarle nada hasta el día 8.
+
+
+================================================================================
+RESUMEN DEL COMANDO GIT DIARIO
+================================================================================
+
+Cada vez que hagas un cambio en tu código, solo necesitas ejecutar:
+
+    git add .
+    git commit -m "Descripción de tu mejora"
+    git push
+
+GitHub Actions compilará el proyecto, lo desplegará en GitHub Pages con HTTPS,
+mantendrá tu dominio y sincronizará tu PWA automáticamente sin costo.
+
+===============================================================================
+FIN DE LA GUÍA • PROYECTO PASSQ
+===============================================================================

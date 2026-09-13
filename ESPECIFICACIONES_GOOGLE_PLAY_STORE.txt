@@ -1,0 +1,113 @@
+================================================================================
+PASSQ • GUÍA OFICIAL Y ESPECIFICACIONES PARA GOOGLE PLAY STORE
+================================================================================
+
+1. ESPECIFICACIONES DE RECURSOS GRÁFICOS REQUERIDOS
+--------------------------------------------------------------------------------
+A) ÍCONO DE LA APLICACIÓN (App Icon):
+   • Dimensiones: 512 x 512 píxeles
+   • Formato: PNG de 32 bits (con canal alfa/transparencia)
+   • Peso máximo: 1024 KB
+   • Archivo listo en tu proyecto: google-play-icon-512x512.png
+
+B) GRÁFICO DE FUNCIONES / BANNER PROMO (Feature Graphic):
+   • Dimensiones: 1024 x 500 píxeles
+   • Formato: PNG o JPEG de 24 bits (sin canal alfa)
+   • Peso máximo: 15 MB
+   • Archivo listo en tu proyecto: public/banners/google-play-feature-graphic-bilingual.html
+     (Abre este archivo en tu navegador para ver el diseño interactivo de alta resolución)
+
+C) CAPTURAS DE PANTALLA (Screenshots):
+   • Cantidad: Mínimo 2, recomendado de 4 a 8 capturas.
+   • Relación de aspecto: 16:9 o 9:16 (vertical).
+   • Resolución recomendada: 1080 x 1920 píxeles.
+
+
+2. FICHA DE LA APLICACIÓN: TEXTOS OPTIMIZADOS (ESPAÑOL E INGLÉS)
+--------------------------------------------------------------------------------
+
+>>> VERSIÓN EN ESPAÑOL (México, España y Latinoamérica) <<<
+
+• Título de la app (Máx. 30 caracteres):
+PassQ: DPP Pasaporte Digital
+
+• Descripción breve (Máx. 80 caracteres):
+Pasaporte Digital de Producto ESPR de la UE y Códigos QR GS1 en 10 minutos.
+
+• Descripción completa (Hasta 4,000 caracteres):
+PassQ es la solución integral y ultra-rápida de Pasaporte Digital de Producto (DPP) diseñada para fabricantes, marcas de moda, calzado, baterías y exportadores que necesitan cumplir con la nueva normativa de la Unión Europea (Reglamento ESPR 2024/1781) y los estándares globales GS1 Digital Link.
+
+CUMPLIMIENTO EUROPEO SIN COMPLICACIONES:
+• Generación instantánea de QR GS1 Digital Link listos para aduanas europeas.
+• Cálculo automatizado de huella de carbono (LCA), reparabilidad y circularidad.
+• Criptografía asimétrica ECDSA P-256 (Web Crypto) para blindar la autenticidad contra falsificaciones.
+• 100% Local-First: La información de tu empresa y productos vive segura en tu dispositivo (cero almacenamiento de datos en servidores externos).
+• Exportación profesional de reportes en PDF auditables para aduanas e importadores.
+
+DISPONIBLE EN 7 IDIOMAS:
+Español, Inglés, Alemán, Francés, Italiano, Portugués y Chino Mandarín.
+
+PRUEBA GRATUITA DE 7 DÍAS:
+Descarga PassQ hoy y obtén acceso total a todas las herramientas durante 7 días completamente gratis. Aprovecha nuestra Tarifa Fundador con precio preferencial de por vida.
+
+
+>>> VERSIÓN EN INGLÉS (Mercado Global / Unión Europea / USA) <<<
+
+• App Title (Max 30 characters):
+PassQ: Digital Product Pass
+
+• Short Description (Max 80 characters):
+EU ESPR Digital Product Passport & GS1 QR generator in 10 minutes.
+
+• Full Description (Up to 4,000 characters):
+PassQ is the premier Digital Product Passport (DPP) platform built for fashion brands, textile manufacturers, battery producers, and global exporters requiring immediate compliance with EU Ecodesign Regulation (ESPR 2024/1781) and GS1 Digital Link standards.
+
+KEY CAPABILITIES & COMPLIANCE:
+• Instant GS1 Digital Link QR Code generation verified for EU Customs.
+• Automated Carbon Footprint (LCA), Repairability Score, and Circularity metrics.
+• ECDSA P-256 Cryptographic Seals for foolproof anti-counterfeit protection.
+• 100% Local-First Architecture: Zero tracking, zero third-party storage, zero server latency.
+• One-click export of auditable compliance certificates in PDF format.
+
+GLOBAL READINESS IN 7 LANGUAGES:
+English, Spanish, German, French, Italian, Portuguese, and Chinese Mandarin.
+
+7-DAY UNLIMITED FREE TRIAL:
+Start your 7-day full-access trial today. Unlock exclusive Founder Lifetime Rates and ensure your supply chain is EU-ready.
+
+
+3. ESTRATEGIA DE MONETIZACIÓN Y CONFIGURACIÓN EN GOOGLE PLAY CONSOLE
+--------------------------------------------------------------------------------
+Todos los cobros, suscripciones y renovaciones se gestionan 100% a través de Google Play Billing / Suscripciones de Google Play Console (con facturación automática, máxima seguridad y 1-clic de cancelación para el usuario):
+
+1. Plan Starter (ID: passq_starter_monthly):
+   • Precio: $19.99 USD / mes (o aprox. $399 MXN)
+   • Capacidad: Hasta 10 productos activos
+   • Fase de Prueba Gratuita: 7 días completos sin costo.
+
+2. Plan Growth - Tarifa Fundador (ID: passq_growth_monthly) [RECOMENDADO]:
+   • Precio: $39.99 USD / mes (o aprox. $799 MXN)
+   • Capacidad: Hasta 50 productos activos + White-label + Firma ECDSA P-256
+   • Fase de Prueba Gratuita: 7 días completos sin costo.
+
+3. Plan Scale - Fabricante (ID: passq_scale_monthly):
+   • Precio: $99.99 USD / mes (o aprox. $1,999 MXN)
+   • Capacidad: Productos ilimitados + Integración API ERP/PIM
+   • Fase de Prueba Gratuita: 7 días completos sin costo.
+
+PASOS EXACTOS PARA ACTIVARLOS EN GOOGLE PLAY CONSOLE:
+1. Entra a tu consola de desarrollador en: https://play.google.com/console
+2. En el menú lateral de tu aplicación, navega a: Monetizar -> Productos integrados en la app -> Suscripciones.
+3. Haz clic en el botón azul: 'Crear suscripción'.
+4. Crea cada suscripción con los siguientes datos:
+   • ID de producto: passq_starter_monthly | passq_growth_monthly | passq_scale_monthly
+   • Nombre: PassQ Starter (7 Días Gratis) | PassQ Growth (7 Días Gratis) | PassQ Scale (7 Días Gratis)
+5. En la sección 'Planes base y ofertas', crea un 'Plan base' con:
+   • Tipo: Con renovación automática (mensual).
+   • Precio: $19.99 USD | $39.99 USD | $99.99 USD.
+6. En 'Ofertas', añade una oferta de fase:
+   • Tipo de fase: 'Prueba gratuita' (Free Trial).
+   • Duración: '7 días'.
+   • Elegibilidad: 'Solo clientes nuevos' (para que todo usuario nuevo la reciba en automático).
+7. Guarda y activa cada suscripción. ¡Google Play se encargará automáticamente de los cobros, las pruebas gratis de 7 días, los recibos fiscales y las cancelaciones!
+
