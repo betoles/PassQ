@@ -58,12 +58,12 @@
     }
   }
   </script>
-  <script type="module" crossorigin src="./assets/app-CgOPfwt2.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/theme-DsUgku9j.js">
+  <script type="module" crossorigin src="./assets/app-Ds4QdFyv.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/theme-CQaHaBAY.js">
   <link rel="modulepreload" crossorigin href="./assets/gs1-BaT64xPk.js">
   <link rel="modulepreload" crossorigin href="./assets/crypto-BjlqRT8o.js">
   <link rel="modulepreload" crossorigin href="./assets/vendor-qrcode-CjSdxGTc.js">
-  <link rel="stylesheet" crossorigin href="./assets/theme-CmcCGara.css">
+  <link rel="stylesheet" crossorigin href="./assets/theme-DxU5lJsd.css">
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-[#060a12] text-slate-800 dark:text-slate-100 flex flex-col p-3 sm:p-6 lg:p-8 transition-colors duration-300 relative overflow-x-hidden font-sans">
 
@@ -130,31 +130,47 @@
       </div>
     </header>
 
-    <!-- 7-Day Free Trial Status Banner (Glassmorphism & High-Legibility) -->
-    <div id="trial-status-banner" class="p-5 sm:p-6 rounded-3xl glass-card border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 via-slate-900/30 to-teal-500/10 shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <div class="flex items-center gap-4">
-        <div class="h-12 w-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-500 flex items-center justify-center shrink-0">
-          <span class="icon-svg w-6 h-6 flex items-center justify-center">
-            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+    <!-- 7-Day Free Trial Status Banner / Etiqueta de Bienvenida (Glassmorphism & High-Legibility) -->
+    <div id="trial-status-banner" class="relative overflow-hidden p-5 sm:p-6 rounded-3xl glass-card border border-emerald-500/35 bg-gradient-to-br from-emerald-500/10 via-slate-900/40 to-teal-500/10 shadow-xl shadow-emerald-950/20 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-5 transition-all duration-300">
+      
+      <!-- Ambient card glow accents -->
+      <div class="absolute -top-10 -left-10 w-32 h-32 bg-emerald-500/15 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-teal-500/15 rounded-full blur-2xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex items-start sm:items-center gap-3.5 sm:gap-4.5 min-w-0">
+        <!-- Shiny Sparkle Icon -->
+        <div id="trial-icon-box" class="h-12 w-12 sm:h-13 sm:w-13 rounded-2xl bg-gradient-to-br from-emerald-400/20 to-teal-500/20 border border-emerald-500/35 text-emerald-400 flex items-center justify-center shrink-0 shadow-inner">
+          <span class="icon-svg w-6 h-6 sm:w-6.5 sm:h-6.5 text-emerald-500 dark:text-emerald-400">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/>
             </svg>
           </span>
         </div>
-        <div>
-          <div class="flex flex-wrap items-center gap-2.5">
-            <span id="trial-status-title" class="text-base sm:text-lg font-black text-slate-900 dark:text-white" data-i18n="dashboard:trial.active_title">Prueba Gratuita de 7 Días</span>
-            <span id="trial-day-badge" class="text-xs font-extrabold px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono whitespace-nowrap shrink-0">7 Días Disponibles</span>
+
+        <div class="space-y-2 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 sm:gap-2.5">
+            <span id="trial-status-title" class="text-base sm:text-lg font-black tracking-tight text-slate-900 dark:text-white" data-i18n="dashboard:trial.ready_title">Prueba Gratuita de 7 Días</span>
+            <span id="trial-day-badge" class="text-[11px] sm:text-xs font-black px-3 py-0.5 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/30 whitespace-nowrap shrink-0 shadow-xs">7 Días Disponibles</span>
           </div>
-          <p id="trial-status-desc" class="text-sm sm:text-[14.5px] text-slate-600 dark:text-slate-300 font-medium leading-relaxed mt-1" data-i18n="dashboard:trial.active_desc">Tu periodo de prueba de 7 días con acceso total e ilimitado comenzará automáticamente cuando crees tu primer pasaporte.</p>
+
+          <!-- Estilizada Ventanita / Etiqueta de Aviso -->
+          <div class="inline-flex items-center gap-2.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-white/70 dark:bg-slate-900/70 border border-emerald-500/25 shadow-xs backdrop-blur-md">
+            <span class="relative flex h-2.5 w-2.5 shrink-0">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <p id="trial-status-desc" class="text-xs sm:text-[13.5px] text-slate-700 dark:text-slate-200 font-bold leading-relaxed" data-i18n="dashboard:trial.ready_desc">Tu periodo de prueba de 7 días con acceso total e ilimitado comenzará automáticamente cuando crees tu primer pasaporte.</p>
+          </div>
         </div>
       </div>
-      <button type="button" data-open-subscription-modal data-plan="passq_growth_monthly" class="w-full sm:w-auto shrink-0 min-h-[52px] py-3 px-5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-600/25 transition active:scale-[0.98] flex items-center justify-center gap-3 cursor-pointer">
+
+      <button type="button" data-open-subscription-modal data-plan="passq_growth_monthly" class="w-full lg:w-auto shrink-0 min-h-[50px] py-2.5 px-5 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-600/30 transition active:scale-[0.98] flex items-center justify-center gap-3 cursor-pointer select-none">
         <span class="w-5 h-5 flex items-center shrink-0">
           <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.023 2.023 0 0 1-.61-1.46V3.274c0-.568.226-1.096.61-1.46zM15.207 13.414l2.424 2.424-11.83 6.654 9.406-9.078zm0-2.828L5.801 1.508l11.83 6.654-2.424 2.424zm1.414 1.414l3.197 1.798c.956.538.956 1.42 0 1.958l-3.197 1.798-2.121-2.121 2.121-2.121z"/></svg>
         </span>
         <div class="flex flex-col items-center sm:items-start text-center sm:text-left leading-tight">
-          <span data-i18n="dashboard:trial.lock_price_main" class="font-black text-sm tracking-tight">Asegurar Tarifa de Fundador</span>
-          <span data-i18n="dashboard:trial.lock_price_sub" class="text-[11.5px] font-extrabold text-emerald-100 opacity-95">(7 Días Gratis)</span>
+          <span data-i18n="dashboard:trial.lock_price_main" class="font-black text-xs sm:text-sm tracking-tight">Asegurar Tarifa de Fundador</span>
+          <span data-i18n="dashboard:trial.lock_price_sub" class="text-[10.5px] sm:text-[11px] font-extrabold text-emerald-100 opacity-95">(7 Días Gratis)</span>
         </div>
       </button>
     </div>
