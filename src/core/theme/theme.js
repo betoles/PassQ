@@ -160,6 +160,16 @@ export class LanguageDropdown {
     if (btn) btn.setAttribute('aria-expanded', 'true');
 
     requestAnimationFrame(() => {
+      // Viewport overflow guard
+      const rect = menu.getBoundingClientRect();
+      if (rect.left < 8) {
+        menu.classList.remove('right-0', 'origin-top-right');
+        menu.classList.add('left-0', 'origin-top-left');
+      } else if (rect.right > window.innerWidth - 8) {
+        menu.classList.remove('left-0', 'origin-top-left');
+        menu.classList.add('right-0', 'origin-top-right');
+      }
+
       menu.classList.remove('opacity-0', 'scale-95');
       menu.classList.add('opacity-100', 'scale-100');
       if (chevron) chevron.classList.add('rotate-180');
