@@ -127,5 +127,10 @@
     "construction_none": "Conexiones desmontables en seco (Pernos / Anclajes mecánicos)",
     "construction_standard": "Herramientas estándar de construcción (Llaves dinamométricas / Grúa)",
     "construction_specialized": "Unión química / Hormigonado no separable"
+  },
+  "category_modal": {
+    "badge": "Normativa UE ESPR 2024/1781",
+    "title": "Seleccionar Sector / Categoría",
+    "footer_hint": "Toca una opción para seleccionarla y configurar sus datos normativos."
   }
 }
