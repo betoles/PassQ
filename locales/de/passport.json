@@ -33,7 +33,14 @@
   "repair_guide": {
     "step_prefix": "Schritt",
     "order_parts": "Originale Ersatzteile bestellen",
-    "default_tools": "Standard-Haushaltswerkzeuge"
+    "default_tools": "Standard-Haushaltswerkzeuge",
+    "specs_title": "Demontage- & Reparaturbedingungen",
+    "disassembly_tools_label": "Erforderliche Werkzeuge",
+    "spare_parts_availability_label": "Verfügbarkeit von Ersatzteilen",
+    "tools_none_desc": "Keine Werkzeuge erforderlich (Klick-/Druckverbindung / Manuelle Montage)",
+    "tools_standard_desc": "Standardwerkzeuge (Schraubendreher / Inbusschlüssel)",
+    "tools_specialized_desc": "Spezialwerkzeuge oder autorisierte Fachwerkstatt",
+    "years_guarantee": "Garantiert für {years} Jahre durch den Hersteller"
   },
   "sector_cards": {
     "battery_title": "Batteriepass (EU-Verordnung 2023/1542)",
@@ -52,7 +59,10 @@
     "food_certs": "Akkreditierte Zertifizierungen",
     "construction_title": "Umwelt-Produktdeklaration (EPD & BauPVO)",
     "epd_label": "EPD / ISO 14025 Registrierung",
-    "lifespan_label": "Geschätzte Bemessungslebensdauer"
+    "lifespan_label": "Geschätzte Bemessungslebensdauer",
+    "furniture_title": "Forstwirtschaftsdeklaration & Ökodesign (EU-VO EUDR 2023/1115)",
+    "forestry_origin": "Rückverfolgbarkeit von Rohstoffen & Holz",
+    "eudr_compliance": "Zertifiziert entwaldungsfrei nach der europäischen EUDR-Verordnung. Entwickelt für Langlebigkeit und zirkuläre Demontage."
   },
   "recycling": {
     "title": "Recycling- & Demontagerichtlinien",
