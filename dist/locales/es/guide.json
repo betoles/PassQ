@@ -56,7 +56,7 @@
     "local_title": "0% Cuentas, 0% Rastreo, 100% en tu Dispositivo",
     "local_desc": "PassQ no almacena tus catálogos en servidores centrales. Toda la información vive exclusivamente en la base de datos interna de tu propio navegador (LocalStorage / IndexedDB).",
     "backup_title": "Copias de Seguridad (Backup):",
-    "backup_desc": "Puedes respaldar todos tus pasaportes con un solo clic para transferirlos a otra computadora o restaurarlos cuando lo necesites.",
+    "backup_desc": "Puedes respaldar todos tus pasaportes con un solo clic descargando un archivo JSON seguro en tu dispositivo. Este archivo descargable te permite transferir todo tu catálogo a otra computadora, compartirlo con tu equipo o restaurarlo cuando lo necesites.",
     "wipe_title": "Borrado Seguro:",
     "wipe_desc": "Cuentas con un botón de borrado permanente para purgar los datos locales cuando desees restablecer la app a su estado inicial."
   }

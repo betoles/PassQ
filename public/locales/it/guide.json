@@ -56,7 +56,7 @@
     "local_title": "0% Account, 0% Tracciamento, 100% sul tuo Dispositivo",
     "local_desc": "I dati risiedono esclusivamente nella memoria locale del tuo browser (LocalStorage / IndexedDB).",
     "backup_title": "Backup in 1 Clic:",
-    "backup_desc": "Esporta il catalogo per trasferirlo su un altro computer in qualsiasi momento.",
+    "backup_desc": "Puoi eseguire il backup di tutti i tuoi passaporti con un solo clic scaricando un file JSON sicuro sul tuo dispositivo. Questo file scaricabile ti consente di trasferire l'intero catalogo su un altro computer o ripristinarlo quando necessario.",
     "wipe_title": "Cancellazione Sicura:",
     "wipe_desc": "Ripristino totale dell'app conforme ai requisiti GDPR."
   }

@@ -56,7 +56,7 @@
     "local_title": "0% Compte, 0% Pistage, 100% sur votre Appareil",
     "local_desc": "Vos données restent stockées exclusivement dans la mémoire de votre navigateur (LocalStorage / IndexedDB).",
     "backup_title": "Sauvegardes en 1 Clic:",
-    "backup_desc": "Exportez votre catalogue pour le transférer en toute sécurité.",
+    "backup_desc": "Vous pouvez sauvegarder tous vos passeports en un seul clic en téléchargeant un fichier JSON sécurisé sur votre appareil. Ce fichier téléchargeable vous permet de transférer tout votre catalogue vers un autre ordinateur ou de le restaurer dès que nécessaire.",
     "wipe_title": "Effacement Définitif:",
     "wipe_desc": "Bouton de purge intégrale conforme RGPD pour réinitialiser l'application."
   }

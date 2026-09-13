@@ -56,7 +56,7 @@
     "local_title": "0% Contas, 0% Rastreamento, 100% no seu Aparelho",
     "local_desc": "Seus dados vivem exclusivamente no armazenamento interno do seu próprio navegador (LocalStorage / IndexedDB).",
     "backup_title": "Backup em 1 Clique:",
-    "backup_desc": "Exporte seu catálogo para transferir a outro computador com total facilidade.",
+    "backup_desc": "Você pode fazer backup de todos os seus passaportes com um único clique baixando um arquivo JSON seguro em seu dispositivo. Este arquivo para download permite transferir todo o seu catálogo para outro computador ou restaurá-lo quando precisar.",
     "wipe_title": "Exclusão Segura:",
     "wipe_desc": "Limpeza completa em conformidade com o RGPD para reiniciar o aplicativo."
   }

@@ -56,7 +56,7 @@
     "local_title": "0 % Konten, 0 % Tracking, 100 % Lokal",
     "local_desc": "Alle Daten verbleiben ausschließlich im internen Speicher Ihres Browsers (LocalStorage / IndexedDB).",
     "backup_title": "1-Klick-Datensicherung:",
-    "backup_desc": "Exportieren Sie Ihren Katalog einfach auf andere Geräte.",
+    "backup_desc": "Sie können alle Ihre Pässe mit einem einzigen Klick sichern, indem Sie eine sichere JSON-Datei auf Ihr Gerät herunterladen. Mit dieser herunterladbaren Datei können Sie Ihren Katalog problemlos auf einen anderen Computer übertragen oder bei Bedarf wiederherstellen.",
     "wipe_title": "Sicheres Löschen:",
     "wipe_desc": "Vollständige DSGVO-Bereinigung zur Wiederherstellung des Ausgangszustands."
   }
