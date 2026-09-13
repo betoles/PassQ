@@ -89,6 +89,29 @@ export class PlayBillingManager {
     };
   }
 
+  activateSubscription(sku = 'passq_growth_monthly') {
+    const trial = this.getTrialStatus();
+    const now = Date.now();
+    let trialEndDate;
+
+    if (trial.isTrialStarted) {
+      const trialStart = parseInt(localStorage.getItem('passq_trial_start'), 10) || now;
+      trialEndDate = trialStart + (7 * 24 * 60 * 60 * 1000);
+    } else {
+      trialEndDate = now + (7 * 24 * 60 * 60 * 1000);
+      localStorage.setItem('passq_trial_start', now.toString());
+    }
+
+    // Renewal / regular charge begins strictly after the 7 free trial days expire
+    const firstChargeDate = Math.max(now, trialEndDate);
+    const renewalDate = firstChargeDate + (30 * 24 * 60 * 60 * 1000);
+
+    localStorage.setItem('passq_play_subscription_active', 'true');
+    localStorage.setItem('passq_play_subscription_plan', sku);
+    localStorage.setItem('passq_subscription_first_charge_date', firstChargeDate.toString());
+    localStorage.setItem('passq_subscription_renewal_date', renewalDate.toString());
+  }
+
   async launchGooglePlayPurchase(sku = 'passq_growth_monthly') {
     // 1. Check if running inside Google Play TWA with Digital Goods API
     if ('getDigitalGoodsService' in window) {
@@ -105,8 +128,7 @@ export class PlayBillingManager {
             const response = await request.show();
             await response.complete('success');
             
-            localStorage.setItem('passq_play_subscription_active', 'true');
-            localStorage.setItem('passq_play_subscription_plan', sku);
+            this.activateSubscription(sku);
             return { success: true, method: 'digital_goods_api' };
           }
         }
@@ -128,7 +150,11 @@ export class PlayBillingManager {
     const returnUrl = baseCleanUrl.replace(/\/[^/]*$/, '/app.html?billing=paypal_success');
     const cancelUrl = baseCleanUrl.replace(/\/[^/]*$/, '/app.html?billing=paypal_cancel');
 
-    // PayPal Standard Subscriptions Checkout URL with Merchant Account ID
+    // Calculate remaining trial days (Guarantee full remaining free trial days, minimum 1)
+    const trial = this.getTrialStatus();
+    const trialDaysToGrant = trial.isTrialStarted ? Math.max(1, trial.daysRemaining) : 7;
+
+    // PayPal Standard Subscriptions Checkout URL with 7-day Free Trial (a1=0, p1=X, t1=D)
     const params = new URLSearchParams({
       cmd: '_xclick-subscriptions',
       business: PAYPAL_MERCHANT_ID,
@@ -137,6 +163,11 @@ export class PlayBillingManager {
       no_shipping: '1',
       no_note: '1',
       currency_code: 'USD',
+      // Trial Period 1: $0.00 for remaining trial days (Full 7 Days Guaranteed)
+      a1: '0',
+      p1: trialDaysToGrant.toString(),
+      t1: 'D',
+      // Regular Subscription Period: Monthly charge begins strictly after trial
       a3: plan.amount,
       p3: '1',
       t3: 'M',

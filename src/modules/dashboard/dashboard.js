@@ -78,8 +78,17 @@ class DashboardController {
     this.render();
     updateFlagSlot(i18n.currentLanguage);
 
-    // Auto-open Google Play subscription modal if linked with ?plan=
+    // Check if returning from PayPal subscription checkout
     const urlParams = new URLSearchParams(window.location.search);
+    const billingParam = urlParams.get('billing');
+    if (billingParam === 'paypal_success') {
+      playBilling.activateSubscription('passq_growth_monthly');
+      try {
+        window.history.replaceState({}, document.title, window.location.pathname);
+      } catch {}
+    }
+
+    // Auto-open Google Play subscription modal if linked with ?plan=
     const planParam = urlParams.get('plan');
     if (planParam) {
       const planMap = {
@@ -107,6 +116,30 @@ class DashboardController {
     const titleEl = document.getElementById('trial-status-title');
     const badge = document.getElementById('trial-day-badge');
     const descEl = document.getElementById('trial-status-desc');
+
+    if (trial.isSubscribed) {
+      if (badge) {
+        if (trial.isTrialActive) {
+          const template = i18n.t('dashboard:trial.day_badge', 'Día {day} de 7');
+          const rateBadge = i18n.t('dashboard:trial.subscribed_badge', 'Tarifa Asegurada');
+          badge.textContent = `${rateBadge} (${template.replace('{day}', trial.day)})`;
+        } else {
+          badge.textContent = i18n.t('dashboard:trial.active_badge', 'Suscripción Activa');
+        }
+        badge.className = 'text-xs font-extrabold px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono whitespace-nowrap shrink-0';
+      }
+      if (titleEl) {
+        titleEl.textContent = i18n.t('dashboard:trial.subscribed_title', 'Suscripción Oficial Activa');
+      }
+      if (descEl) {
+        if (trial.isTrialActive) {
+          descEl.textContent = i18n.t('dashboard:trial.subscribed_trial_desc', 'Tu tarifa preferencial está asegurada. Estás disfrutando de tus 7 días de prueba gratis. Tu primer ciclo regular de cobro iniciará estrictamente al terminar el día 7.');
+        } else {
+          descEl.textContent = i18n.t('dashboard:trial.subscribed_active_desc', 'Tu plan está activo con acceso total e ilimitado a todas las herramientas de emisión, firma criptográfica y cumplimiento aduanero.');
+        }
+      }
+      return;
+    }
 
     if (!trial.isTrialStarted) {
       if (badge) {
