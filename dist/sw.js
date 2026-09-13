@@ -3,7 +3,7 @@
  * Network-First for Documents & HTML (Ensures CSS/JS hash sync) + Cache-First for static assets
  */
 
-const CACHE_NAME = 'passq-v4-clean';
+const CACHE_NAME = 'passq-v5-clean';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();

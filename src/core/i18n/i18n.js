@@ -68,7 +68,7 @@ class I18nEngine {
       this.loadedNamespaces.add(ns);
       if (!this.cache[lang][ns]) {
         try {
-          const res = await fetch(`${cleanBase}locales/${lang}/${ns}.json`);
+          const res = await fetch(`${cleanBase}locales/${lang}/${ns}.json?v=20260913_5`);
           if (res.ok) {
             this.cache[lang][ns] = await res.json();
           }
@@ -80,7 +80,7 @@ class I18nEngine {
       // Ensure English fallback exists
       if (lang !== 'en' && !this.cache['en'][ns]) {
         try {
-          const res = await fetch(`${cleanBase}locales/en/${ns}.json`);
+          const res = await fetch(`${cleanBase}locales/en/${ns}.json?v=20260913_5`);
           if (res.ok) {
             this.cache['en'][ns] = await res.json();
           }
@@ -123,7 +123,11 @@ class I18nEngine {
   translateDOM() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      const translation = this.t(key);
+      if (!el.hasAttribute('data-i18n-original')) {
+        el.setAttribute('data-i18n-original', el.textContent.trim());
+      }
+      const fallback = el.getAttribute('data-i18n-original') || '';
+      const translation = this.t(key, fallback);
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
         el.placeholder = translation;
       } else {
@@ -132,19 +136,23 @@ class I18nEngine {
     });
 
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-      el.placeholder = this.t(el.getAttribute('data-i18n-placeholder'));
+      el.placeholder = this.t(el.getAttribute('data-i18n-placeholder'), el.placeholder);
     });
 
     document.querySelectorAll('[data-i18n-title]').forEach(el => {
-      el.title = this.t(el.getAttribute('data-i18n-title'));
+      el.title = this.t(el.getAttribute('data-i18n-title'), el.title);
     });
 
     document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
-      el.setAttribute('aria-label', this.t(el.getAttribute('data-i18n-aria-label')));
+      el.setAttribute('aria-label', this.t(el.getAttribute('data-i18n-aria-label'), el.getAttribute('aria-label') || ''));
     });
 
     document.querySelectorAll('[data-i18n-html]').forEach(el => {
-      el.innerHTML = this.t(el.getAttribute('data-i18n-html'));
+      if (!el.hasAttribute('data-i18n-original-html')) {
+        el.setAttribute('data-i18n-original-html', el.innerHTML.trim());
+      }
+      const fallbackHtml = el.getAttribute('data-i18n-original-html') || '';
+      el.innerHTML = this.t(el.getAttribute('data-i18n-html'), fallbackHtml);
     });
   }
 }
