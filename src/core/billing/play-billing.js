@@ -244,7 +244,7 @@ export class PlaySubscriptionModal {
     container.innerHTML = `
       <div id="subscription-modal-backdrop" class="absolute inset-0"></div>
 
-      <div class="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto rounded-3xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200 dark:border-white/15 shadow-2xl p-6 sm:p-8 backdrop-blur-2xl z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col gap-5">
+      <div class="relative w-full max-w-2xl max-h-[88vh] max-h-[88dvh] overflow-y-auto overscroll-contain rounded-3xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200 dark:border-white/15 shadow-2xl p-5 sm:p-8 backdrop-blur-2xl z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col gap-5">
         
         <!-- Header -->
         <div class="flex items-center justify-between">

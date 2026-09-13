@@ -98,7 +98,7 @@ export class UserGuideModal {
       <div id="user-guide-backdrop" class="absolute inset-0"></div>
 
       <!-- Main Modal Card -->
-      <div class="relative w-full max-w-3xl max-h-[92vh] overflow-hidden rounded-3xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200 dark:border-white/15 shadow-2xl backdrop-blur-2xl z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col">
+      <div class="relative w-full max-w-3xl max-h-[88vh] max-h-[88dvh] overflow-hidden rounded-3xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200 dark:border-white/15 shadow-2xl backdrop-blur-2xl z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col">
         
         <!-- Header Bar -->
         <div class="p-5 sm:p-6 border-b border-slate-200/80 dark:border-white/10 flex items-start justify-between gap-4 shrink-0">
@@ -139,8 +139,8 @@ export class UserGuideModal {
           </div>
         </div>
 
-        <!-- Scrollable Tab Content Area -->
-        <div class="p-5 sm:p-7 overflow-y-auto space-y-5 text-slate-700 dark:text-slate-200 flex-1 text-justify">
+        <!-- Scrollable Tab Content Area (min-h-0 enabled) -->
+        <div class="p-5 sm:p-7 overflow-y-auto overscroll-contain space-y-5 text-slate-700 dark:text-slate-200 flex-1 min-h-0 text-justify">
           ${this.renderTabContent()}
         </div>
 

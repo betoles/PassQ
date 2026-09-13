@@ -394,18 +394,50 @@ html[lang="zh"] .text-sm {
 }
 
 /* ==========================================================================
-   Wizard Modal & Sticky Navigation System (100% Scroll & Viewport Guarantee)
+   Universal Modal & Dialog Scrolling System (100% Scroll & Viewport Guarantee)
    ========================================================================== */
-#wizard-modal {
+#wizard-modal,
+#qr-modal,
+#delete-product-modal,
+#terms-consent-modal,
+#spare-parts-modal,
+#crypto-modal,
+#print-options-modal,
+#passq-user-guide-modal-root,
+#passq-subscription-modal-root,
+#passq-contact-modal-root {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#wizard-modal.hidden {
+#wizard-modal.hidden,
+#qr-modal.hidden,
+#delete-product-modal.hidden,
+#terms-consent-modal.hidden,
+#spare-parts-modal.hidden,
+#crypto-modal.hidden,
+#print-options-modal.hidden,
+#camera-scanner-modal.hidden {
   display: none !important;
 }
 
+/* Universal scroll for standalone modal dialog cards */
+#qr-modal > .glass-card,
+#delete-product-modal > .glass-card,
+#terms-consent-modal > .glass-card,
+#spare-parts-modal > .glass-card,
+#crypto-modal > .glass-card,
+#print-options-modal > .glass-card,
+.modal-scroll-container {
+  max-height: 88vh !important;
+  max-height: 88dvh !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* Wizard structured layout */
 #wizard-modal > .glass-card {
   display: flex !important;
   flex-direction: column !important;
@@ -420,12 +452,13 @@ html[lang="zh"] .text-sm {
   min-height: 0 !important;
   overflow-y: auto !important;
   overscroll-behavior: contain !important;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch !important;
 }
 
 #wizard-modal .flex-none {
   flex-shrink: 0 !important;
 }
+
 
 
 
