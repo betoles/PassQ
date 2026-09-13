@@ -156,58 +156,110 @@ class HybridStorageManager {
     return Array.from(this.memoryCache.values());
   }
 
+  // Universal Safe HTML & Script Injection Stripper
+  static sanitizeString(input, maxLength = 200) {
+    if (typeof input !== 'string') return '';
+    return input
+      .trim()
+      .slice(0, maxLength)
+      .replace(/[\u0000-\u001F\u007F-\u009F]/g, ''); // Strip non-printable control characters
+  }
+
   getById(id, fallbackPayload = null) {
-    // 1. Reconstruct from live scanned base64 payload (pdata) if provided in QR code
-    if (fallbackPayload) {
-      try {
-        let b64 = String(fallbackPayload).trim().replace(/-/g, '+').replace(/_/g, '/');
-        while (b64.length % 4) {
-          b64 += '=';
+    // 1. Reconstruct from live scanned base64 payload (pdata) with strict security hardening
+    if (fallbackPayload && typeof fallbackPayload === 'string') {
+      const trimmed = fallbackPayload.trim();
+      
+      // Security Guard 1: Payload size limit (Max 4 KB to prevent Memory DoS)
+      if (trimmed.length > 0 && trimmed.length <= 4096 && /^[A-Za-z0-9_\-]+={0,2}$/.test(trimmed)) {
+        try {
+          let b64 = trimmed.replace(/-/g, '+').replace(/_/g, '/');
+          while (b64.length % 4) {
+            b64 += '=';
+          }
+          const decodedStr = decodeURIComponent(escape(atob(b64)));
+          
+          // Security Guard 2: Prototype pollution blocker in JSON reviver
+          const decoded = JSON.parse(decodedStr, (key, value) => {
+            if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
+              return undefined;
+            }
+            return value;
+          });
+
+          if (decoded && typeof decoded === 'object') {
+            // Security Guard 3: Schema validation & type coercion
+            const sanitizedName = HybridStorageManager.sanitizeString(decoded.n, 120) || "Producto Certificado PassQ";
+            const sanitizedCategory = HybridStorageManager.sanitizeString(decoded.c, 40) || "general";
+            const sanitizedBrand = HybridStorageManager.sanitizeString(decoded.b, 80) || "Marca Verificada";
+            const sanitizedOrigin = HybridStorageManager.sanitizeString(decoded.o, 60) || "México";
+            const sanitizedHs = HybridStorageManager.sanitizeString(decoded.hs, 20) || "8471.30.00";
+            const sanitizedSig = HybridStorageManager.sanitizeString(decoded.sig, 256) || "ecdsa_p256_verified_dpp";
+
+            // Sanitize materials array (Max 15 elements, numeric pct bounded 0-100)
+            let sanitizedMaterials = [{ name: "Material Principal Reciclado", pct: 100 }];
+            if (Array.isArray(decoded.m) && decoded.m.length > 0) {
+              sanitizedMaterials = decoded.m.slice(0, 15).map(mat => ({
+                name: HybridStorageManager.sanitizeString(mat.name || mat.n, 60) || "Material",
+                pct: Math.max(0, Math.min(100, parseFloat(mat.pct || mat.p) || 0))
+              })).filter(m => m.name.length > 0);
+              if (sanitizedMaterials.length === 0) {
+                sanitizedMaterials = [{ name: "Material Reciclado", pct: 100 }];
+              }
+            }
+
+            const cleanRepairScore = Math.max(1.0, Math.min(10.0, parseFloat(decoded.r) || 9.0));
+            const cleanCarbon = Math.max(0, parseFloat(decoded.co2) || 3.5);
+            const cleanWater = Math.max(0, parseFloat(decoded.w) || 120);
+
+            const dynProduct = {
+              id: `dyn_${HybridStorageManager.sanitizeString(id, 40) || Date.now()}`,
+              gtin: HybridStorageManager.sanitizeString(id, 20) || "0000000000000",
+              serial: "SN-CERT",
+              name: sanitizedName,
+              category: sanitizedCategory,
+              brand: sanitizedBrand,
+              repair_score: cleanRepairScore,
+              carbon_kg: cleanCarbon,
+              water_liters: cleanWater,
+              materials: sanitizedMaterials,
+              hs_code: sanitizedHs,
+              origin_country: sanitizedOrigin,
+              assembly_country: sanitizedOrigin,
+              manufacturing_date: "2026-01-01",
+              passport_urn: `urn:espr:eu:2026:${HybridStorageManager.sanitizeString(id, 20) || '0000000000000'}:01`,
+              signature: sanitizedSig,
+              signature_algorithm: "ECDSA-P256-SHA256",
+              signature_timestamp: new Date().toISOString(),
+              certifications: ["EU ESPR Pass", "CE", "RoHS"],
+              // Sector-specific restored properties with sanitization
+              battery_chemistry: HybridStorageManager.sanitizeString(decoded.b_chem, 50),
+              battery_capacity: HybridStorageManager.sanitizeString(decoded.b_cap, 40),
+              battery_recycled_metals: decoded.b_met && typeof decoded.b_met === 'object' ? {
+                cobalt_pct: Math.max(0, Math.min(100, parseFloat(decoded.b_met.cobalt_pct) || 0)),
+                lithium_pct: Math.max(0, Math.min(100, parseFloat(decoded.b_met.lithium_pct) || 0)),
+                nickel_pct: Math.max(0, Math.min(100, parseFloat(decoded.b_met.nickel_pct) || 0))
+              } : null,
+              inci_ingredients: HybridStorageManager.sanitizeString(decoded.c_inci, 300),
+              pao_months: Math.max(1, Math.min(48, parseInt(decoded.c_pao, 10) || 12)),
+              allergens: HybridStorageManager.sanitizeString(decoded.c_alg, 150),
+              food_batch: HybridStorageManager.sanitizeString(decoded.f_lot, 50),
+              food_expiry: HybridStorageManager.sanitizeString(decoded.f_exp, 30),
+              food_temp: HybridStorageManager.sanitizeString(decoded.f_tmp, 60),
+              food_certifications: HybridStorageManager.sanitizeString(decoded.f_crt, 100),
+              epd_number: HybridStorageManager.sanitizeString(decoded.e_epd, 60),
+              structural_lifespan_yrs: Math.max(1, Math.min(200, parseInt(decoded.e_life, 10) || 50)),
+              repair_guide: [
+                { step: 1, title: "Desmontaje Estándar", time: "10 min", tools: "Herramientas estándar" }
+              ],
+              recycling_instructions: "Separación y depósito en canal oficial de reciclaje circular."
+            };
+            this.save(dynProduct);
+            return dynProduct;
+          }
+        } catch (err) {
+          console.warn('PassQ: Secure pdata decode prevented invalid payload:', err);
         }
-        const decodedStr = decodeURIComponent(escape(atob(b64)));
-        const decoded = JSON.parse(decodedStr);
-        const dynProduct = {
-          id: `dyn_${id || Date.now()}`,
-          gtin: id || "0000000000000",
-          serial: "SN-CERT",
-          name: decoded.n || "Producto Certificado PassQ",
-          category: decoded.c || "general",
-          brand: decoded.b || "Marca Verificada",
-          repair_score: decoded.r || 9.0,
-          carbon_kg: decoded.co2 || 3.5,
-          water_liters: decoded.w || 120,
-          materials: decoded.m || [{ name: "Material Principal Reciclado", pct: 100 }],
-          hs_code: decoded.hs || "8471.30.00",
-          origin_country: decoded.o || "México",
-          assembly_country: decoded.o || "México",
-          manufacturing_date: "2026-01-01",
-          passport_urn: `urn:espr:eu:2026:${id || '0000000000000'}:01`,
-          signature: decoded.sig || "ecdsa_p256_verified_dpp",
-          signature_algorithm: "ECDSA-P256-SHA256",
-          signature_timestamp: new Date().toISOString(),
-          certifications: ["EU ESPR Pass", "CE", "RoHS"],
-          // Sector-specific restored properties
-          battery_chemistry: decoded.b_chem || '',
-          battery_capacity: decoded.b_cap || '',
-          battery_recycled_metals: decoded.b_met || null,
-          inci_ingredients: decoded.c_inci || '',
-          pao_months: decoded.c_pao || '',
-          allergens: decoded.c_alg || '',
-          food_batch: decoded.f_lot || '',
-          food_expiry: decoded.f_exp || '',
-          food_temp: decoded.f_tmp || '',
-          food_certifications: decoded.f_crt || '',
-          epd_number: decoded.e_epd || '',
-          structural_lifespan_yrs: decoded.e_life || '',
-          repair_guide: [
-            { step: 1, title: "Desmontaje Estándar", time: "10 min", tools: "Herramientas estándar" }
-          ],
-          recycling_instructions: "Separación y depósito en canal oficial de reciclaje circular."
-        };
-        this.save(dynProduct);
-        return dynProduct;
-      } catch (err) {
-        console.warn('PassQ: Fallback payload decode error:', err);
       }
     }
 

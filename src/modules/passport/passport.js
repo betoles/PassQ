@@ -26,6 +26,16 @@ const SAMPLE_SPARE_PARTS = {
   ]
 };
 
+function escapeHTML(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function updateFlagSlot(lang) {
   const flagSlot = document.getElementById('lang-flag-slot');
   if (flagSlot && Icons[`flag_${lang}`]) {
@@ -410,7 +420,7 @@ class PassportViewController {
     const cryptoTime = document.getElementById('crypto-time');
     if (cryptoTime) cryptoTime.textContent = p.signature_timestamp || p.manufacturing_date || new Date().toISOString();
 
-    // Materials list (with dynamic fallback localization)
+    // Materials list (with dynamic fallback localization & XSS Sanitization)
     const materialsContainer = document.getElementById('materials-list');
     if (materialsContainer && p.materials) {
       materialsContainer.innerHTML = p.materials.map((m, idx) => {
@@ -421,16 +431,18 @@ class PassportViewController {
             matName = transMat;
           }
         }
+        const safeName = escapeHTML(matName);
+        const safePct = parseFloat(m.pct) || 0;
         return `
         <div class="p-3.5 rounded-2xl bg-white/50 dark:bg-white/[0.03] border border-white/60 dark:border-white/10 flex justify-between items-center text-sm shadow-sm">
-          <span class="font-medium text-slate-800 dark:text-slate-200">${matName}</span>
-          <span class="font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs">${m.pct}%</span>
+          <span class="font-medium text-slate-800 dark:text-slate-200">${safeName}</span>
+          <span class="font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs">${safePct}%</span>
         </div>
       `;
       }).join('');
     }
 
-    // Repair steps list with clean vector SVG icons
+    // Repair steps list with clean vector SVG icons & XSS Sanitization
     const repairContainer = document.getElementById('repair-steps-list');
     if (repairContainer) {
       repairContainer.innerHTML = (p.repair_guide || []).map((r, idx) => {
@@ -446,19 +458,24 @@ class PassportViewController {
             tools = transTools;
           }
         }
+        const safeTitle = escapeHTML(title);
+        const safeTools = escapeHTML(tools || i18n.t('passport:repair_guide.default_tools', 'Herramientas estándar'));
+        const safeTime = escapeHTML(r.time || '10 min');
+        const safeStep = parseInt(r.step, 10) || (idx + 1);
+
         return `
         <div class="p-4 rounded-2xl bg-white/50 dark:bg-white/[0.03] border border-white/60 dark:border-white/10 space-y-2 shadow-sm">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">${i18n.t('passport:repair_guide.step_prefix', 'Paso')} ${r.step}</span>
+            <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">${i18n.t('passport:repair_guide.step_prefix', 'Paso')} ${safeStep}</span>
             <span class="text-xs px-2 py-0.5 rounded-md bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center gap-1">
               <span class="icon-svg w-3 h-3"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></span>
-              ${r.time || '10 min'}
+              ${safeTime}
             </span>
           </div>
-          <h4 class="font-semibold text-slate-900 dark:text-white text-sm">${title}</h4>
+          <h4 class="font-semibold text-slate-900 dark:text-white text-sm">${safeTitle}</h4>
           <p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
             <span class="icon-svg w-3.5 h-3.5 text-cyan-500 shrink-0"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 1-4.884 4.484c-1.076-.091-2.264.398-3.085 1.22l-7.794 7.794a2.25 2.25 0 0 1-3.182-3.182l7.794-7.794c.822-.821 1.311-2.009 1.22-3.085A4.5 4.5 0 0 1 17.25 2.25a4.5 4.5 0 0 1 4.5 4.5Z"/></svg></span>
-            ${tools || i18n.t('passport:repair_guide.default_tools', 'Herramientas estándar')}
+            ${safeTools}
           </p>
         </div>
       `;
@@ -498,10 +515,13 @@ class PassportViewController {
     container.classList.remove('hidden');
 
     if (isBattery) {
-      const chem = p.battery_chemistry || 'Li-Ion (NMC 811)';
-      const cap = p.battery_capacity || '75 kWh / 150 Ah';
+      const chem = escapeHTML(p.battery_chemistry || 'Li-Ion (NMC 811)');
+      const cap = escapeHTML(p.battery_capacity || '75 kWh / 150 Ah');
       const metals = p.battery_recycled_metals || { cobalt_pct: 18, lithium_pct: 8, nickel_pct: 8 };
-      const evalMetals = ComplianceCalculator.evaluateBatteryRecycledMetals(metals.cobalt_pct, metals.lithium_pct, metals.nickel_pct);
+      const co = parseFloat(metals.cobalt_pct) || 18;
+      const li = parseFloat(metals.lithium_pct) || 8;
+      const ni = parseFloat(metals.nickel_pct) || 8;
+      const evalMetals = ComplianceCalculator.evaluateBatteryRecycledMetals(co, li, ni);
 
       container.innerHTML = `
         <div class="p-4 sm:p-5 rounded-3xl bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/25 space-y-3 shadow-sm text-slate-800 dark:text-slate-100">
@@ -532,9 +552,9 @@ class PassportViewController {
               <span class="font-mono font-extrabold text-amber-600 dark:text-amber-400">${evalMetals.averagePct}% Promedio</span>
             </div>
             <div class="grid grid-cols-3 gap-1 text-center font-mono text-[11px]">
-              <span class="p-1 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300">Co: ${metals.cobalt_pct || 18}%</span>
-              <span class="p-1 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300">Li: ${metals.lithium_pct || 8}%</span>
-              <span class="p-1 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300">Ni: ${metals.nickel_pct || 8}%</span>
+              <span class="p-1 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300">Co: ${co}%</span>
+              <span class="p-1 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300">Li: ${li}%</span>
+              <span class="p-1 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300">Ni: ${ni}%</span>
             </div>
             <p class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1 pt-0.5">
               <span>✓</span> <span data-i18n="passport:sector_cards.battery_targets_met">${i18n.t('passport:sector_cards.battery_targets_met', 'Objetivos de Recuperación UE 2027/2031 Cumplidos')}</span>
@@ -543,9 +563,9 @@ class PassportViewController {
         </div>
       `;
     } else if (isCosmetics) {
-      const inci = p.inci_ingredients || 'Aqua, Glycerin, Niacinamide, Sodium Hyaluronate, Panthenol, Tocopherol';
-      const pao = p.pao_months || 12;
-      const alg = p.allergens || 'Linalool, Limonene (Conforme IFRA)';
+      const inci = escapeHTML(p.inci_ingredients || 'Aqua, Glycerin, Niacinamide, Sodium Hyaluronate, Panthenol, Tocopherol');
+      const pao = parseInt(p.pao_months, 10) || 12;
+      const alg = escapeHTML(p.allergens || 'Linalool, Limonene (Conforme IFRA)');
 
       container.innerHTML = `
         <div class="p-4 sm:p-5 rounded-3xl bg-pink-500/10 dark:bg-pink-500/15 border border-pink-500/25 space-y-3 shadow-sm text-slate-800 dark:text-slate-100">
@@ -571,10 +591,10 @@ class PassportViewController {
         </div>
       `;
     } else if (isFood) {
-      const batch = p.food_batch || 'LOTE-2026-B842';
-      const expiry = p.food_expiry || '2027-06-30';
-      const temp = p.food_temp || '2°C - 6°C (Refrigerado)';
-      const certs = p.food_certifications || 'Orgánico Sagarpa, FairTrade, Kosher';
+      const batch = escapeHTML(p.food_batch || 'LOTE-2026-B842');
+      const expiry = escapeHTML(p.food_expiry || '2027-06-30');
+      const temp = escapeHTML(p.food_temp || '2°C - 6°C (Refrigerado)');
+      const certs = escapeHTML(p.food_certifications || 'Orgánico Sagarpa, FairTrade, Kosher');
 
       container.innerHTML = `
         <div class="p-4 sm:p-5 rounded-3xl bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/25 space-y-3 shadow-sm text-slate-800 dark:text-slate-100">
@@ -611,8 +631,8 @@ class PassportViewController {
         </div>
       `;
     } else if (isConstruction) {
-      const epd = p.epd_number || 'S-P-04892 (Environdec ISO 14025)';
-      const lifespan = p.structural_lifespan_yrs || 50;
+      const epd = escapeHTML(p.epd_number || 'S-P-04892 (Environdec ISO 14025)');
+      const lifespan = parseInt(p.structural_lifespan_yrs, 10) || 50;
 
       container.innerHTML = `
         <div class="p-4 sm:p-5 rounded-3xl bg-slate-500/10 dark:bg-slate-500/15 border border-slate-500/25 space-y-3 shadow-sm text-slate-800 dark:text-slate-100">
