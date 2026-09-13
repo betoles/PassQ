@@ -652,9 +652,9 @@ class DashboardController {
 
     // 6. Footer disclaimer & cryptographic seal with dynamic containment
     ctx.fillStyle = '#475569';
-    ctx.font = '15px sans-serif';
+    ctx.font = '14px sans-serif';
     const scanNotice = i18n.t('passport:actions.scan_notice', 'Escanea con cualquier smartphone o terminal aduanero para consultar el pasaporte en vivo.');
-    ctx.fillText(scanNotice.length > 70 ? scanNotice.slice(0, 68) + '…' : scanNotice, 50, 645);
+    ctx.fillText(scanNotice.length > 105 ? scanNotice.slice(0, 102) + '…' : scanNotice, 50, 645);
 
     // Smart middle-ellipsis formatting so signature hash never overflows canvas
     const rawSig = product.signature || product.canonical_sha256 || 'ecdsa_p256_verified';
