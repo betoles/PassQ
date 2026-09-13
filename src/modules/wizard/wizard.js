@@ -4,6 +4,17 @@ import { ComplianceCalculator } from '../compliance/calculator.js';
 import { GS1Formatter } from '../compliance/gs1.js';
 import { cryptoEngine } from '../../core/crypto/crypto.js';
 
+const CATEGORY_ITEMS = [
+  { key: 'textile', icon: '👔', norm: 'ESPR Textil • Ecodiseño' },
+  { key: 'footwear', icon: '👟', norm: 'Trazabilidad y Calzado' },
+  { key: 'electronics', icon: '🎧', norm: 'Directiva WEEE & Reparabilidad' },
+  { key: 'furniture', icon: '🪑', norm: 'Reglamento EUDR Madera' },
+  { key: 'battery', icon: '🔋', norm: 'Reg. UE 2023/1542 Metales Críticos' },
+  { key: 'cosmetics', icon: '💄', norm: 'Reg. UE 1223/2009 & INCI' },
+  { key: 'food', icon: '🥫', norm: 'Trazabilidad y Cadena de Frío' },
+  { key: 'construction', icon: '🏗️', norm: 'Reglamento CPR & EPD' }
+];
+
 export class WizardController {
   constructor(onSuccess) {
     this.currentStep = 1;
@@ -48,6 +59,7 @@ export class WizardController {
   open() {
     this.currentStep = 1;
     this.modal.classList.remove('hidden');
+    this.setCategory(this.formData.category || 'textile');
     this.updateToolOptionCards(this.formData.disassembly_tools || 'tools_standard');
     this.updateLiveScore();
     this.renderSectorSpecificFields(this.formData.category || 'textile');
@@ -108,7 +120,7 @@ export class WizardController {
       if (errEl) errEl.classList.add('hidden');
     });
 
-    this.setupCategoryDropdown();
+    this.setupCategoryPickerModal();
   }
 
   renderSectorSpecificFields(category) {
@@ -149,19 +161,34 @@ export class WizardController {
           <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.inci_ingredients">${i18n.t('wizard:sector_fields.inci_ingredients', 'Fórmula INCI de Ingredientes')}</label>
           <input id="wizard-cosm-inci" type="text" placeholder="Aqua, Glycerin, Niacinamide, Sodium Hyaluronate" value="${this.formData.inci_ingredients}" class="glass-input w-full py-2 px-3 rounded-xl text-xs" />
         </div>
-        <div>
+        <div class="sm:col-span-2">
           <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.pao_months">${i18n.t('wizard:sector_fields.pao_months', 'Período tras Apertura (PAO)')}</label>
-          <select id="wizard-cosm-pao" class="glass-input w-full py-2 px-3 rounded-xl text-xs font-bold">
-            <option value="6" ${this.formData.pao_months === 6 ? 'selected' : ''}>6 Meses (6M)</option>
-            <option value="12" ${this.formData.pao_months === 12 ? 'selected' : ''}>12 Meses (12M)</option>
-            <option value="24" ${this.formData.pao_months === 24 ? 'selected' : ''}>24 Meses (24M)</option>
-          </select>
+          <div class="grid grid-cols-3 gap-2" id="wizard-pao-options">
+            <button type="button" data-pao-val="6" class="pao-opt-btn py-2 px-2.5 rounded-xl border text-xs font-black transition cursor-pointer select-none ${this.formData.pao_months === 6 ? 'border-emerald-500 bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 shadow-xs' : 'border-slate-200/80 dark:border-white/10 bg-white/50 dark:bg-white/5 text-slate-700 dark:text-slate-200 hover:bg-slate-100'}">6 Meses (6M)</button>
+            <button type="button" data-pao-val="12" class="pao-opt-btn py-2 px-2.5 rounded-xl border text-xs font-black transition cursor-pointer select-none ${this.formData.pao_months === 12 ? 'border-emerald-500 bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 shadow-xs' : 'border-slate-200/80 dark:border-white/10 bg-white/50 dark:bg-white/5 text-slate-700 dark:text-slate-200 hover:bg-slate-100'}">12 Meses (12M)</button>
+            <button type="button" data-pao-val="24" class="pao-opt-btn py-2 px-2.5 rounded-xl border text-xs font-black transition cursor-pointer select-none ${this.formData.pao_months === 24 ? 'border-emerald-500 bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 shadow-xs' : 'border-slate-200/80 dark:border-white/10 bg-white/50 dark:bg-white/5 text-slate-700 dark:text-slate-200 hover:bg-slate-100'}">24 Meses (24M)</button>
+          </div>
         </div>
-        <div>
+        <div class="sm:col-span-2">
           <label class="block text-slate-600 dark:text-slate-300 font-bold mb-1" data-i18n="wizard:sector_fields.allergens">${i18n.t('wizard:sector_fields.allergens', 'Alérgenos Declarables')}</label>
           <input id="wizard-cosm-alg" type="text" placeholder="Linalool, Limonene (o Ninguno)" value="${this.formData.allergens}" class="glass-input w-full py-2 px-3 rounded-xl text-xs" />
         </div>
       `;
+
+      inputsBox.querySelectorAll('.pao-opt-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const val = parseInt(e.currentTarget.getAttribute('data-pao-val'), 10) || 12;
+          this.formData.pao_months = val;
+          inputsBox.querySelectorAll('.pao-opt-btn').forEach(b => {
+            const bVal = parseInt(b.getAttribute('data-pao-val'), 10);
+            if (bVal === val) {
+              b.className = 'pao-opt-btn py-2 px-2.5 rounded-xl border text-xs font-black transition cursor-pointer select-none border-emerald-500 bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 shadow-xs';
+            } else {
+              b.className = 'pao-opt-btn py-2 px-2.5 rounded-xl border text-xs font-black transition cursor-pointer select-none border-slate-200/80 dark:border-white/10 bg-white/50 dark:bg-white/5 text-slate-700 dark:text-slate-200 hover:bg-slate-100';
+            }
+          });
+        });
+      });
     } else if (category === 'food') {
       inputsBox.innerHTML = `
         <div>
@@ -195,21 +222,108 @@ export class WizardController {
     }
   }
 
-  setupCategoryDropdown() {
-    const select = document.getElementById('wizard-category');
-    if (!select) return;
+  setupCategoryPickerModal() {
+    const btnOpen = document.getElementById('btn-open-category-picker');
+    const modal = document.getElementById('category-picker-modal');
+    const btnClose = document.getElementById('btn-close-category-picker');
+    const listContainer = document.getElementById('category-picker-list');
+    const labelEl = document.getElementById('wizard-category-label');
 
-    select.addEventListener('change', (e) => {
-      const val = e.target.value || 'textile';
-      this.formData.category = val;
-      this.renderSectorSpecificFields(val);
-      this.updateStep3SectorUI();
-      this.updateLiveScore();
+    const renderPickerList = () => {
+      if (!listContainer) return;
+      const curCat = this.formData.category || 'textile';
+      listContainer.innerHTML = CATEGORY_ITEMS.map(item => {
+        const isSelected = item.key === curCat;
+        return `
+          <button type="button" data-cat-picker-val="${item.key}" class="category-card-btn w-full p-3 sm:p-3.5 rounded-2xl border transition flex items-center justify-between text-left cursor-pointer select-none ${
+            isSelected
+              ? 'border-emerald-500 bg-emerald-500/15 shadow-sm ring-1 ring-emerald-500/40'
+              : 'border-slate-200/80 dark:border-white/10 bg-white/70 dark:bg-white/[0.04] hover:bg-slate-100/90 dark:hover:bg-white/10 hover:border-emerald-500/40'
+          }">
+            <div class="flex items-center gap-3 min-w-0">
+              <span class="text-xl sm:text-2xl shrink-0 p-2 rounded-xl ${isSelected ? 'bg-emerald-500/20' : 'bg-slate-200/60 dark:bg-white/5'}">${item.icon}</span>
+              <div class="truncate">
+                <span class="block text-xs sm:text-sm font-black ${isSelected ? 'text-emerald-700 dark:text-emerald-300' : 'text-slate-900 dark:text-white'} truncate" data-i18n="wizard:categories.${item.key}">
+                  ${i18n.t(`wizard:categories.${item.key}`)}
+                </span>
+                <span class="block text-[10.5px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium truncate mt-0.5">${item.norm}</span>
+              </div>
+            </div>
+            ${
+              isSelected
+                ? `<span class="icon-svg w-5 h-5 text-emerald-500 shrink-0 ml-2"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>`
+                : `<span class="w-4 h-4 rounded-full border border-slate-300 dark:border-white/20 shrink-0 ml-2"></span>`
+            }
+          </button>
+        `;
+      }).join('');
+
+      listContainer.querySelectorAll('[data-cat-picker-val]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const val = btn.getAttribute('data-cat-picker-val');
+          if (!val) return;
+          this.setCategory(val);
+          closeModal();
+        });
+      });
+    };
+
+    const openModal = () => {
+      renderPickerList();
+      modal?.classList.remove('hidden');
+    };
+
+    const closeModal = () => {
+      modal?.classList.add('hidden');
+    };
+
+    btnOpen?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openModal();
+    });
+
+    btnClose?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeModal();
+    });
+
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+        closeModal();
+      }
     });
 
     i18n.onLanguageChange(() => {
+      if (labelEl && this.formData.category) {
+        labelEl.textContent = i18n.t(`wizard:categories.${this.formData.category}`);
+      }
+      renderPickerList();
       this.updateStep3SectorUI();
     });
+  }
+
+  setCategory(val) {
+    this.formData.category = val;
+    const hiddenInput = document.getElementById('wizard-category');
+    if (hiddenInput) hiddenInput.value = val;
+
+    const iconEl = document.getElementById('wizard-category-icon');
+    const labelEl = document.getElementById('wizard-category-label');
+    const found = CATEGORY_ITEMS.find(c => c.key === val);
+
+    if (iconEl && found) iconEl.textContent = found.icon;
+    if (labelEl) {
+      labelEl.setAttribute('data-i18n', `wizard:categories.${val}`);
+      labelEl.textContent = i18n.t(`wizard:categories.${val}`);
+    }
+
+    this.renderSectorSpecificFields(val);
+    this.updateStep3SectorUI();
+    this.updateLiveScore();
   }
 
   updateLiveMaterialsSum() {

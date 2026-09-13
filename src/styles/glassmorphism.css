@@ -490,3 +490,15 @@ html[lang="zh"] .text-sm {
   text-align: center !important;
   box-sizing: border-box !important;
 }
+
+.z-60 {
+  z-index: 60 !important;
+}
+
+.category-card-btn {
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.category-card-btn:active {
+  transform: scale(0.98) !important;
+}
