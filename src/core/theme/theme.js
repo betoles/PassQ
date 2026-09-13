@@ -60,7 +60,7 @@ export class LanguageDropdown {
 
     this.container.innerHTML = `
       <!-- Encapsulated Trigger Button -->
-      <button id="custom-lang-btn" type="button" class="h-10 sm:h-11 px-3 sm:px-3.5 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm backdrop-blur-md hover:bg-white dark:hover:bg-slate-800 active:scale-95 text-slate-800 dark:text-slate-100 flex items-center gap-2 transition cursor-pointer select-none shrink-0 whitespace-nowrap" aria-haspopup="true" aria-expanded="false">
+      <button id="custom-lang-btn" type="button" class="h-10 sm:h-11 px-2.5 sm:px-3.5 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm backdrop-blur-md hover:bg-white dark:hover:bg-slate-800 active:scale-95 text-slate-800 dark:text-slate-100 flex items-center gap-1.5 sm:gap-2 transition cursor-pointer select-none shrink-0 whitespace-nowrap" aria-haspopup="true" aria-expanded="false">
         <span id="custom-lang-current-flag" class="flex items-center shrink-0">${flagSvg}</span>
         <span id="custom-lang-current-label" class="text-xs sm:text-sm font-bold uppercase tracking-wider">${activeItem.short}</span>
         <span class="icon-svg w-3.5 h-3.5 text-slate-400 transition-transform duration-200" id="custom-lang-chevron">
