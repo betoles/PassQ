@@ -165,6 +165,54 @@ class HybridStorageManager {
       .replace(/[\u0000-\u001F\u007F-\u009F]/g, ''); // Strip non-printable control characters
   }
 
+  static getDefaultRepairGuide(category, tools = 'tools_standard') {
+    switch (category) {
+      case 'textile':
+        return [
+          { step: 1, title: "Limpieza y Cuidado Textil Sostenible", time: "5 min", tools: "Lavado suave a 30°C / Secado al aire" },
+          { step: 2, title: "Sustitución de Botones, Cierres o Fornituras", time: "10 min", tools: "Aguja e hilo reforzado" },
+          { step: 3, title: "Aplicación de Parches Térmicos en Zonas de Desgaste", time: "5 min", tools: "Plancha doméstica a 110°C" }
+        ];
+      case 'footwear':
+        return [
+          { step: 1, title: "Limpieza y Nutrición de Piel / Tejido", time: "5 min", tools: "Cepillo de cerdas suaves / Crema protectora" },
+          { step: 2, title: "Sustitución de Cordones y Plantillas", time: "2 min", tools: "Sin herramientas" },
+          { step: 3, title: "Cambio de Tapas de Tacón o Risuolado", time: "24h", tools: "Taller zapatero artesanal" }
+        ];
+      case 'cosmetics':
+        return [
+          { step: 1, title: "Limpieza y Enjuague de Envase para Relleno", time: "3 min", tools: "Agua tibia / Secado completo" },
+          { step: 2, title: "Recarga Oficial (Refill) y Colocación de Bomba", time: "1 min", tools: "Enrosque manual sin herramientas" }
+        ];
+      case 'food':
+        return [
+          { step: 1, title: "Conservación Óptima y Cadena de Frío", time: "Continuo", tools: "Refrigeración según etiqueta" },
+          { step: 2, title: "Separación Limpia de Envase, Tapón y Etiqueta", time: "30 seg", tools: "Separación manual para reciclaje" }
+        ];
+      case 'battery':
+        return [
+          { step: 1, title: "Diagnóstico Telemático y Salud de Celdas (SOH)", time: "5 min", tools: "Software BMS / Puerto OBD-II" },
+          { step: 2, title: "Sustitución de Módulos Degradados", time: "30 min", tools: "Herramientas aisladas 1000V / EPP" }
+        ];
+      case 'furniture':
+        return [
+          { step: 1, title: "Reapriete de Herrajes y Encastres", time: "5 min", tools: "Llave Allen estándar" },
+          { step: 2, title: "Lijado y Encerado Protector", time: "15 min", tools: "Cera natural / Lija fina" }
+        ];
+      case 'construction':
+        return [
+          { step: 1, title: "Inspección Periódica y Mantenimiento", time: "Anual", tools: "Inspección visual y ensayos no destructivos" },
+          { step: 2, title: "Deconstrucción y Recuperación de Elementos", time: "Fin de vida", tools: "Desatornillado mecánico en seco" }
+        ];
+      case 'electronics':
+      default:
+        return [
+          { step: 1, title: "Mantenimiento Preventivo y Limpieza", time: "5 min", tools: "Paño suave / alcohol isopropílico" },
+          { step: 2, title: "Sustitución de Batería Extraíble o Módulo", time: "10 min", tools: "Destornillador estándar de precisión" }
+        ];
+    }
+  }
+
   getById(id, fallbackPayload = null) {
     // 1. Reconstruct from live scanned base64 payload (pdata) with strict security hardening
     if (fallbackPayload && typeof fallbackPayload === 'string') {
@@ -249,9 +297,7 @@ class HybridStorageManager {
               food_certifications: HybridStorageManager.sanitizeString(decoded.f_crt, 100),
               epd_number: HybridStorageManager.sanitizeString(decoded.e_epd, 60),
               structural_lifespan_yrs: Math.max(1, Math.min(200, parseInt(decoded.e_life, 10) || 50)),
-              repair_guide: [
-                { step: 1, title: "Desmontaje Estándar", time: "10 min", tools: "Herramientas estándar" }
-              ],
+              repair_guide: HybridStorageManager.getDefaultRepairGuide(sanitizedCategory),
               recycling_instructions: "Separación y depósito en canal oficial de reciclaje circular."
             };
             this.save(dynProduct);
@@ -272,9 +318,7 @@ class HybridStorageManager {
 
     // 3. Search by GTIN in memory
     for (const prod of this.memoryCache.values()) {
-      if (prod.gtin === id) return prod;
-      if ((id === "7501234567890" || id === "7501234567893") && prod.id === "prod_001") return prod;
-      if ((id === "8412345678901" || id === "8412345678905") && prod.id === "prod_002") return prod;
+      if (prod.gtin === id || prod.id === id) return prod;
     }
 
     return this.getAll()[0];

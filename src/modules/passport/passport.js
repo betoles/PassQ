@@ -15,10 +15,38 @@ const SAMPLE_SPARE_PARTS = {
     { name: "Kit Parches Térmicos Impermeables", sku: "SP-PTH-019", price: "$5.00 USD", delivery: "24-48h" },
     { name: "Cordón Elástico con Bloqueador Ergonómico", sku: "SP-CRD-004", price: "$3.20 USD", delivery: "24h" }
   ],
+  footwear: [
+    { name: "Suela de Caucho Natural Vulcanizado Reciclado", sku: "SP-SUL-VUL", price: "$16.00 USD", delivery: "48h" },
+    { name: "Plantillas Anatómicas Viscoelásticas", sku: "SP-PLN-ECO", price: "$9.50 USD", delivery: "24h" },
+    { name: "Cordones de Algodón Orgánico Encerado", sku: "SP-CRD-ORG", price: "$3.50 USD", delivery: "24h" }
+  ],
   electronics: [
     { name: "Módulo Batería Li-Ion 800mAh (Plug & Play)", sku: "SP-BAT-800Z", price: "$14.00 USD", delivery: "48h" },
     { name: "Almohadillas Magnéticas Viscoelásticas", sku: "SP-ALM-MAG", price: "$12.50 USD", delivery: "24h" },
     { name: "Cable Modular Jack 3.5mm / USB-C Trenzado", sku: "SP-CBL-MOD", price: "$9.00 USD", delivery: "24h" }
+  ],
+  battery: [
+    { name: "Módulo de Celdas Li-Ion Certificado 48V", sku: "SP-CEL-MOD48", price: "$85.00 USD", delivery: "72h" },
+    { name: "Arnés de Cableado BMS de Alta Precisión", sku: "SP-BMS-HARN", price: "$18.00 USD", delivery: "48h" },
+    { name: "Conector Estanco IP68 de Potencia", sku: "SP-CON-IP68", price: "$12.00 USD", delivery: "24h" }
+  ],
+  furniture: [
+    { name: "Kit de Herrajes y Tornillería de Acero Inox", sku: "SP-HRR-INOX", price: "$6.50 USD", delivery: "24h" },
+    { name: "Pata de Madera Certificada FSC de Recambio", sku: "SP-PAT-FSC", price: "$14.00 USD", delivery: "48h" },
+    { name: "Tiradores Metálicos Ergonómicos", sku: "SP-TIR-MET", price: "$5.00 USD", delivery: "24h" }
+  ],
+  cosmetics: [
+    { name: "Dosificador / Bomba Dispensadora Recargable (Refill)", sku: "SP-PUMP-ECO", price: "$4.50 USD", delivery: "24h" },
+    { name: "Frasco de Vidrio Borosilicato Recargable 50ml", sku: "SP-BOT-GLS50", price: "$7.00 USD", delivery: "48h" },
+    { name: "Tapón Hermético de Aluminio Reciclado", sku: "SP-CAP-ALUM", price: "$2.50 USD", delivery: "24h" }
+  ],
+  food: [
+    { name: "Tapón Hermético Reutilizable Grado Alimentario", sku: "SP-CAP-FOOD", price: "$2.00 USD", delivery: "24h" },
+    { name: "Dispensador Dosificador Retornable", sku: "SP-DSP-RET", price: "$3.50 USD", delivery: "24h" }
+  ],
+  construction: [
+    { name: "Perno de Alta Resistencia Grado 8.8", sku: "SP-BLT-G88", price: "$2.50 USD", delivery: "24h" },
+    { name: "Pletina de Unión de Acero Galvanizado", sku: "SP-PLT-GALV", price: "$11.00 USD", delivery: "48h" }
   ],
   default: [
     { name: "Kit de Tornillería y Anclajes Estándar", sku: "SP-TRN-STD", price: "$4.00 USD", delivery: "24h" },
@@ -323,26 +351,26 @@ class PassportViewController {
     // Translate all static data-i18n elements first
     i18n.translateDOM();
 
-    // Localized dynamic text resolution (robust fallback for demo products and custom products)
-    const isProd1 = p.id === 'prod_001' || p.gtin === '7501234567893' || p.gtin === '7501234567890' || p.id === '7501234567893' || p.id === '7501234567890' || (p.recycling_instructions && p.recycling_instructions.includes('ECONYL'));
-    const isProd2 = p.id === 'prod_002' || p.gtin === '8412345678905' || p.gtin === '8412345678901' || p.id === '8412345678905' || p.id === '8412345678901' || (p.recycling_instructions && (p.recycling_instructions.includes('Aura') || p.recycling_instructions.includes('batteria') || p.recycling_instructions.includes('batería') || p.recycling_instructions.includes('foundr') || p.recycling_instructions.includes('fundición')));
+    // Localized dynamic text resolution (ONLY for built-in initial demo products, NEVER override user custom products)
+    const isProd1 = p.id === 'prod_001' && (!p.brand || p.brand === 'Nordic Apex Gear' || p.name === 'Chaqueta Alpina EcoDry');
+    const isProd2 = p.id === 'prod_002' && (!p.brand || p.brand === 'Aura Sound Labs' || p.name === 'Auriculares Modulares Zero');
 
-    const demoKey = isProd1 ? 'prod_001' : (isProd2 ? 'prod_002' : p.id);
+    const demoKey = isProd1 ? 'prod_001' : (isProd2 ? 'prod_002' : null);
 
-    const localizedName = (demoKey === 'prod_001' || demoKey === 'prod_002')
+    const localizedName = demoKey
       ? i18n.t(`passport:demo_products.${demoKey}.name`, p.name)
       : (p.name || i18n.t('passport:header.loading_product', 'PassQ DPP'));
 
-    const localizedBrand = (demoKey === 'prod_001' || demoKey === 'prod_002')
+    const localizedBrand = demoKey
       ? i18n.t(`passport:demo_products.${demoKey}.brand`, p.brand || 'PassQ Verified')
       : (p.brand || i18n.t('passport:header.verified_brand', 'PassQ Verified Brand'));
 
-    const localizedOrigin = (demoKey === 'prod_001' || demoKey === 'prod_002')
+    const localizedOrigin = demoKey
       ? i18n.t(`passport:demo_products.${demoKey}.origin_country`, p.origin_country || 'México')
       : (p.origin_country || 'México');
 
     let localizedRecycling = '';
-    if (demoKey === 'prod_001' || demoKey === 'prod_002') {
+    if (demoKey) {
       const transRec = i18n.t(`passport:demo_products.${demoKey}.recycling_instructions`);
       if (transRec && !transRec.startsWith('demo_products.')) {
         localizedRecycling = transRec;
