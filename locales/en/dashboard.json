@@ -61,7 +61,8 @@
     "gs1_badge": "GS1 DIGITAL LINK • ECC HIGH (30% ROBUSTNESS)",
     "btn_svg": "Vector SVG",
     "btn_png": "PNG 300 DPI",
-    "btn_packaging_label": "Official Packaging Label (300 DPI)",
+    "btn_packaging_label": "Official Master Packaging Label",
+    "btn_packaging_label_dpi": "(300 DPI)",
     "btn_copy_url": "Copy Link"
   },
   "alerts": {

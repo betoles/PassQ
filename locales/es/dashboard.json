@@ -61,7 +61,8 @@
     "gs1_badge": "GS1 DIGITAL LINK • ECC HIGH (30% ROBUSTEZ)",
     "btn_svg": "Vector SVG",
     "btn_png": "PNG 300 DPI",
-    "btn_packaging_label": "Etiqueta Maestra de Packaging Oficial (300 DPI)",
+    "btn_packaging_label": "Etiqueta Maestra de Packaging Oficial",
+    "btn_packaging_label_dpi": "(300 DPI)",
     "btn_copy_url": "Copiar Enlace"
   },
   "alerts": {
