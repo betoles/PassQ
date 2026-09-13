@@ -35,8 +35,8 @@ export class LanguageDropdown {
 
     if (!this.target) return;
     
-    // Find the wrapper (which might contain lang-flag-slot as well)
-    const wrapper = this.target.closest('.flex.items-center.h-10, .flex.items-center.h-11') || this.target.parentElement;
+    // Target's parent is the wrapper container (.flex.items-center...)
+    const wrapper = this.target.parentElement;
     if (!wrapper || !wrapper.parentElement) return;
 
     this.container = document.createElement('div');
@@ -243,7 +243,7 @@ class ThemeEngine {
     // Register Service Worker globally across all pages and views
     if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch((err) => {
+        navigator.serviceWorker.register('./sw.js').catch((err) => {
           console.debug('ServiceWorker registration optional:', err);
         });
       });

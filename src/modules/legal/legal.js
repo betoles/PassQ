@@ -1,6 +1,8 @@
+import '../../styles/glassmorphism.css';
 import { i18n } from '../../core/i18n/i18n.js';
 import { theme, LanguageDropdown } from '../../core/theme/theme.js';
 import { Icons, renderIcons } from '../../core/icons/icons.js';
+import { userGuideModal } from '../guide/guide.js';
 
 function updateFlagSlot(lang) {
   const flagSlot = document.getElementById('lang-flag-slot');

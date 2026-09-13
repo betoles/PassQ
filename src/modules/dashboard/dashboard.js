@@ -1,9 +1,11 @@
+import '../../styles/glassmorphism.css';
 import { i18n } from '../../core/i18n/i18n.js';
 import { theme } from '../../core/theme/theme.js';
 import { storage } from '../../core/storage/storage.js';
 import { Icons, renderIcons } from '../../core/icons/icons.js';
 import { WizardController } from '../wizard/wizard.js';
 import { GS1Formatter } from '../compliance/gs1.js';
+import { userGuideModal } from '../guide/guide.js';
 import QRCode from 'qrcode';
 
 function updateFlagSlot(lang) {
@@ -28,15 +30,42 @@ class DashboardController {
   }
 
   async init() {
-    await i18n.loadNamespaces(['common', 'dashboard', 'wizard', 'legal']);
+    await i18n.loadNamespaces(['common', 'dashboard', 'wizard', 'legal', 'guide']);
     theme.updateIconSlots();
     renderIcons();
+
+    // Initialize Language Selector and Flag Slot
+    const langSelect = document.getElementById('lang-select');
+    if (langSelect) {
+      langSelect.value = i18n.currentLanguage;
+      updateFlagSlot(i18n.currentLanguage);
+      langSelect.addEventListener('change', (e) => {
+        const selected = e.target.value;
+        updateFlagSlot(selected);
+        i18n.setLanguage(selected);
+      });
+    }
+
+    // Initialize Theme Toggle Button
+    document.getElementById('theme-toggle-btn')?.addEventListener('click', () => {
+      theme.toggleTheme();
+    });
+
     this.products = storage.getAll();
 
     this.wizard = new WizardController((newProduct) => {
       this.products = storage.getAll();
       this.render();
       this.openQRModal(newProduct);
+    });
+
+    i18n.onLanguageChange(async (newLang) => {
+      await i18n.loadNamespaces(['common', 'dashboard', 'wizard', 'legal', 'guide']);
+      i18n.translateDOM();
+      updateFlagSlot(newLang);
+      theme.updateIconSlots();
+      renderIcons();
+      this.render();
     });
     this.wizard.init();
 

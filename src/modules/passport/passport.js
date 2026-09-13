@@ -1,3 +1,4 @@
+import '../../styles/glassmorphism.css';
 import { i18n } from '../../core/i18n/i18n.js';
 import { theme } from '../../core/theme/theme.js';
 import { storage } from '../../core/storage/storage.js';
@@ -5,6 +6,7 @@ import { Icons, renderIcons } from '../../core/icons/icons.js';
 import { GS1Formatter } from '../compliance/gs1.js';
 import { CameraScanner } from '../scanner/scanner.js';
 import { cryptoEngine } from '../../core/crypto/crypto.js';
+import { userGuideModal } from '../guide/guide.js';
 import QRCode from 'qrcode';
 
 const SAMPLE_SPARE_PARTS = {

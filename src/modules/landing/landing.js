@@ -1,3 +1,4 @@
+import '../../styles/glassmorphism.css';
 import { i18n } from '../../core/i18n/i18n.js';
 import { theme } from '../../core/theme/theme.js';
 import { Icons, renderIcons } from '../../core/icons/icons.js';
