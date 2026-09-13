@@ -72,9 +72,12 @@
     "title": "Offizielle PassQ Abonnements",
     "subtitle": "Sicher abonnieren über Google Play Store (Mobil-App) oder direkt via PayPal / Kredit- & Debitkarten (Web & PC).",
     "trial_badge": "7T",
+    "trial_status_ready": "7-Tage-Testversion verfügbar (Startet mit Ihrem 1. Pass)",
+    "trial_desc_ready": "Ihre 7-tägige kostenlose Testversion wird automatisch aktiviert, wenn Sie Ihren ersten digitalen Pass erstellen.",
     "trial_status_active": "Aktueller Teststatus: Tag {day} von 7 ({remaining} Tage verbleibend)",
     "trial_status_ended": "Testphase abgeschlossen",
     "trial_desc": "Sie haben uneingeschränkten Zugriff auf alle Pro-Tools. Bei jetzigem Abschluss wird erst nach Ablauf der 7-tägigen Testphase abgebucht.",
+    "trial_desc_ended": "Ihre Testphase ist abgelaufen. Abonnieren Sie, um weiterhin digitale Pässe zu erstellen und zu verwalten.",
     "founder_rate": "Gründertarif",
     "plans": {
       "starter": {

@@ -1,4 +1,4 @@
-(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))o(r);new MutationObserver(r=>{for(const l of r)if(l.type==="childList")for(const i of l.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&o(i)}).observe(document,{childList:!0,subtree:!0});function a(r){const l={};return r.integrity&&(l.integrity=r.integrity),r.referrerPolicy&&(l.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?l.credentials="include":r.crossOrigin==="anonymous"?l.credentials="omit":l.credentials="same-origin",l}function o(r){if(r.ep)return;r.ep=!0;const l=a(r);fetch(r.href,l)}})();const E={};class B{constructor(){this.supportedLanguages=["en","es","de","fr","it","pt","zh"],this.currentLanguage=this.detectLanguage(),this.cache={},this.loadedNamespaces=new Set(["common"]),this.listeners=[]}detectLanguage(){const e=localStorage.getItem("passq_lang");if(e&&this.supportedLanguages.includes(e))return e;const a=(navigator.language||"en").split("-")[0].toLowerCase();return this.supportedLanguages.includes(a)?a:"en"}async setLanguage(e){if(this.supportedLanguages.includes(e)){this.currentLanguage=e,localStorage.setItem("passq_lang",e),document.documentElement.lang=e,this.loadedNamespaces.size>0&&await this.loadNamespaces(Array.from(this.loadedNamespaces));for(const a of this.listeners)try{await a(e)}catch(o){console.warn("Error in language change listener:",o)}}}onLanguageChange(e){this.listeners.push(e)}async loadNamespaces(e=["common"]){const a=this.currentLanguage;this.cache[a]||(this.cache[a]={}),this.cache.en||(this.cache.en={});const o="./",r=o.endsWith("/")?o:o+"/";for(const l of e){if(this.loadedNamespaces.add(l),!this.cache[a][l])try{const i=await fetch(`${r}locales/${a}/${l}.json`);i.ok&&(this.cache[a][l]=await i.json())}catch{console.warn(`Could not load locales/${a}/${l}.json, falling back to English`)}if(a!=="en"&&!this.cache.en[l])try{const i=await fetch(`${r}locales/en/${l}.json`);i.ok&&(this.cache.en[l]=await i.json())}catch{console.error(`Could not load fallback locales/en/${l}.json`)}}}t(e,a=""){if(!e)return a;const[o,r]=e.includes(":")?e.split(":"):["common",e],l=this.currentLanguage;let i=this._getValue(this.cache[l]?.[o],r);return i!==void 0||(i=this._getValue(this.cache.en?.[o],r),i!==void 0)?i:a||r}_getValue(e,a){if(e)return a.split(".").reduce((o,r)=>o&&o[r],e)}translateDOM(){document.querySelectorAll("[data-i18n]").forEach(e=>{const a=e.getAttribute("data-i18n"),o=this.t(a);e.tagName==="INPUT"||e.tagName==="TEXTAREA"?e.placeholder=o:e.textContent=o}),document.querySelectorAll("[data-i18n-placeholder]").forEach(e=>{e.placeholder=this.t(e.getAttribute("data-i18n-placeholder"))}),document.querySelectorAll("[data-i18n-title]").forEach(e=>{e.title=this.t(e.getAttribute("data-i18n-title"))}),document.querySelectorAll("[data-i18n-aria-label]").forEach(e=>{e.setAttribute("aria-label",this.t(e.getAttribute("data-i18n-aria-label")))}),document.querySelectorAll("[data-i18n-html]").forEach(e=>{e.innerHTML=this.t(e.getAttribute("data-i18n-html"))})}}const s=new B,n={sun:(t="w-5 h-5")=>`
+(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))n(r);new MutationObserver(r=>{for(const l of r)if(l.type==="childList")for(const i of l.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&n(i)}).observe(document,{childList:!0,subtree:!0});function a(r){const l={};return r.integrity&&(l.integrity=r.integrity),r.referrerPolicy&&(l.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?l.credentials="include":r.crossOrigin==="anonymous"?l.credentials="omit":l.credentials="same-origin",l}function n(r){if(r.ep)return;r.ep=!0;const l=a(r);fetch(r.href,l)}})();const B={};class T{constructor(){this.supportedLanguages=["en","es","de","fr","it","pt","zh"],this.currentLanguage=this.detectLanguage(),this.cache={},this.loadedNamespaces=new Set(["common"]),this.listeners=[]}detectLanguage(){const e=localStorage.getItem("passq_lang");if(e&&this.supportedLanguages.includes(e))return e;const a=(navigator.language||"en").split("-")[0].toLowerCase();return this.supportedLanguages.includes(a)?a:"en"}async setLanguage(e){if(this.supportedLanguages.includes(e)){this.currentLanguage=e,localStorage.setItem("passq_lang",e),document.documentElement.lang=e,this.loadedNamespaces.size>0&&await this.loadNamespaces(Array.from(this.loadedNamespaces));for(const a of this.listeners)try{await a(e)}catch(n){console.warn("Error in language change listener:",n)}}}onLanguageChange(e){this.listeners.push(e)}async loadNamespaces(e=["common"]){const a=this.currentLanguage;this.cache[a]||(this.cache[a]={}),this.cache.en||(this.cache.en={});const n="./",r=n.endsWith("/")?n:n+"/";for(const l of e){if(this.loadedNamespaces.add(l),!this.cache[a][l])try{const i=await fetch(`${r}locales/${a}/${l}.json`);i.ok&&(this.cache[a][l]=await i.json())}catch{console.warn(`Could not load locales/${a}/${l}.json, falling back to English`)}if(a!=="en"&&!this.cache.en[l])try{const i=await fetch(`${r}locales/en/${l}.json`);i.ok&&(this.cache.en[l]=await i.json())}catch{console.error(`Could not load fallback locales/en/${l}.json`)}}}t(e,a=""){if(!e)return a;const[n,r]=e.includes(":")?e.split(":"):["common",e],l=this.currentLanguage;let i=this._getValue(this.cache[l]?.[n],r);return i!==void 0||(i=this._getValue(this.cache.en?.[n],r),i!==void 0)?i:a||r}_getValue(e,a){if(e)return a.split(".").reduce((n,r)=>n&&n[r],e)}translateDOM(){document.querySelectorAll("[data-i18n]").forEach(e=>{const a=e.getAttribute("data-i18n"),n=this.t(a);e.tagName==="INPUT"||e.tagName==="TEXTAREA"?e.placeholder=n:e.textContent=n}),document.querySelectorAll("[data-i18n-placeholder]").forEach(e=>{e.placeholder=this.t(e.getAttribute("data-i18n-placeholder"))}),document.querySelectorAll("[data-i18n-title]").forEach(e=>{e.title=this.t(e.getAttribute("data-i18n-title"))}),document.querySelectorAll("[data-i18n-aria-label]").forEach(e=>{e.setAttribute("aria-label",this.t(e.getAttribute("data-i18n-aria-label")))}),document.querySelectorAll("[data-i18n-html]").forEach(e=>{e.innerHTML=this.t(e.getAttribute("data-i18n-html"))})}}const s=new T,o={sun:(t="w-5 h-5")=>`
     <svg class="${t}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
     </svg>`,moon:(t="w-5 h-5")=>`
@@ -163,7 +163,7 @@
     <svg class="${t}" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg"><path fill="#002654" d="M0 0h213.3v480H0z"/><path fill="#fff" d="M213.3 0h213.4v480H213.3z"/><path fill="#ce1126" d="M426.7 0H640v480H426.7z"/></svg>`,flag_it:(t="w-4 h-3 inline-block rounded-xs shadow-xs")=>`
     <svg class="${t}" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg"><path fill="#009246" d="M0 0h213.3v480H0z"/><path fill="#fff" d="M213.3 0h213.4v480H213.3z"/><path fill="#ce2b37" d="M426.7 0H640v480H426.7z"/></svg>`,flag_pt:(t="w-4 h-3 inline-block rounded-xs shadow-xs")=>`
     <svg class="${t}" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg"><path fill="#046a38" d="M0 0h256v480H0z"/><path fill="#da291c" d="M256 0h384v480H256z"/><circle cx="256" cy="240" r="70" fill="#ffcd00"/><circle cx="256" cy="240" r="44" fill="#fff"/></svg>`,flag_zh:(t="w-4 h-3 inline-block rounded-xs shadow-xs")=>`
-    <svg class="${t}" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg"><path fill="#de2910" d="M0 0h640v480H0z"/><path fill="#ffde00" d="m100 80 18 55h58l-47 34 18 55-47-34-47 34 18-55-47-34h58z"/></svg>`};function z(t=document){t.querySelectorAll("[data-icon]").forEach(a=>{const o=a.getAttribute("data-icon"),r=a.getAttribute("data-icon-class")||"w-5 h-5 inline-block align-middle";n[o]&&(a.innerHTML=n[o](r))})}class H{constructor(){this.modalEl=null,this.isOpen=!1,this.activeTab="tab1",this.init()}init(){typeof document>"u"||(document.addEventListener("click",e=>{const a=e.target.closest("#btn-open-user-guide, [data-open-user-guide]");if(a){e.preventDefault();const o=a.getAttribute("data-guide-tab")||"tab1";this.open(o)}}),document.addEventListener("keydown",e=>{e.key==="Escape"&&this.isOpen&&this.close()}),s.onLanguageChange(async()=>{this.isOpen&&(await s.loadNamespaces(["common","guide"]),this.render())}))}async open(e="tab1"){this.activeTab=e,await s.loadNamespaces(["common","guide"]),this.isOpen=!0,this.render(),document.body.classList.add("overflow-hidden")}close(){this.isOpen=!1,this.modalEl&&(this.modalEl.classList.add("opacity-0","pointer-events-none"),setTimeout(()=>{!this.isOpen&&this.modalEl&&(this.modalEl.remove(),this.modalEl=null)},200)),document.body.classList.remove("overflow-hidden")}setTab(e){this.activeTab=e,this.render()}render(){let e=document.getElementById("passq-user-guide-modal-root");e||(e=document.createElement("div"),e.id="passq-user-guide-modal-root",document.body.appendChild(e)),this.modalEl=e;const a=s.t("guide:title","Guía de Usuario • PassQ"),o=s.t("guide:badge","Manual Interactivo & Didáctico"),r=s.t("guide:subtitle","Domina el ciclo de vida de tus Pasaportes Digitales en minutos."),l=s.t("guide:btn_close","Cerrar Guía"),i=[{id:"tab1",icon:"sparkles",label:s.t("guide:tabs.tab1","Caso Práctico")},{id:"tab2",icon:"plusCircle",label:s.t("guide:tabs.tab2","Crear Pasaporte")},{id:"tab3",icon:"folder",label:s.t("guide:tabs.tab3","Tu Catálogo & QR")},{id:"tab4",icon:"devicePhoneMobile",label:s.t("guide:tabs.tab4","Vista de Clientes")},{id:"tab5",icon:"shieldCheck",label:s.t("guide:tabs.tab5","Privacidad & Datos")}];e.className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-slate-950/75 backdrop-blur-md transition-opacity duration-200",e.innerHTML=`
+    <svg class="${t}" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg"><path fill="#de2910" d="M0 0h640v480H0z"/><path fill="#ffde00" d="m100 80 18 55h58l-47 34 18 55-47-34-47 34 18-55-47-34h58z"/></svg>`};function I(t=document){t.querySelectorAll("[data-icon]").forEach(a=>{const n=a.getAttribute("data-icon"),r=a.getAttribute("data-icon-class")||"w-5 h-5 inline-block align-middle";o[n]&&(a.innerHTML=o[n](r))})}class H{constructor(){this.modalEl=null,this.isOpen=!1,this.activeTab="tab1",this.init()}init(){typeof document>"u"||(document.addEventListener("click",e=>{const a=e.target.closest("#btn-open-user-guide, [data-open-user-guide]");if(a){e.preventDefault();const n=a.getAttribute("data-guide-tab")||"tab1";this.open(n)}}),document.addEventListener("keydown",e=>{e.key==="Escape"&&this.isOpen&&this.close()}),s.onLanguageChange(async()=>{this.isOpen&&(await s.loadNamespaces(["common","guide"]),this.render())}))}async open(e="tab1"){this.activeTab=e,await s.loadNamespaces(["common","guide"]),this.isOpen=!0,this.render(),document.body.classList.add("overflow-hidden")}close(){this.isOpen=!1,this.modalEl&&(this.modalEl.classList.add("opacity-0","pointer-events-none"),setTimeout(()=>{!this.isOpen&&this.modalEl&&(this.modalEl.remove(),this.modalEl=null)},200)),document.body.classList.remove("overflow-hidden")}setTab(e){this.activeTab=e,this.render()}render(){let e=document.getElementById("passq-user-guide-modal-root");e||(e=document.createElement("div"),e.id="passq-user-guide-modal-root",document.body.appendChild(e)),this.modalEl=e;const a=s.t("guide:title","Guía de Usuario • PassQ"),n=s.t("guide:badge","Manual Interactivo & Didáctico"),r=s.t("guide:subtitle","Domina el ciclo de vida de tus Pasaportes Digitales en minutos."),l=s.t("guide:btn_close","Cerrar Guía"),i=[{id:"tab1",icon:"sparkles",label:s.t("guide:tabs.tab1","Caso Práctico")},{id:"tab2",icon:"plusCircle",label:s.t("guide:tabs.tab2","Crear Pasaporte")},{id:"tab3",icon:"folder",label:s.t("guide:tabs.tab3","Tu Catálogo & QR")},{id:"tab4",icon:"devicePhoneMobile",label:s.t("guide:tabs.tab4","Vista de Clientes")},{id:"tab5",icon:"shieldCheck",label:s.t("guide:tabs.tab5","Privacidad & Datos")}];e.className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-slate-950/75 backdrop-blur-md transition-opacity duration-200",e.innerHTML=`
       <!-- Backdrop click catcher -->
       <div id="user-guide-backdrop" class="absolute inset-0"></div>
 
@@ -174,8 +174,8 @@
         <div class="p-5 sm:p-6 border-b border-slate-200/80 dark:border-white/10 flex items-start justify-between gap-4 shrink-0">
           <div class="space-y-1.5">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-bold tracking-wide">
-              <span class="w-4 h-4 flex items-center">${n.bookOpen?n.bookOpen("w-4 h-4"):""}</span>
-              <span>${o}</span>
+              <span class="w-4 h-4 flex items-center">${o.bookOpen?o.bookOpen("w-4 h-4"):""}</span>
+              <span>${n}</span>
             </div>
             <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
               <span>${a}</span>
@@ -184,17 +184,17 @@
           </div>
 
           <button id="btn-close-guide-top" type="button" class="w-10 h-10 rounded-2xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-500 dark:text-slate-300 flex items-center justify-center transition cursor-pointer shrink-0" aria-label="Cerrar">
-            ${n.close?n.close("w-5 h-5"):"✕"}
+            ${o.close?o.close("w-5 h-5"):"✕"}
           </button>
         </div>
 
         <!-- Navigation Tabs Bar -->
         <div class="px-5 sm:px-6 py-3 border-b border-slate-200/60 dark:border-white/10 bg-slate-50/70 dark:bg-white/[0.02] overflow-x-auto no-scrollbar shrink-0">
           <div class="flex items-center gap-2.5 min-w-max">
-            ${i.map(c=>{const u=this.activeTab===c.id;return`
-                <button type="button" data-tab-target="${c.id}" class="guide-tab-btn flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm sm:text-[15px] font-bold transition cursor-pointer select-none ${u?"bg-emerald-600 text-white shadow-md shadow-emerald-600/20":"bg-white/80 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10"}">
-                  <span class="icon-svg w-4 h-4 shrink-0 ${u?"text-white":"text-emerald-500 dark:text-emerald-400"}">
-                    ${n[c.icon]?n[c.icon]("w-4 h-4"):""}
+            ${i.map(c=>{const h=this.activeTab===c.id;return`
+                <button type="button" data-tab-target="${c.id}" class="guide-tab-btn flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm sm:text-[15px] font-bold transition cursor-pointer select-none ${h?"bg-emerald-600 text-white shadow-md shadow-emerald-600/20":"bg-white/80 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10"}">
+                  <span class="icon-svg w-4 h-4 shrink-0 ${h?"text-white":"text-emerald-500 dark:text-emerald-400"}">
+                    ${o[c.icon]?o[c.icon]("w-4 h-4"):""}
                   </span>
                   <span>${c.label}</span>
                 </button>
@@ -224,11 +224,11 @@
         </div>
 
       </div>
-    `,e.querySelector("#user-guide-backdrop")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-close-guide-top")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-guide-close-bottom")?.addEventListener("click",()=>this.close()),e.querySelectorAll(".guide-tab-btn").forEach(c=>{c.addEventListener("click",()=>{const u=c.getAttribute("data-tab-target");u&&this.setTab(u)})});const d=i.findIndex(c=>c.id===this.activeTab),h=e.querySelector("#btn-guide-prev"),m=e.querySelector("#btn-guide-next");h&&(h.disabled=d<=0,h.addEventListener("click",()=>{d>0&&this.setTab(i[d-1].id)})),m&&(m.disabled=d>=i.length-1,m.addEventListener("click",()=>{d<i.length-1&&this.setTab(i[d+1].id)}))}renderTabContent(){switch(this.activeTab){case"tab1":return`
+    `,e.querySelector("#user-guide-backdrop")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-close-guide-top")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-guide-close-bottom")?.addEventListener("click",()=>this.close()),e.querySelectorAll(".guide-tab-btn").forEach(c=>{c.addEventListener("click",()=>{const h=c.getAttribute("data-tab-target");h&&this.setTab(h)})});const d=i.findIndex(c=>c.id===this.activeTab),p=e.querySelector("#btn-guide-prev"),m=e.querySelector("#btn-guide-next");p&&(p.disabled=d<=0,p.addEventListener("click",()=>{d>0&&this.setTab(i[d-1].id)})),m&&(m.disabled=d>=i.length-1,m.addEventListener("click",()=>{d<i.length-1&&this.setTab(i[d+1].id)}))}renderTabContent(){switch(this.activeTab){case"tab1":return`
           <div class="space-y-4">
             <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-950 dark:text-emerald-200">
               <h3 class="text-lg sm:text-xl font-black mb-2 flex items-start sm:items-center gap-2.5 leading-snug">
-                <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.sparkles?n.sparkles("w-6 h-6"):"★"}</span>
+                <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${o.sparkles?o.sparkles("w-6 h-6"):"★"}</span>
                 <span>${s.t("guide:tab1_content.title")}</span>
               </h3>
               <p class="text-sm sm:text-base leading-relaxed">${s.t("guide:tab1_content.intro")}</p>
@@ -272,7 +272,7 @@
           <div class="space-y-4">
             <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-950 dark:text-emerald-200">
               <h3 class="text-lg sm:text-xl font-black flex items-start sm:items-center gap-2.5 leading-snug">
-                <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.plusCircle?n.plusCircle("w-6 h-6"):""}</span>
+                <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${o.plusCircle?o.plusCircle("w-6 h-6"):""}</span>
                 <span>${s.t("guide:tab2_content.title")}</span>
               </h3>
             </div>
@@ -314,7 +314,7 @@
         `;case"tab3":return`
           <div class="space-y-4">
             <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
-              <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.folder?n.folder("w-6 h-6"):""}</span>
+              <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${o.folder?o.folder("w-6 h-6"):""}</span>
               <span>${s.t("guide:tab3_content.title")}</span>
             </h3>
 
@@ -328,19 +328,19 @@
               <ul class="space-y-2.5 text-sm sm:text-base">
                 <li class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-3">
                   <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                    ${n.eye?n.eye("w-4 h-4"):""}
+                    ${o.eye?o.eye("w-4 h-4"):""}
                   </span>
                   <span>${s.t("guide:tab3_content.action_view")}</span>
                 </li>
                 <li class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-3">
                   <span class="w-7 h-7 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                    ${n.qrCode?n.qrCode("w-4 h-4"):""}
+                    ${o.qrCode?o.qrCode("w-4 h-4"):""}
                   </span>
                   <span>${s.t("guide:tab3_content.action_qr")}</span>
                 </li>
                 <li class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-white/5 font-medium flex items-start sm:items-center gap-3">
                   <span class="w-7 h-7 rounded-xl bg-rose-500/15 text-rose-500 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                    ${n.trash?n.trash("w-4 h-4"):""}
+                    ${o.trash?o.trash("w-4 h-4"):""}
                   </span>
                   <span>${s.t("guide:tab3_content.action_del")}</span>
                 </li>
@@ -355,13 +355,13 @@
         `;case"tab4":return`
           <div class="space-y-4">
             <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
-              <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.devicePhoneMobile?n.devicePhoneMobile("w-6 h-6"):""}</span>
+              <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${o.devicePhoneMobile?o.devicePhoneMobile("w-6 h-6"):""}</span>
               <span>${s.t("guide:tab4_content.title")}</span>
             </h3>
 
             <div class="p-4 sm:p-5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 space-y-2 text-cyan-950 dark:text-cyan-200">
               <h4 class="font-black text-base sm:text-lg uppercase tracking-wide flex items-center gap-2.5">
-                <span class="w-5 h-5 text-cyan-500">${n.userSlash?n.userSlash("w-5 h-5"):""}</span>
+                <span class="w-5 h-5 text-cyan-500">${o.userSlash?o.userSlash("w-5 h-5"):""}</span>
                 <span>${s.t("guide:tab4_content.consumer_title")}</span>
               </h4>
               <p class="text-sm sm:text-[15px] leading-relaxed">${s.t("guide:tab4_content.consumer_desc")}</p>
@@ -369,7 +369,7 @@
 
             <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 space-y-2 text-emerald-950 dark:text-emerald-200">
               <h4 class="font-black text-base sm:text-lg uppercase tracking-wide flex items-center gap-2.5">
-                <span class="w-5 h-5 text-emerald-500">${n.shieldCheck?n.shieldCheck("w-5 h-5"):""}</span>
+                <span class="w-5 h-5 text-emerald-500">${o.shieldCheck?o.shieldCheck("w-5 h-5"):""}</span>
                 <span>${s.t("guide:tab4_content.customs_title")}</span>
               </h4>
               <p class="text-sm sm:text-[15px] leading-relaxed">${s.t("guide:tab4_content.customs_desc")}</p>
@@ -378,7 +378,7 @@
         `;case"tab5":return`
           <div class="space-y-4">
             <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-start sm:items-center gap-2.5 leading-snug">
-              <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${n.shieldCheck?n.shieldCheck("w-6 h-6"):""}</span>
+              <span class="w-6 h-6 flex items-center text-emerald-500 shrink-0 mt-0.5 sm:mt-0">${o.shieldCheck?o.shieldCheck("w-6 h-6"):""}</span>
               <span>${s.t("guide:tab5_content.title")}</span>
             </h3>
 
@@ -397,7 +397,7 @@
               <p class="text-sm sm:text-[15px] leading-relaxed">${s.t("guide:tab5_content.wipe_desc")}</p>
             </div>
           </div>
-        `;default:return""}}}new H;const T="EQNTHLAVHUL52",k=[{id:"passq_starter_monthly",nameKey:"starter",name:"Starter Plan",price:"$19.99 USD",amount:"19.99",period:"/ mes",trialDays:7},{id:"passq_growth_monthly",nameKey:"growth",name:"Growth Plan",price:"$39.99 USD",amount:"39.99",period:"/ mes",recommended:!0,trialDays:7},{id:"passq_scale_monthly",nameKey:"scale",name:"Scale Plan",price:"$99.99 USD",amount:"99.99",period:"/ mes",trialDays:7}];class y{constructor(){this.initTrial()}initTrial(){if(typeof window>"u")return;let e=localStorage.getItem("passq_trial_start");e||(e=Date.now().toString(),localStorage.setItem("passq_trial_start",e))}getTrialStatus(){if(typeof window>"u")return{day:1,daysRemaining:7,isTrialActive:!0,isSubscribed:!1};const e=localStorage.getItem("passq_play_subscription_active")==="true",a=localStorage.getItem("passq_play_subscription_plan")||"growth";let o=localStorage.getItem("passq_trial_start");o||(o=Date.now().toString(),localStorage.setItem("passq_trial_start",o));const r=Date.now()-parseInt(o,10),l=Math.min(7,Math.max(1,Math.floor(r/(1e3*60*60*24))+1)),i=Math.max(0,7-Math.floor(r/(1e3*60*60*24))),d=i>0;return{day:l,daysRemaining:i,isTrialActive:d,isSubscribed:e,activePlan:a,isAccessGranted:d||e}}async launchGooglePlayPurchase(e="passq_growth_monthly"){if("getDigitalGoodsService"in window)try{const o=await window.getDigitalGoodsService("https://play.google.com/billing");if(o){const r=await o.getDetails([e]);if(r&&r.length>0){const l=[{supportedMethods:"https://play.google.com/billing",data:{sku:e}}];return await(await new PaymentRequest(l).show()).complete("success"),localStorage.setItem("passq_play_subscription_active","true"),localStorage.setItem("passq_play_subscription_plan",e),{success:!0,method:"digital_goods_api"}}}}catch(o){console.warn("Google Play Digital Goods API flow:",o)}return window.open("https://play.google.com/store/account/subscriptions","_blank","noopener,noreferrer"),{success:!0,method:"play_store_external"}}launchPayPalPurchase(e="passq_growth_monthly"){const a=k.find(m=>m.id===e)||k[1],r=(typeof window<"u"?window.location.href:"https://betoles.github.io/PassQ/").split("?")[0].split("#")[0],l=r.replace(/\/[^/]*$/,"/app.html?billing=paypal_success"),i=r.replace(/\/[^/]*$/,"/app.html?billing=paypal_cancel"),h=`https://www.paypal.com/cgi-bin/webscr?${new URLSearchParams({cmd:"_xclick-subscriptions",business:T,item_name:`PassQ DPP - ${a.name} ($${a.amount} USD/mo)`,item_number:a.id,no_shipping:"1",no_note:"1",currency_code:"USD",a3:a.amount,p3:"1",t3:"M",src:"1",sra:"1",return:l,cancel_return:i}).toString()}`;return window.open(h,"_blank","noopener,noreferrer"),{success:!0,method:"paypal_web",url:h}}}class q{constructor(){this.modalEl=null,this.isOpen=!1,this.billing=new y,this.selectedPlan="passq_growth_monthly",this.init()}init(){typeof document>"u"||(document.addEventListener("click",e=>{const a=e.target.closest("#btn-open-subscription-modal, [data-open-subscription-modal]");if(a){e.preventDefault();const o=a.getAttribute("data-plan")||"passq_growth_monthly";this.open(o)}}),document.addEventListener("keydown",e=>{e.key==="Escape"&&this.isOpen&&this.close()}),s.onLanguageChange(async()=>{this.isOpen&&(await s.loadNamespaces(["common"]),this.render())}))}async open(e="passq_growth_monthly"){this.selectedPlan=e,await s.loadNamespaces(["common"]),this.isOpen=!0,this.render(),document.body.classList.add("overflow-hidden")}close(){this.isOpen=!1,this.modalEl&&(this.modalEl.classList.add("opacity-0","pointer-events-none"),setTimeout(()=>{!this.isOpen&&this.modalEl&&(this.modalEl.remove(),this.modalEl=null)},200)),document.body.classList.remove("overflow-hidden")}render(){let e=document.getElementById("passq-subscription-modal-root");e||(e=document.createElement("div"),e.id="passq-subscription-modal-root",document.body.appendChild(e)),this.modalEl=e;const a=this.billing.getTrialStatus(),o=s.t("common:billing.badge","Google Play & PayPal • 7 Días de Prueba Gratis"),r=s.t("common:billing.title","Suscripciones Oficiales PassQ"),l=s.t("common:billing.subtitle","Suscríbete con total seguridad a través de Google Play Store (móvil) o directamente con PayPal / Tarjeta de débito o crédito (web y computadoras)."),i=s.t("common:billing.trial_badge","7D"),d=s.t("common:billing.trial_status_active","Estado de Prueba Actual: Día {day} de 7 ({remaining} días restantes)"),h=s.t("common:billing.trial_status_ended","Prueba Concluida"),m=a.isTrialActive?d.replace("{day}",a.day).replace("{remaining}",a.daysRemaining):h,c=s.t("common:billing.trial_desc","Tienes acceso completo e ilimitado a todas las herramientas Pro. Al suscribirte ahora, no se te cobrará nada hasta terminar tus 7 días de prueba."),u=s.t("common:billing.founder_rate","Tarifa Fundador"),v=s.t("common:billing.features.days_free","✓ 7 Días Gratis"),f=s.t("common:billing.features.play_billing","✓ Google Play / PayPal"),w=s.t("common:billing.guarantees_title","Garantías y Seguridad Oficial:"),g=s.t("common:billing.guarantee_1","Google Play Store: Facturación oficial respaldada por Google con comprobante fiscal."),b=s.t("common:billing.guarantee_2_prefix","PayPal Seguro: Protección al comprador. Paga con saldo PayPal o tarjeta de débito/crédito."),$=s.t("common:billing.guarantee_3","Cero almacenamiento de datos bancarios o tarjetas en servidores de PassQ."),_=s.t("common:billing.btn_subscribe_play_main","Google Play Store"),M=s.t("common:billing.btn_subscribe_play_sub","(App Android • 7 Días Gratis)"),C=s.t("common:billing.btn_subscribe_paypal_main","Pagar con PayPal / Tarjeta"),L=s.t("common:billing.btn_subscribe_paypal_sub","(Web & PC • Activación Inmediata)"),S=s.t("common:buttons.close","Cerrar");e.className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md transition-opacity duration-200",e.innerHTML=`
+        `;default:return""}}}new H;const q="EQNTHLAVHUL52",k=[{id:"passq_starter_monthly",nameKey:"starter",name:"Starter Plan",price:"$19.99 USD",amount:"19.99",period:"/ mes",trialDays:7},{id:"passq_growth_monthly",nameKey:"growth",name:"Growth Plan",price:"$39.99 USD",amount:"39.99",period:"/ mes",recommended:!0,trialDays:7},{id:"passq_scale_monthly",nameKey:"scale",name:"Scale Plan",price:"$99.99 USD",amount:"99.99",period:"/ mes",trialDays:7}];class y{constructor(){}startTrial(){typeof window>"u"||localStorage.getItem("passq_trial_start")||localStorage.setItem("passq_trial_start",Date.now().toString())}getTrialStatus(){if(typeof window>"u")return{day:1,daysRemaining:7,isTrialActive:!0,isTrialStarted:!1,isSubscribed:!1};const e=localStorage.getItem("passq_play_subscription_active")==="true",a=localStorage.getItem("passq_play_subscription_plan")||"growth",n=localStorage.getItem("passq_trial_start");if(!n)return{day:0,daysRemaining:7,isTrialActive:!0,isTrialStarted:!1,isSubscribed:e,activePlan:a,isAccessGranted:!0};const r=Date.now()-parseInt(n,10),l=Math.min(7,Math.max(1,Math.floor(r/(1e3*60*60*24))+1)),i=Math.max(0,7-Math.floor(r/(1e3*60*60*24))),d=i>0;return{day:l,daysRemaining:i,isTrialActive:d,isTrialStarted:!0,isSubscribed:e,activePlan:a,isAccessGranted:d||e}}async launchGooglePlayPurchase(e="passq_growth_monthly"){if("getDigitalGoodsService"in window)try{const n=await window.getDigitalGoodsService("https://play.google.com/billing");if(n){const r=await n.getDetails([e]);if(r&&r.length>0){const l=[{supportedMethods:"https://play.google.com/billing",data:{sku:e}}];return await(await new PaymentRequest(l).show()).complete("success"),localStorage.setItem("passq_play_subscription_active","true"),localStorage.setItem("passq_play_subscription_plan",e),{success:!0,method:"digital_goods_api"}}}}catch(n){console.warn("Google Play Digital Goods API flow:",n)}return window.open("https://play.google.com/store/account/subscriptions","_blank","noopener,noreferrer"),{success:!0,method:"play_store_external"}}launchPayPalPurchase(e="passq_growth_monthly"){const a=k.find(m=>m.id===e)||k[1],r=(typeof window<"u"?window.location.href:"https://betoles.github.io/PassQ/").split("?")[0].split("#")[0],l=r.replace(/\/[^/]*$/,"/app.html?billing=paypal_success"),i=r.replace(/\/[^/]*$/,"/app.html?billing=paypal_cancel"),p=`https://www.paypal.com/cgi-bin/webscr?${new URLSearchParams({cmd:"_xclick-subscriptions",business:q,item_name:`PassQ DPP - ${a.name} ($${a.amount} USD/mo)`,item_number:a.id,no_shipping:"1",no_note:"1",currency_code:"USD",a3:a.amount,p3:"1",t3:"M",src:"1",sra:"1",return:l,cancel_return:i}).toString()}`;return window.open(p,"_blank","noopener,noreferrer"),{success:!0,method:"paypal_web",url:p}}}class Z{constructor(){this.modalEl=null,this.isOpen=!1,this.billing=new y,this.selectedPlan="passq_growth_monthly",this.init()}init(){typeof document>"u"||(document.addEventListener("click",e=>{const a=e.target.closest("#btn-open-subscription-modal, [data-open-subscription-modal]");if(a){e.preventDefault();const n=a.getAttribute("data-plan")||"passq_growth_monthly";this.open(n)}}),document.addEventListener("keydown",e=>{e.key==="Escape"&&this.isOpen&&this.close()}),s.onLanguageChange(async()=>{this.isOpen&&(await s.loadNamespaces(["common"]),this.render())}))}async open(e="passq_growth_monthly"){this.selectedPlan=e,await s.loadNamespaces(["common"]),this.isOpen=!0,this.render(),document.body.classList.add("overflow-hidden")}close(){this.isOpen=!1,this.modalEl&&(this.modalEl.classList.add("opacity-0","pointer-events-none"),setTimeout(()=>{!this.isOpen&&this.modalEl&&(this.modalEl.remove(),this.modalEl=null)},200)),document.body.classList.remove("overflow-hidden")}render(){let e=document.getElementById("passq-subscription-modal-root");e||(e=document.createElement("div"),e.id="passq-subscription-modal-root",document.body.appendChild(e)),this.modalEl=e;const a=this.billing.getTrialStatus(),n=s.t("common:billing.badge","Google Play & PayPal • 7 Días de Prueba Gratis"),r=s.t("common:billing.title","Suscripciones Oficiales PassQ"),l=s.t("common:billing.subtitle","Suscríbete con total seguridad a través de Google Play Store (móvil) o directamente con PayPal / Tarjeta de débito o crédito (web y computadoras)."),i=s.t("common:billing.trial_badge","7D"),d=s.t("common:billing.trial_status_active","Estado de Prueba Actual: Día {day} de 7 ({remaining} días restantes)"),p=s.t("common:billing.trial_status_ready","Prueba de 7 Días Disponible (Inicia con tu 1er pasaporte)"),m=s.t("common:billing.trial_status_ended","Prueba Concluida");let c=p,h=s.t("common:billing.trial_desc_ready","Tu prueba gratuita de 7 días se activará automáticamente cuando crees tu primer pasaporte digital.");a.isTrialStarted&&(a.isTrialActive?(c=d.replace("{day}",a.day).replace("{remaining}",a.daysRemaining),h=s.t("common:billing.trial_desc","Tienes acceso completo e ilimitado a todas las herramientas Pro. Al suscribirte ahora, no se te cobrará nada hasta terminar tus 7 días de prueba.")):(c=m,h=s.t("common:billing.trial_desc_ended","Tu periodo de prueba ha finalizado. Suscríbete para continuar emitiendo y gestionando pasaportes digitales.")));const v=s.t("common:billing.founder_rate","Tarifa Fundador"),f=s.t("common:billing.features.days_free","✓ 7 Días Gratis"),w=s.t("common:billing.features.play_billing","✓ Google Play / PayPal"),g=s.t("common:billing.guarantees_title","Garantías y Seguridad Oficial:"),b=s.t("common:billing.guarantee_1","Google Play Store: Facturación oficial respaldada por Google con comprobante fiscal."),$=s.t("common:billing.guarantee_2_prefix","PayPal Seguro: Protección al comprador. Paga con saldo PayPal o tarjeta de débito/crédito."),_=s.t("common:billing.guarantee_3","Cero almacenamiento de datos bancarios o tarjetas en servidores de PassQ."),M=s.t("common:billing.btn_subscribe_play_main","Google Play Store"),C=s.t("common:billing.btn_subscribe_play_sub","(App Android • 7 Días Gratis)"),L=s.t("common:billing.btn_subscribe_paypal_main","Pagar con PayPal / Tarjeta"),S=s.t("common:billing.btn_subscribe_paypal_sub","(Web & PC • Activación Inmediata)"),A=s.t("common:buttons.close","Cerrar");e.className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md transition-opacity duration-200",e.innerHTML=`
       <div id="subscription-modal-backdrop" class="absolute inset-0"></div>
 
       <div class="relative w-full max-w-2xl max-h-[88vh] max-h-[88dvh] overflow-y-auto overscroll-contain rounded-3xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200 dark:border-white/15 shadow-2xl p-5 sm:p-8 backdrop-blur-2xl z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col gap-5">
@@ -405,12 +405,12 @@
         <!-- Header -->
         <div class="flex items-center justify-between">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-black tracking-wide">
-            <span class="w-4 h-4 flex items-center">${n.shieldCheck?n.shieldCheck("w-4 h-4"):"🛡️"}</span>
-            <span>${o}</span>
+            <span class="w-4 h-4 flex items-center">${o.shieldCheck?o.shieldCheck("w-4 h-4"):"🛡️"}</span>
+            <span>${n}</span>
           </div>
 
-          <button id="btn-close-sub-modal" type="button" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-500 dark:text-slate-300 flex items-center justify-center transition cursor-pointer" aria-label="${S}">
-            ${n.close?n.close("w-5 h-5"):"✕"}
+          <button id="btn-close-sub-modal" type="button" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-500 dark:text-slate-300 flex items-center justify-center transition cursor-pointer" aria-label="${A}">
+            ${o.close?o.close("w-5 h-5"):"✕"}
           </button>
         </div>
 
@@ -430,28 +430,28 @@
             ${i}
           </div>
           <div class="text-xs sm:text-sm">
-            <div class="font-extrabold text-slate-900 dark:text-white">${m}</div>
-            <div class="text-slate-600 dark:text-slate-300 mt-0.5 font-medium">${c}</div>
+            <div class="font-extrabold text-slate-900 dark:text-white">${c}</div>
+            <div class="text-slate-600 dark:text-slate-300 mt-0.5 font-medium">${h}</div>
           </div>
         </div>
 
         <!-- Plan Selection Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-          ${k.map(p=>{const A=this.selectedPlan===p.id,j=s.t(`common:billing.plans.${p.nameKey}.name`,p.nameKey.toUpperCase()),P=s.t(`common:billing.plans.${p.nameKey}.limit`,"PassQ Pro");return`
-              <div data-plan-select="${p.id}" class="p-4 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between relative select-none ${A?"border-emerald-500 bg-emerald-500/10 shadow-lg shadow-emerald-500/10":"border-slate-200/80 dark:border-white/10 bg-slate-50 dark:bg-white/5 hover:border-slate-300 dark:hover:border-white/20"}">
-                ${p.recommended?`
+          ${k.map(u=>{const j=this.selectedPlan===u.id,P=s.t(`common:billing.plans.${u.nameKey}.name`,u.nameKey.toUpperCase()),E=s.t(`common:billing.plans.${u.nameKey}.limit`,"PassQ Pro");return`
+              <div data-plan-select="${u.id}" class="p-4 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between relative select-none ${j?"border-emerald-500 bg-emerald-500/10 shadow-lg shadow-emerald-500/10":"border-slate-200/80 dark:border-white/10 bg-slate-50 dark:bg-white/5 hover:border-slate-300 dark:hover:border-white/20"}">
+                ${u.recommended?`
                   <span class="absolute -top-2.5 right-3 text-[10px] font-black px-2.5 py-0.5 rounded-full bg-emerald-500 text-white uppercase tracking-wider">
-                    ${u}
+                    ${v}
                   </span>
                 `:""}
                 <div class="space-y-1.5">
-                  <div class="text-xs font-black uppercase text-slate-500 dark:text-slate-400">${j}</div>
-                  <div class="text-lg sm:text-xl font-black text-slate-900 dark:text-white">${p.price}</div>
-                  <div class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 font-mono">${P}</div>
+                  <div class="text-xs font-black uppercase text-slate-500 dark:text-slate-400">${P}</div>
+                  <div class="text-lg sm:text-xl font-black text-slate-900 dark:text-white">${u.price}</div>
+                  <div class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 font-mono">${E}</div>
                 </div>
                 <div class="mt-3 pt-2 border-t border-slate-200/60 dark:border-white/10 text-[11px] text-slate-600 dark:text-slate-300 font-medium space-y-1">
-                  <div>${v}</div>
                   <div>${f}</div>
+                  <div>${w}</div>
                 </div>
               </div>
             `}).join("")}
@@ -460,13 +460,13 @@
         <!-- Guarantees & Trust -->
         <div class="p-3.5 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-xs text-slate-600 dark:text-slate-300 space-y-1.5">
           <div class="flex items-center gap-2 font-bold text-slate-900 dark:text-white">
-            <span class="w-4 h-4 text-emerald-500">${n.shieldCheck?n.shieldCheck("w-4 h-4"):"✓"}</span>
-            <span>${w}</span>
+            <span class="w-4 h-4 text-emerald-500">${o.shieldCheck?o.shieldCheck("w-4 h-4"):"✓"}</span>
+            <span>${g}</span>
           </div>
           <ul class="list-disc pl-5 space-y-1 leading-relaxed text-[11.5px]">
-            <li>${g}</li>
             <li>${b}</li>
             <li>${$}</li>
+            <li>${_}</li>
           </ul>
         </div>
 
@@ -475,29 +475,29 @@
           
           <!-- PayPal / Card Button (Web & PC Primary) -->
           <button id="btn-confirm-paypal-subscribe" type="button" class="flex-1 min-h-[58px] py-3.5 px-4 rounded-2xl bg-[#0070ba] hover:bg-[#005ea6] text-white shadow-xl shadow-blue-600/25 transition active:scale-[0.98] flex items-center justify-center gap-3 cursor-pointer">
-            <span class="w-6 h-6 flex items-center shrink-0 text-white">${n.paypal?n.paypal("w-6 h-6"):"🅿"}</span>
+            <span class="w-6 h-6 flex items-center shrink-0 text-white">${o.paypal?o.paypal("w-6 h-6"):"🅿"}</span>
             <div class="flex flex-col items-center sm:items-start text-center sm:text-left leading-tight">
-              <span class="font-black text-sm sm:text-base tracking-tight">${C}</span>
-              <span class="text-xs font-bold text-blue-100 opacity-95">${L}</span>
+              <span class="font-black text-sm sm:text-base tracking-tight">${L}</span>
+              <span class="text-xs font-bold text-blue-100 opacity-95">${S}</span>
             </div>
           </button>
 
           <!-- Google Play Button (Mobile / TWA Primary) -->
           <button id="btn-confirm-play-subscribe" type="button" class="flex-1 min-h-[58px] py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-xl shadow-emerald-600/25 transition active:scale-[0.98] flex items-center justify-center gap-3 cursor-pointer">
-            <span class="w-6 h-6 flex items-center shrink-0">${n.googlePlay?n.googlePlay("w-6 h-6"):"▶"}</span>
+            <span class="w-6 h-6 flex items-center shrink-0">${o.googlePlay?o.googlePlay("w-6 h-6"):"▶"}</span>
             <div class="flex flex-col items-center sm:items-start text-center sm:text-left leading-tight">
-              <span class="font-black text-sm sm:text-base tracking-tight">${_}</span>
-              <span class="text-xs font-bold text-emerald-100 opacity-95">${M}</span>
+              <span class="font-black text-sm sm:text-base tracking-tight">${M}</span>
+              <span class="text-xs font-bold text-emerald-100 opacity-95">${C}</span>
             </div>
           </button>
 
         </div>
 
       </div>
-    `,e.querySelector("#subscription-modal-backdrop")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-close-sub-modal")?.addEventListener("click",()=>this.close()),e.querySelectorAll("[data-plan-select]").forEach(p=>{p.addEventListener("click",()=>{this.selectedPlan=p.getAttribute("data-plan-select"),this.render()})}),e.querySelector("#btn-confirm-paypal-subscribe")?.addEventListener("click",()=>{this.billing.launchPayPalPurchase(this.selectedPlan),this.close()}),e.querySelector("#btn-confirm-play-subscribe")?.addEventListener("click",async()=>{await this.billing.launchGooglePlayPurchase(this.selectedPlan),this.close()})}}new y;const I=new q,x=[{code:"es",short:"ES",name:"Español"},{code:"en",short:"EN",name:"English"},{code:"de",short:"DE",name:"Deutsch"},{code:"fr",short:"FR",name:"Français"},{code:"it",short:"IT",name:"Italiano"},{code:"pt",short:"PT",name:"Português"},{code:"zh",short:"ZH",name:"中文"}];class Z{constructor(e="#lang-select"){this.target=typeof e=="string"?document.querySelector(e):e,this.container=null,this.isOpen=!1,this.init()}init(){const e=document.getElementById("custom-lang-dropdown-wrapper");if(e){this.container=e,this.updateActiveState(s.currentLanguage);return}if(!this.target)return;const a=this.target.parentElement;!a||!a.parentElement||(this.container=document.createElement("div"),this.container.className="relative inline-block text-left z-50 shrink-0",this.container.id="custom-lang-dropdown-wrapper",a.parentElement.replaceChild(this.container,a),this.render(),this.setupListeners(),s.onLanguageChange(o=>{this.updateActiveState(o)}))}render(){const e=s.currentLanguage||"es",a=x.find(r=>r.code===e)||x[0],o=n[`flag_${a.code}`]?n[`flag_${a.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0"):"";this.container.innerHTML=`
+    `,e.querySelector("#subscription-modal-backdrop")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-close-sub-modal")?.addEventListener("click",()=>this.close()),e.querySelectorAll("[data-plan-select]").forEach(u=>{u.addEventListener("click",()=>{this.selectedPlan=u.getAttribute("data-plan-select"),this.render()})}),e.querySelector("#btn-confirm-paypal-subscribe")?.addEventListener("click",()=>{this.billing.launchPayPalPurchase(this.selectedPlan),this.close()}),e.querySelector("#btn-confirm-play-subscribe")?.addEventListener("click",async()=>{await this.billing.launchGooglePlayPurchase(this.selectedPlan),this.close()})}}const O=new y,N=new Z,x=[{code:"es",short:"ES",name:"Español"},{code:"en",short:"EN",name:"English"},{code:"de",short:"DE",name:"Deutsch"},{code:"fr",short:"FR",name:"Français"},{code:"it",short:"IT",name:"Italiano"},{code:"pt",short:"PT",name:"Português"},{code:"zh",short:"ZH",name:"中文"}];class D{constructor(e="#lang-select"){this.target=typeof e=="string"?document.querySelector(e):e,this.container=null,this.isOpen=!1,this.init()}init(){const e=document.getElementById("custom-lang-dropdown-wrapper");if(e){this.container=e,this.updateActiveState(s.currentLanguage);return}if(!this.target)return;const a=this.target.parentElement;!a||!a.parentElement||(this.container=document.createElement("div"),this.container.className="relative inline-block text-left z-50 shrink-0",this.container.id="custom-lang-dropdown-wrapper",a.parentElement.replaceChild(this.container,a),this.render(),this.setupListeners(),s.onLanguageChange(n=>{this.updateActiveState(n)}))}render(){const e=s.currentLanguage||"es",a=x.find(r=>r.code===e)||x[0],n=o[`flag_${a.code}`]?o[`flag_${a.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0"):"";this.container.innerHTML=`
       <!-- Encapsulated Trigger Button -->
       <button id="custom-lang-btn" type="button" class="h-10 sm:h-11 px-2.5 sm:px-3.5 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm backdrop-blur-md hover:bg-white dark:hover:bg-slate-800 active:scale-95 text-slate-800 dark:text-slate-100 flex items-center gap-1.5 sm:gap-2 transition cursor-pointer select-none shrink-0 whitespace-nowrap" aria-haspopup="true" aria-expanded="false">
-        <span id="custom-lang-current-flag" class="flex items-center shrink-0">${o}</span>
+        <span id="custom-lang-current-flag" class="flex items-center shrink-0">${n}</span>
         <span id="custom-lang-current-label" class="text-xs sm:text-sm font-bold uppercase tracking-wider">${a.short}</span>
         <span class="icon-svg w-3.5 h-3.5 text-slate-400 transition-transform duration-200" id="custom-lang-chevron">
           <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
@@ -507,7 +507,7 @@
       <!-- Anchored Absolute Dropdown Menu (Anchored to right, expanding to left) -->
       <div id="custom-lang-menu" class="hidden opacity-0 scale-95 transition-all duration-150 ease-out absolute right-0 top-full mt-2 w-48 sm:w-52 p-1.5 rounded-2xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200/90 dark:border-white/15 shadow-2xl backdrop-blur-2xl z-[9999] origin-top-right">
         <div class="space-y-1" role="menu" aria-orientation="vertical">
-          ${x.map(r=>{const l=r.code===e,i=n[`flag_${r.code}`]?n[`flag_${r.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0"):"";return`
+          ${x.map(r=>{const l=r.code===e,i=o[`flag_${r.code}`]?o[`flag_${r.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0"):"";return`
               <button type="button" data-lang-code="${r.code}" class="lang-option-btn w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none ${l?"bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20":"text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent"}">
                 <div class="flex items-center gap-2.5">
                   <span class="flex items-center shrink-0">${i}</span>
@@ -525,10 +525,10 @@
             `}).join("")}
         </div>
       </div>
-    `}setupListeners(){const e=this.container.querySelector("#custom-lang-btn"),a=this.container.querySelector("#custom-lang-menu");!e||!a||(e.addEventListener("click",o=>{o.stopPropagation(),this.toggleMenu()}),a.addEventListener("click",o=>{const r=o.target.closest(".lang-option-btn");if(!r)return;o.stopPropagation();const l=r.getAttribute("data-lang-code");l&&(s.setLanguage(l),this.closeMenu())}),document.addEventListener("click",o=>{this.isOpen&&!this.container.contains(o.target)&&this.closeMenu()}),document.addEventListener("keydown",o=>{o.key==="Escape"&&this.isOpen&&this.closeMenu()}))}toggleMenu(){this.isOpen?this.closeMenu():this.openMenu()}openMenu(){const e=this.container?.querySelector("#custom-lang-menu"),a=this.container?.querySelector("#custom-lang-chevron"),o=this.container?.querySelector("#custom-lang-btn");if(!e)return;this.isOpen=!0,this.container&&(this.container.style.zIndex="9999");const r=this.container.closest("header")||this.container.closest(".glass-card");r&&(r.style.zIndex="999"),e.classList.remove("hidden"),o&&o.setAttribute("aria-expanded","true"),requestAnimationFrame(()=>{const l=e.getBoundingClientRect();l.left<8?(e.classList.remove("right-0","origin-top-right"),e.classList.add("left-0","origin-top-left")):l.right>window.innerWidth-8&&(e.classList.remove("left-0","origin-top-left"),e.classList.add("right-0","origin-top-right")),e.classList.remove("opacity-0","scale-95"),e.classList.add("opacity-100","scale-100"),a&&a.classList.add("rotate-180")})}closeMenu(){const e=this.container?.querySelector("#custom-lang-menu"),a=this.container?.querySelector("#custom-lang-chevron"),o=this.container?.querySelector("#custom-lang-btn");e&&(this.isOpen=!1,o&&o.setAttribute("aria-expanded","false"),e.classList.remove("opacity-100","scale-100"),e.classList.add("opacity-0","scale-95"),a&&a.classList.remove("rotate-180"),setTimeout(()=>{if(!this.isOpen){e.classList.add("hidden"),this.container&&(this.container.style.zIndex="");const r=this.container?.closest("header")||this.container?.closest(".glass-card");r&&(r.style.zIndex="")}},150))}updateActiveState(e){const a=x.find(i=>i.code===e)||x[0],o=this.container?.querySelector("#custom-lang-current-flag"),r=this.container?.querySelector("#custom-lang-current-label");o&&n[`flag_${a.code}`]&&(o.innerHTML=n[`flag_${a.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0")),r&&(r.textContent=a.short);const l=this.container?.querySelector("#custom-lang-menu > div");l&&(l.innerHTML=x.map(i=>{const d=i.code===e,h=n[`flag_${i.code}`]?n[`flag_${i.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0"):"";return`
+    `}setupListeners(){const e=this.container.querySelector("#custom-lang-btn"),a=this.container.querySelector("#custom-lang-menu");!e||!a||(e.addEventListener("click",n=>{n.stopPropagation(),this.toggleMenu()}),a.addEventListener("click",n=>{const r=n.target.closest(".lang-option-btn");if(!r)return;n.stopPropagation();const l=r.getAttribute("data-lang-code");l&&(s.setLanguage(l),this.closeMenu())}),document.addEventListener("click",n=>{this.isOpen&&!this.container.contains(n.target)&&this.closeMenu()}),document.addEventListener("keydown",n=>{n.key==="Escape"&&this.isOpen&&this.closeMenu()}))}toggleMenu(){this.isOpen?this.closeMenu():this.openMenu()}openMenu(){const e=this.container?.querySelector("#custom-lang-menu"),a=this.container?.querySelector("#custom-lang-chevron"),n=this.container?.querySelector("#custom-lang-btn");if(!e)return;this.isOpen=!0,this.container&&(this.container.style.zIndex="9999");const r=this.container.closest("header")||this.container.closest(".glass-card");r&&(r.style.zIndex="999"),e.classList.remove("hidden"),n&&n.setAttribute("aria-expanded","true"),requestAnimationFrame(()=>{const l=e.getBoundingClientRect();l.left<8?(e.classList.remove("right-0","origin-top-right"),e.classList.add("left-0","origin-top-left")):l.right>window.innerWidth-8&&(e.classList.remove("left-0","origin-top-left"),e.classList.add("right-0","origin-top-right")),e.classList.remove("opacity-0","scale-95"),e.classList.add("opacity-100","scale-100"),a&&a.classList.add("rotate-180")})}closeMenu(){const e=this.container?.querySelector("#custom-lang-menu"),a=this.container?.querySelector("#custom-lang-chevron"),n=this.container?.querySelector("#custom-lang-btn");e&&(this.isOpen=!1,n&&n.setAttribute("aria-expanded","false"),e.classList.remove("opacity-100","scale-100"),e.classList.add("opacity-0","scale-95"),a&&a.classList.remove("rotate-180"),setTimeout(()=>{if(!this.isOpen){e.classList.add("hidden"),this.container&&(this.container.style.zIndex="");const r=this.container?.closest("header")||this.container?.closest(".glass-card");r&&(r.style.zIndex="")}},150))}updateActiveState(e){const a=x.find(i=>i.code===e)||x[0],n=this.container?.querySelector("#custom-lang-current-flag"),r=this.container?.querySelector("#custom-lang-current-label");n&&o[`flag_${a.code}`]&&(n.innerHTML=o[`flag_${a.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0")),r&&(r.textContent=a.short);const l=this.container?.querySelector("#custom-lang-menu > div");l&&(l.innerHTML=x.map(i=>{const d=i.code===e,p=o[`flag_${i.code}`]?o[`flag_${i.code}`]("w-4 h-3 rounded-xs shadow-xs shrink-0"):"";return`
           <button type="button" data-lang-code="${i.code}" class="lang-option-btn w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none ${d?"bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20":"text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent"}">
             <div class="flex items-center gap-2.5">
-              <span class="flex items-center shrink-0">${h}</span>
+              <span class="flex items-center shrink-0">${p}</span>
               <span>${i.name}</span>
             </div>
             <div class="flex items-center gap-1.5">
@@ -540,11 +540,11 @@
               `:""}
             </div>
           </button>
-        `}).join(""))}}class D{constructor(){this.currentTheme=localStorage.getItem("passq_theme")||"dark",this.init()}init(){this.applyTheme(this.currentTheme),typeof document<"u"&&(document.readyState==="loading"?document.addEventListener("DOMContentLoaded",()=>{this.updateIconSlots(),this.initLanguageDropdown()}):(this.updateIconSlots(),this.initLanguageDropdown())),typeof window<"u"&&"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("./sw.js").catch(e=>{console.debug("ServiceWorker registration optional:",e)})}),window.matchMedia?.("(prefers-color-scheme: dark)")?.addEventListener("change",e=>{localStorage.getItem("passq_theme")||this.applyTheme(e.matches?"dark":"light")})}initLanguageDropdown(e="#lang-select"){typeof document<"u"&&document.querySelector(e)&&new Z(e)}updateIconSlots(){const e=document.documentElement.classList.contains("dark");document.querySelectorAll("#theme-icon-slot, [data-theme-icon]").forEach(o=>{o.innerHTML=e?n.sun("w-5 h-5"):n.moon("w-5 h-5")})}applyTheme(e){if(this.currentTheme=e,localStorage.setItem("passq_theme",e),e==="dark")document.documentElement.classList.add("dark");else if(e==="light")document.documentElement.classList.remove("dark");else{const a=window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",a)}this.updateIconSlots()}toggleTheme(){const a=document.documentElement.classList.contains("dark")?"light":"dark";return this.applyTheme(a),a}}class V{constructor(){this.modalEl=null,this.isOpen=!1,this.init()}init(){typeof document>"u"||(document.addEventListener("click",e=>{e.target.closest("#btn-open-contact-modal, [data-open-contact-modal]")&&(e.preventDefault(),this.open())}),document.addEventListener("keydown",e=>{e.key==="Escape"&&this.isOpen&&this.close()}),s.onLanguageChange(()=>{this.isOpen&&this.render()}))}async open(){await s.loadNamespaces(["common"]),this.isOpen=!0,this.render(),document.body.classList.add("overflow-hidden")}close(){this.isOpen=!1,this.modalEl&&(this.modalEl.classList.add("opacity-0","pointer-events-none"),setTimeout(()=>{!this.isOpen&&this.modalEl&&(this.modalEl.remove(),this.modalEl=null)},200)),document.body.classList.remove("overflow-hidden")}render(){let e=document.getElementById("passq-contact-modal-root");e||(e=document.createElement("div"),e.id="passq-contact-modal-root",document.body.appendChild(e)),this.modalEl=e;const a=s.t("contact_modal.title","Contacto & Sugerencias"),o=s.t("contact_modal.badge","Escucha Activa del Usuario"),r=s.t("contact_modal.subtitle","¡Tu opinión impulsa la evolución continua de PassQ!"),l=s.t("contact_modal.message","Estamos en la mejor disposición de escuchar a los usuarios, aprender de tu experiencia y adaptar la plataforma a tus necesidades reales. Envíanos tus comentarios, dudas, sugerencias de mejora o solicitudes de funciones."),i=s.t("contact_modal.email_label","Canal Oficial de Contacto:"),d=s.t("contact_modal.email_address","passq-reportes@outlook.com"),h=s.t("contact_modal.btn_send_email","Enviar Correo Directo"),m=s.t("contact_modal.btn_copy_email","Copiar Dirección"),c=s.t("contact_modal.response_time","Respuesta habitual en menos de 72 horas hábiles."),u=encodeURIComponent(s.t("contact_modal.mail_subject","Comentarios y Sugerencias de Mejora • PassQ")),v=encodeURIComponent(s.t("contact_modal.mail_body",`Hola equipo de PassQ,
+        `}).join(""))}}class z{constructor(){this.currentTheme=localStorage.getItem("passq_theme")||"dark",this.init()}init(){this.applyTheme(this.currentTheme),typeof document<"u"&&(document.readyState==="loading"?document.addEventListener("DOMContentLoaded",()=>{this.updateIconSlots(),this.initLanguageDropdown()}):(this.updateIconSlots(),this.initLanguageDropdown())),typeof window<"u"&&"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("./sw.js").catch(e=>{console.debug("ServiceWorker registration optional:",e)})}),window.matchMedia?.("(prefers-color-scheme: dark)")?.addEventListener("change",e=>{localStorage.getItem("passq_theme")||this.applyTheme(e.matches?"dark":"light")})}initLanguageDropdown(e="#lang-select"){typeof document<"u"&&document.querySelector(e)&&new D(e)}updateIconSlots(){const e=document.documentElement.classList.contains("dark");document.querySelectorAll("#theme-icon-slot, [data-theme-icon]").forEach(n=>{n.innerHTML=e?o.sun("w-5 h-5"):o.moon("w-5 h-5")})}applyTheme(e){if(this.currentTheme=e,localStorage.setItem("passq_theme",e),e==="dark")document.documentElement.classList.add("dark");else if(e==="light")document.documentElement.classList.remove("dark");else{const a=window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",a)}this.updateIconSlots()}toggleTheme(){const a=document.documentElement.classList.contains("dark")?"light":"dark";return this.applyTheme(a),a}}class V{constructor(){this.modalEl=null,this.isOpen=!1,this.init()}init(){typeof document>"u"||(document.addEventListener("click",e=>{e.target.closest("#btn-open-contact-modal, [data-open-contact-modal]")&&(e.preventDefault(),this.open())}),document.addEventListener("keydown",e=>{e.key==="Escape"&&this.isOpen&&this.close()}),s.onLanguageChange(()=>{this.isOpen&&this.render()}))}async open(){await s.loadNamespaces(["common"]),this.isOpen=!0,this.render(),document.body.classList.add("overflow-hidden")}close(){this.isOpen=!1,this.modalEl&&(this.modalEl.classList.add("opacity-0","pointer-events-none"),setTimeout(()=>{!this.isOpen&&this.modalEl&&(this.modalEl.remove(),this.modalEl=null)},200)),document.body.classList.remove("overflow-hidden")}render(){let e=document.getElementById("passq-contact-modal-root");e||(e=document.createElement("div"),e.id="passq-contact-modal-root",document.body.appendChild(e)),this.modalEl=e;const a=s.t("contact_modal.title","Contacto & Sugerencias"),n=s.t("contact_modal.badge","Escucha Activa del Usuario"),r=s.t("contact_modal.subtitle","¡Tu opinión impulsa la evolución continua de PassQ!"),l=s.t("contact_modal.message","Estamos en la mejor disposición de escuchar a los usuarios, aprender de tu experiencia y adaptar la plataforma a tus necesidades reales. Envíanos tus comentarios, dudas, sugerencias de mejora o solicitudes de funciones."),i=s.t("contact_modal.email_label","Canal Oficial de Contacto:"),d=s.t("contact_modal.email_address","passq-reportes@outlook.com"),p=s.t("contact_modal.btn_send_email","Enviar Correo Directo"),m=s.t("contact_modal.btn_copy_email","Copiar Dirección"),c=s.t("contact_modal.response_time","Respuesta habitual en menos de 72 horas hábiles."),h=encodeURIComponent(s.t("contact_modal.mail_subject","Comentarios y Sugerencias de Mejora • PassQ")),v=encodeURIComponent(s.t("contact_modal.mail_body",`Hola equipo de PassQ,
 
 Me gustaría compartir los siguientes comentarios y sugerencias para adaptar la plataforma a mis necesidades:
 
-`)),f=`mailto:${d}?subject=${u}&body=${v}`;e.className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-slate-950/70 backdrop-blur-md transition-opacity duration-200",e.innerHTML=`
+`)),f=`mailto:${d}?subject=${h}&body=${v}`;e.className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-slate-950/70 backdrop-blur-md transition-opacity duration-200",e.innerHTML=`
       <!-- Backdrop Click Catch -->
       <div id="contact-modal-backdrop" class="absolute inset-0"></div>
 
@@ -554,12 +554,12 @@ Me gustaría compartir los siguientes comentarios y sugerencias para adaptar la 
         <!-- Header / Close button -->
         <div class="flex items-center justify-between">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold tracking-wide">
-            <span class="w-4 h-4 flex items-center">${n.chatBubble?n.chatBubble("w-4 h-4"):""}</span>
-            <span>${o}</span>
+            <span class="w-4 h-4 flex items-center">${o.chatBubble?o.chatBubble("w-4 h-4"):""}</span>
+            <span>${n}</span>
           </div>
 
           <button id="btn-close-contact-modal" type="button" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-500 dark:text-slate-300 flex items-center justify-center transition cursor-pointer" aria-label="Cerrar modal">
-            ${n.close?n.close("w-5 h-5"):"✕"}
+            ${o.close?o.close("w-5 h-5"):"✕"}
           </button>
         </div>
 
@@ -567,7 +567,7 @@ Me gustaría compartir los siguientes comentarios y sugerencias para adaptar la 
         <div class="space-y-1.5">
           <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2.5">
             <span class="p-2 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400">
-              ${n.envelope?n.envelope("w-5 h-5"):""}
+              ${o.envelope?o.envelope("w-5 h-5"):""}
             </span>
             <span>${a}</span>
           </h2>
@@ -587,7 +587,7 @@ Me gustaría compartir los siguientes comentarios y sugerencias para adaptar la 
           </div>
           
           <button id="btn-copy-email-action" type="button" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-semibold shadow-xs transition active:scale-95 cursor-pointer">
-            <span id="copy-icon-slot" class="w-4 h-4 flex items-center">${n.copy?n.copy("w-4 h-4"):""}</span>
+            <span id="copy-icon-slot" class="w-4 h-4 flex items-center">${o.copy?o.copy("w-4 h-4"):""}</span>
             <span id="copy-text-slot">${m}</span>
           </button>
         </div>
@@ -595,8 +595,8 @@ Me gustaría compartir los siguientes comentarios y sugerencias para adaptar la 
         <!-- Action CTA Buttons -->
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
           <a href="${f}" id="btn-send-mail-action" class="flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-600/25 transition active:scale-[0.98] cursor-pointer">
-            <span class="w-5 h-5 flex items-center">${n.envelope?n.envelope("w-5 h-5"):""}</span>
-            <span>${h}</span>
+            <span class="w-5 h-5 flex items-center">${o.envelope?o.envelope("w-5 h-5"):""}</span>
+            <span>${p}</span>
           </a>
 
           <button id="btn-cancel-contact-modal" type="button" class="px-5 py-3 rounded-2xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-semibold text-sm sm:text-base transition cursor-pointer">
@@ -606,9 +606,9 @@ Me gustaría compartir los siguientes comentarios y sugerencias para adaptar la 
 
         <!-- Response guarantee footer note -->
         <div class="flex items-center justify-center gap-2 text-center text-xs text-slate-500 dark:text-slate-400 pt-1">
-          <span class="w-3.5 h-3.5 text-emerald-500 shrink-0">${n.shieldCheck?n.shieldCheck("w-3.5 h-3.5"):"✓"}</span>
+          <span class="w-3.5 h-3.5 text-emerald-500 shrink-0">${o.shieldCheck?o.shieldCheck("w-3.5 h-3.5"):"✓"}</span>
           <span>${c}</span>
         </div>
 
       </div>
-    `,e.querySelector("#contact-modal-backdrop")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-close-contact-modal")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-cancel-contact-modal")?.addEventListener("click",()=>this.close());const w=e.querySelector("#btn-copy-email-action");w&&w.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(d);const g=e.querySelector("#copy-icon-slot"),b=e.querySelector("#copy-text-slot");g&&b&&(g.innerHTML=n.checkCircle?n.checkCircle("w-4 h-4 text-emerald-500"):"✓",b.textContent=s.t("contact_modal.email_copied","¡Copiado!"),setTimeout(()=>{g.innerHTML=n.copy?n.copy("w-4 h-4"):"",b.textContent=m},2500))}catch(g){console.warn("Clipboard write error:",g)}})}}new V;const O=new D;export{n as I,Z as L,s as i,I as p,z as r,O as t};
+    `,e.querySelector("#contact-modal-backdrop")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-close-contact-modal")?.addEventListener("click",()=>this.close()),e.querySelector("#btn-cancel-contact-modal")?.addEventListener("click",()=>this.close());const w=e.querySelector("#btn-copy-email-action");w&&w.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(d);const g=e.querySelector("#copy-icon-slot"),b=e.querySelector("#copy-text-slot");g&&b&&(g.innerHTML=o.checkCircle?o.checkCircle("w-4 h-4 text-emerald-500"):"✓",b.textContent=s.t("contact_modal.email_copied","¡Copiado!"),setTimeout(()=>{g.innerHTML=o.copy?o.copy("w-4 h-4"):"",b.textContent=m},2500))}catch(g){console.warn("Clipboard write error:",g)}})}}new V;const G=new z;export{o as I,D as L,N as a,s as i,O as p,I as r,G as t};

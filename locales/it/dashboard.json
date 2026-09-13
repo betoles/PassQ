@@ -77,8 +77,14 @@
     "data_cleared": "Tutti i dati locali sono stati eliminati con successo."
   },
   "trial": {
+    "ready_title": "Prova Gratuita di 7 Giorni",
+    "ready_desc": "Il tuo periodo di prova di 7 giorni con accesso illimitato agli strumenti Pro inizierà automaticamente alla creazione del tuo primo passaporto.",
+    "ready_badge": "7 Giorni Disponibili",
     "active_title": "Prova Gratuita di 7 Giorni Attiva",
     "active_desc": "Hai accesso completo e illimitato a tutti gli strumenti Pro (Firma Web Crypto, GS1 Mod 10 e Schede Doganali).",
+    "ended_title": "Periodo di Prova Terminato",
+    "ended_desc": "Abbonati per continuare a generare ed esportare passaporti digitali con firma crittografica e conformità doganale.",
+    "ended_badge": "Prova Conclusa",
     "day_badge": "Giorno {day} di 7",
     "lock_price_btn": "Blocca Tariffa Fondatore",
     "lock_price_main": "Blocca Tariffa Fondatore",

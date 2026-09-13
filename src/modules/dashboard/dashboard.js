@@ -103,18 +103,45 @@ class DashboardController {
   }
 
   setupTrialStatus() {
-    let trialStart = localStorage.getItem('passq_trial_start');
-    if (!trialStart) {
-      trialStart = Date.now().toString();
-      localStorage.setItem('passq_trial_start', trialStart);
-    }
-
-    const elapsedMs = Date.now() - parseInt(trialStart, 10);
-    const dayNumber = Math.min(7, Math.max(1, Math.floor(elapsedMs / (1000 * 60 * 60 * 24)) + 1));
+    const trial = playBilling.getTrialStatus();
+    const titleEl = document.getElementById('trial-status-title');
     const badge = document.getElementById('trial-day-badge');
-    if (badge) {
-      const template = i18n.t('dashboard:trial.day_badge', 'Día {day} de 7');
-      badge.textContent = template.replace('{day}', dayNumber);
+    const descEl = document.getElementById('trial-status-desc');
+
+    if (!trial.isTrialStarted) {
+      if (badge) {
+        badge.textContent = i18n.t('dashboard:trial.ready_badge', '7 Días Disponibles');
+        badge.className = 'text-xs font-extrabold px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono whitespace-nowrap shrink-0';
+      }
+      if (titleEl) {
+        titleEl.textContent = i18n.t('dashboard:trial.ready_title', 'Prueba Gratuita de 7 Días');
+      }
+      if (descEl) {
+        descEl.textContent = i18n.t('dashboard:trial.ready_desc', 'Tu periodo de prueba de 7 días con acceso total e ilimitado comenzará automáticamente cuando crees tu primer pasaporte.');
+      }
+    } else if (trial.isTrialActive) {
+      if (badge) {
+        const template = i18n.t('dashboard:trial.day_badge', 'Día {day} de 7');
+        badge.textContent = template.replace('{day}', trial.day);
+        badge.className = 'text-xs font-extrabold px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono whitespace-nowrap shrink-0';
+      }
+      if (titleEl) {
+        titleEl.textContent = i18n.t('dashboard:trial.active_title', 'Prueba Gratuita de 7 Días Activa');
+      }
+      if (descEl) {
+        descEl.textContent = i18n.t('dashboard:trial.active_desc', 'Tienes acceso total e ilimitado a todas las herramientas Pro (Firma Web Crypto, GS1 Mod 10 y Fichas Aduaneras).');
+      }
+    } else {
+      if (badge) {
+        badge.textContent = i18n.t('dashboard:trial.ended_badge', 'Prueba Concluida');
+        badge.className = 'text-xs font-extrabold px-3.5 py-1 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 font-mono whitespace-nowrap shrink-0';
+      }
+      if (titleEl) {
+        titleEl.textContent = i18n.t('dashboard:trial.ended_title', 'Periodo de Prueba Finalizado');
+      }
+      if (descEl) {
+        descEl.textContent = i18n.t('dashboard:trial.ended_desc', 'Suscríbete para continuar generando y exportando pasaportes digitales con firma criptográfica y cumplimiento aduanero.');
+      }
     }
   }
 

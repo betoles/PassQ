@@ -3,6 +3,7 @@ import { storage, HybridStorageManager } from '../../core/storage/storage.js';
 import { ComplianceCalculator } from '../compliance/calculator.js';
 import { GS1Formatter } from '../compliance/gs1.js';
 import { cryptoEngine } from '../../core/crypto/crypto.js';
+import { playBilling } from '../../core/billing/play-billing.js';
 
 const CATEGORY_ITEMS = [
   { key: 'textile', icon: '👔', norm: 'ESPR Textil • Ecodiseño' },
@@ -721,6 +722,9 @@ export class WizardController {
       canonical_sha256: cryptoProof.canonical_sha256,
       public_key: cryptoProof.public_key
     };
+
+    // Activate 7-day trial when creating first product
+    playBilling.startTrial();
 
     storage.save(newProduct);
     this.close();

@@ -72,9 +72,12 @@
     "title": "PassQ 官方订阅与方案",
     "subtitle": "通过 Google Play Store（移动端 App）或直接通过 PayPal / 信用卡与借记卡（网页及电脑端）安全订阅。",
     "trial_badge": "7天",
+    "trial_status_ready": "7天试用可用（创建第1个护照时启动）",
+    "trial_desc_ready": "创建第一个数字产品护照时，您的7天免费试用将自动激活。",
     "trial_status_active": "当前试用期状态：第 {day} 天 / 共 7 天 (剩余 {remaining} 天)",
     "trial_status_ended": "免费试用期已结束",
     "trial_desc": "您拥有全部 Pro 级专业工具的完整无限访问权限。现在订阅，在 7 天试用期结束前不会扣取任何费用。",
+    "trial_desc_ended": "您的试用期已结束。订阅以继续签发和管理数字产品护照。",
     "founder_rate": "创始特惠",
     "plans": {
       "starter": {

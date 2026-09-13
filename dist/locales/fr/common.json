@@ -72,9 +72,12 @@
     "title": "Abonnements Officiels PassQ",
     "subtitle": "Abonnez-vous en toute sécurité via le Google Play Store (app mobile) ou directement par PayPal / Carte bancaire (web & PC).",
     "trial_badge": "7J",
+    "trial_status_ready": "Essai de 7 Jours Disponible (Démarre avec votre 1er passeport)",
+    "trial_desc_ready": "Votre essai gratuit de 7 jours s'activera automatiquement lors de la création de votre premier passeport numérique.",
     "trial_status_active": "Statut de l'essai : Jour {day} sur 7 ({remaining} jours restants)",
     "trial_status_ended": "Période d'essai terminée",
-    "trial_desc": "Vous bénéficiez d'un accès complet et illimité à tous les outils Pro. En vous abonnant maintenant, vous ne serez débité qu'à la fin de vos 7 jours d'essai.",
+    "trial_desc": "Vous bénéficiez d'un accès complet et illimité à todos les outils Pro. En vous abonnant maintenant, vous ne serez débité qu'à la fin de vos 7 jours d'essai.",
+    "trial_desc_ended": "Votre période d'essai est terminée. Abonnez-vous pour continuer à émettre et gérer des passeports numériques.",
     "founder_rate": "Tarif Fondateur",
     "plans": {
       "starter": {

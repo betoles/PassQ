@@ -72,9 +72,12 @@
     "title": "Official PassQ Subscriptions",
     "subtitle": "Subscribe securely via Google Play Store (mobile app) or directly via PayPal / Credit & Debit Cards (web & PC).",
     "trial_badge": "7D",
+    "trial_status_ready": "7-Day Trial Available (Starts with your 1st passport)",
+    "trial_desc_ready": "Your 7-day free trial will automatically activate when you create your first digital passport.",
     "trial_status_active": "Current Trial Status: Day {day} of 7 ({remaining} days remaining)",
     "trial_status_ended": "Trial Period Ended",
     "trial_desc": "You have full, unlimited access to all Pro features. By subscribing now, you will not be charged until your 7-day trial ends.",
+    "trial_desc_ended": "Your trial period has ended. Subscribe to continue issuing and managing digital passports.",
     "founder_rate": "Founder Rate",
     "plans": {
       "starter": {

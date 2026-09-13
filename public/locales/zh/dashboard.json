@@ -77,8 +77,14 @@
     "data_cleared": "所有本地产品数据已安全彻底清除。"
   },
   "trial": {
+    "ready_title": "7天免费试用",
+    "ready_desc": "当您创建第一个数字护照时，包含全部专业工具无限制访问权限的7天试用期将自动开启。",
+    "ready_badge": "7天试用可用",
     "active_title": "7天免费试用进行中",
     "active_desc": "您拥有所有Pro专业功能的完全无限制访问权限（Web Crypto加密签名、GS1 Mod 10与海关数据导出）。",
+    "ended_title": "试用期已结束",
+    "ended_desc": "订阅以继续生成和导出符合海关标准且具有加密签名的数字产品护照。",
+    "ended_badge": "试用结束",
     "day_badge": "第 {day} 天 / 共 7 天",
     "lock_price_btn": "锁定创始人优惠价",
     "lock_price_main": "锁定创始人优惠价",

@@ -72,9 +72,12 @@
     "title": "Assinaturas Oficiais PassQ",
     "subtitle": "Subscreva com total segurança através da Google Play Store (app móvel) ou diretamente via PayPal / Cartões de débito ou crédito (web & PC).",
     "trial_badge": "7D",
+    "trial_status_ready": "Teste de 7 Dias Disponível (Inicia com o seu 1º passaporte)",
+    "trial_desc_ready": "Seu teste gratuito de 7 dias será ativado automaticamente ao criar seu primeiro passaporte digital.",
     "trial_status_active": "Estado Atual do Teste: Dia {day} de 7 ({remaining} dias restantes)",
     "trial_status_ended": "Período de Teste Concluído",
     "trial_desc": "Tem acesso total e ilimitado a todas as ferramentas Pro. Ao subscrever agora, não lhe será cobrado nada até terminarem os 7 dias de teste.",
+    "trial_desc_ended": "Seu período de teste terminou. Assine para continuar emitindo e gerenciando passaportes digitais.",
     "founder_rate": "Tarifa Fundador",
     "plans": {
       "starter": {

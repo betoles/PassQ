@@ -77,8 +77,14 @@
     "data_cleared": "Alle lokalen Daten wurden erfolgreich gelöscht."
   },
   "trial": {
+    "ready_title": "7-Tage Kostenlose Testversion",
+    "ready_desc": "Ihre 7-tägige Testphase mit unbegrenztem Zugriff auf alle Pro-Funktionen startet automatisch, sobald Sie Ihren ersten digitalen Pass erstellen.",
+    "ready_badge": "7 Tage Verfügbar",
     "active_title": "7-Tage-Testversion Aktiv",
     "active_desc": "Sie haben unbegrenzten Zugriff auf alle Pro-Tools (Web-Crypto-Signatur, GS1 Mod 10 und Zollausfuhr).",
+    "ended_title": "Testphase Abgelaufen",
+    "ended_desc": "Abonnieren Sie, um weiterhin digitale Produktpässe mit kryptografischer Signatur und Zollkonformität zu erstellen und zu exportieren.",
+    "ended_badge": "Testphase Beendet",
     "day_badge": "Tag {day} von 7",
     "lock_price_btn": "Gründerpreis sichern",
     "lock_price_main": "Gründerpreis sichern",

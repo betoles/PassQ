@@ -77,8 +77,14 @@
     "data_cleared": "Toutes les données locales ont été effacées avec succès."
   },
   "trial": {
+    "ready_title": "Essai Gratuit de 7 Jours",
+    "ready_desc": "Votre période d'essai de 7 jours avec accès illimité à tous les outils Pro débutera automatiquement lors de la création de votre premier passeport.",
+    "ready_badge": "7 Jours Disponibles",
     "active_title": "Essai Gratuit de 7 Jours Actif",
     "active_desc": "Vous bénéficiez d'un accès complet et illimité à tous les outils Pro (Signature Web Crypto, GS1 Mod 10 et Douanes).",
+    "ended_title": "Période d'Essai Terminée",
+    "ended_desc": "Abonnez-vous pour continuer à générer et exporter des passeports numériques avec signature cryptographique et conformité douanière.",
+    "ended_badge": "Essai Terminé",
     "day_badge": "Jour {day} sur 7",
     "lock_price_btn": "Sécuriser le tarif Fondateur",
     "lock_price_main": "Sécuriser le tarif Fondateur",

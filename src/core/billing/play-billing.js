@@ -42,30 +42,35 @@ export const PLAY_SUBSCRIPTIONS = [
 
 export class PlayBillingManager {
   constructor() {
-    this.initTrial();
+    // Local-first: Trial does not start on page visit. It activates upon 1st passport creation.
   }
 
-  initTrial() {
+  startTrial() {
     if (typeof window === 'undefined') return;
-    let trialStart = localStorage.getItem('passq_trial_start');
-    if (!trialStart) {
-      trialStart = Date.now().toString();
-      localStorage.setItem('passq_trial_start', trialStart);
+    if (!localStorage.getItem('passq_trial_start')) {
+      localStorage.setItem('passq_trial_start', Date.now().toString());
     }
   }
 
   getTrialStatus() {
     if (typeof window === 'undefined') {
-      return { day: 1, daysRemaining: 7, isTrialActive: true, isSubscribed: false };
+      return { day: 1, daysRemaining: 7, isTrialActive: true, isTrialStarted: false, isSubscribed: false };
     }
 
     const isSubscribed = localStorage.getItem('passq_play_subscription_active') === 'true';
     const activePlan = localStorage.getItem('passq_play_subscription_plan') || 'growth';
 
-    let trialStart = localStorage.getItem('passq_trial_start');
+    const trialStart = localStorage.getItem('passq_trial_start');
     if (!trialStart) {
-      trialStart = Date.now().toString();
-      localStorage.setItem('passq_trial_start', trialStart);
+      return {
+        day: 0,
+        daysRemaining: 7,
+        isTrialActive: true,
+        isTrialStarted: false,
+        isSubscribed,
+        activePlan,
+        isAccessGranted: true
+      };
     }
 
     const elapsedMs = Date.now() - parseInt(trialStart, 10);
@@ -77,6 +82,7 @@ export class PlayBillingManager {
       day: dayNumber,
       daysRemaining,
       isTrialActive,
+      isTrialStarted: true,
       isSubscribed,
       activePlan,
       isAccessGranted: isTrialActive || isSubscribed
@@ -221,11 +227,21 @@ export class PlaySubscriptionModal {
     const subtitleText = i18n.t('common:billing.subtitle', 'Suscríbete con total seguridad a través de Google Play Store (móvil) o directamente con PayPal / Tarjeta de débito o crédito (web y computadoras).');
     const trialBadgeText = i18n.t('common:billing.trial_badge', '7D');
     const trialActiveTemplate = i18n.t('common:billing.trial_status_active', 'Estado de Prueba Actual: Día {day} de 7 ({remaining} días restantes)');
+    const trialReadyText = i18n.t('common:billing.trial_status_ready', 'Prueba de 7 Días Disponible (Inicia con tu 1er pasaporte)');
     const trialEndedText = i18n.t('common:billing.trial_status_ended', 'Prueba Concluida');
-    const trialStatusLabel = trial.isTrialActive 
-      ? trialActiveTemplate.replace('{day}', trial.day).replace('{remaining}', trial.daysRemaining)
-      : trialEndedText;
-    const trialDescText = i18n.t('common:billing.trial_desc', 'Tienes acceso completo e ilimitado a todas las herramientas Pro. Al suscribirte ahora, no se te cobrará nada hasta terminar tus 7 días de prueba.');
+    
+    let trialStatusLabel = trialReadyText;
+    let trialDescText = i18n.t('common:billing.trial_desc_ready', 'Tu prueba gratuita de 7 días se activará automáticamente cuando crees tu primer pasaporte digital.');
+    
+    if (trial.isTrialStarted) {
+      if (trial.isTrialActive) {
+        trialStatusLabel = trialActiveTemplate.replace('{day}', trial.day).replace('{remaining}', trial.daysRemaining);
+        trialDescText = i18n.t('common:billing.trial_desc', 'Tienes acceso completo e ilimitado a todas las herramientas Pro. Al suscribirte ahora, no se te cobrará nada hasta terminar tus 7 días de prueba.');
+      } else {
+        trialStatusLabel = trialEndedText;
+        trialDescText = i18n.t('common:billing.trial_desc_ended', 'Tu periodo de prueba ha finalizado. Suscríbete para continuar emitiendo y gestionando pasaportes digitales.');
+      }
+    }
     const founderRateText = i18n.t('common:billing.founder_rate', 'Tarifa Fundador');
     const daysFreeText = i18n.t('common:billing.features.days_free', '✓ 7 Días Gratis');
     const playBillingFeatureText = i18n.t('common:billing.features.play_billing', '✓ Google Play / PayPal');

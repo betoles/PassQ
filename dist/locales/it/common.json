@@ -72,9 +72,12 @@
     "title": "Abbonamenti Ufficiali PassQ",
     "subtitle": "Abbonati in tutta sicurezza tramite Google Play Store (app mobile) o direttamente con PayPal / Carte di debito o credito (web & PC).",
     "trial_badge": "7D",
+    "trial_status_ready": "Prova di 7 Giorni Disponibile (Inizia con il tuo 1° passaporto)",
+    "trial_desc_ready": "La tua prova gratuita di 7 giorni si attiverà automaticamente quando crei il tuo primo passaporto digitale.",
     "trial_status_active": "Stato Attuale della Prova: Giorno {day} di 7 ({remaining} giorni rimanenti)",
     "trial_status_ended": "Periodo di Prova Concluso",
     "trial_desc": "Hai accesso completo e illimitato a tutti gli strumenti Pro. Iscrivendoti ora, non ti verrà addebitato nulla fino al termine dei 7 giorni di prova.",
+    "trial_desc_ended": "Il tuo periodo di prova è terminato. Abbonati per continuare a emettere e gestire passaporti digitali.",
     "founder_rate": "Tariffa Fondatore",
     "plans": {
       "starter": {
