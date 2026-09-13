@@ -295,14 +295,47 @@
           <input id="wizard-name" type="text" placeholder="ej. Chaqueta Alpina EcoDry" data-i18n-placeholder="wizard:placeholders.product_name" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
+          <div class="relative" id="wizard-category-dropdown-container">
             <label data-i18n="wizard:fields.category" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Categoría</label>
-            <select id="wizard-category" class="glass-input w-full py-3 px-3.5 rounded-2xl text-sm cursor-pointer">
-              <option value="textile" data-i18n="wizard:categories.textile">Textil y Moda</option>
-              <option value="footwear" data-i18n="wizard:categories.footwear">Calzado y Piel</option>
-              <option value="electronics" data-i18n="wizard:categories.electronics">Electrónica de Consumo</option>
-              <option value="furniture" data-i18n="wizard:categories.furniture">Muebles y Madera</option>
-            </select>
+            <input type="hidden" id="wizard-category" value="textile" />
+            
+            <!-- Encapsulated Custom Category Trigger Button -->
+            <button id="wizard-category-btn" type="button" class="glass-input w-full py-3 px-3.5 rounded-2xl text-sm font-semibold flex items-center justify-between transition cursor-pointer select-none bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 shadow-xs active:scale-[0.99]" aria-haspopup="true" aria-expanded="false">
+              <span id="wizard-category-current-label" data-i18n="wizard:categories.textile" class="truncate text-slate-800 dark:text-slate-100 font-bold">Textil y Moda</span>
+              <span class="icon-svg w-4 h-4 text-slate-400 dark:text-slate-500 transition-transform duration-200 shrink-0 ml-2" id="wizard-category-chevron">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+              </span>
+            </button>
+
+            <!-- Encapsulated Category Options Menu (Strictly bounded to container width) -->
+            <div id="wizard-category-menu" class="hidden opacity-0 scale-95 transition-all duration-150 ease-out absolute left-0 right-0 top-full mt-1.5 w-full p-1.5 rounded-2xl bg-white/95 dark:bg-[#0c1322]/95 border border-slate-200/90 dark:border-white/15 shadow-2xl backdrop-blur-2xl z-50 origin-top">
+              <div class="space-y-1" role="menu">
+                <button type="button" data-cat-val="textile" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20">
+                  <span data-i18n="wizard:categories.textile">Textil y Moda</span>
+                  <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                  </span>
+                </button>
+                <button type="button" data-cat-val="footwear" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
+                  <span data-i18n="wizard:categories.footwear">Calzado y Piel</span>
+                  <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                  </span>
+                </button>
+                <button type="button" data-cat-val="electronics" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
+                  <span data-i18n="wizard:categories.electronics">Electrónica de Consumo</span>
+                  <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                  </span>
+                </button>
+                <button type="button" data-cat-val="furniture" class="wizard-cat-opt w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer select-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent">
+                  <span data-i18n="wizard:categories.furniture">Muebles y Madera</span>
+                  <span class="icon-svg w-4 h-4 text-emerald-500 cat-check shrink-0 hidden">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
           <div>
             <label data-i18n="wizard:fields.gtin" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">GTIN / Código de Barras (8-14 dígitos)</label>
