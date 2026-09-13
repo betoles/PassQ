@@ -61,7 +61,8 @@
     "gs1_badge": "GS1 数字链接 • 30% ECC HIGH 工业级容错",
     "btn_svg": "矢量 SVG 格式",
     "btn_png": "高清 300 DPI PNG",
-    "btn_packaging_label": "官方包装箱标贴 (300 DPI)",
+    "btn_packaging_label": "官方包装箱标贴",
+    "btn_packaging_label_dpi": "(300 DPI)",
     "btn_copy_url": "复制直达链接"
   },
   "alerts": {

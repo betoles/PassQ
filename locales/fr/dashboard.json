@@ -52,11 +52,17 @@
   },
   "qr_modal": {
     "studio_badge": "Studio d'Émission GS1 Digital Link",
+    "mode_label": "Mode d'Émission & Connectivité",
+    "mode_offline_title": "Universal Offline",
+    "mode_offline_desc": "Auto-résolution sans réseau",
+    "mode_standard_title": "Standard GS1 Direct",
+    "mode_standard_desc": "Ultra-compact (Micro-étiquette)",
     "domain_label": "Domaine de Résolution du Passeport",
     "gs1_badge": "GS1 DIGITAL LINK • ECC HIGH (30% ROBUSTESSE)",
     "btn_svg": "Vecteur SVG",
     "btn_png": "PNG 300 DPI",
-    "btn_packaging_label": "Étiquette d'Emballage Officielle (300 DPI)",
+    "btn_packaging_label": "Étiquette d'Emballage Officielle",
+    "btn_packaging_label_dpi": "(300 DPI)",
     "btn_copy_url": "Copier le Lien"
   },
   "alerts": {

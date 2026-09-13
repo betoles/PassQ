@@ -52,11 +52,17 @@
   },
   "qr_modal": {
     "studio_badge": "GS1 Digital Link Ausstellungsstudio",
+    "mode_label": "Ausgabe- & Konnektivitätsmodus",
+    "mode_offline_title": "Universal Offline",
+    "mode_offline_desc": "Selbstauflösend ohne Netzwerk",
+    "mode_standard_title": "Standard GS1 Direkt",
+    "mode_standard_desc": "Ultrakompakt (Mikro-Etikett)",
     "domain_label": "Passport-Auflösungsdomäne",
     "gs1_badge": "GS1 DIGITAL LINK • ECC HIGH (30% FEHLERKORREKTUR)",
     "btn_svg": "Vektor SVG",
     "btn_png": "PNG 300 DPI",
-    "btn_packaging_label": "Offizielles Verpackungsetikett (300 DPI)",
+    "btn_packaging_label": "Offizielles Verpackungsetikett",
+    "btn_packaging_label_dpi": "(300 DPI)",
     "btn_copy_url": "Link kopieren"
   },
   "alerts": {
