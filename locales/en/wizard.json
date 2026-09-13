@@ -1,0 +1,60 @@
+{
+  "title": "Create Digital Passport",
+  "steps": {
+    "identity": "Identity & Brand",
+    "materials": "Composition & Footprint",
+    "repair": "Repairability & Parts",
+    "review": "Review & QR Generation"
+  },
+  "fields": {
+    "product_name": "Product Name",
+    "category": "Category",
+    "gtin": "GTIN / Barcode (8-14 digits)",
+    "origin_country": "Country of Origin & Manufacture",
+    "material_name": "Material Composition",
+    "carbon_kg": "Estimated CO₂ Footprint (kg CO₂e)",
+    "disassembly_tools": "Disassembly Tools Required",
+    "repair_duration_yrs": "Spare Parts Availability (Years)",
+    "recycling_instructions": "End of Life Instructions"
+  },
+  "validation": {
+    "name_required": "Please enter the product name.",
+    "gtin_check_digit_error": "Invalid GS1 check digit. For this code, the last digit must be {expected} (you entered {actual}).",
+    "gtin_invalid": "The GTIN must be 8, 12, 13, or 14 numeric digits.",
+    "gtin_numeric_error": "Please enter a valid numeric GTIN code.",
+    "materials_sum_error": "Material composition must equal exactly 100% (currently: {sum}%).",
+    "materials_empty_error": "Please fill in the name for all materials.",
+    "legal_consent_required": "You must certify legal ownership and accept the regulatory terms to continue."
+  },
+  "categories": {
+    "textile": "Textile & Fashion",
+    "footwear": "Footwear & Leather",
+    "electronics": "Consumer Electronics",
+    "furniture": "Furniture & Wood"
+  },
+  "tools": {
+    "none": "No tools (Snap-fit / clips)",
+    "standard": "Standard tools (Screwdriver / Hex key)",
+    "specialized": "Specialized or proprietary tools"
+  },
+  "subtitle": "Guided step-by-step wizard to comply with European regulations.",
+  "placeholders": {
+    "product_name": "e.g. EcoDry Alpine Jacket",
+    "gtin": "7501234567890",
+    "origin": "United States",
+    "material_name": "Material (e.g. Organic Cotton)",
+    "recycling": "Suitable for recycling at authorized collection centers."
+  },
+  "buttons": {
+    "add_material": "+ Add Material",
+    "prev": "Back",
+    "next": "Next"
+  },
+  "review": {
+    "estimated_score_label": "Estimated Repairability Score:",
+    "summary_product_label": "Product:",
+    "summary_gtin_label": "GTIN:",
+    "summary_origin_label": "Origin:",
+    "legal_declaration": "I certify that I hold the legal rights and trademarks for this product and assume full compliance responsibility, releasing PassQ under the <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Terms of Service</a>."
+  }
+}

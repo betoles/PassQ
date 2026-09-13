@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>PassQ • Dashboard PyME</title>
+
+  <!-- SEO & Discovery Meta Tags -->
+  <meta name="description" content="Panel de Control PassQ: Gestión local de Pasaportes Digitales de Producto, generación de códigos GS1 Digital Link y exportación oficial de trazabilidad.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://passq.app/app.html">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PassQ">
+  <meta property="og:url" content="https://passq.app/app.html">
+  <meta property="og:title" content="PassQ • Panel PyME & Creación de Pasaportes Digitales">
+  <meta property="og:description" content="Gestión local y soberana de Pasaportes Digitales de Producto y trazabilidad circular GS1.">
+  <meta property="og:image" content="https://passq.app/logo.svg">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@passq_app">
+  <meta name="twitter:title" content="PassQ • Panel PyME">
+  <meta name="twitter:description" content="Gestión local de Pasaportes Digitales de Producto y trazabilidad circular.">
+  <meta name="twitter:image" content="https://passq.app/logo.svg">
+
+  <!-- PWA & Mobile Standalone Tags -->
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#10b981">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PassQ Dashboard">
+  <link rel="apple-touch-icon" href="./logo.svg">
+  <link rel="icon" type="image/svg+xml" href="./logo.svg">
+
+  <!-- Google Fonts Preconnect: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PassQ Dashboard",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "url": "https://passq.app/app.html",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "creator": {
+      "@type": "Organization",
+      "name": "PassQ Technologies",
+      "url": "https://passq.app/"
+    }
+  }
+  </script>
+  <script type="module" crossorigin src="./assets/app-hj5OA3jc.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/theme-D0PYw6Ug.js">
+  <link rel="modulepreload" crossorigin href="./assets/gs1-KNLh_Fs8.js">
+  <link rel="modulepreload" crossorigin href="./assets/crypto-BjlqRT8o.js">
+  <link rel="modulepreload" crossorigin href="./assets/vendor-qrcode-CjSdxGTc.js">
+  <link rel="stylesheet" crossorigin href="./assets/theme-C1D4AM6y.css">
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-[#060a12] text-slate-800 dark:text-slate-100 flex flex-col p-3 sm:p-6 lg:p-8 transition-colors duration-300 relative overflow-x-hidden font-sans">
+
+  <!-- Ambient Glow (GPU Accelerated) -->
+  <div class="glow-orb-emerald top-0 right-0 gpu-accelerated"></div>
+  <div class="glow-orb-cyan bottom-0 left-0 gpu-accelerated"></div>
+
+  <!-- Main Container -->
+  <div class="max-w-6xl xl:max-w-7xl 2xl:max-w-[1340px] w-full mx-auto z-10 space-y-6">
+
+    <!-- Header Navigation Bar -->
+    <header class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 p-4.5 sm:p-6 rounded-3xl glass-card shadow-lg">
+      <div class="flex items-center justify-between">
+        <a href="/index.html" class="flex items-center gap-3.5 group">
+          <div class="h-11 w-11 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-emerald-600/30 group-hover:scale-105 transition shrink-0">
+            Q
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="text-xl sm:text-2xl font-black tracking-tight">PassQ</h1>
+              <span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20">B2B PyME</span>
+            </div>
+            <p data-i18n="dashboard:header.subtitle" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-semibold mt-0.5">Gestor de Pasaportes Digitales y Cumplimiento UE ESPR</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Controls & Actions Group -->
+      <div class="flex flex-wrap sm:flex-nowrap items-center justify-between sm:justify-end gap-2 sm:gap-2.5 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-200/60 dark:border-white/10">
+        <!-- Language Selector -->
+        <div class="flex items-center h-10 sm:h-11 px-3 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm shrink-0">
+          <span id="lang-flag-slot" class="flex items-center shrink-0"></span>
+          <select id="lang-select" class="bg-transparent text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100 outline-none cursor-pointer">
+            <option value="es" class="bg-white dark:bg-slate-900">ES • Español</option>
+            <option value="en" class="bg-white dark:bg-slate-900">EN • English</option>
+            <option value="de" class="bg-white dark:bg-slate-900">DE • Deutsch</option>
+            <option value="fr" class="bg-white dark:bg-slate-900">FR • Français</option>
+            <option value="it" class="bg-white dark:bg-slate-900">IT • Italiano</option>
+            <option value="pt" class="bg-white dark:bg-slate-900">PT • Português</option>
+            <option value="zh" class="bg-white dark:bg-slate-900">ZH • 中文</option>
+          </select>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle-btn" class="h-10 w-10 sm:h-11 sm:w-11 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-emerald-500 transition shrink-0 active:scale-95 cursor-pointer" title="Cambiar tema">
+          <span class="icon-svg w-5 h-5 shrink-0" id="theme-icon-slot"></span>
+        </button>
+
+        <!-- User Guide Modal Button -->
+        <button id="btn-open-user-guide" data-open-user-guide class="h-10 sm:h-11 px-3 sm:px-3.5 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center gap-1.5 sm:gap-2 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/40 transition text-xs sm:text-sm font-bold shrink-0 cursor-pointer active:scale-95 whitespace-nowrap" title="Guía de Usuario">
+          <span class="icon-svg w-4 h-4 text-emerald-500 shrink-0">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+          </span>
+          <span data-i18n="common:nav.user_guide" class="whitespace-nowrap">Guía de Usuario</span>
+        </button>
+
+        <!-- Create Passport CTA Button -->
+        <button id="btn-open-wizard" class="h-10 sm:h-11 py-2 px-3.5 sm:px-5 rounded-2xl font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg shadow-emerald-600/30 transition flex items-center justify-center gap-1.5 sm:gap-2 shrink-0 active:scale-95 whitespace-nowrap cursor-pointer">
+          <span class="icon-svg w-4 h-4 shrink-0">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+          </span>
+          <span data-i18n="common:nav.create_dpp" class="whitespace-nowrap">Nuevo Pasaporte</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 7-Day Free Trial Status Banner (Glassmorphism & High-Legibility) -->
+    <div id="trial-status-banner" class="p-5 sm:p-6 rounded-3xl glass-card border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 via-slate-900/30 to-teal-500/10 shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="h-12 w-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-500 flex items-center justify-center shrink-0">
+          <span class="icon-svg w-6 h-6">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/>
+            </svg>
+          </span>
+        </div>
+        <div>
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="text-base sm:text-lg font-black text-slate-900 dark:text-white" data-i18n="dashboard:trial.active_title">Prueba Gratuita de 7 Días Activa</span>
+            <span id="trial-day-badge" class="text-xs font-extrabold px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono whitespace-nowrap shrink-0">Día 1 de 7</span>
+          </div>
+          <p class="text-sm sm:text-[14.5px] text-slate-600 dark:text-slate-300 font-medium leading-relaxed mt-1" data-i18n="dashboard:trial.active_desc">Tienes acceso total e ilimitado a todas las herramientas Pro (Firma Web Crypto, GS1 Mod 10 y Fichas Aduaneras).</p>
+        </div>
+      </div>
+      <button type="button" data-open-subscription-modal data-plan="passq_growth_monthly" class="w-full sm:w-auto shrink-0 py-3 px-5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-extrabold transition flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 active:scale-95 cursor-pointer">
+        <span class="w-4 h-4 flex items-center shrink-0">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.023 2.023 0 0 1-.61-1.46V3.274c0-.568.226-1.096.61-1.46zM15.207 13.414l2.424 2.424-11.83 6.654 9.406-9.078zm0-2.828L5.801 1.508l11.83 6.654-2.424 2.424zm1.414 1.414l3.197 1.798c.956.538.956 1.42 0 1.958l-3.197 1.798-2.121-2.121 2.121-2.121z"/></svg>
+        </span>
+        <span data-i18n="dashboard:trial.lock_price_btn">Suscripción Google Play (7 Días Gratis)</span>
+      </button>
+    </div>
+
+    <!-- Stats Metric Cards -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="p-5 sm:p-6 rounded-3xl glass-card space-y-1 shadow-sm">
+        <p data-i18n="dashboard:stats.active_products" class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Productos Activos</p>
+        <p id="stat-active-products" class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">0</p>
+      </div>
+      <div class="p-5 sm:p-6 rounded-3xl glass-card space-y-1 shadow-sm">
+        <p data-i18n="dashboard:stats.total_scans" class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Escaneos QR Totales</p>
+        <p id="stat-total-scans" class="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400">0</p>
+      </div>
+      <div class="p-5 sm:p-6 rounded-3xl glass-card space-y-1 shadow-sm">
+        <p data-i18n="dashboard:stats.avg_repair_score" class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Reparabilidad Media</p>
+        <p id="stat-avg-score" class="text-2xl sm:text-3xl font-black text-cyan-600 dark:text-cyan-400">0.0</p>
+      </div>
+      <div class="p-5 sm:p-6 rounded-3xl glass-card space-y-1 shadow-sm">
+        <p data-i18n="dashboard:stats.compliance_rate" class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Cumplimiento UE</p>
+        <p id="stat-compliance-rate" class="text-2xl sm:text-3xl font-black text-emerald-500">100%</p>
+      </div>
+    </div>
+
+    <!-- Products Table Section -->
+    <section class="p-6 sm:p-8 rounded-3xl glass-card space-y-5 shadow-xl">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div>
+          <h2 data-i18n="dashboard:products_table.title" class="font-black text-xl sm:text-2xl tracking-tight text-slate-900 dark:text-white">
+            Pasaportes Digitales Gestionados
+          </h2>
+          <p data-i18n="dashboard:products_table.subtitle" class="text-sm sm:text-[14.5px] text-slate-600 dark:text-slate-300 font-medium mt-0.5">Catálogo de productos estandarizados bajo norma GS1 Digital Link.</p>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto -mx-6 sm:mx-0 px-6 sm:px-0">
+        <table class="w-full text-left text-sm sm:text-base min-w-[700px]">
+          <thead>
+            <tr class="border-b border-slate-200/80 dark:border-white/10 text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+              <th data-i18n="dashboard:products_table.col_product" class="py-4 px-4">Producto</th>
+              <th data-i18n="dashboard:products_table.col_category" class="py-4 px-4">Categoría</th>
+              <th data-i18n="dashboard:products_table.col_gtin" class="py-4 px-4 text-center">GTIN</th>
+              <th data-i18n="dashboard:products_table.col_score" class="py-4 px-4 text-center">Score</th>
+              <th data-i18n="dashboard:products_table.col_status" class="py-4 px-4 text-center">Estado</th>
+              <th data-i18n="dashboard:products_table.col_actions" class="py-4 px-4 text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="products-table-body" class="divide-y divide-slate-200/60 dark:divide-white/5"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Privacy & Local Data Governance Section (GDPR & Apple Guideline 5.1.1v) -->
+    <section class="p-6 sm:p-8 rounded-3xl glass-card border border-slate-200/80 dark:border-white/10 space-y-4 shadow-md">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div class="space-y-1.5">
+          <div class="flex items-center gap-2.5">
+            <span class="icon-svg w-6 h-6 text-emerald-500">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+            </span>
+            <h3 data-i18n="dashboard:privacy_section.title" class="font-black text-lg sm:text-xl text-slate-900 dark:text-white">
+              Soberanía de Datos & Privacidad Local
+            </h3>
+          </div>
+          <p data-i18n-html="dashboard:privacy_section.desc" class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+            PassQ es <strong>100% Local-First</strong>. No solicitamos cuentas, correo electrónico ni ubicación. Todos tus productos se guardan exclusivamente en el almacenamiento local de este dispositivo.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <button id="btn-export-backup" class="min-h-[44px] py-2.5 px-4.5 rounded-2xl bg-slate-200/80 dark:bg-slate-800 text-xs sm:text-sm font-extrabold hover:bg-slate-300 dark:hover:bg-slate-700 transition flex items-center gap-2 shadow-sm">
+            <span class="icon-svg w-4 h-4 text-indigo-500">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+            </span>
+            <span data-i18n="dashboard:privacy_section.btn_backup">Exportar Respaldo (JSON)</span>
+          </button>
+          <button id="btn-hard-reset-data" class="min-h-[44px] py-2.5 px-4.5 rounded-2xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/20 text-xs sm:text-sm font-extrabold transition flex items-center gap-2">
+            <span class="icon-svg w-4 h-4 text-rose-500">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg>
+            </span>
+            <span data-i18n="dashboard:privacy_section.btn_delete">Eliminar Todos los Datos de la App</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Privacy Pillars Badges -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium">
+        <div class="flex items-center gap-2.5 p-3 rounded-2xl bg-slate-200/50 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/5">
+          <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 shrink-0"></span>
+          <span data-i18n-html="dashboard:privacy_section.pillar_no_accounts"><strong>Sin cuentas:</strong> Cero recolección de datos personales.</span>
+        </div>
+        <div class="flex items-center gap-2.5 p-3 rounded-2xl bg-slate-200/50 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/5">
+          <span class="h-2.5 w-2.5 rounded-full bg-cyan-500 shrink-0"></span>
+          <span data-i18n-html="dashboard:privacy_section.pillar_camera_ram"><strong>Cámara en RAM:</strong> Lectura óptica local sin grabaciones.</span>
+        </div>
+        <div class="flex items-center gap-2.5 p-3 rounded-2xl bg-slate-200/50 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/5">
+          <span class="h-2.5 w-2.5 rounded-full bg-indigo-500 shrink-0"></span>
+          <span data-i18n-html="dashboard:privacy_section.pillar_no_gps"><strong>Cero GPS:</strong> Cero rastreo de geolocalización.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer with Full Suite of Legal Links -->
+    <footer class="pt-8 pb-4 text-center space-y-4">
+      <div class="flex flex-wrap justify-center gap-2.5 sm:gap-3 font-bold text-xs sm:text-sm">
+        <a href="/privacy.html" data-i18n="common:footer.privacy" class="min-h-[44px] py-2 px-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs">Política de Privacidad</a>
+        <a href="/terms.html" data-i18n="common:footer.terms" class="min-h-[44px] py-2 px-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs">Términos de Servicio</a>
+        <a href="/imprint.html" data-i18n="common:footer.imprint" class="min-h-[44px] py-2 px-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs">Aviso Legal</a>
+        <a href="/cookies.html" data-i18n="common:footer.cookies" class="min-h-[44px] py-2 px-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs">Cookies</a>
+        <a href="/compliance-statement.html" data-i18n="common:footer.compliance" class="min-h-[44px] py-2 px-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs">Conformidad ESPR</a>
+        <a href="/security.html" data-i18n="common:footer.security" class="min-h-[44px] py-2 px-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs">Seguridad</a>
+        <button type="button" data-open-contact-modal data-i18n="common:footer.contact" class="min-h-[44px] py-2 px-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-emerald-500/40 hover:text-emerald-500 active:scale-95 text-slate-800 dark:text-slate-100 transition flex items-center shadow-xs cursor-pointer">Contacto & Sugerencias</button>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium" data-i18n="common:footer.rights_text">© 2026 PassQ Technologies Ltd. • All Rights Reserved</p>
+    </footer>
+
+  </div>
+
+  <!-- MODAL: 4-STEP WIZARD -->
+  <div id="wizard-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 hidden">
+    <div class="w-full max-w-lg rounded-3xl glass-card p-6 sm:p-8 space-y-5 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      
+      <!-- Wizard Header -->
+      <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-white/10 pb-4">
+        <div>
+          <h3 data-i18n="wizard:title" class="font-extrabold text-lg text-slate-900 dark:text-white">Crear Pasaporte Digital</h3>
+          <p data-i18n="wizard:subtitle" class="text-xs text-slate-500 dark:text-slate-400">Paso a paso guiado para cumplir con la normativa europea.</p>
+          <div class="flex gap-2 mt-3">
+            <div class="step-indicator h-2.5 w-10 rounded-full bg-emerald-500 shadow-sm"></div>
+            <div class="step-indicator h-2.5 w-4 rounded-full bg-slate-200 dark:bg-white/10"></div>
+            <div class="step-indicator h-2.5 w-4 rounded-full bg-slate-200 dark:bg-white/10"></div>
+            <div class="step-indicator h-2.5 w-4 rounded-full bg-slate-200 dark:bg-white/10"></div>
+          </div>
+        </div>
+        <button id="btn-close-wizard" class="text-slate-400 hover:text-white p-2 rounded-lg transition" title="Cerrar" data-i18n-title="common:buttons.close">
+          <span class="icon-svg w-5 h-5">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+          </span>
+        </button>
+      </div>
+
+      <!-- STEP 1: IDENTITY -->
+      <div id="wizard-step-1" class="space-y-4">
+        <div>
+          <label data-i18n="wizard:fields.product_name" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Nombre del Producto</label>
+          <input id="wizard-name" type="text" placeholder="ej. Chaqueta Alpina EcoDry" data-i18n-placeholder="wizard:placeholders.product_name" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label data-i18n="wizard:fields.category" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Categoría</label>
+            <select id="wizard-category" class="glass-input w-full py-3 px-3.5 rounded-2xl text-sm cursor-pointer">
+              <option value="textile" data-i18n="wizard:categories.textile">Textil y Moda</option>
+              <option value="footwear" data-i18n="wizard:categories.footwear">Calzado y Piel</option>
+              <option value="electronics" data-i18n="wizard:categories.electronics">Electrónica de Consumo</option>
+              <option value="furniture" data-i18n="wizard:categories.furniture">Muebles y Madera</option>
+            </select>
+          </div>
+          <div>
+            <label data-i18n="wizard:fields.gtin" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">GTIN / Código de Barras (8-14 dígitos)</label>
+            <input id="wizard-gtin" type="text" placeholder="7501234567890" data-i18n-placeholder="wizard:placeholders.gtin" maxlength="14" class="glass-input w-full py-3 px-4 rounded-2xl text-sm font-mono" />
+          </div>
+        </div>
+        <div>
+          <label data-i18n="wizard:fields.origin_country" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">País de Origen y Fabricación</label>
+          <input id="wizard-origin" type="text" placeholder="México" data-i18n-placeholder="wizard:placeholders.origin" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
+        </div>
+        <!-- Error feedback -->
+        <p id="step-1-error" class="text-xs text-rose-500 font-semibold hidden"></p>
+      </div>
+
+      <!-- STEP 2: MATERIALS -->
+      <div id="wizard-step-2" class="space-y-4 hidden">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <label data-i18n="wizard:fields.material_name" class="text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300">Composición de Materiales</label>
+            <span id="materials-sum-badge" class="text-[11px] font-bold font-mono px-2 py-0.5 rounded-full bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-300">100%</span>
+          </div>
+          <button id="btn-add-material" data-i18n="wizard:buttons.add_material" class="text-xs font-extrabold text-emerald-500 hover:underline">+ Añadir Material</button>
+        </div>
+        <div id="wizard-materials-inputs" class="space-y-2.5 max-h-48 overflow-y-auto pr-1"></div>
+        <div>
+          <label data-i18n="wizard:fields.carbon_kg" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Huella CO₂ Estimada (kg CO₂e)</label>
+          <input id="wizard-co2" type="number" step="0.1" value="3.5" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
+        </div>
+        <!-- Error feedback -->
+        <p id="step-2-error" class="text-xs text-rose-500 font-semibold hidden"></p>
+      </div>
+
+      <!-- STEP 3: REPAIRABILITY -->
+      <div id="wizard-step-3" class="space-y-4 hidden">
+        <div>
+          <label data-i18n="wizard:fields.disassembly_tools" class="block text-xs sm:text-sm font-bold mb-2 uppercase tracking-wide text-slate-600 dark:text-slate-300">Herramientas para Desmontar</label>
+          <input type="hidden" id="wizard-tools" value="tools_standard" />
+          
+          <!-- Encapsulated Interactive Options Grid -->
+          <div class="grid grid-cols-1 gap-2.5" id="tools-option-group">
+            <button type="button" data-tool-val="tools_none" class="tool-option-card w-full p-3.5 rounded-2xl border transition flex items-center justify-between text-left border-slate-200/80 dark:border-white/10 bg-white/50 dark:bg-white/[0.03] hover:border-emerald-500/40 active:scale-[0.99]">
+              <div class="flex items-center gap-3">
+                <span class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-300 dark:border-white/20 flex items-center justify-center shrink-0">
+                  <span class="dot w-2.5 h-2.5 rounded-full bg-emerald-500 hidden"></span>
+                </span>
+                <span data-i18n="wizard:tools.none" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Sin herramientas (Fijación por presión/clips)</span>
+              </div>
+            </button>
+
+            <button type="button" data-tool-val="tools_standard" class="tool-option-card active w-full p-3.5 rounded-2xl border-2 transition flex items-center justify-between text-left border-emerald-500 bg-emerald-500/10 dark:bg-emerald-500/15 shadow-xs active:scale-[0.99]">
+              <div class="flex items-center gap-3">
+                <span class="radio-indicator w-5 h-5 rounded-full border-2 border-emerald-500 flex items-center justify-center shrink-0">
+                  <span class="dot w-2.5 h-2.5 rounded-full bg-emerald-500 block"></span>
+                </span>
+                <span data-i18n="wizard:tools.standard" class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Herramientas estándar (Destornillador / Allen)</span>
+              </div>
+              <span class="icon-svg w-4 h-4 text-emerald-500 shrink-0">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              </span>
+            </button>
+
+            <button type="button" data-tool-val="tools_specialized" class="tool-option-card w-full p-3.5 rounded-2xl border transition flex items-center justify-between text-left border-slate-200/80 dark:border-white/10 bg-white/50 dark:bg-white/[0.03] hover:border-emerald-500/40 active:scale-[0.99]">
+              <div class="flex items-center gap-3">
+                <span class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-300 dark:border-white/20 flex items-center justify-center shrink-0">
+                  <span class="dot w-2.5 h-2.5 rounded-full bg-emerald-500 hidden"></span>
+                </span>
+                <span data-i18n="wizard:tools.specialized" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Herramientas especializadas o propietarias</span>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div>
+          <label data-i18n="wizard:fields.repair_duration_yrs" class="block text-xs font-bold mb-1.5 uppercase tracking-wide text-slate-600 dark:text-slate-300">Disponibilidad de Repuestos (Años)</label>
+          <input id="wizard-duration" type="number" min="1" max="15" value="7" class="glass-input w-full py-3 px-4 rounded-2xl text-sm" />
+        </div>
+        <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 flex justify-between items-center text-xs">
+          <span data-i18n="wizard:review.estimated_score_label" class="font-bold text-emerald-700 dark:text-emerald-300">Score de Reparabilidad Estimado:</span>
+          <span id="wizard-calculated-score" class="font-black text-base text-emerald-500">9.2 / 10</span>
+        </div>
+      </div>
+
+      <!-- STEP 4: REVIEW & FINISH -->
+      <div id="wizard-step-4" class="space-y-4 hidden">
+        <div class="p-4 sm:p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] border border-slate-200/80 dark:border-white/10 space-y-2.5">
+          <p class="flex items-center justify-between"><span data-i18n="wizard:review.summary_product_label" class="text-xs sm:text-sm uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Producto:</span> <strong id="summary-name" class="text-base sm:text-lg font-black text-slate-900 dark:text-white"></strong></p>
+          <p class="flex items-center justify-between"><span data-i18n="wizard:review.summary_gtin_label" class="text-xs sm:text-sm uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">GTIN:</span> <strong id="summary-gtin" class="font-mono text-base sm:text-lg text-emerald-600 dark:text-emerald-400 font-black tracking-wider"></strong></p>
+          <p class="flex items-center justify-between"><span data-i18n="wizard:review.summary_origin_label" class="text-xs sm:text-sm uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Origen:</span> <strong id="summary-origin" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white"></strong></p>
+        </div>
+        <div>
+          <label data-i18n="wizard:fields.recycling_instructions" class="block text-xs sm:text-sm font-extrabold mb-1.5 uppercase tracking-wide text-slate-700 dark:text-slate-200">Instrucciones de Fin de Vida</label>
+          <textarea id="wizard-recycling" rows="2" data-i18n-placeholder="wizard:placeholders.recycling" class="glass-input w-full py-3 px-4 rounded-2xl text-sm sm:text-base leading-relaxed font-medium">Apto para reciclaje en centros de acopio autorizados.</textarea>
+        </div>
+        
+        <!-- Legal & Regulatory Compliance Shield -->
+        <div class="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-2">
+          <label class="flex items-start gap-3 cursor-pointer text-left">
+            <input id="wizard-legal-consent" type="checkbox" checked class="mt-0.5 w-5 h-5 rounded text-emerald-600 focus:ring-emerald-500 cursor-pointer shrink-0" />
+            <span data-i18n-html="wizard:review.legal_declaration" class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
+              Certifico que tengo los derechos legales y marcas de este producto, y asumo la total responsabilidad de cumplir con las normativas locales y aduaneras vigentes, eximiendo a PassQ según los <a href="/terms.html" target="_blank" class="text-emerald-500 font-bold underline">Términos de Servicio</a>.
+            </span>
+          </label>
+          <p id="step-4-error" class="text-xs sm:text-sm text-rose-500 font-semibold hidden"></p>
+        </div>
+      </div>
+
+      <!-- Wizard Navigation Buttons -->
+      <div class="flex justify-between items-center pt-4 border-t border-slate-200/80 dark:border-white/10">
+        <button id="btn-wizard-prev" class="py-3 px-6 rounded-2xl text-sm font-extrabold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition hidden flex items-center gap-2 min-h-[46px]">
+          <span class="icon-svg w-4 h-4"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg></span>
+          <span data-i18n="wizard:buttons.prev">Atrás</span>
+        </button>
+        <button id="btn-wizard-next" class="ml-auto py-3.5 px-7 rounded-2xl text-sm sm:text-base font-black text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg shadow-emerald-600/30 transition flex items-center gap-2 min-h-[48px] active:scale-[0.98]">
+          <span data-i18n="wizard:buttons.next">Siguiente</span>
+          <span class="icon-svg w-5 h-5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: INDUSTRIAL GS1 QR VIEWER & RESILIENCE STUDIO -->
+  <div id="qr-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 hidden">
+    <div class="w-full max-w-md rounded-3xl glass-card p-6 sm:p-7 space-y-4 shadow-2xl relative max-h-[92vh] overflow-y-auto border border-emerald-500/20">
+      
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between border-b border-slate-200/80 dark:border-white/10 pb-3">
+        <div>
+          <span class="text-xs sm:text-[13px] font-mono font-black uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block" data-i18n="dashboard:qr_modal.studio_badge">Estudio de Emisión GS1 Digital Link</span>
+          <h3 id="modal-product-name" class="font-black text-lg sm:text-xl text-slate-900 dark:text-white mt-1"></h3>
+          <p id="modal-gtin" class="text-sm sm:text-base text-slate-700 dark:text-slate-200 font-mono font-bold mt-0.5"></p>
+        </div>
+        <button id="btn-close-qr-modal" class="h-10 w-10 rounded-xl bg-slate-200/80 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 active:scale-95 transition flex items-center justify-center text-slate-500 dark:text-slate-300" title="Cerrar">
+          <span class="icon-svg w-5 h-5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg></span>
+        </button>
+      </div>
+
+      <!-- Target Environment / Domain Selector -->
+      <div class="space-y-2">
+        <label class="text-xs sm:text-sm font-extrabold text-slate-800 dark:text-slate-200 flex items-center justify-between" data-i18n="dashboard:qr_modal.domain_label">
+          <span>Dominio de Resolución del Pasaporte</span>
+          <span class="text-xs font-mono text-emerald-500 font-bold" id="qr-matrix-density-badge">Matriz V2 • Ultrarrápido</span>
+        </label>
+        
+        <div class="grid grid-cols-3 gap-2 p-1.5 rounded-2xl bg-slate-200/60 dark:bg-white/5 border border-slate-200/80 dark:border-white/10">
+          <button type="button" id="qr-target-prod" class="qr-target-btn py-2.5 px-2 rounded-xl transition bg-emerald-600 text-white shadow-xs text-center flex flex-col items-center justify-center gap-0.5" data-domain-type="prod">
+            <span class="flex items-center justify-center gap-1 font-black text-xs sm:text-sm">
+              <span class="icon-svg w-3.5 h-3.5 shrink-0" data-icon="globe"></span>
+              <span>Producción</span>
+            </span>
+            <span class="text-[11px] sm:text-xs opacity-90 block truncate font-medium">passq.app</span>
+          </button>
+          <button type="button" id="qr-target-lan" class="qr-target-btn py-2.5 px-2 rounded-xl transition text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-white/10 text-center flex flex-col items-center justify-center gap-0.5" data-domain-type="lan">
+            <span class="flex items-center justify-center gap-1 font-black text-xs sm:text-sm">
+              <span class="icon-svg w-3.5 h-3.5 shrink-0" data-icon="devicePhoneMobile"></span>
+              <span>Prueba WiFi</span>
+            </span>
+            <span class="text-[11px] sm:text-xs opacity-90 block truncate font-medium">Red Local LAN</span>
+          </button>
+          <button type="button" id="qr-target-custom" class="qr-target-btn py-2.5 px-2 rounded-xl transition text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-white/10 text-center flex flex-col items-center justify-center gap-0.5" data-domain-type="custom">
+            <span class="flex items-center justify-center gap-1 font-black text-xs sm:text-sm">
+              <span class="icon-svg w-3.5 h-3.5 shrink-0" data-icon="tag"></span>
+              <span>Marca Propia</span>
+            </span>
+            <span class="text-[11px] sm:text-xs opacity-90 block truncate font-medium">White-Label</span>
+          </button>
+        </div>
+
+        <!-- Custom LAN / Domain Input Slot (Dynamic) -->
+        <div id="qr-custom-domain-slot" class="hidden pt-1">
+          <input type="text" id="qr-custom-domain-input" placeholder="http://192.168.100.6:5173 o https://tumarca.com" class="w-full text-sm font-mono py-2.5 px-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 outline-none focus:border-emerald-500 text-slate-800 dark:text-slate-100 font-bold" />
+        </div>
+      </div>
+
+      <!-- Resilient QR Canvas Area with 4-Module Quiet Zone -->
+      <div class="p-4 sm:p-5 bg-white rounded-2xl flex flex-col items-center justify-center shadow-inner my-1 border border-slate-200/80">
+        <canvas id="qr-canvas"></canvas>
+        <span class="text-[11px] sm:text-xs font-mono font-bold text-slate-500 mt-2 uppercase tracking-wider">ISO/IEC 18004 • GS1 Digital Link 1.2</span>
+      </div>
+
+      <!-- Live URL and Quality Metrics -->
+      <div class="space-y-1.5">
+        <div class="flex items-center justify-between text-xs sm:text-[13px] text-slate-600 dark:text-slate-300 font-bold px-1">
+          <span id="qr-url-length-badge">48 caracteres (Versión 2)</span>
+          <span class="text-emerald-600 dark:text-emerald-400 font-black" id="qr-ecc-badge">ECC High (30% Redundancia)</span>
+        </div>
+        <div class="flex items-center gap-2 p-3 rounded-2xl bg-slate-200/60 dark:bg-white/5 border border-slate-200/80 dark:border-white/10">
+          <p id="modal-qr-url" class="text-xs sm:text-sm font-mono font-bold text-slate-800 dark:text-slate-100 break-all flex-1 select-all leading-relaxed"></p>
+          <button id="btn-copy-url" class="p-2.5 rounded-xl bg-slate-300/60 dark:bg-white/10 hover:bg-emerald-500 hover:text-white active:scale-95 text-slate-700 dark:text-slate-200 transition shrink-0" title="Copiar Enlace">
+            <span class="icon-svg w-5 h-5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"/></svg></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Industrial Exports Grid (44px touch targets) -->
+      <div class="space-y-2.5 pt-1">
+        <div class="grid grid-cols-2 gap-2.5">
+          <button id="btn-download-svg" class="min-h-[48px] py-3 px-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white text-sm font-black shadow-md transition flex items-center justify-center gap-2">
+            <span class="icon-svg w-5 h-5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg></span>
+            <span data-i18n="dashboard:qr_modal.btn_svg">Vector SVG</span>
+          </button>
+          <button id="btn-download-png" class="min-h-[48px] py-3 px-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 active:scale-95 text-white text-sm font-black transition flex items-center justify-center gap-2">
+            <span class="icon-svg w-5 h-5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg></span>
+            <span data-i18n="dashboard:qr_modal.btn_png">PNG 300 DPI</span>
+          </button>
+        </div>
+
+        <button id="btn-download-packaging-label" class="w-full min-h-[50px] py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-95 text-white text-sm sm:text-base font-black shadow-lg shadow-emerald-600/20 transition flex items-center justify-center gap-2.5">
+          <span class="icon-svg w-5 h-5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z"/></svg></span>
+          <span data-i18n="dashboard:qr_modal.btn_packaging_label">Etiqueta Maestra de Packaging Oficial (300 DPI)</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: DELETE PRODUCT CONFIRMATION (HIGH IMPACT GLASSMORPHISM) -->
+  <div id="delete-product-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 hidden">
+    <div class="w-full max-w-md rounded-3xl glass-card p-6 sm:p-7 space-y-5 shadow-2xl relative border border-rose-500/30 overflow-hidden">
+      
+      <!-- Bioluminescent Rose Glow Backdrop -->
+      <div class="absolute -top-12 -right-12 w-32 h-32 bg-rose-500/20 rounded-full blur-2xl pointer-events-none"></div>
+
+      <!-- Header with Alert Vector SVG -->
+      <div class="flex items-start gap-3.5 relative z-10">
+        <div class="h-12 w-12 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-500 flex items-center justify-center shrink-0 shadow-lg shadow-rose-500/10">
+          <span class="icon-svg w-6 h-6">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+            </svg>
+          </span>
+        </div>
+        <div class="space-y-1">
+          <h3 data-i18n="dashboard:delete_modal.title" class="font-black text-lg sm:text-xl text-slate-900 dark:text-white leading-snug">
+            ¿Eliminar Pasaporte Digital?
+          </h3>
+          <p data-i18n="dashboard:delete_modal.subtitle" class="text-xs sm:text-sm text-rose-500 dark:text-rose-400 font-bold">
+            Acción permanente sobre tu almacenamiento local
+          </p>
+        </div>
+      </div>
+
+      <!-- Target Product Card Preview -->
+      <div class="p-4 sm:p-4.5 rounded-2xl bg-slate-200/50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 space-y-2 relative z-10">
+        <span data-i18n="dashboard:delete_modal.product_label" class="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold block">Producto a eliminar:</span>
+        <div class="flex items-center justify-between gap-3">
+          <p id="delete-modal-product-name" class="font-black text-base sm:text-lg text-slate-900 dark:text-white truncate"></p>
+          <span id="delete-modal-product-gtin" class="px-2.5 py-1 rounded-lg bg-slate-300/70 dark:bg-white/10 text-xs sm:text-sm font-mono font-bold text-slate-700 dark:text-slate-200 shrink-0"></span>
+        </div>
+      </div>
+
+      <!-- Warning description -->
+      <p data-i18n="dashboard:delete_modal.warning" class="text-sm sm:text-[15px] text-slate-700 dark:text-slate-200 font-medium leading-relaxed relative z-10">
+        Esta acción eliminará de forma irreversible el Pasaporte Digital del producto y sus firmas criptográficas de la base de datos local de este dispositivo.
+      </p>
+
+      <!-- Action Buttons (48px touch targets) -->
+      <div class="flex gap-3 pt-1 relative z-10">
+        <button id="btn-cancel-delete" class="w-1/2 min-h-[48px] py-3.5 px-4 rounded-2xl bg-slate-200/80 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 active:scale-95 text-sm font-extrabold text-slate-700 dark:text-slate-200 transition flex items-center justify-center gap-2">
+          <span data-i18n="dashboard:delete_modal.btn_cancel">Cancelar</span>
+        </button>
+        <button id="btn-confirm-delete" class="w-1/2 min-h-[48px] py-3.5 px-4 rounded-2xl bg-rose-600 hover:bg-rose-500 active:scale-95 text-sm sm:text-base font-black text-white shadow-lg shadow-rose-600/30 transition flex items-center justify-center gap-2">
+          <span class="icon-svg w-4.5 h-4.5">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+            </svg>
+          </span>
+          <span data-i18n="dashboard:delete_modal.btn_confirm">Eliminar</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Legal Consent & Terms Acceptance Modal (Anti-Lawsuit Shield) -->
+  <div id="terms-consent-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="glass-card max-w-lg w-full p-6 sm:p-8 rounded-3xl space-y-5 border border-emerald-500/30 shadow-2xl">
+      <div class="flex items-center gap-3">
+        <div class="h-11 w-11 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-500 flex items-center justify-center shrink-0">
+          <span class="icon-svg w-6 h-6">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+            </svg>
+          </span>
+        </div>
+        <div>
+          <h3 class="font-black text-lg text-slate-900 dark:text-white" data-i18n="legal:consent_modal.title">Bienvenido a PassQ • Soberanía y Términos</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="legal:consent_modal.subtitle">Aceptación legal obligatoria para la creación de pasaportes</p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-xs text-slate-600 dark:text-slate-300 space-y-2 leading-relaxed">
+        <p data-i18n="legal:consent_modal.body_p1">Al utilizar la plataforma PassQ para estructurar, firmar o emitir Pasaportes Digitales de Producto (DPP), manifiestas tu consentimiento expreso y vinculante con nuestros <a href="/terms.html" target="_blank" class="text-emerald-500 underline font-bold">Términos de Servicio</a> y <a href="/privacy.html" target="_blank" class="text-emerald-500 underline font-bold">Política de Privacidad</a>.</p>
+        
+        <div class="pt-2 space-y-1.5 font-medium text-[11px]">
+          <div class="flex items-start gap-2">
+            <span class="icon-svg w-4 h-4 text-emerald-500 shrink-0 mt-0.5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+            <span data-i18n="legal:consent_modal.bullet_manufacturer_resp">Responsabilidad exclusiva del fabricante sobre la exactitud de los datos y porcentajes declarados.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="icon-svg w-4 h-4 text-cyan-500 shrink-0 mt-0.5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+            <span data-i18n="legal:consent_modal.bullet_arbitration">Cláusula de arbitraje individual vinculante y renuncia expresa a acciones colectivas.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="icon-svg w-4 h-4 text-indigo-500 shrink-0 mt-0.5"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+            <span data-i18n="legal:consent_modal.bullet_no_legal_advice">PassQ es una herramienta tecnológica y no presta asesoría jurídica ni peritaje aduanero.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 pt-1">
+        <button id="btn-accept-terms-consent" class="w-full py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm transition shadow-lg shadow-emerald-600/30 active:scale-95 flex items-center justify-center gap-2">
+          <span class="icon-svg w-4 h-4"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+          <span data-i18n="legal:consent_modal.btn_accept">Aceptar y Comenzar Prueba (7 Días)</span>
+        </button>
+        <a href="/terms.html" target="_blank" class="w-full sm:w-auto py-3.5 px-4 rounded-2xl bg-white/60 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-200 font-bold text-xs transition text-center flex items-center justify-center">
+          <span data-i18n="legal:consent_modal.btn_view_terms">Ver Términos</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

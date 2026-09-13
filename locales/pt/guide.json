@@ -1,0 +1,63 @@
+{
+  "title": "Guia do Usuário • PassQ",
+  "badge": "Manual Interativo & Didático",
+  "subtitle": "Domine o ciclo de vida dos seus Passaportes Digitais em minutos.",
+  "btn_close": "Fechar Guia",
+  "tabs": {
+    "tab1": "Caso Prático",
+    "tab2": "Criar Passaporte",
+    "tab3": "Seu Catálogo & QR",
+    "tab4": "Visão dos Clientes",
+    "tab5": "Privacidade & Dados"
+  },
+  "tab1_content": {
+    "title": "A Jornada do seu Produto: O Caso Real de Sofia",
+    "intro": "Imaginemos Sofia, fundadora da marca têxtil «Nordic Apex Gear». Ela acabou de fabricar 200 unidades da «Chaqueta Alpina EcoDry» e precisa etiquetá-las para venda e exportação para a União Europeia.",
+    "step1_title": "Criação em 4 minutos",
+    "step1_desc": "Sofia abre o PassQ, preenche as 4 etapas guiadas e finaliza. Seu passaporte fica protegido com assinatura criptográfica única.",
+    "step2_title": "Impressão do QR Code GS1",
+    "step2_desc": "Ela baixa o QR Code em alta resolução no padrão global GS1 Digital Link para estampar em etiquetas de tecido e tags de papelão.",
+    "step3_title": "Ficha Aduaneira Imediata",
+    "step3_desc": "Gera com um clique o PDF oficial de alfândega de 3 páginas e o arquivo JSON-LD para comprovar conformidade com a norma UE ESPR 2024/1781.",
+    "step4_title": "Leitura por Clientes e Alfândegas",
+    "step4_desc": "Quando um comprador em Lisboa, Paris ou Berlim escaneia a peça, vê materiais e instruções de conservação em seu idioma. Fiscais validam a autenticidade na hora."
+  },
+  "tab2_content": {
+    "title": "Assistente Guiado de Criação (4 Passos Simples)",
+    "step1_title": "Identidade do Produto",
+    "step1_desc": "Nome comercial, categoria (Têxtil, Calçado, Eletrônicos, Móveis), código de barras GTIN-13 e país de origem.",
+    "step2_title": "Composição de Materiais e CO₂",
+    "step2_desc": "Desdobramento percentual dos materiais (ex.: 85% Poliéster reciclado, 15% Membrana) e pegada estimada em kg CO₂e.",
+    "step3_title": "Reparabilidade e Cuidados",
+    "step3_desc": "Ferramentas de desmontagem necessárias e anos de garantia de peças sobressalentes. Cálculo automático do índice de ecodesign.",
+    "step4_title": "Classificação Aduaneira e Assinatura",
+    "step4_desc": "Código aduaneiro HS/TARIC (ex.: 6202.40.00) e assinatura digital inviolável gerada no navegador."
+  },
+  "tab3_content": {
+    "title": "Gestão do Catálogo & Rotina Diária",
+    "catalog_title": "Seu Catálogo Central:",
+    "catalog_desc": "Na tela inicial, a tabela «Passaportes Digitais Gerenciados» representa todo o seu catálogo de produtos.",
+    "actions_title": "Ações diretas em cada linha:",
+    "action_view": "Ver Passaporte: Abre a visualização pública para clientes e inspetores.",
+    "action_qr": "Obter QR Code: Janela de download e impressão em alta resolução.",
+    "action_del": "Eliminar: Eliminação permanente do produto e respetivas assinaturas.",
+    "export_title": "Exportações Oficiais:",
+    "export_desc": "Geração de PDFs aduaneiros de 3 páginas e dados JSON-LD padrão UE."
+  },
+  "tab4_content": {
+    "title": "O que Veem seus Clientes e as Alfândegas?",
+    "consumer_title": "Para o Consumidor Final:",
+    "consumer_desc": "O escaneamento por celular detecta o idioma nativo e exibe materiais, circularidade e cuidados de lavagem.",
+    "customs_title": "Para Fiscais e Auditores:",
+    "customs_desc": "Selo verde de autenticidade criptográfica confirmando dados legítimos e imutáveis."
+  },
+  "tab5_content": {
+    "title": "Privacidade & Soberania Total de Dados (Local-First)",
+    "local_title": "0% Contas, 0% Rastreamento, 100% no seu Aparelho",
+    "local_desc": "Seus dados vivem exclusivamente no armazenamento interno do seu próprio navegador (LocalStorage / IndexedDB).",
+    "backup_title": "Backup em 1 Clique:",
+    "backup_desc": "Exporte seu catálogo para transferir a outro computador com total facilidade.",
+    "wipe_title": "Exclusão Segura:",
+    "wipe_desc": "Limpeza completa em conformidade com o RGPD para reiniciar o aplicativo."
+  }
+}

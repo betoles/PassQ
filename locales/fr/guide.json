@@ -1,0 +1,63 @@
+{
+  "title": "Guide de l'Utilisateur • PassQ",
+  "badge": "Manuel Interactif & Didactique",
+  "subtitle": "Maîtrisez le cycle de vie de vos Passeports Numériques en quelques minutes.",
+  "btn_close": "Fermer le Guide",
+  "tabs": {
+    "tab1": "Cas Pratique",
+    "tab2": "Créer un Passeport",
+    "tab3": "Votre Catalogue & QR",
+    "tab4": "Vue Client & Douane",
+    "tab5": "Confidentialité & Données"
+  },
+  "tab1_content": {
+    "title": "Le Parcours de votre Produit: Le Cas Réel de Sophie",
+    "intro": "Imaginons Sophie, créatrice de la marque textile «Nordic Apex Gear». Elle vient d'achever un lot de 200 vestes «Chaqueta Alpina EcoDry» et doit les étiqueter pour la vente en boutique et l'exportation vers l'UE.",
+    "step1_title": "Création en 4 minutes",
+    "step1_desc": "Sophie ouvre PassQ dans son navigateur, renseigne les 4 étapes guidées et valide. Son passeport est immédiatement scellé avec une signature cryptographique.",
+    "step2_title": "Impression du QR Code GS1",
+    "step2_desc": "Elle télécharge le QR Code haute résolution conforme au standard GS1 Digital Link pour l'imprimer sur l'étiquette textile et l'étiquette cartonnée.",
+    "step3_title": "Dossier Douanier Immédiat",
+    "step3_desc": "En un clic, elle génère le PDF officiel des douanes de 3 pages et le fichier JSON-LD pour prouver la conformité au Règlement européen ESPR 2024/1781.",
+    "step4_title": "Scan Clients et Douanes",
+    "step4_desc": "Lorsqu'un acheteur à Paris ou Berlin scanne la veste, il accède à sa composition et ses conseils d'entretien dans sa langue. Les douanes vérifient l'authenticité instantanément."
+  },
+  "tab2_content": {
+    "title": "Assistant de Création Guidé (4 Étapes Simples)",
+    "step1_title": "Identité du Produit",
+    "step1_desc": "Nom commercial, catégorie (Textile, Chaussures, Électronique, Meubles), code-barres GTIN-13 et pays d'origine.",
+    "step2_title": "Composition des Matériaux & CO₂",
+    "step2_desc": "Décomposition des matériaux (ex. 85% Polyester recyclé, 15% Membrane) et empreinte carbone en kg CO₂e.",
+    "step3_title": "Réparabilité & Entretien",
+    "step3_desc": "Outils de démontage requis et années de disponibilité des pièces détachées. PassQ calcule le score d'écoconception.",
+    "step4_title": "Code Douanier & Signature Numérique",
+    "step4_desc": "Code douanier HS/TARIC (ex. 6202.40.00) et signature numérique inviolable générée localement."
+  },
+  "tab3_content": {
+    "title": "Gestion du Catalogue & Opérations Quotidiennes",
+    "catalog_title": "Votre Catalogue Central:",
+    "catalog_desc": "Sur le tableau de bord, le tableau «Passeports Numériques Gérés» regroupe l'ensemble de vos produits.",
+    "actions_title": "Actions directes par produit:",
+    "action_view": "Voir le passeport : Ouvre la vue publique pour clients et inspecteurs.",
+    "action_qr": "Obtenir le QR : Fenêtre de téléchargement et impression haute résolution.",
+    "action_del": "Supprimer : Suppression définitive du produit et de ses signatures.",
+    "export_title": "Exportations Officielles:",
+    "export_desc": "Fiches douanières PDF et données JSON-LD aux normes européennes."
+  },
+  "tab4_content": {
+    "title": "Que voient vos Clients et les Douanes ?",
+    "consumer_title": "Pour le Consommateur Final:",
+    "consumer_desc": "Le scan par smartphone ouvre automatiquement le passeport dans sa langue avec les conseils d'entretien et de recyclage.",
+    "customs_title": "Pour les Douanes & Auditeurs:",
+    "customs_desc": "Badge vert d'authenticité cryptographique vérifiée garantissant des données inaltérables."
+  },
+  "tab5_content": {
+    "title": "Confidentialité & Souveraineté des Données (Local-First)",
+    "local_title": "0% Compte, 0% Pistage, 100% sur votre Appareil",
+    "local_desc": "Vos données restent stockées exclusivement dans la mémoire de votre navigateur (LocalStorage / IndexedDB).",
+    "backup_title": "Sauvegardes en 1 Clic:",
+    "backup_desc": "Exportez votre catalogue pour le transférer en toute sécurité.",
+    "wipe_title": "Effacement Définitif:",
+    "wipe_desc": "Bouton de purge intégrale conforme RGPD pour réinitialiser l'application."
+  }
+}

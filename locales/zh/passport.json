@@ -1,0 +1,193 @@
+{
+  "header": {
+    "title": "数字产品护照 (DPP)",
+    "verify_seal_title": "查验官方密码学防伪印章",
+    "certified_badge": "官方认证护照 • ED25519 签名有效",
+    "verify_integrity_title": "验证全量数据密码学完整性",
+    "loading_product": "正在加载产品数据...",
+    "verified_brand": "官方认证品牌",
+    "gtin": "GTIN 条码",
+    "serial": "产品序列号"
+  },
+  "tabs": {
+    "overview": "核心概览",
+    "materials": "材质构成",
+    "repair": "维修保养",
+    "recycling": "海关与碳足迹"
+  },
+  "repair_score": {
+    "title": "官方可维修性评分",
+    "spare_parts": "原厂承诺提供 5 年以上备件支持",
+    "grade_excellent": "极佳"
+  },
+  "materials": {
+    "country_of_origin": "原产国与产地",
+    "recycled_content": "再生材料占比",
+    "lca_breakdown": "产品全生命周期评估 (LCA)",
+    "lca_mfg": "制造:",
+    "lca_log": "运输:",
+    "lca_eol": "回收:",
+    "carbon_footprint": "产品碳足迹",
+    "water_footprint": "产品水足迹"
+  },
+  "repair_guide": {
+    "step_prefix": "步骤",
+    "order_parts": "直达订购品牌官方原厂配件",
+    "default_tools": "通用标准家用工具"
+  },
+  "recycling": {
+    "title": "废弃物拆解回收与循环利用指引",
+    "toxic_free": "100% 符合欧盟 RoHS、REACH、CE 及 WEEE 环保安全指令。",
+    "default_instructions": "分类存放并投入官方循环回收渠道或市政绿色环保回收中心。"
+  },
+  "security": {
+    "verified_signature": "数字加密签名 • 防篡改",
+    "verifier_note": "通过 ed25519 非对称公钥完成身份校验。"
+  },
+  "top_bar": {
+    "scan_title": "使用摄像头扫描其他护照二维码",
+    "share_title": "分享数字产品护照"
+  },
+  "customs": {
+    "title": "对外贸易与海关监管数据",
+    "hs_code_label": "HS / TARIC 海关商品编码",
+    "regulation_label": "欧盟执行标准",
+    "urn_label": "标准规范护照 URN 唯一编码"
+  },
+  "buttons": {
+    "print_customs_pdf": "打印官方海关申报通关单 (PDF)"
+  },
+  "footer": {
+    "disclaimer": "PassQ 提供去中心化产品护照技术底层基础设施。产品材质真实性及合规资质由品牌方独立承担法律责任。"
+  },
+  "spare_parts_modal": {
+    "title": "原厂认证品质保证备件",
+    "subtitle": "品牌制造工厂直供，100% 适配认证",
+    "official_guarantee": "100% 原厂正品兼容性保证",
+    "btn_request": "向制造厂商发起配件采购申请",
+    "email_subject": "官方正品备件采购申请: ",
+    "email_body": "您好，我希望为以下产品订购官方认证原厂配件："
+  },
+  "scanner": {
+    "title": "实时光学扫码器",
+    "btn_torch": "补光灯",
+    "btn_gallery": "本地相册",
+    "ram_notice": "<strong>100% 内存安全沙盒:</strong> 图像帧实时在 RAM 中计算解码，绝不上存服务器或留存任何照片。",
+    "perm_error": "未获取到摄像头使用权限。您可以从本地相册选择包含二维码的照片进行识别。",
+    "no_qr_found": "所选图片中未识别到有效的 GS1 或 PassQ 二维码。"
+  },
+  "crypto": {
+    "modal_title": "密码学数字签名防伪核验",
+    "status_label": "防伪真伪校验状态:",
+    "status_valid": "有效且不可篡改 (VALID)",
+    "algorithm_label": "数字签名算法",
+    "sha256_label": "标准规范 SHA-256 摘要值",
+    "signature_label": "制造商不可伪造数字签名",
+    "timestamp_label": "出厂区块链/防伪时间戳",
+    "btn_reverify": "立即在本地运行 Web Crypto API 深度验签",
+    "verifying": "正在执行 Web Crypto API (ECDSA P-256 + SHA-256) 验签...",
+    "verified": "密码学签名与数据完整性 100% 真实有效 ({algo})"
+  },
+  "share": {
+    "title": "数字产品护照: {name}",
+    "text": "请查阅由 PassQ 认证签发的 {name} 官方数字产品护照。",
+    "copied": "数字产品护照链接已成功复制到剪贴板。"
+  },
+  "demo_products": {
+    "prod_001": {
+      "name": "EcoDry 高山户外防风夹克",
+      "brand": "Nordic Apex Gear (北欧巅峰)",
+      "origin_country": "墨西哥 (瓦哈卡)",
+      "materials": [
+        "再生尼龙 (ECONYL®)",
+        "生物基聚合物透气膜"
+      ],
+      "repair_guide": [
+        {
+          "title": "前襟防水分体拉链修补与更换",
+          "tools": "加固针线 / 专用压合钳"
+        },
+        {
+          "title": "热熔防水补丁快速贴合",
+          "tools": "家用电熨斗 110°C 预热压合"
+        },
+        {
+          "title": "防风弹性抽绳与锁扣替换",
+          "tools": "穿绳针或简易安全别针"
+        }
+      ],
+      "recycling_instructions": "ECONYL® 再生面料可直接投入专业科技纺织品回收容器中。在进入机械粉碎再造流程前，请先卸除金属搭扣与拉链配件。"
+    },
+    "prod_002": {
+      "name": "Zero 模块化无线降噪耳机",
+      "brand": "Aura Sound Labs (声境实验室)",
+      "origin_country": "德国",
+      "materials": [
+        "100% 航空级再生铝合金",
+        "海洋回收环保塑料 (OceanBound)",
+        "无胶水易拆解环保锂电池模块"
+      ],
+      "repair_guide": [
+        {
+          "title": "磁吸记忆棉耳罩免工具更换",
+          "tools": "无需工具 (磁力快速吸附)"
+        },
+        {
+          "title": "可拆卸高能效锂电池模组更换",
+          "tools": "随附 Torx T5 微型螺丝刀"
+        },
+        {
+          "title": "Type-C / 3.5mm 编织音频线热插拔更换",
+          "tools": "模块化即插即用接口"
+        }
+      ],
+      "recycling_instructions": "可拆卸锂离子电池须投入专用电池回收箱。铝合金机身可送入有色金属熔炼中心 100% 循环再生。"
+    }
+  },
+  "spare_parts": {
+    "delivery_prefix": "配送时效",
+    "SP-YKK-842": {
+      "name": "YKK 加固密封防水拉链",
+      "delivery": "48小时"
+    },
+    "SP-PTH-019": {
+      "name": "热熔高附着防水修补贴套装",
+      "delivery": "24-48小时"
+    },
+    "SP-CRD-004": {
+      "name": "人体工学调节锁扣高弹收缩绳",
+      "delivery": "24小时"
+    },
+    "SP-BAT-800Z": {
+      "name": "800mAh 即插即用锂电池模块",
+      "delivery": "48小时"
+    },
+    "SP-ALM-MAG": {
+      "name": "高透气记忆海绵磁吸耳垫",
+      "delivery": "24小时"
+    },
+    "SP-CBL-MOD": {
+      "name": "3.5mm / Type-C 尼龙编织音频连接线",
+      "delivery": "24小时"
+    },
+    "SP-TRN-STD": {
+      "name": "标准精密螺丝与卡扣紧固件套包",
+      "delivery": "24小时"
+    },
+    "SP-GEN-001": {
+      "name": "原厂官方认证通用备用件",
+      "delivery": "48-72小时"
+    }
+  },
+  "print_modal": {
+    "title": "官方海关技术单据",
+    "subtitle": "专为高精度打印或导出高保真 PDF 准备的官方技术单据",
+    "format_label": "规格: 官方 A4 格式 (300 DPI)",
+    "crypto_label": "密码学防篡改签名印章",
+    "device_notice": "完美兼容 AirPrint (iOS)、另存为 PDF、局域网 WiFi 无线打印及文件导出。",
+    "btn_print_now": "立即打印 / 另存为 PDF"
+  },
+  "toast": {
+    "jsonld_exported": "JSON-LD 官方技术数据单据已成功导出。"
+  }
+}

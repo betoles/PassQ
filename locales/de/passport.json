@@ -1,0 +1,193 @@
+{
+  "header": {
+    "title": "Digitaler Produktpass",
+    "verify_seal_title": "Offizielles kryptographisches Siegel überprüfen",
+    "certified_badge": "ZERTIFIZIERTER DPP • GÜLTIGES ED25519",
+    "verify_integrity_title": "Kryptographische Integrität prüfen",
+    "loading_product": "Produkt wird geladen...",
+    "verified_brand": "Verifizierte Marke",
+    "gtin": "GTIN",
+    "serial": "Serie"
+  },
+  "tabs": {
+    "overview": "Übersicht",
+    "materials": "Materialien",
+    "repair": "Reparatur",
+    "recycling": "Zoll / LCA"
+  },
+  "repair_score": {
+    "title": "Reparierbarkeitsindex",
+    "spare_parts": "Garantierte Ersatzteile für 5+ Jahre",
+    "grade_excellent": "Ausgezeichnet"
+  },
+  "materials": {
+    "country_of_origin": "Herkunftsland",
+    "recycled_content": "Recycelter Anteil",
+    "lca_breakdown": "Lebenszyklusanalyse (LCA)",
+    "lca_mfg": "Herst:",
+    "lca_log": "Log:",
+    "lca_eol": "Ende:",
+    "carbon_footprint": "CO₂-Fußabdruck",
+    "water_footprint": "Wasser-Fußabdruck"
+  },
+  "repair_guide": {
+    "step_prefix": "Schritt",
+    "order_parts": "Originale Ersatzteile bestellen",
+    "default_tools": "Standard-Haushaltswerkzeuge"
+  },
+  "recycling": {
+    "title": "Recycling- & Demontagerichtlinien",
+    "toxic_free": "100% konform mit RoHS-, REACH-, CE- und WEEE-Richtlinien.",
+    "default_instructions": "Getrennte Sammlung und Entsorgung über offizielle Recyclingkanäle oder kommunale Wertstoffhöfe."
+  },
+  "security": {
+    "verified_signature": "Digital signiert & fälschungssicher",
+    "verifier_note": "Kryptografisch verifiziert über ed25519 Public Key."
+  },
+  "top_bar": {
+    "scan_title": "Anderen QR-Code mit Kamera scannen",
+    "share_title": "Pass teilen"
+  },
+  "customs": {
+    "title": "Außenhandels- & Zolldaten",
+    "hs_code_label": "HS- / TARIC-Code",
+    "regulation_label": "EU-Verordnung",
+    "urn_label": "Kanonischer Pass-URN"
+  },
+  "buttons": {
+    "print_customs_pdf": "Offizielles Zolldatenblatt drucken (PDF)"
+  },
+  "footer": {
+    "disclaimer": "PassQ fungiert als dezentraler technischer Infrastrukturanbieter. Für die Richtigkeit der Daten und Lizenzen haftet ausschließlich der Produkthersteller."
+  },
+  "spare_parts_modal": {
+    "title": "Garantierte Original-Ersatzteile",
+    "subtitle": "Direkte Herstellerteile mit offizieller Zertifizierung",
+    "official_guarantee": "100% offizielle Kompatibilitätsgarantie",
+    "btn_request": "Beim Hersteller anfragen",
+    "email_subject": "Anfrage für offizielle Ersatzteile: ",
+    "email_body": "Hallo, ich möchte zertifizierte Original-Ersatzteile für folgendes Produkt anfragen: "
+  },
+  "scanner": {
+    "title": "Optischer Live-Scanner",
+    "btn_torch": "Taschenlampe",
+    "btn_gallery": "Galerie",
+    "ram_notice": "<strong>100% RAM-Datenschutz:</strong> Lokale optische Erkennung in Echtzeit. Es werden keine Fotos gespeichert oder persönliche Daten erhoben.",
+    "perm_error": "Kamerazugriff verweigert. Sie können ein Foto mit dem QR-Code hochladen.",
+    "no_qr_found": "Kein gültiger QR-Code auf dem ausgewählten Bild erkannt."
+  },
+  "crypto": {
+    "modal_title": "Kryptographische Verifizierung",
+    "status_label": "Authentizitätsstatus:",
+    "status_valid": "GÜLTIG & UNVERÄNDERLICH",
+    "algorithm_label": "Signaturalgorithmus",
+    "sha256_label": "Kanonischer SHA-256 Digest",
+    "signature_label": "Digitale Herstellersignatur",
+    "timestamp_label": "Zeitstempel",
+    "btn_reverify": "Kryptographische Integrität live validieren",
+    "verifying": "Web Crypto API wird ausgeführt (ECDSA P-256 + SHA-256)...",
+    "verified": "100% Authentische Signatur & Integrität ({algo})"
+  },
+  "share": {
+    "title": "Digitaler Produktpass: {name}",
+    "text": "Offiziellen digitalen Produktpass für {name} ansehen, zertifiziert von PassQ.",
+    "copied": "Pass-Link in die Zwischenablage kopiert."
+  },
+  "demo_products": {
+    "prod_001": {
+      "name": "EcoDry Alpine Jacke",
+      "brand": "Nordic Apex Gear",
+      "origin_country": "Mexiko (Oaxaca)",
+      "materials": [
+        "Recyceltes Nylon (ECONYL®)",
+        "Bio-Polymer-Membran"
+      ],
+      "repair_guide": [
+        {
+          "title": "Reparatur des vorderen wasserdichten Reißverschlusses",
+          "tools": "Verstärkte Nadel & Faden / Zange"
+        },
+        {
+          "title": "Anbringen von thermischen wasserdichten Flicken",
+          "tools": "Haushaltsbügeleisen bei 110°C"
+        },
+        {
+          "title": "Austausch des elastischen Kordelzugs",
+          "tools": "Einfädelhilfe oder Sicherheitsnadel"
+        }
+      ],
+      "recycling_instructions": "Das ECONYL®-Außengewebe kann in Containern für technisches Textilrecycling abgegeben werden. Metallknöpfe vor dem Schreddern entfernen."
+    },
+    "prod_002": {
+      "name": "Zero Modulare Kopfhörer",
+      "brand": "Aura Sound Labs",
+      "origin_country": "Deutschland",
+      "materials": [
+        "100% Recyceltes Aluminium",
+        "OceanBound Recycelter Meereskunststoff",
+        "Klebstofffreier austauschbarer Li-Ionen-Akku"
+      ],
+      "repair_guide": [
+        {
+          "title": "Austausch der magnetischen Ohrpolster",
+          "tools": "Keine (Magnetische Steckverbindung)"
+        },
+        {
+          "title": "Austausch des herausnehmbaren Akkumoduls",
+          "tools": "Mitgelieferter Torx T5 Schraubendreher"
+        },
+        {
+          "title": "Austausch des modularen Audiokabels",
+          "tools": "Modulares Plug & Play Klinke / USB-C"
+        }
+      ],
+      "recycling_instructions": "Herausnehmbarer Akku geeignet für Batterie-Sammelstellen. Aluminiumgehäuse 100% recycelbar in Metallgießereien."
+    }
+  },
+  "spare_parts": {
+    "delivery_prefix": "Lieferung",
+    "SP-YKK-842": {
+      "name": "Verstärkter wasserdichter YKK-Reißverschluss",
+      "delivery": "48 Std."
+    },
+    "SP-PTH-019": {
+      "name": "Thermisches wasserdichtes Flickenset",
+      "delivery": "24-48 Std."
+    },
+    "SP-CRD-004": {
+      "name": "Elastische Kordel mit ergonomischem Stopper",
+      "delivery": "24 Std."
+    },
+    "SP-BAT-800Z": {
+      "name": "800mAh Li-Ionen-Akkumodul (Plug & Play)",
+      "delivery": "48 Std."
+    },
+    "SP-ALM-MAG": {
+      "name": "Viskoelastische magnetische Ohrpolster",
+      "delivery": "24 Std."
+    },
+    "SP-CBL-MOD": {
+      "name": "Modulares geflochtenes 3,5mm / USB-C Kabel",
+      "delivery": "24 Std."
+    },
+    "SP-TRN-STD": {
+      "name": "Standard Schrauben- & Befestigungsset",
+      "delivery": "24 Std."
+    },
+    "SP-GEN-001": {
+      "name": "Zertifiziertes offizielles Ersatzteil",
+      "delivery": "48-72 Std."
+    }
+  },
+  "print_modal": {
+    "title": "Offizielles Zolldatenblatt",
+    "subtitle": "Offizielles technisches Datenblatt für Druck oder PDF-Export",
+    "format_label": "Format: Offizielles A4-Blatt (300 DPI)",
+    "crypto_label": "Unveränderliches kryptographisches Siegel",
+    "device_notice": "Kompatibel mit AirPrint (iOS), Als PDF speichern, WLAN-Druck und digitalem Dateiexport.",
+    "btn_print_now": "Drucken / Als PDF speichern"
+  },
+  "toast": {
+    "jsonld_exported": "JSON-LD-Datenblatt erfolgreich exportiert."
+  }
+}

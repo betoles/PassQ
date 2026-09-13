@@ -1,0 +1,28 @@
+{
+  "title": "全球法规与海关出口合规",
+  "subtitle": "全自动校准欧盟可持续生态设计法规 (ESPR) 与国际循环贸易标准。",
+  "regulations": {
+    "espr": {
+      "name": "欧盟 ESPR 可持续产品生态设计法规",
+      "desc": "出口欧盟各港口海关通关与市场监管局核心强制合规规范。"
+    },
+    "right_to_repair": {
+      "name": "全球商品可维修权法案",
+      "desc": "美国多州（加州、纽约等）及欧盟强制性可维修性指标评级。"
+    },
+    "gs1": {
+      "name": "GS1 Digital Link 全球商品数字链接标准",
+      "desc": "实现物理条码与 Web 数字信息无缝映射的 ISO/IEC 15459 国际标准。"
+    },
+    "rohs_reach": {
+      "name": "REACH / RoHS 绿色环保符合性",
+      "desc": "严格保证材料中不含有害化学受限物质。"
+    }
+  },
+  "customs_report": {
+    "title": "海关通关官方技术数据报告",
+    "generated_for": "专供海关边境管理局与市场监管机构核验",
+    "signature_valid": "数字加密签名：有效 (ed25519 算法校验通过)",
+    "authenticity_hash": "数据完整性哈希"
+  }
+}

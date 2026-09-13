@@ -1,0 +1,193 @@
+{
+  "header": {
+    "title": "Passeport Numérique",
+    "verify_seal_title": "Vérifier le Sceau Cryptographique Officiel",
+    "certified_badge": "DPP CERTIFIÉ • ED25519 VALIDE",
+    "verify_integrity_title": "Vérifier l'Intégrité Cryptographique",
+    "loading_product": "Chargement du produit...",
+    "verified_brand": "Marque Vérifiée",
+    "gtin": "GTIN",
+    "serial": "Série"
+  },
+  "tabs": {
+    "overview": "Résumé",
+    "materials": "Matériaux",
+    "repair": "Réparation",
+    "recycling": "Douanes / ACV"
+  },
+  "repair_score": {
+    "title": "Indice de Réparabilité",
+    "spare_parts": "Pièces détachées garanties 5+ ans",
+    "grade_excellent": "Excellent"
+  },
+  "materials": {
+    "country_of_origin": "Pays d'Origine",
+    "recycled_content": "Contenu Recyclé",
+    "lca_breakdown": "Analyse du Cycle de Vie (ACV)",
+    "lca_mfg": "Fabr:",
+    "lca_log": "Transp:",
+    "lca_eol": "Fin:",
+    "carbon_footprint": "Empreinte CO₂",
+    "water_footprint": "Empreinte Eau"
+  },
+  "repair_guide": {
+    "step_prefix": "Étape",
+    "order_parts": "Commander des Pièces Détachées Officielles",
+    "default_tools": "Outils ménagers standards"
+  },
+  "recycling": {
+    "title": "Directives de Recyclage et Démontage",
+    "toxic_free": "100% Conforme aux directives RoHS, REACH, CE et DEEE.",
+    "default_instructions": "Tri et dépôt dans les filières officielles de recyclage circulaire ou points d'apport volontaire."
+  },
+  "security": {
+    "verified_signature": "Signé Numériquement & Infalsifiable",
+    "verifier_note": "Authentifié via clé publique cryptographique ed25519."
+  },
+  "top_bar": {
+    "scan_title": "Scanner un autre QR code avec la caméra",
+    "share_title": "Partager le passeport"
+  },
+  "customs": {
+    "title": "Commerce Extérieur & Données Douanières",
+    "hs_code_label": "Code SH / TARIC",
+    "regulation_label": "Réglementation UE",
+    "urn_label": "URN Canonique du Passeport"
+  },
+  "buttons": {
+    "print_customs_pdf": "Imprimer la Fiche Douanière Officielle (PDF)"
+  },
+  "footer": {
+    "disclaimer": "PassQ agit en tant que fournisseur d'infrastructure technique décentralisée. L'exactitude des données et licences relève de l'émetteur du produit."
+  },
+  "spare_parts_modal": {
+    "title": "Pièces Détachées d'Origine Garanties",
+    "subtitle": "Pièces directes fabricant avec certification officielle",
+    "official_guarantee": "Garantie officielle de compatibilité 100%",
+    "btn_request": "Demander au Fabricant",
+    "email_subject": "Demande de Pièces Détachées Officielles : ",
+    "email_body": "Bonjour, je souhaite commander des pièces certifiées pour le produit "
+  },
+  "scanner": {
+    "title": "Scanner Optique en Direct",
+    "btn_torch": "Lampe",
+    "btn_gallery": "Galerie",
+    "ram_notice": "<strong>Confidentialité 100% en RAM:</strong> Analyse optique locale en temps réel. Aucune photo stockée ni donnée personnelle demandée.",
+    "perm_error": "Autorisation caméra refusée. Vous pouvez importer une photo contenant le QR code.",
+    "no_qr_found": "Aucun code QR valide détecté sur l'image sélectionnée."
+  },
+  "crypto": {
+    "modal_title": "Vérification Cryptographique",
+    "status_label": "Statut d'Authenticité :",
+    "status_valid": "VALIDE & INALTÉRABLE",
+    "algorithm_label": "Algorithme de Signature",
+    "sha256_label": "Digest SHA-256 Canonique",
+    "signature_label": "Signature Numérique Fabricant",
+    "timestamp_label": "Horodatage",
+    "btn_reverify": "Valider l'Intégrité Cryptographique en Direct",
+    "verifying": "Exécution de Web Crypto API (ECDSA P-256 + SHA-256)...",
+    "verified": "Signature & Intégrité 100% Authentiques ({algo})"
+  },
+  "share": {
+    "title": "Passeport Numérique : {name}",
+    "text": "Consultez le Passeport Numérique officiel de {name} certifié par PassQ.",
+    "copied": "Lien du passeport copié dans le presse-papiers."
+  },
+  "demo_products": {
+    "prod_001": {
+      "name": "Veste Alpine EcoDry",
+      "brand": "Nordic Apex Gear",
+      "origin_country": "Mexique (Oaxaca)",
+      "materials": [
+        "Nylon Recyclé (ECONYL®)",
+        "Membrane Bio-Polymère"
+      ],
+      "repair_guide": [
+        {
+          "title": "Réparation de la fermeture éclair frontale",
+          "tools": "Aiguille et fil renforcé / Pinces"
+        },
+        {
+          "title": "Application de patch thermique imperméable",
+          "tools": "Fer à repasser domestique à 110°C"
+        },
+        {
+          "title": "Remplacement du cordon élastique",
+          "tools": "Passe-lacet ou épingle de sûreté"
+        }
+      ],
+      "recycling_instructions": "Le tissu extérieur ECONYL® peut être déposé dans les conteneurs de recyclage textile technique. Retirer les boutons métalliques avant le broyage."
+    },
+    "prod_002": {
+      "name": "Casque Modulaire Zero",
+      "brand": "Aura Sound Labs",
+      "origin_country": "Allemagne",
+      "materials": [
+        "Aluminium 100% Recyclé",
+        "Plastique Océanique Recyclé (OceanBound)",
+        "Batterie Li-Ion remplaçable sans colle"
+      ],
+      "repair_guide": [
+        {
+          "title": "Remplacement des coussinets magnétiques",
+          "tools": "Aucun (Fixation magnétique)"
+        },
+        {
+          "title": "Changement du module de batterie amovible",
+          "tools": "Tournevis Torx T5 inclus"
+        },
+        {
+          "title": "Remplacement du câble audio modulaire",
+          "tools": "Jack / USB-C Plug & Play modulaire"
+        }
+      ],
+      "recycling_instructions": "Batterie amovible adaptée aux points de collecte de piles. Châssis en aluminium 100% recyclable en fonderie de métaux."
+    }
+  },
+  "spare_parts": {
+    "delivery_prefix": "Livraison",
+    "SP-YKK-842": {
+      "name": "Fermeture éclair étanche YKK renforcée",
+      "delivery": "48h"
+    },
+    "SP-PTH-019": {
+      "name": "Kit de patchs thermiques imperméables",
+      "delivery": "24-48h"
+    },
+    "SP-CRD-004": {
+      "name": "Cordon élastique avec bloqueur ergonomique",
+      "delivery": "24h"
+    },
+    "SP-BAT-800Z": {
+      "name": "Module de batterie Li-Ion 800mAh (Plug & Play)",
+      "delivery": "48h"
+    },
+    "SP-ALM-MAG": {
+      "name": "Coussinets magnétiques viscoélastiques",
+      "delivery": "24h"
+    },
+    "SP-CBL-MOD": {
+      "name": "Câble tressé modulaire Jack 3.5mm / USB-C",
+      "delivery": "24h"
+    },
+    "SP-TRN-STD": {
+      "name": "Kit de quincaillerie et vis standard",
+      "delivery": "24h"
+    },
+    "SP-GEN-001": {
+      "name": "Pièce de rechange officielle certifiée",
+      "delivery": "48-72h"
+    }
+  },
+  "print_modal": {
+    "title": "Fiche Officielle des Douanes",
+    "subtitle": "Document technique officiel prêt pour impression ou export PDF haute fidélité",
+    "format_label": "Format: Fiche Officielle A4 (300 DPI)",
+    "crypto_label": "Sceau cryptographique immuable",
+    "device_notice": "Compatible avec AirPrint (iOS), Enregistrer en PDF, impression réseau WiFi et export de fichiers.",
+    "btn_print_now": "Imprimer / Enregistrer en PDF"
+  },
+  "toast": {
+    "jsonld_exported": "Fiche technique JSON-LD exportée avec succès."
+  }
+}

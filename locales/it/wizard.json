@@ -1,0 +1,60 @@
+{
+  "title": "Crea Passaporto Digitale",
+  "subtitle": "Guida passo dopo passo per soddisfare la normativa europea.",
+  "steps": {
+    "identity": "Identità & Marchio",
+    "materials": "Composizione & Impronta",
+    "repair": "Riparabilità & Ricambi",
+    "review": "Revisione & Generazione QR"
+  },
+  "fields": {
+    "product_name": "Nome del Prodotto",
+    "category": "Categoria",
+    "gtin": "GTIN / Codice a Barre (8-14 cifre)",
+    "origin_country": "Paese di Origine e Fabbricazione",
+    "material_name": "Composizione dei Materiali",
+    "carbon_kg": "Impronta CO₂ Stimata (kg CO₂e)",
+    "disassembly_tools": "Strumenti per lo Smontaggio",
+    "repair_duration_yrs": "Disponibilità Ricambi (Anni)",
+    "recycling_instructions": "Istruzioni di Fine Vita"
+  },
+  "placeholders": {
+    "product_name": "es. Giacca Alpina EcoDry",
+    "gtin": "7501234567890",
+    "origin": "Italia",
+    "material_name": "Materiale (es. Cotone Biologico)",
+    "recycling": "Idoneo al riciclo presso centri di raccolta autorizzati."
+  },
+  "buttons": {
+    "add_material": "+ Aggiungi Materiale",
+    "prev": "Indietro",
+    "next": "Avanti"
+  },
+  "categories": {
+    "textile": "Tessile e Moda",
+    "footwear": "Calzature e Pelle",
+    "electronics": "Elettronica di Consumo",
+    "furniture": "Mobili e Legno"
+  },
+  "tools": {
+    "none": "Nessun attrezzo (Fissaggio a scatto/clip)",
+    "standard": "Attrezzi standard (Cacciavite / Brugola)",
+    "specialized": "Attrezzi specializzati o proprietari"
+  },
+  "review": {
+    "estimated_score_label": "Indice di Riparabilità Stimato:",
+    "summary_product_label": "Prodotto:",
+    "summary_gtin_label": "GTIN:",
+    "summary_origin_label": "Origine:",
+    "legal_declaration": "Certifico di possedere i diritti legali e i marchi di questo prodotto, assumendo la totale responsabilità secondo i <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">Termini di Servizio</a>."
+  },
+  "validation": {
+    "name_required": "Inserisci il nome del prodotto.",
+    "gtin_check_digit_error": "Cifra di controllo GS1 non valida. L'ultima cifra deve essere {expected} (hai inserito {actual}).",
+    "gtin_invalid": "Il GTIN deve essere composto da 8, 12, 13 o 14 cifre numeriche.",
+    "gtin_numeric_error": "Inserisci un codice GTIN numerico valido.",
+    "materials_sum_error": "La somma dei materiali deve essere esattamente 100% (attuale: {sum}%).",
+    "materials_empty_error": "Compila il nome di tutti i materiali.",
+    "legal_consent_required": "Devi certificare la titolarità dei diritti per continuare."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "title": "Conformité Réglementaire & Douanes",
+  "subtitle": "Alignement automatique avec les réglementations européennes et mondiales d'écoconception.",
+  "regulations": {
+    "espr": {
+      "name": "Règlement UE ESPR",
+      "desc": "Écoconception des produits durables obligatoire pour le passage en douane."
+    },
+    "right_to_repair": {
+      "name": "Directives Droit à la Réparation",
+      "desc": "Lois d'indices de réparabilité en France et lois étatiques aux États-Unis."
+    },
+    "gs1": {
+      "name": "Standard GS1 Digital Link",
+      "desc": "Passerelle universelle entre code-barres physique et données web (ISO/IEC 15459)."
+    },
+    "rohs_reach": {
+      "name": "Conformité REACH / RoHS",
+      "desc": "Garantie de matériaux sans substances chimiques toxiques."
+    }
+  },
+  "customs_report": {
+    "title": "Fiche Technique Officielle pour les Douanes",
+    "generated_for": "Généré pour les Autorités Douanières et de Contrôle",
+    "signature_valid": "Signature Numérique : VALIDE (Vérifié ed25519)",
+    "authenticity_hash": "Hash d'Authenticité"
+  }
+}

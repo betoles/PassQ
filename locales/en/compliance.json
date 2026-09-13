@@ -1,0 +1,28 @@
+{
+  "title": "Regulatory & Customs Compliance",
+  "subtitle": "Automated alignment with international ecodesign and circular trade regulations.",
+  "regulations": {
+    "espr": {
+      "name": "EU ESPR Regulation",
+      "desc": "Ecodesign for Sustainable Products Regulation compliance standard."
+    },
+    "right_to_repair": {
+      "name": "Global Right-to-Repair Directives",
+      "desc": "US State Laws (CA, NY, MN) & EU Repair Index Mandates."
+    },
+    "gs1": {
+      "name": "GS1 Digital Link Standard",
+      "desc": "Universal barcode-to-web linking compliant with ISO/IEC 15459."
+    },
+    "rohs_reach": {
+      "name": "REACH / RoHS Compliance",
+      "desc": "Declaration of non-hazardous materials and chemical safety."
+    }
+  },
+  "customs_report": {
+    "title": "Official Customs Technical File",
+    "generated_for": "Generated for Customs & Market Surveillance Authorities",
+    "signature_valid": "Digital Signature: VALID (ed25519 Verified)",
+    "authenticity_hash": "Payload Hash"
+  }
+}

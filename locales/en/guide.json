@@ -1,0 +1,63 @@
+{
+  "title": "User Guide • PassQ",
+  "badge": "Interactive & Didactic Manual",
+  "subtitle": "Master the lifecycle of your Digital Product Passports in minutes.",
+  "btn_close": "Close Guide",
+  "tabs": {
+    "tab1": "Practical Case",
+    "tab2": "Create Passport",
+    "tab3": "Catalog & QR",
+    "tab4": "Customer View",
+    "tab5": "Privacy & Data"
+  },
+  "tab1_content": {
+    "title": "Your Product Journey: Sofia Real-World Case",
+    "intro": "Imagine Sofia, owner of the apparel brand «Nordic Apex Gear». She just finished a batch of 200 units of her «EcoDry Alpine Jacket» and needs smart labelling to sell in-store and export to the EU without customs hassles.",
+    "step1_title": "Creation in 4 minutes",
+    "step1_desc": "Sofia opens PassQ in her browser, fills out the 4 guided steps (identity, materials, ecodesign, and tariff code), and clicks Finish. Her passport is instantly secured with a unique cryptographic signature.",
+    "step2_title": "GS1 QR Code Printing",
+    "step2_desc": "From her dashboard, she downloads the high-res QR code under the global GS1 Digital Link standard and sends it to her printer for care labels and cardboard hangtags.",
+    "step3_title": "Instant Customs Manifest",
+    "step3_desc": "With one click, she generates the official 3-page customs PDF and JSON-LD data file for her export invoice, proving full EU ESPR 2024/1781 compliance.",
+    "step4_title": "Customer & Customs Scanning",
+    "step4_desc": "When a buyer in Madrid, Paris, or Berlin scans the jacket, they see its origin, materials, and care guides in their native language. Customs inspectors verify authenticity immediately."
+  },
+  "tab2_content": {
+    "title": "Guided Creation Wizard (4 Simple Steps)",
+    "step1_title": "Product Identity",
+    "step1_desc": "Set the commercial name, category (Textile, Footwear, Electronics, Furniture), GTIN-13 (EAN) barcode, and country of origin.",
+    "step2_title": "Materials Composition & CO₂",
+    "step2_desc": "Add percentage breakdown for each material (e.g., 85% Recycled Polyester, 15% Membrane) and estimated carbon footprint in kg CO₂e.",
+    "step3_title": "Repairability & Care",
+    "step3_desc": "Select disassembly tools required and years of spare parts availability. PassQ automatically calculates the EU Ecodesign Score (e.g., 9.2/10).",
+    "step4_title": "Customs Code & Digital Signature",
+    "step4_desc": "Enter the HS/TARIC customs code (e.g., 6202.40.00). The browser creates a tamper-evident digital signature to prevent counterfeiting."
+  },
+  "tab3_content": {
+    "title": "Catalog Management & Daily Operations",
+    "catalog_title": "Your Central Catalog:",
+    "catalog_desc": "On your dashboard, the «Managed Digital Passports» table represents your active product catalog.",
+    "actions_title": "Direct actions per product row:",
+    "action_view": "View Passport: Open the public passport view seen by consumers and inspectors.",
+    "action_qr": "Get QR Code: Modal with high-resolution vector QR ready for download or print.",
+    "action_del": "Delete: Permanently erase the product and cryptographic signatures.",
+    "export_title": "Official Exports:",
+    "export_desc": "Export official 3-page Customs PDFs and W3C/EU standard JSON-LD data packages."
+  },
+  "tab4_content": {
+    "title": "What Do Customers & Customs See?",
+    "consumer_title": "For the End Consumer:",
+    "consumer_desc": "Pointing any smartphone camera at the label QR automatically detects language and reveals materials, sustainability score, and longevity care instructions.",
+    "customs_title": "For Inspectors & Authorities:",
+    "customs_desc": "Customs agents see a green «Cryptographically Verified Authenticity» badge guaranteeing non-tampered HS codes and origin declarations."
+  },
+  "tab5_content": {
+    "title": "Privacy & Data Sovereignty (Local-First Architecture)",
+    "local_title": "0% Accounts, 0% Tracking, 100% On-Device",
+    "local_desc": "PassQ never stores your product catalogs on centralized servers. All data lives exclusively inside your browser internal storage (LocalStorage / IndexedDB).",
+    "backup_title": "One-Click Backups:",
+    "backup_desc": "Export your entire database in seconds to transfer it to another computer or restore it whenever needed.",
+    "wipe_title": "Hard Delete (GDPR Ready):",
+    "wipe_desc": "A dedicated permanent purge control resets the application to a clean slate whenever you choose."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "title": "Regulierung & Zollkonformität",
+  "subtitle": "Automatische Ausrichtung auf internationale Ökodesign- und Kreislaufwirtschaftsnormen.",
+  "regulations": {
+    "espr": {
+      "name": "EU ESPR Verordnung",
+      "desc": "Ökodesign für nachhaltige Produkte – verbindlich für EU-Zollbehörden."
+    },
+    "right_to_repair": {
+      "name": "Recht auf Reparatur Richtlinien",
+      "desc": "US-Staatsgesetze und EU-Reparaturindexvorgaben."
+    },
+    "gs1": {
+      "name": "GS1 Digital Link Standard",
+      "desc": "Universelle Barcode-zu-Web-Verknüpfung nach ISO/IEC 15459."
+    },
+    "rohs_reach": {
+      "name": "REACH / RoHS Konformität",
+      "desc": "Garantie schadstofffreier Materialien."
+    }
+  },
+  "customs_report": {
+    "title": "Offizielles Zolldatenblatt",
+    "generated_for": "Erstellt für Zoll- und Marktüberwachungsbehörden",
+    "signature_valid": "Digitale Signatur: GÜLTIG (ed25519 verifiziert)",
+    "authenticity_hash": "Authentifizierungs-Hash"
+  }
+}

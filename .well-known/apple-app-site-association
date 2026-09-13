@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.app.passq.ios",
+        "paths": ["/p.html*", "/app.html*", "/index.html*", "/*"]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["TEAMID.app.passq.ios"]
+  }
+}

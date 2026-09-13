@@ -1,0 +1,60 @@
+{
+  "title": "创建数字产品护照",
+  "subtitle": "符合欧盟 ESPR 环保标准的向导式创建流程。",
+  "steps": {
+    "identity": "身份与品牌",
+    "materials": "成分与碳足迹",
+    "repair": "可维修性与备件",
+    "review": "审核与二维码生成"
+  },
+  "fields": {
+    "product_name": "产品全称",
+    "category": "行业品类",
+    "gtin": "GTIN 商品条码 (8-14 位数字)",
+    "origin_country": "原产国与制造地",
+    "material_name": "材质构成成分",
+    "carbon_kg": "预估碳足迹 (kg CO₂e)",
+    "disassembly_tools": "所需拆解维修工具",
+    "repair_duration_yrs": "原厂备件供应年限 (年)",
+    "recycling_instructions": "废弃处置与循环回收指南"
+  },
+  "placeholders": {
+    "product_name": "例：EcoDry 极地透气冲锋衣",
+    "gtin": "7501234567890",
+    "origin": "中国 (浙江/广东)",
+    "material_name": "材质名称（例：100% 有机棉）",
+    "recycling": "支持交由官方授权的正规回收机构循环拆解再生。"
+  },
+  "buttons": {
+    "add_material": "+ 添加其他材质成分",
+    "prev": "返回上一步",
+    "next": "继续下一步"
+  },
+  "categories": {
+    "textile": "纺织服装与时尚品",
+    "footwear": "鞋靴与皮革制品",
+    "electronics": "消费电子与数码设备",
+    "furniture": "家具与木制品"
+  },
+  "tools": {
+    "none": "无需任何工具（卡扣/卡槽按压固定）",
+    "standard": "通用标准工具（螺丝刀 / 内六角扳手）",
+    "specialized": "品牌专有或特殊定制工具"
+  },
+  "review": {
+    "estimated_score_label": "预估可维修性评分：",
+    "summary_product_label": "产品名称：",
+    "summary_gtin_label": "GTIN 编码：",
+    "summary_origin_label": "原产地：",
+    "legal_declaration": "我正式声明并保证依法拥有该产品的合法商标及出海资质，承担全部合规责任，并接受 <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">服务条款</a> 中的免责保护协议。"
+  },
+  "validation": {
+    "name_required": "请填写完整的产品名称。",
+    "gtin_check_digit_error": "GS1 条码校验位不匹配。该编码最后一位应为 {expected}（您输入了 {actual}）。",
+    "gtin_invalid": "GTIN 条码必须为 8、12、13 或 14 位纯数字。",
+    "gtin_numeric_error": "请输入有效的纯数字 GTIN 商品条码。",
+    "materials_sum_error": "所有材质成分占比总和必须恰好为 100%（当前合计：{sum}%）。",
+    "materials_empty_error": "请补充填写所有材质的名称。",
+    "legal_consent_required": "您必须勾选并确认合规声明方可继续生成产品护照。"
+  }
+}
