@@ -68,9 +68,9 @@
     "mail_body": "PassQ 团队，您好：\n\n我想分享以下使用反馈与改进建议，希望能帮助平台更好地契合我们的实际需求：\n\n"
   },
   "billing": {
-    "badge": "Google Play 官方企业级订阅 • 7天全功能免费试用",
-    "title": "Google Play 官方安全订阅",
-    "subtitle": "所有计费、续订与退订均 100% 由 Google Play 官方控制台托管。零扣费陷阱，随时可在 Google 账户中一键取消。",
+    "badge": "Google Play & PayPal 官方企业级订阅 • 7天免费试用",
+    "title": "PassQ 官方订阅与方案",
+    "subtitle": "通过 Google Play Store（移动端 App）或直接通过 PayPal / 信用卡与借记卡（网页及电脑端）安全订阅。",
     "trial_badge": "7天",
     "trial_status_active": "当前试用期状态：第 {day} 天 / 共 7 天 (剩余 {remaining} 天)",
     "trial_status_ended": "免费试用期已结束",
@@ -92,14 +92,18 @@
     },
     "features": {
       "days_free": "✓ 7天免费试用",
-      "play_billing": "✓ Google Play 官方计费"
+      "play_billing": "✓ Google Play / PayPal"
     },
-    "guarantees_title": "Google Play 官方服务保障：",
-    "guarantee_1": "由 Google Play Store 提供官方合规计费与增值税发票凭据。",
-    "guarantee_2_prefix": "随时可通过 ",
-    "guarantee_2_link": "Google Play 订阅中心",
-    "guarantee_2_suffix": " 一键退订。",
+    "guarantees_title": "官方服务保障与支付安全：",
+    "guarantee_1": "Google Play Store: 由 Google 官方提供合规计费与增值税发票凭据。",
+    "guarantee_2_prefix": "PayPal 安全保障: 提供买家保护，支持 PayPal 余额或借记卡/信用卡直接支付。",
+    "guarantee_2_link": "",
+    "guarantee_2_suffix": "",
     "guarantee_3": "PassQ 服务器端绝不存储任何银行卡或支付敏感信息。",
+    "btn_subscribe_play_main": "Google Play 订阅",
+    "btn_subscribe_play_sub": "(Android App • 7天免费试用)",
+    "btn_subscribe_paypal_main": "PayPal / 银行卡安全支付",
+    "btn_subscribe_paypal_sub": "(网页及电脑端 • 实时开通)",
     "btn_subscribe": "前往 Google Play 继续 (7天免费试用)",
     "btn_subscribe_main": "前往 Google Play 继续",
     "btn_subscribe_sub": "(7天免费试用)"
