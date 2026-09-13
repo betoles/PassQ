@@ -65,7 +65,7 @@
     "summary_product_label": "产品名称：",
     "summary_gtin_label": "GTIN 编码：",
     "summary_origin_label": "原产地：",
-    "legal_declaration": "我正式声明并保证依法拥有该产品的合法商标及出海资质，承担全部合规责任，并接受 <a href=\"/terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">服务条款</a> 中的免责保护协议。"
+    "legal_declaration": "我正式声明并保证依法拥有该产品的合法商标及出海资质，承担全部合规责任，并接受 <a href=\"./terms.html\" target=\"_blank\" class=\"text-emerald-500 font-semibold underline\">服务条款</a> 中的免责保护协议。"
   },
   "validation": {
     "name_required": "请填写完整的产品名称。",
