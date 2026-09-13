@@ -36,12 +36,12 @@ class DashboardController {
     this.products = [];
     this.wizard = null;
     this.activeProductForQR = null;
-    this.productPendingDelete = null;
     const savedDomain = localStorage.getItem('passq_qr_base_url');
     const savedType = localStorage.getItem('passq_qr_domain_type');
-    const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('192.168.');
-    this.activeDomainType = savedType || (isLocalDev ? 'lan' : 'prod'); // 'prod' | 'lan' | 'custom'
-    this.activeBaseUrl = savedDomain || GS1Formatter.resolveBaseUrl();
+    this.activeDomainType = (savedType && savedType !== 'lan' && savedType !== 'custom') ? savedType : 'prod';
+    this.activeBaseUrl = (savedDomain && !savedDomain.includes('192.168') && !savedDomain.includes('localhost') && !savedDomain.includes('brand.com') && !savedDomain.includes('passq.app'))
+      ? savedDomain
+      : GS1Formatter.resolveBaseUrl();
     this.activeQRMode = localStorage.getItem('passq_qr_mode') || 'pdata'; // 'pdata' | 'standard'
     this.activeECC = 'H';
   }
@@ -233,7 +233,7 @@ class DashboardController {
       if (val) {
         this.activeBaseUrl = val.startsWith('http://') || val.startsWith('https://') ? val : `https://${val}`;
       } else {
-        this.activeBaseUrl = this.activeDomainType === 'lan' ? window.location.origin : 'https://passq.app';
+        this.activeBaseUrl = this.activeDomainType === 'lan' ? 'http://192.168.100.6:5173' : GS1Formatter.resolveBaseUrl();
       }
       this.renderQRStudio();
     });
@@ -358,15 +358,12 @@ class DashboardController {
       btnProd?.classList.add(...activeClasses);
       btnProd?.classList.remove(...inactiveClasses);
       customSlot?.classList.add('hidden');
-      this.activeBaseUrl = 'https://passq.app';
+      this.activeBaseUrl = GS1Formatter.resolveBaseUrl();
     } else if (type === 'lan') {
       btnLan?.classList.add(...activeClasses);
       btnLan?.classList.remove(...inactiveClasses);
       customSlot?.classList.remove('hidden');
-      const currentHost = window.location.hostname;
-      const lanDefault = (currentHost && currentHost !== 'localhost' && currentHost !== '127.0.0.1')
-        ? window.location.origin
-        : `http://192.168.100.6:5173`;
+      const lanDefault = 'http://192.168.100.6:5173';
       if (customInput) customInput.value = lanDefault;
       this.activeBaseUrl = lanDefault;
     } else if (type === 'custom') {
@@ -374,10 +371,10 @@ class DashboardController {
       btnCustom?.classList.remove(...inactiveClasses);
       customSlot?.classList.remove('hidden');
       if (customInput) {
-        if (!customInput.value || customInput.value.includes('192.168') || customInput.value.includes('localhost')) {
-          customInput.value = 'https://brand.com';
+        if (!customInput.value || customInput.value.includes('192.168') || customInput.value.includes('localhost') || customInput.value.includes('brand.com') || customInput.value.includes('passq.app')) {
+          customInput.value = 'https://betoles.github.io/PassQ';
         }
-        this.activeBaseUrl = customInput.value.trim();
+        this.activeBaseUrl = customInput.value.trim() || 'https://betoles.github.io/PassQ';
       }
     }
 

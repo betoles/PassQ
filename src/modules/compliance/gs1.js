@@ -92,7 +92,7 @@ export class GS1Formatter {
   static resolveBaseUrl(requestedBase = null) {
     if (requestedBase && typeof requestedBase === 'string' && requestedBase.trim() !== '') {
       const clean = requestedBase.trim().replace(/\/+$/, '');
-      if (!clean.includes('localhost') && !clean.includes('127.0.0.1')) {
+      if (!clean.includes('localhost') && !clean.includes('127.0.0.1') && !clean.includes('brand.com') && !clean.includes('passq.app')) {
         return clean.startsWith('http://') || clean.startsWith('https://') ? clean : `https://${clean}`;
       }
     }
@@ -101,7 +101,7 @@ export class GS1Formatter {
     try {
       if (typeof localStorage !== 'undefined') {
         const savedDomain = localStorage.getItem('passq_qr_base_url');
-        if (savedDomain && savedDomain.trim() && !savedDomain.includes('localhost') && !savedDomain.includes('127.0.0.1')) {
+        if (savedDomain && savedDomain.trim() && !savedDomain.includes('localhost') && !savedDomain.includes('127.0.0.1') && !savedDomain.includes('brand.com') && !savedDomain.includes('passq.app')) {
           return savedDomain.trim().replace(/\/+$/, '');
         }
       }
@@ -110,13 +110,21 @@ export class GS1Formatter {
     // Check browser window environment
     if (typeof window !== 'undefined' && window.location) {
       const hostname = window.location.hostname;
-      if (hostname && hostname !== 'localhost' && hostname !== '127.0.0.1') {
-        return window.location.origin;
+      const origin = window.location.origin;
+      const pathname = window.location.pathname || '';
+      const basePath = pathname.replace(/\/[^\/]*\.html.*$/, '').replace(/\/+$/, '');
+
+      if (hostname === 'betoles.github.io') {
+        return 'https://betoles.github.io/PassQ';
+      }
+
+      if (hostname && hostname !== 'localhost' && hostname !== '127.0.0.1' && !hostname.startsWith('192.168.')) {
+        return `${origin}${basePath}`;
       }
     }
 
-    // Local dev fallback: LAN IP reachable by mobile devices on same Wi-Fi
-    return 'http://192.168.100.6:5173';
+    // Universal public production fallback: Reachable worldwide on Wi-Fi and Cellular (4G/5G)
+    return 'https://betoles.github.io/PassQ';
   }
 
   /**
