@@ -15,7 +15,7 @@ function updateFlagSlot(lang) {
 // Register Service Worker v2 for full PWA offline resilience
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch((err) => {
+    navigator.serviceWorker.register('./sw.js').catch((err) => {
       console.warn('PassQ SW registration note:', err);
     });
   });
@@ -75,8 +75,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!heroCanvas) return;
 
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const subpathOrigin = window.location.href.split(/[?#]/)[0].replace(/\/[^\/]*$/, '');
     const baseUrl = mode === 'wifi'
-      ? (isLocal ? 'http://192.168.100.6:5173' : window.location.origin)
+      ? (isLocal ? 'http://192.168.100.6:5173' : subpathOrigin)
       : 'https://passq.app';
 
     const sampleProduct = storage.getById('prod_001');

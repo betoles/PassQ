@@ -518,7 +518,8 @@ class PassportViewController {
     if (!p) return;
     const title = `${p.name} • ${p.brand || 'PassQ'} • Pasaporte Digital de Producto (DPP)`;
     const description = `Pasaporte Digital de Producto oficial para ${p.name} (GTIN: ${p.gtin}). Huella de carbono: ${p.carbon_kg || '1.8'} kg CO2e, Reparabilidad: ${p.repair_score || '9.0'}/10, Código HS: ${p.hs_code || '6202.40.00'}. Certificado por PassQ.`;
-    const canonicalUrl = `${window.location.origin}/p.html?gtin=${p.gtin}`;
+    const subpathOrigin = window.location.href.split(/[?#]/)[0].replace(/\/[^\/]*$/, '');
+    const canonicalUrl = `${subpathOrigin}/p.html?gtin=${p.gtin}`;
 
     // Update document title
     document.title = title;

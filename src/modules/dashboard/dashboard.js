@@ -390,7 +390,7 @@ class DashboardController {
             </td>
             <td class="py-4.5 px-4 text-center">
               <div class="flex items-center justify-center gap-2.5">
-                <a href="/p.html?id=${p.id}" target="_blank" class="min-h-[40px] py-2 px-4 rounded-xl bg-slate-200/80 dark:bg-slate-800 text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100 hover:bg-slate-300 dark:hover:bg-slate-700 active:scale-95 transition flex items-center gap-1.5 shadow-sm" title="${i18n.t('dashboard:products_table.btn_preview', 'Ver DPP')}">
+                <a href="./p.html?id=${p.id}" target="_blank" class="min-h-[40px] py-2 px-4 rounded-xl bg-slate-200/80 dark:bg-slate-800 text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100 hover:bg-slate-300 dark:hover:bg-slate-700 active:scale-95 transition flex items-center gap-1.5 shadow-sm" title="${i18n.t('dashboard:products_table.btn_preview', 'Ver DPP')}">
                   <span class="icon-svg w-4 h-4"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg></span>
                   <span class="hidden sm:inline">${i18n.t('dashboard:products_table.btn_preview')}</span>
                 </a>
