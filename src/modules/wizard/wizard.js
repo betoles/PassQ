@@ -51,6 +51,7 @@ export class WizardController {
     this.updateToolOptionCards(this.formData.disassembly_tools || 'tools_standard');
     this.updateLiveScore();
     this.renderSectorSpecificFields(this.formData.category || 'textile');
+    this.updateStep3SectorUI();
     this.renderStep();
   }
 
@@ -249,6 +250,7 @@ export class WizardController {
         hiddenInput.value = val;
         this.formData.category = val;
         this.renderSectorSpecificFields(val);
+        this.updateStep3SectorUI();
 
         // Update active UI
         menu.querySelectorAll('.wizard-cat-opt').forEach(b => {
@@ -291,6 +293,7 @@ export class WizardController {
       if (currentLabel) {
         currentLabel.textContent = i18n.t(`wizard:categories.${curVal}`);
       }
+      this.updateStep3SectorUI();
     });
   }
 
@@ -353,6 +356,24 @@ export class WizardController {
     if (scoreEl) scoreEl.textContent = `${score} / 10`;
   }
 
+  updateStep3SectorUI() {
+    const category = this.formData.category || 'textile';
+    const titleEl = document.getElementById('wizard-tools-title');
+    const durationLabelEl = document.getElementById('wizard-duration-label');
+    const cardNoneText = document.getElementById('tool-text-none');
+    const cardStdText = document.getElementById('tool-text-standard');
+    const cardSpecText = document.getElementById('tool-text-specialized');
+
+    const key = (sub) => `wizard:sector_repair.${category}_${sub}`;
+    const fallback = (sub, def) => i18n.t(key(sub), def);
+
+    if (titleEl) titleEl.textContent = fallback('title', i18n.t('wizard:fields.disassembly_tools', 'Herramientas para Desmontar'));
+    if (durationLabelEl) durationLabelEl.textContent = fallback('duration', i18n.t('wizard:fields.repair_duration_yrs', 'Disponibilidad de Repuestos (Años)'));
+    if (cardNoneText) cardNoneText.textContent = fallback('none', i18n.t('wizard:tools.none', 'Sin herramientas (Fijación por presión/clips)'));
+    if (cardStdText) cardStdText.textContent = fallback('standard', i18n.t('wizard:tools.standard', 'Herramientas estándar (Destornillador / Allen)'));
+    if (cardSpecText) cardSpecText.textContent = fallback('specialized', i18n.t('wizard:tools.specialized', 'Herramientas especializadas o propietarias'));
+  }
+
   renderStep() {
     // Hide all steps, show current
     for (let i = 1; i <= this.totalSteps; i++) {
@@ -398,6 +419,12 @@ export class WizardController {
     if (this.currentStep === 2) {
       this.renderMaterialsList();
       this.updateLiveMaterialsSum();
+    }
+
+    if (this.currentStep === 3) {
+      this.updateStep3SectorUI();
+      this.updateToolOptionCards(this.formData.disassembly_tools || 'tools_standard');
+      this.updateLiveScore();
     }
   }
 
