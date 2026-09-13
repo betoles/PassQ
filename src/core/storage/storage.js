@@ -236,29 +236,70 @@ class HybridStorageManager {
           });
 
           if (decoded && typeof decoded === 'object') {
-            // Security Guard 3: Schema validation & type coercion
+            // Decode Category (supports 2-letter codes: tx, fw, el, bt, cs, fd, fn, ct or full string)
+            const CODE_TO_CAT = {
+              tx: 'textile',
+              fw: 'footwear',
+              el: 'electronics',
+              bt: 'battery',
+              cs: 'cosmetics',
+              fd: 'food',
+              fn: 'furniture',
+              ct: 'construction'
+            };
+            const rawCat = HybridStorageManager.sanitizeString(decoded.c, 40) || "general";
+            const sanitizedCategory = CODE_TO_CAT[rawCat] || rawCat;
+
             const sanitizedName = HybridStorageManager.sanitizeString(decoded.n, 120) || "Producto Certificado PassQ";
-            const sanitizedCategory = HybridStorageManager.sanitizeString(decoded.c, 40) || "general";
             const sanitizedBrand = HybridStorageManager.sanitizeString(decoded.b, 80) || "Marca Verificada";
             const sanitizedOrigin = HybridStorageManager.sanitizeString(decoded.o, 60) || "México";
             const sanitizedHs = HybridStorageManager.sanitizeString(decoded.hs, 20) || "8471.30.00";
-            const sanitizedSig = HybridStorageManager.sanitizeString(decoded.sig, 256) || "ecdsa_p256_verified_dpp";
+            
+            // Signature (compact 's' or legacy 'sig')
+            const rawSig = decoded.s || decoded.sig || "ecdsa_p256_verified_dpp";
+            const sanitizedSig = HybridStorageManager.sanitizeString(rawSig, 256);
 
-            // Sanitize materials array (Max 15 elements, numeric pct bounded 0-100)
+            // Sanitize materials array (Supports tuples [name, pct] and objects {name, pct})
             let sanitizedMaterials = [{ name: "Material Principal Reciclado", pct: 100 }];
             if (Array.isArray(decoded.m) && decoded.m.length > 0) {
-              sanitizedMaterials = decoded.m.slice(0, 15).map(mat => ({
-                name: HybridStorageManager.sanitizeString(mat.name || mat.n, 60) || "Material",
-                pct: Math.max(0, Math.min(100, parseFloat(mat.pct || mat.p) || 0))
-              })).filter(m => m.name.length > 0);
+              sanitizedMaterials = decoded.m.slice(0, 15).map(mat => {
+                if (Array.isArray(mat)) {
+                  return {
+                    name: HybridStorageManager.sanitizeString(mat[0], 60) || "Material",
+                    pct: Math.max(0, Math.min(100, parseFloat(mat[1]) || 0))
+                  };
+                }
+                return {
+                  name: HybridStorageManager.sanitizeString(mat.name || mat.n, 60) || "Material",
+                  pct: Math.max(0, Math.min(100, parseFloat(mat.pct || mat.p) || 0))
+                };
+              }).filter(m => m.name.length > 0);
               if (sanitizedMaterials.length === 0) {
                 sanitizedMaterials = [{ name: "Material Reciclado", pct: 100 }];
               }
             }
 
             const cleanRepairScore = Math.max(1.0, Math.min(10.0, parseFloat(decoded.r) || 9.0));
-            const cleanCarbon = Math.max(0, parseFloat(decoded.co2) || 3.5);
+            // Carbon footprint (compact 'k' or legacy 'co2')
+            const cleanCarbon = Math.max(0, parseFloat(decoded.k != null ? decoded.k : decoded.co2) || 3.5);
             const cleanWater = Math.max(0, parseFloat(decoded.w) || 120);
+
+            // Decode battery recycled metals (supports array [co, li, ni] or object)
+            let batteryRecycled = null;
+            const rawBm = decoded.bm || decoded.b_met;
+            if (Array.isArray(rawBm)) {
+              batteryRecycled = {
+                cobalt_pct: Math.max(0, Math.min(100, parseFloat(rawBm[0]) || 0)),
+                lithium_pct: Math.max(0, Math.min(100, parseFloat(rawBm[1]) || 0)),
+                nickel_pct: Math.max(0, Math.min(100, parseFloat(rawBm[2]) || 0))
+              };
+            } else if (rawBm && typeof rawBm === 'object') {
+              batteryRecycled = {
+                cobalt_pct: Math.max(0, Math.min(100, parseFloat(rawBm.cobalt_pct) || 0)),
+                lithium_pct: Math.max(0, Math.min(100, parseFloat(rawBm.lithium_pct) || 0)),
+                nickel_pct: Math.max(0, Math.min(100, parseFloat(rawBm.nickel_pct) || 0))
+              };
+            }
 
             const dynProduct = {
               id: `dyn_${HybridStorageManager.sanitizeString(id, 40) || Date.now()}`,
@@ -280,23 +321,19 @@ class HybridStorageManager {
               signature_algorithm: "ECDSA-P256-SHA256",
               signature_timestamp: new Date().toISOString(),
               certifications: ["EU ESPR Pass", "CE", "RoHS"],
-              // Sector-specific restored properties with sanitization
-              battery_chemistry: HybridStorageManager.sanitizeString(decoded.b_chem, 50),
-              battery_capacity: HybridStorageManager.sanitizeString(decoded.b_cap, 40),
-              battery_recycled_metals: decoded.b_met && typeof decoded.b_met === 'object' ? {
-                cobalt_pct: Math.max(0, Math.min(100, parseFloat(decoded.b_met.cobalt_pct) || 0)),
-                lithium_pct: Math.max(0, Math.min(100, parseFloat(decoded.b_met.lithium_pct) || 0)),
-                nickel_pct: Math.max(0, Math.min(100, parseFloat(decoded.b_met.nickel_pct) || 0))
-              } : null,
-              inci_ingredients: HybridStorageManager.sanitizeString(decoded.c_inci, 300),
-              pao_months: Math.max(1, Math.min(48, parseInt(decoded.c_pao, 10) || 12)),
-              allergens: HybridStorageManager.sanitizeString(decoded.c_alg, 150),
-              food_batch: HybridStorageManager.sanitizeString(decoded.f_lot, 50),
-              food_expiry: HybridStorageManager.sanitizeString(decoded.f_exp, 30),
-              food_temp: HybridStorageManager.sanitizeString(decoded.f_tmp, 60),
-              food_certifications: HybridStorageManager.sanitizeString(decoded.f_crt, 100),
-              epd_number: HybridStorageManager.sanitizeString(decoded.e_epd, 60),
-              structural_lifespan_yrs: Math.max(1, Math.min(200, parseInt(decoded.e_life, 10) || 50)),
+              // Sector-specific restored properties (compact & legacy fallback)
+              battery_chemistry: HybridStorageManager.sanitizeString(decoded.bc || decoded.b_chem, 50),
+              battery_capacity: HybridStorageManager.sanitizeString(decoded.bp || decoded.b_cap, 40),
+              battery_recycled_metals: batteryRecycled,
+              inci_ingredients: HybridStorageManager.sanitizeString(decoded.ci || decoded.c_inci, 300),
+              pao_months: Math.max(1, Math.min(48, parseInt(decoded.cp || decoded.c_pao, 10) || 12)),
+              allergens: HybridStorageManager.sanitizeString(decoded.ca || decoded.c_alg, 150),
+              food_batch: HybridStorageManager.sanitizeString(decoded.fl || decoded.f_lot, 50),
+              food_expiry: HybridStorageManager.sanitizeString(decoded.fe || decoded.f_exp, 30),
+              food_temp: HybridStorageManager.sanitizeString(decoded.ft || decoded.f_tmp, 60),
+              food_certifications: HybridStorageManager.sanitizeString(decoded.fc || decoded.f_crt, 100),
+              epd_number: HybridStorageManager.sanitizeString(decoded.ee || decoded.e_epd, 60),
+              structural_lifespan_yrs: Math.max(1, Math.min(200, parseInt(decoded.el || decoded.e_life, 10) || 50)),
               repair_guide: HybridStorageManager.getDefaultRepairGuide(sanitizedCategory),
               recycling_instructions: "Separación y depósito en canal oficial de reciclaje circular."
             };
