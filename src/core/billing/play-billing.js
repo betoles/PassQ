@@ -196,7 +196,8 @@ export class PlaySubscriptionModal {
     const guarantee2Link = i18n.t('common:billing.guarantee_2_link', 'Google Play Subscriptions');
     const guarantee2Suffix = i18n.t('common:billing.guarantee_2_suffix', ' con 1 solo toque.');
     const guarantee3 = i18n.t('common:billing.guarantee_3', 'Cero almacenamiento de tarjetas bancarias en servidores de PassQ.');
-    const btnSubscribeText = i18n.t('common:billing.btn_subscribe', 'Continuar con Google Play (7 Días Gratis)');
+    const btnSubscribeMain = i18n.t('common:billing.btn_subscribe_main', 'Continuar con Google Play');
+    const btnSubscribeSub = i18n.t('common:billing.btn_subscribe_sub', '(7 Días Gratis)');
     const btnCloseText = i18n.t('common:buttons.close', 'Cerrar');
 
     container.className = 'fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md transition-opacity duration-200';
@@ -284,9 +285,12 @@ export class PlaySubscriptionModal {
 
         <!-- Primary CTA Button -->
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
-          <button id="btn-confirm-play-subscribe" type="button" class="flex-1 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-sm sm:text-base shadow-xl shadow-emerald-600/30 transition active:scale-[0.98] flex items-center justify-center gap-2.5 cursor-pointer">
-            <span class="w-5 h-5 flex items-center">${Icons.googlePlay ? Icons.googlePlay('w-5 h-5') : '▶'}</span>
-            <span>${btnSubscribeText}</span>
+          <button id="btn-confirm-play-subscribe" type="button" class="flex-1 min-h-[58px] py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-xl shadow-emerald-600/35 transition active:scale-[0.98] flex items-center justify-center gap-3.5 cursor-pointer">
+            <span class="w-6 h-6 flex items-center shrink-0">${Icons.googlePlay ? Icons.googlePlay('w-6 h-6') : '▶'}</span>
+            <div class="flex flex-col items-center sm:items-start text-center sm:text-left leading-tight">
+              <span class="font-black text-sm sm:text-base tracking-tight">${btnSubscribeMain}</span>
+              <span class="text-xs sm:text-[13px] font-extrabold text-emerald-100 opacity-95">${btnSubscribeSub}</span>
+            </div>
           </button>
 
           <button id="btn-cancel-sub-modal" type="button" class="px-5 py-3.5 rounded-2xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 font-bold text-sm transition cursor-pointer">

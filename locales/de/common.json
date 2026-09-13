@@ -100,6 +100,8 @@
     "guarantee_2_link": "Google Play Subscriptions",
     "guarantee_2_suffix": " mit nur 1 Fingertipp.",
     "guarantee_3": "Keine Speicherung von Kreditkartendaten auf PassQ-Servern.",
-    "btn_subscribe": "Weiter mit Google Play (7 Tage kostenlos)"
+    "btn_subscribe": "Weiter mit Google Play (7 Tage kostenlos)",
+    "btn_subscribe_main": "Weiter mit Google Play",
+    "btn_subscribe_sub": "(7 Tage kostenlos)"
   }
 }

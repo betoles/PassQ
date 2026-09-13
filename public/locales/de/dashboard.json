@@ -68,6 +68,8 @@
     "active_title": "7-Tage-Testversion Aktiv",
     "active_desc": "Sie haben unbegrenzten Zugriff auf alle Pro-Tools (Web-Crypto-Signatur, GS1 Mod 10 und Zollausfuhr).",
     "day_badge": "Tag {day} von 7",
-    "lock_price_btn": "Gründerpreis sichern"
+    "lock_price_btn": "Gründerpreis sichern",
+    "lock_price_main": "Gründerpreis sichern",
+    "lock_price_sub": "(7 Tage kostenlos)"
   }
 }

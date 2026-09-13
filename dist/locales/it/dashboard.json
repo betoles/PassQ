@@ -68,6 +68,8 @@
     "active_title": "Prova Gratuita di 7 Giorni Attiva",
     "active_desc": "Hai accesso completo e illimitato a tutti gli strumenti Pro (Firma Web Crypto, GS1 Mod 10 e Schede Doganali).",
     "day_badge": "Giorno {day} di 7",
-    "lock_price_btn": "Blocca Tariffa Fondatore"
+    "lock_price_btn": "Blocca Tariffa Fondatore",
+    "lock_price_main": "Blocca Tariffa Fondatore",
+    "lock_price_sub": "(7 Giorni Gratis)"
   }
 }

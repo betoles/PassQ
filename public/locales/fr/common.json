@@ -100,6 +100,8 @@
     "guarantee_2_link": "Google Play Subscriptions",
     "guarantee_2_suffix": " en 1 seul geste.",
     "guarantee_3": "Zéro stockage de cartes bancaires sur les serveurs de PassQ.",
-    "btn_subscribe": "Continuer avec Google Play (7 Jours Gratuits)"
+    "btn_subscribe": "Continuer avec Google Play (7 Jours Gratuits)",
+    "btn_subscribe_main": "Continuer avec Google Play",
+    "btn_subscribe_sub": "(7 Jours Gratuits)"
   }
 }

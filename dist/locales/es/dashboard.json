@@ -68,6 +68,8 @@
     "active_title": "Prueba Gratuita de 7 Días Activa",
     "active_desc": "Tienes acceso total e ilimitado a todas las herramientas Pro (Firma Web Crypto, GS1 Mod 10 y Fichas Aduaneras).",
     "day_badge": "Día {day} de 7",
-    "lock_price_btn": "Asegurar Tarifa de Fundador"
+    "lock_price_btn": "Asegurar Tarifa de Fundador",
+    "lock_price_main": "Asegurar Tarifa de Fundador",
+    "lock_price_sub": "(7 Días Gratis)"
   }
 }

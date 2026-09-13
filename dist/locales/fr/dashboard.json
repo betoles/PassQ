@@ -68,6 +68,8 @@
     "active_title": "Essai Gratuit de 7 Jours Actif",
     "active_desc": "Vous bénéficiez d'un accès complet et illimité à tous les outils Pro (Signature Web Crypto, GS1 Mod 10 et Douanes).",
     "day_badge": "Jour {day} sur 7",
-    "lock_price_btn": "Sécuriser le tarif Fondateur"
+    "lock_price_btn": "Sécuriser le tarif Fondateur",
+    "lock_price_main": "Sécuriser le tarif Fondateur",
+    "lock_price_sub": "(7 Jours Gratuits)"
   }
 }

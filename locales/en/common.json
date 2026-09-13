@@ -100,6 +100,8 @@
     "guarantee_2_link": "Google Play Subscriptions",
     "guarantee_2_suffix": " with 1 single tap.",
     "guarantee_3": "Zero credit card data stored on PassQ servers.",
-    "btn_subscribe": "Continue with Google Play (7 Days Free)"
+    "btn_subscribe": "Continue with Google Play (7 Days Free)",
+    "btn_subscribe_main": "Continue with Google Play",
+    "btn_subscribe_sub": "(7 Days Free)"
   }
 }

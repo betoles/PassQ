@@ -68,6 +68,8 @@
     "active_title": "Teste Grátis de 7 Dias Ativo",
     "active_desc": "Você tem acesso total e ilimitado a todas as ferramentas Pro (Assinatura Web Crypto, GS1 Mod 10 e Fichas Aduaneiras).",
     "day_badge": "Dia {day} de 7",
-    "lock_price_btn": "Garantir Preço de Fundador"
+    "lock_price_btn": "Garantir Preço de Fundador",
+    "lock_price_main": "Garantir Preço de Fundador",
+    "lock_price_sub": "(7 Dias Grátis)"
   }
 }

@@ -145,11 +145,14 @@
           <p class="text-sm sm:text-[14.5px] text-slate-600 dark:text-slate-300 font-medium leading-relaxed mt-1" data-i18n="dashboard:trial.active_desc">Tienes acceso total e ilimitado a todas las herramientas Pro (Firma Web Crypto, GS1 Mod 10 y Fichas Aduaneras).</p>
         </div>
       </div>
-      <button type="button" data-open-subscription-modal data-plan="passq_growth_monthly" class="w-full sm:w-auto shrink-0 py-3 px-5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-extrabold transition flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 active:scale-95 cursor-pointer">
-        <span class="w-4 h-4 flex items-center shrink-0">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.023 2.023 0 0 1-.61-1.46V3.274c0-.568.226-1.096.61-1.46zM15.207 13.414l2.424 2.424-11.83 6.654 9.406-9.078zm0-2.828L5.801 1.508l11.83 6.654-2.424 2.424zm1.414 1.414l3.197 1.798c.956.538.956 1.42 0 1.958l-3.197 1.798-2.121-2.121 2.121-2.121z"/></svg>
+      <button type="button" data-open-subscription-modal data-plan="passq_growth_monthly" class="w-full sm:w-auto shrink-0 min-h-[58px] py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-xl shadow-emerald-600/30 hover:shadow-emerald-500/40 transition active:scale-[0.98] flex items-center justify-center gap-3 cursor-pointer">
+        <span class="w-6 h-6 flex items-center shrink-0">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.023 2.023 0 0 1-.61-1.46V3.274c0-.568.226-1.096.61-1.46zM15.207 13.414l2.424 2.424-11.83 6.654 9.406-9.078zm0-2.828L5.801 1.508l11.83 6.654-2.424 2.424zm1.414 1.414l3.197 1.798c.956.538.956 1.42 0 1.958l-3.197 1.798-2.121-2.121 2.121-2.121z"/></svg>
         </span>
-        <span data-i18n="dashboard:trial.lock_price_btn">Suscripción Google Play (7 Días Gratis)</span>
+        <div class="flex flex-col items-center sm:items-start text-center sm:text-left leading-tight">
+          <span data-i18n="dashboard:trial.lock_price_main" class="font-black text-sm sm:text-base tracking-tight">Asegurar Tarifa de Fundador</span>
+          <span data-i18n="dashboard:trial.lock_price_sub" class="text-xs sm:text-[13px] font-extrabold text-emerald-100 opacity-95">(7 Días Gratis)</span>
+        </div>
       </button>
     </div>
 
