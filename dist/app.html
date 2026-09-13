@@ -58,12 +58,12 @@
     }
   }
   </script>
-  <script type="module" crossorigin src="./assets/app-ClTYqxBm.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/theme-Cj-ZU9Ve.js">
+  <script type="module" crossorigin src="./assets/app-Bba-V7Qa.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/theme-kMm3pFHV.js">
   <link rel="modulepreload" crossorigin href="./assets/gs1-KNLh_Fs8.js">
   <link rel="modulepreload" crossorigin href="./assets/crypto-BjlqRT8o.js">
   <link rel="modulepreload" crossorigin href="./assets/vendor-qrcode-CjSdxGTc.js">
-  <link rel="stylesheet" crossorigin href="./assets/theme-8RxLDEQb.css">
+  <link rel="stylesheet" crossorigin href="./assets/theme-DyMSPCuU.css">
 </head>
 <body class="min-h-screen bg-slate-50 dark:bg-[#060a12] text-slate-800 dark:text-slate-100 flex flex-col p-3 sm:p-6 lg:p-8 transition-colors duration-300 relative overflow-x-hidden font-sans">
 
@@ -92,9 +92,9 @@
       </div>
 
       <!-- Controls & Actions Group -->
-      <div class="flex flex-wrap sm:flex-nowrap items-center justify-start sm:justify-end gap-2.5 sm:gap-3 pt-3 xl:pt-0 border-t xl:border-t-0 border-slate-200/60 dark:border-white/10 shrink-0">
+      <div class="flex items-center justify-between sm:justify-end gap-1.5 sm:gap-2.5 pt-3 xl:pt-0 border-t xl:border-t-0 border-slate-200/60 dark:border-white/10 shrink-0 w-full sm:w-auto">
         <!-- Language Selector -->
-        <div class="flex items-center h-10 sm:h-11 px-3 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm shrink-0">
+        <div class="flex items-center h-10 sm:h-11 px-2.5 sm:px-3 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm shrink-0">
           <span id="lang-flag-slot" class="flex items-center shrink-0"></span>
           <select id="lang-select" class="bg-transparent text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100 outline-none cursor-pointer">
             <option value="es" class="bg-white dark:bg-slate-900">ES • Español</option>
@@ -113,19 +113,21 @@
         </button>
 
         <!-- User Guide Modal Button -->
-        <button id="btn-open-user-guide" data-open-user-guide class="h-10 sm:h-11 px-3.5 sm:px-4 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/40 transition text-xs sm:text-sm font-bold shrink-0 cursor-pointer active:scale-95 whitespace-nowrap" title="Guía de Usuario">
+        <button id="btn-open-user-guide" data-open-user-guide class="h-10 sm:h-11 px-2.5 sm:px-3.5 rounded-2xl bg-white/85 dark:bg-slate-900/85 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-center gap-1.5 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/40 transition text-xs sm:text-sm font-bold shrink-0 cursor-pointer active:scale-95 whitespace-nowrap" title="Guía de Usuario">
           <span class="icon-svg w-4 h-4 text-emerald-500 shrink-0">
             <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
           </span>
-          <span data-i18n="common:nav.user_guide" class="whitespace-nowrap">Guía de Usuario</span>
+          <span data-i18n="common:nav.user_guide" class="whitespace-nowrap hidden sm:inline">Guía de Usuario</span>
+          <span class="sm:hidden font-bold">Guía</span>
         </button>
 
         <!-- Create Passport CTA Button -->
-        <button id="btn-open-wizard" class="h-10 sm:h-11 py-2 px-4 sm:px-5 rounded-2xl font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg shadow-emerald-600/30 transition flex items-center justify-center gap-2 shrink-0 active:scale-95 whitespace-nowrap cursor-pointer">
+        <button id="btn-open-wizard" class="h-10 sm:h-11 py-2 px-3 sm:px-5 rounded-2xl font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg shadow-emerald-600/30 transition flex items-center justify-center gap-1.5 shrink-0 active:scale-95 whitespace-nowrap cursor-pointer">
           <span class="icon-svg w-4 h-4 shrink-0">
             <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
           </span>
-          <span data-i18n="common:nav.create_dpp" class="whitespace-nowrap">Nuevo Pasaporte</span>
+          <span data-i18n="common:nav.create_dpp" class="whitespace-nowrap hidden sm:inline">Nuevo Pasaporte</span>
+          <span class="sm:hidden font-bold">Nuevo</span>
         </button>
       </div>
     </header>
